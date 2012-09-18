@@ -1,0 +1,506 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"to",
+				"to_dict"
+			],
+			[
+				"v",
+				"v_num"
+			],
+			[
+				"exp",
+				"exp_session"
+			],
+			[
+				"sim_",
+				"sim_started"
+			],
+			[
+				"defa",
+				"default"
+			],
+			[
+				"se",
+				"session"
+			],
+			[
+				"socket",
+				"socketId"
+			],
+			[
+				"so",
+				"socketId"
+			],
+			[
+				"EventLi",
+				"eventListenser"
+			],
+			[
+				"eventLi",
+				"EventListenser"
+			],
+			[
+				"_",
+				"_eventDict"
+			],
+			[
+				"e",
+				"e"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"Exp",
+				"ExpUser"
+			],
+			[
+				"p",
+				"POST"
+			],
+			[
+				"ro",
+				"role"
+			],
+			[
+				"u",
+				"u_roles"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/byu/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 540,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/byu/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 13149,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "BoYu-Dissertation.tex",
+			"settings":
+			{
+				"buffer_size": 17289,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 375.0,
+		"selected_items":
+		[
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"conte",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"js",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"jso",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"ssj",
+				"Set Syntax: JSON"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"sy",
+				"Set Syntax: Python"
+			],
+			[
+				"tag",
+				"Tag: Lint Selection or Document"
+			],
+			[
+				"in",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 462.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/byu/Life/CauBuying/Score",
+		"/Users/byu/Library/Application Support/Sublime Text 2/Packages/User/LaTeX.sublime-settings",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/victim_mgr.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/main.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/trans_mgr.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/datatable.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/decon_mgr.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/templates/decon_mgr.html",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/models.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/urls.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/views.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/templates/sessions.html",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/templates/session.html",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/templates/victim_mgr.html",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/admin.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/messages.txt",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/events.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/simulation.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/__init__.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/chat/events.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/signals.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/dispatch.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/v_map.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/templates/admin.html",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/chat/static/js/chat.js",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/settings.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/templates/administrator.html",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/simulation/simmodels.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/simulation/models.py",
+		"/Users/byu/Work/Research/Dissertation/Experiments/DACE/experiment/static/js/event_listenser.js",
+		"/Users/byu/Work/Job&intern/GE/notes",
+		"/Users/byu/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 37.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"alert",
+			"updateVictims",
+			"onWorkActGraphActNodeClick",
+			"onWorkActGraphActNodeDrawn",
+			"png",
+			"show_banner",
+			"loadDStations",
+			"generateAssignStationWorkZone",
+			"loadDStations",
+			"dsData",
+			"generateAssignStationWorkZone",
+			"generateAssignStationWorkZo",
+			"generateAssignStationWorkZone",
+			"as_work_zone",
+			"generateAssignStationWorkZone",
+			"onassignstationclick",
+			"onassign",
+			"map",
+			"trigger",
+			"generateAssignStationWorkZone",
+			"onAssignStationClick",
+			"initworkpane",
+			"work",
+			"workpane",
+			"initDSMapView",
+			"refresh",
+			"_resize",
+			"resize",
+			"initDSChartView",
+			"ds_chart_view",
+			"initDetailPane",
+			"onEventListItemClick",
+			"toggleEventsSpace",
+			"onvtableit",
+			"toggleVictimList",
+			"initDetailPane",
+			"vTrajView",
+			"_resize",
+			"width",
+			"_resize",
+			"width",
+			"initVDetailViews",
+			"initDetailPane",
+			"showDetailPane",
+			"initDetailPane",
+			"initListPane",
+			"resizeDetailPane",
+			"showDetailPane",
+			"toggleEventsSpace",
+			"openDetailPane",
+			"closeListPane",
+			"openListPane",
+			"detailPanes",
+			"toggleVictimList",
+			"vList",
+			"onVTableItemClick",
+			"onVictimListItemClick",
+			"vehicleTable",
+			"vList",
+			"initVChartView",
+			"initWorkPane",
+			"initDetailPane",
+			"initWorkLayout",
+			"dsNavLayout",
+			"initNavLayout",
+			"initMainLayout",
+			"curr_v",
+			"onvictim",
+			"$.ajax",
+			"loadVictims",
+			"cw",
+			"drawLinks",
+			"vListMap"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/byu/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/byu/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 13149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1122,
+								1143
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 198.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "BoYu-Dissertation.tex",
+					"settings":
+					{
+						"buffer_size": 17289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12169,
+								12169
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5462.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.765707103881,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 120.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"victim",
+				"experiment/static/js/victim_mgr.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true
+}

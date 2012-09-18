@@ -1,0 +1,113 @@
+%!TEX root = ../BoYu-Dissertation.tex
+\graphicspath{{Figures/}}
+
+\chapter{Our Approach: Supporting Event Interpretation} % (fold)
+\label{cha:event_interpretation}
+
+\section{The Cognitive Basic} % (fold)
+\label{sec:the_cognitive_basic}
+The cognitive principles that guide the design of visual displays for event interpretation.
+
+\begin{enumerate}
+	\item The schemata theory (Bartlett et al.): when human respond to incoming stimuli, they make use of their existing knowledge as a frame of reference to make sense of the incoming stimuli and produce behavior. The active organization of existing knowledge is defined as `schema'. Schemata can be merely mental templates in human mind, or retrieved dynamically from the external visual artifacts. 
+	\item The relevance principle (Kosslyn 2006): Visual displays should present no more or no less information than is needed by the user. Presenting all of the relevant information in the display relieves the user of the need to maintain a detailed representation of this information in working memory, where presenting too much information in the display leads to visual clutter or distraction by irrelevant information (Rosenholtz et al. 2007; Wickens \& Carswell, 1995).
+	\item The task specificity principle (Hegarty et al. 2009). Visual displays are used for many different tasks, and there is no such thing as a `best' visual display, independent of the task to be carried out with this display. 
+\end{enumerate}
+
+What these cognitive principles can inform us are:
+\begin{enumerate}
+	\item When the user interprets an awareness event, he/she needs to activate and connect the event to his/her contextual knowledge of the situation. The visual display can enhance the interpretation by externalizing part of the knowledge in the visual representation and freeing up working memory resources.
+	\item However, the effectiveness of the visual display depends on how much relevant information is represented. We want to provide the users with just enough contextual information without causing visual clutter or distraction.
+	\item The relevance of contextual information to be displayed is dependent on the current task to be carried out, or the decision that need to be made by the user.
+
+\end{enumerate}
+% section the_cognitive_basic (end)
+
+\section{Activity-Aware Event Interpretation} % (fold)
+\label{sec:activity_aware_event_interpretation}
+The problem we want to address here is that: how the computational model of activities and local scopes can inform the system to decide on what contextual information should be displayed when the users interpret awareness events.
+
+The decisions can be made based on two factors: the incoming event and the activities/local scope the user is working on. By maintaining the PlanGraph model, the system can infer how the event will impact the user's activities, which can be used to infer what decisions the user needs to make next, or what tasks the user will focus on, which can be used to decide on what should be displayed on the user interface.
+
+Generate the set of rules based on SharedPlan Theory.
+
+Some examples:
+
+1. If the event initiates a new goal of the user, by elaborating on the plan, the system can infer that the user will work on identifying the set of parameters first.
+
+2. If the event indicates the failure of a parameter, and there is no plan to fix the failure, the system can infer that the user will re-assign the values of this parameter.
+
+3. if the event indicates the failure of a parameter, and there is plan to fix the failure, the system can infer that the user will work on the plan to fix it.
+
+% section activity_aware_event_interpretation (end)
+
+\section{Experimental Study}
+\subsection{Hypotheses} % (fold)
+\label{sec:hypotheses}
+The general assumption is that maps with contextual information that is adapted to the user's current activities are more effective to support awareness event interpretation, than maps with fixed contextual information.
+% section hypotheses (end)
+
+\subsection{Experimental Design} % (fold)
+\label{sec:experimental_design}
+\subsubsection{Participants} % (fold)
+\label{sub:participants}
+Twelve undergraduate or graduate students will be recruited as participants in this study. All participants need to use computers on a daily basis. Prior experience with emergency response planning or operations is welcomed, but not required.
+
+% subsection participants (end)
+\subsubsection{Tasks} % (fold)
+\label{sub:tasks}
+The participants are asked to perform simulation tasks in an emergency response scenario, from the perspective of the decontamination manager. The tasks that the participants need to perform are driven by the events they receive.
+
+Some example events and triggered tasks include:
+
+\begin{enumerate}
+	\item E1: A new victim that needs to be decontaminated is reported by the victim manager. The task that the participant needs to do is to assign a decon station for the victim.
+	\item E2: The impacted area is enlarged and a decon station becomes inside of the impacted area. The task that the participants need to do is to re-assign the victims that are assigned to the station to other stations.
+	\item E3: A type of resource in a particular decon station is running low in stock. The participant need to request for a resource delivery from one of the suppliers.
+	\item E4: The delay on a victim's arrival at assigned station. The participant needs to check whether it will conflict with the victim's deadline on decontamination. If so, he/she needs to plan for sending the victim to other station.
+\end{enumerate}
+
+% subsection task (end)
+
+\subsubsection{Design settings} % (fold)
+\label{sub:design_settings}
+Participants are randomly assigned to one of the two design settings in one experiment session to perform their tasks. The three design settings are described as follow: 
+\begin{itemize}
+    \item The first design setting ($D_1$) shows a map showing locations of all the stations, victims, and resource suppliers as separate layers. The user can turn on/off each layer, or filter the objects based on spatial distances.
+    
+    \item In the second design setting ($D_2$), the features displayed in the map are adapted based on the event and the tasks that the user needs to perform. 
+\end{itemize}
+% subsection design_settings (end)
+
+\subsubsection{Procedure} % (fold)
+\label{sub:procedure}
+In the beginning of each experiment session, the participant is randomly assigned to one of the three design settings and given a couple of minutes to learn the functions of the assigned design setting. In addition to the training of the simulation system, the participant is also provided with the general picture of the collaborative activity. Information about other agents, related resources in the activity, and the current goals and tasks of the group are presented to the participant, so he/she has a clear understanding of the task in the context of the whole activity and provides the basis for interpreting the awareness events. After the training session, the participant is asked to perform the simulation task. During the performance of the task, the participant is notified with a list of awareness events, and asked to finish the assessment form to answer relevant questions after each event notification.
+
+Each experiment session is composed as a series of interaction episodes between the participant and the system. Each interaction episode defines how an agent (role-played by the participant) responds to a particular event in the collaborative scenario. Each interaction episode starts with the provision of an awareness event in the interface, and then the participant is perform corresponding tasks based on their understanding of the event.
+
+% subsection procedure (end)
+
+\subsubsection{Measurement} % (fold)
+\label{sub:data_collection}
+To measure the overall performance during the experiment session, we record the completion time of each experiment session and the participant's responses to each awareness event. In the design phase of the awareness events, each event is associated with a set of optimal responses. The participant's responses are then compared with the optimal set to indicate the quality level of task completion. 
+
+% section data_collection (end)
+
+\subsection{Results} % (fold)
+\label{sec:results_and_discussion}
+In general, we expect that 
+
+1. the participants in design setting $D_2$ will generate more valid responses than the participants in design setting $D_1$.
+
+2. the participants in design setting $D_2$ should spend less time to finish the tasks than the participants in design settings $D_1$ in average.
+% section results_and_discussion (end)
+
+\subsection{Discussion}
+
+% chapter event_interpretation (end)
+
+
+
+
+ 
+

@@ -1,0 +1,160 @@
+%!TEX root = ../BoYu-Dissertation.tex
+\graphicspath{{Figures/}}
+
+\chapter{Our Approach: Supporting Event Notification} % (fold)
+\label{cha:event_notification}
+
+\section{The Basic Interaction Scheme: Publish/Subscribe} % (fold)
+\label{sec:the_basic_interaction_scheme_publish_subscribe}
+
+% section the_basic_interaction_scheme_publish_subscribe (end)
+
+\section{Existing Notification Approaches} % (fold)
+\label{sec:existing_notification_approaches}
+\subsection{Topic-Based Approach} % (fold)
+\label{sub:topic_based_approach}
+
+% subsection topic_based_approach (end)
+
+\subsection{Type-Based Approach} % (fold)
+\label{sub:type_based_approach}
+
+% subsection type_based_approach (end)
+
+\subsection{Content-Based Approach} % (fold)
+\label{sub:content_based_approach}
+
+% subsection content_based_approach (end)
+
+% section existing_notification_approaches (end)
+
+\section{Activity-Based Approach} % (fold)
+\label{sec:activity_based_approach}
+\subsection{Types of Events} % (fold)
+\label{sub:types_of_events}
+\subsubsection{External and internal events} % (fold)
+\label{ssub:external_and_internal_events}
+To understand events in geo-collaboration, an important distinction has to be made between \emph{external} events (in the environment) and internal events (in the activities). 
+
+External events are changes in the physical environment that have impact on the performance of collaborative activities. For instance, the occurrence of a traffic accident may block the traffic flow, which makes an actor’s activity of delivering equipment to a medical station impossible to finish on time. External events in the environment can be characterized in three major categories: changes of identity (e.g. the occurrence of a traffic accident), attribute changes of an object (e.g. the contamination level of the chemical plan is increased), or spatial changes (e.g. the impacted area is enlarged due to the wind condition).
+
+Internal events are state changes on the basic elements (i.e. resources, goals, activities) of geo-collaboration. Resource events indicate changes on the state of any resources that are used in the activities. Resource events can impact response activities in different ways: (1) the creation of a new resource can trigger new activities (for example, a new victim may lead to the activity to perform decontamination and medical treatment); (2) the state change of a resource can impact the activity that requires the use of the resource (e.g. the mechanical breakdown of a vehicle makes the delivery activity unable to complete); (3) the state change of a resource can enable/disable the activity that depends on it (e.g. a victim’s location change leads to the satisfaction of a precondition that the victim must be located at the medical station, which further enables the activity to perform medical treatment on the victim). Condition events indicate changes on a certain relationship between multiple objects in a collaborative activity. For example, a condition may express a spatial relationship that the victim must be located at the decontamination station. The condition will change the state from open to holding when a driver has picked up the victim and transpored him/her to the station. Activity events are described as change of activity states, such as the initiation of a new activity, the completion or delay of an ongoing activity. 
+
+The distinction between external and internal events is very important to identify the set of events that should be captured and modeled in the awareness mechanism. Not all the external events in the environment are important for the actors to perform their activities. Rather, only a subset of the external events that can lead to changes within the activities (i.e. the internal events) is meaningful. The derivation of internal events from external events is an active cognitive process that requires interpreting the meaning of external events within the context of the collaborative activities.
+% subsubsection external_and_internal_events (end)
+
+\subsubsection{Local and remote events} % (fold)
+\label{ssub:local_and_remote_events}
+The distinction between external and internal events is based on the boundary between the surrounding environment and the overall collaborative activities as a whole. However, in order to understand the awareness information needed for each individual, another important distinction between local and remote events has to be made. 
+
+The local and remote events are defined with aspect to the local scope of work for each individual actor. Local events reflect the state changes of basic elements (i.e. resources, goals, activities) within an actor’s local scope of work. For instance, the report of a new victim that needs to be decontaminated, the exceeding capacity of a decontamination station are local events within the decontamination manager’s local scope of work. Remote events are the changes outside an actor’s local scope of work. For instance, a victim that doesn’t need to be decontaminated is transported to a shelter is a remote event for the decontamination manager. The distinction of local and remote events is relative to each individual actor. A local event of one actor may be a remote event for another actor due to their different local scopes of work. In addition, a remote event can be internal, reflecting the state changes of another actor’s activities, or it can be external, reflecting changes in the environment. 
+
+The distinction between local and remote events is important to identify the relevance of events that should be notified to each actor. Local events reflect changes within an actor’s local scope of work and therefore are directly relevant to the actor. On the other hand, due to the existence of the web of dependencies among activities, some of the remote events can (or potentially can) lead to changes in the actor’s local scope of work, i.e. the impact of a remote event may be propagated to the local scope of the actor as derived local events, and therefore they also become relevant. For instance, the traffic jam on the road is a remote event for the decontamination manager. However, because the traffic jam happens on the way of a victim to be delivered to a decontamination station, it can potentially delay the decontamination operation on the victim, which becomes a relevant local event for the decontamination manager. As a result, the goal of an awareness system is to notify an actor not only all the relevant local events, but also the subset of remote events that can be propagated to the actor’s local scope through the web of dependencies. 
+
+% subsubsection local_and_remote_events (end)
+% subsection types_of_events (end)
+
+\subsection{Event Subscription} % (fold)
+\label{sub:event_subscription}
+\subsubsection{Specifying Local Scopes} % (fold)
+\label{ssub:specifying_local_scopes}
+
+% subsubsection specifying_local_scopes (end)
+
+\subsubsection{Defining Event Patterns} % (fold)
+\label{ssub:defining_event_patterns}
+
+% subsubsection defining_event_patterns (end)
+% subsection event_subscription (end)
+
+\subsection{Event Matching} % (fold)
+\label{sub:event_matching}
+
+% subsection event_matching (end)
+
+% section activity_based_approach (end)
+
+\section{A Simulation Experiment} % (fold)
+\label{sec:a_simulation_experiment}
+We conduct a simulation experiment to compare the content-based event notification approach and the proposed activity-based approach. The basic hypothesis is that, in dynamic environment where the user's activity changes frequently, the proposed activity-based approach provides a more accurate way for the user to express their awareness interests than the content-based approach. We use the emergency response scenario as described in the Introduction Chapter to perform the experiment, from the perspective of the decontamination manager.
+
+\subsection{Variables of Interests} % (fold)
+\label{sub:variables_of_interests}
+We are interested in the capability of these two notification approaches in handling different types of activity dynamics. Particularly, we are interested in three types of dynamics that may occur in the scenario: 
+\begin{enumerate}
+	\item \textbf{Parameter Change}: the value of a parameter is changed. In the scenario, it can be the case when the decontamination manager re-assign a new station where a victim will be decontaminated.
+	\item \textbf{Plan Development}: the plan of the actor is changed. In the scenario, it can be the case when the decontamination manager starts to concern about certain equipment delivery after the stock is running low.
+	\item \textbf{Local Scope Change}: the actor's local scope of work is changed. In the scenario, it can be the case when another manager joins the activity, and take a subset of tasks away from the modeling manager.  
+\end{enumerate}
+
+To perform the experiment, we define four scenes to reflect the three types of activity dynamics:
+\begin{enumerate}
+	\item Initial scene ($S_0$): indicates the current state of the decontamination manager's activities
+	\item Parameter change scene ($S_1$): indicates one of the parameters of the decontamination manager (station) has been assigned with a new value, comparing with $S_0$
+	\item Plan development scene ($S_2$): indicates one of the conditions has been elaborated into a more concrete plan, comparing with $S_1$
+	\item local scope change ($S_3$): indicates the another actor joins the activity, and the local scope of the modeled user has been reduced to a smaller set, comparing with $S_2$
+\end{enumerate}
+% subsection variables_of_interests (end)
+
+\subsection{Simulating Event Generation} % (fold)
+\label{sub:event_generation}
+A set of events are randomly generated based on the whole group activities. Given the current PlanGraph model, the events can happen on any of the activity, resource, or condition node, and indicate any types of possible changes that are defined in Chapter 5.
+% subsection event_generation (end)
+
+\subsection{Creating Subscriptions} % (fold)
+\label{sub:content_based_subscriptions}
+Two sets of content-based subscriptions will be generated. 
+\begin{enumerate}
+	\item The first set of subscriptions are defined merely based on the current interest of the manager in the initial scene ($S_0$). This set only includes the events that are relevant to the manager's current activities. Therefore, it can be considered as the minimal subscription set of events, using the content-based notification approach ($CON_{min}$).
+	\item The second set of subscriptions are defined based on considering all the three possible activities dynamics defined in scenes ($S_1$, $S_2$, $S_3$). It includes all the possible events that might be relevant to the manager in all the scenes. Because we attempt to include the maximum set of events that could be relevant for the manager across all the scenes, we define this content-based subscription as ($CON_{max}$).  
+\end{enumerate}
+
+In addition, the activity-based subscription will also be generated, following the steps described in previous section. The subscription includes the specification of local scope of the decontamination manager, his/her intentions and detailed event patterns on each node in the local scope. We define this activity-based subscription as $ACT$.
+% subsection creating_subscriptions (end)
+
+\subsection{Procedures} % (fold)
+\label{sub:procedures}
+The experiment includes four runs. 
+\begin{enumerate}
+	\item The first run $R_0$ is the human judgment on the relevance of the simulated event set to form the baseline result. The human analysts run through the list of simulated event set to decide on whether each event is relevant to the modeled decontamination manager, under the four scenes respectively. To reduce the subjective errors of human judgment, two analysts will perform the judgment separately and then discuss on the differences to form the final sets of events.
+	\item In the second run $R_1$, the simulated event set will be fed into the matching program following  content-based notification approach, using the set of subscriptions defined as $CON_{min}$.
+	\item In the third run $R_2$, the simulated event set will be fed into the matching program following  content-based notification approach, using the set of subscriptions defined as $CON_{max}$.
+	\item In the fourth run $R_3$, the the simuated event set will be fed into the matching program following activity-based notification approach, using the set of subscriptions defined as $ACT$.
+\end{enumerate}
+% subsection procedures (end)
+
+\subsection{Measures} % (fold)
+\label{sub:measures}
+Two measures will be used to compare the results of different notification approaches:
+\begin{enumerate}
+	\item \textbf{Miss rate} is defined as the ratio between number of events that are considered as relevant in $R_0$ but missing in the result of $R_i$ ($i \in \{1, 2, 3\}$), and the total number of events considered as relevant in $R_0$.
+	\item \textbf{False alarm rate} is defined as the ratio between number of events that are considered as relevant in $R_i$ ($i \in \{1, 2, 3\}$), but missing in the result of $R_0$, and the total number of events considered as relevant in $R_i$ ($i \in \{1, 2, 3\}$).
+\end{enumerate}
+
+% subsection measures (end)
+
+\subsection{Results} % (fold)
+\label{sub:results}
+Some results we expect from the experiment can be:
+
+\begin{enumerate}
+	\item Comparing with the context-based notification using subscriptions defined as $CON_{min}$, the activity-based notification has lower miss rate in the scenes $S_1$, $S_2$, $S_3$. The difference between miss rates of the two methods increases as the scene evolves.
+	\item Comparing with the context-based notification using subscriptions defined as $CON_{max}$, the activity-based notification has lower false alarm rate in the scenes $S_1$, $S_2$, $S_3$. The difference between false alarm rates of the two methods decreases as the scene evolves.
+\end{enumerate}
+
+% subsection results (end)
+
+\subsection{Discussion} % (fold)
+\label{sub:discussion}
+
+% subsection discussion (end)
+
+
+% section a_simulation_experiment (end)
+% chapter event_notification (end)
+
+
+
+
+ 
+
