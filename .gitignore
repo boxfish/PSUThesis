@@ -2,6 +2,8 @@
 *.aux
 *.bbl
 *.blg
+*.cb
+*.cb2
 *.dvi
 *.fdb_latexmk
 *.fls
@@ -15,6 +17,7 @@
 *.lof
 *.log
 *.lot
+*.lox
 *.nav
 *.nlo
 *.out
@@ -27,3 +30,4 @@
 *.maf
 *.mtc
 *.mtc0
+*.upa

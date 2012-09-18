@@ -157,7 +157,7 @@
 % included with the ms, meng, and ma options.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Only one of the following lines should be used at a time.
-\documentclass[phd]{psuthesis}
+\documentclass[phd, draft]{psuthesis}
 %\documentclass[draft,phd,inlinechaptertoc]{psuthesis}
 %\documentclass[draft,ms]{psuthesis}
 %\documentclass[draft,honorsdepthead,honors]{psuthesis}
@@ -178,11 +178,6 @@
 \usepackage{eqlist} % Makes for a nice list of symbols.
 \usepackage[final]{graphicx}
 %\usepackage[dvipsnames]{color}
-\usepackage{xcolor}
-\usepackage{rotating}
-\usepackage{longtable}
-\usepackage{mdframed}
-\usepackage{fancybox}
 
 \DeclareGraphicsExtensions{.pdf, .jpg}
 
@@ -204,7 +199,7 @@
 % who want to use it.
 %
 % To the hyperref package, uncomment the following line:
-\usepackage{hyperref}
+\usepackage[final]{hyperref}
 %
 % Note that you should also uncomment the following line:
 \renewcommand{\theHchapter}{\thepart.\thechapter}
@@ -213,6 +208,21 @@
 % the psuthesis class has unnumbered pages after which page
 % counters are reset.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% My Packages %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{mdframed}
+%\usepackage{rotating}
+%\usepackage{fancybox}
+
+\usepackage[author=]{fixme}
+\fxloadlayouts{pdfcnote}
+\fxuselayouts{margin,pdfcnote}
+\fxloadtargetlayouts{colorcb}
+\fxusetargetlayout{colorcb}
+\fxusetheme{color}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SPECIAL SYMBOLS AND NEW COMMANDS %
@@ -396,6 +406,12 @@ Chapter-11/main,%
 % document going.                                    %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \thesismainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Generates the List of Corrections defined          %
+% defined using FixMe package                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\listoffixmes
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is an AMS-LaTeX command to allow breaking %
