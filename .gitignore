@@ -31,3 +31,5 @@
 *.mtc
 *.mtc0
 *.upa
+*.sublime-project
+*.sublime-workspace
