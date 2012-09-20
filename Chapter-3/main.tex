@@ -3,15 +3,18 @@
 
 \chapter{Designing for Awareness Support} % (fold)
 \label{cha:designing_for_awareness_support}
-Following the conceptual model of awareness phenomena in complex collaborative activities, we describe the design space of awareness support in this chapter. The goal of this chapter is to identify key design issues to support awareness in distributed, complex collaborative activities, by mapping them to the major components in our conceptual model presented in \ref{cha:understanding_awareness}. Then we discuss how these design issues have been addressed (partially) in existing awareness support systems, and what they inform for our approach. 
+Following the conceptual model of awareness phenomena in complex collaborative activities, we describe the design space of awareness support in this chapter. The goal of this chapter is to identify key design issues to support awareness in distributed, complex collaborative activities, by mapping them to the major components in our conceptual model presented in Chapter \ref{cha:understanding_awareness}. We first present a taxonomy of the whole design space with the major design issues identified. Then we discuss how these design issues have been addressed (partially) in existing awareness support systems, and the design challenges that motivate our approach. 
 
 \section{The Design Space} % (fold)
 \label{sec:the_design_space}
+By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development interleaved with a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level.
 
-Individual Awareness Processes: as cognitive artifacts (\cite{springerlink:10.1007/BF02032391})
+\subsection{Designing for individuals} % (fold)
+\label{sub:designing_for_individuals}
+At the individual level, the role of computer support can be understood in the term of designing `cognitive artifact' \cite{Norman1992}, which is defined as an artificial device designed to maintain, display, or operate upon information in order to aid cognition. Norman argues that an important design consideration for cognitive artifacts is the human action cycle which emphasizes the two sides of human action \cite{Norman1992}. One side is the `evaluation' side of action by perceiving, interpreting and evaluating the state of the environment. The other is the `execution' side that of acting upon the environment. Norman's human action cycle matches well with the major steps of awareness development at the individual level, where the `evaluation' side refers to the perception, comprehension, and projection steps, and the `execution' side includes the decision making and action execution. During each step of the cycle, cognitive artifacts need to provide two major types of functions: one is support for representation, i.e. maintaining and displaying the information; the other is support for operation, i.e. operating upon the information.
  - Perception
   - support representation: representing state of the world, representing the change
-  - support process: make the info perceivable, easy to perceive, less effort
+  - support control: make the info perceivable, easy to perceive, less effort
 
  - Comprehension
   - support representation: representing existing knowledge, context
@@ -23,16 +26,19 @@ Individual Awareness Processes: as cognitive artifacts (\cite{springerlink:10.10
 
  - Decision Making
   - 
-  
+
  - Action Execution: not necessary through the awareness system, more important is to provide the representation to guide the execution.
+% subsection designing_for_individuals (end)
 
-
+\subsection{Designing for the team} % (fold)
+\label{sub:designing_for_the_team}
 Team Awareness Processes
  - Feed-through
  - Displaying/Monitoring
  - Communication
+% subsection designing_for_the_team (end)
 
-
+Table ? shows the taxonomy of the whole design space with the major design issues for each element.
 
 % section the_design_space (end)
 
