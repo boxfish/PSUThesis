@@ -17,3 +17,10 @@ Graphics
 --------
 - Formats: .pdf, .jpg
 - Path: ./Figures
+
+
+To Do
+-----
+1. use Lyx for table generation
+2. fix Chapter 2
+3. Norman paper
