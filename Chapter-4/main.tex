@@ -4,32 +4,61 @@
 \chapter{Our Approach: Overview} % (fold)
 \label{cha:computational_framework}
 
-Following the conceptual model of awareness phenomena in complex collaborative activities, we present our computational framework of awareness promotion in this chapter. The framework includes two major components: the formalization of the field of work based on SharedPlan theory and the event-driven awareness promotion processes. Before presenting our computational framework, we use the conceptual model as a schema to compare some dominant computational models on awareness promotion in collaborative systems, which motivates us to propose our new computational framework. Then the two major components of our computational framework are described. Following that, we discuss the different types of roles the computer system can play within the computational framework. 
+\section{From Awareness Support to Awareness Promotion} % (fold)
+\label{sec:from_support_to_promotion}
 
-\section{Computational Model of the Field of Work} % (fold)
-\label{sec:computational_model_of_the_field_of_work}
+Awareness promotion has two points: 
 
-% section computational_model_of_the_field_of_work (end)
+1. emphasize the active role of computer
+2. emphasize the division of work
 
-\section{Event-Driven Awareness Process}
-\label{sec:event_driven_awareness_process}
+\subsection{The role of computer: from tool to social actor} % (fold)
+\label{sub:the_role_of_computer}
+use a table to compare the differences in each awareness process step
+% subsection the_role_of_computer (end)
 
-\subsection{Events: the basic unit of awareness information} % (fold)
-\label{sub:understanding_events}
-The application of event-based model offers high potential for awareness support in geo-collaboration. As we described in Chapter 1, many geo-collaborative work settings are characterized by different types of dynamics, such as when cooperation breaks down, changes over time, and is perceived differently by different actors involved. Understanding the dynamics of cooperative work is extremely important as a way to understand how to design computer systems supporting coordination. If computer technology does not take into account support for the dynamic development, change, and breakdown in cooperation, the system fails \cite{bardram1998designing}. As a result, we consider managing the contingencies inherent to coordination work, and assume that coordination work always become necessary when certain state of the collaborative work changes, or the normal flow of work breaks down. It is the state changes in the field of coordination work that cause the actors to identify changing dependency relations, and try to resolve possible problems or conflicts \cite{symon1996coordination}. Following this argumentation, we believe that events offer a unifying and powerful abstraction to describe the necessary awareness information needed for coordination in geo-collaboration. 
+\subsection{Division of work between human and computer} % (fold)
+\label{sub:division_of_work_between_human_and_computer}
+Emphasizing the active role of computer doesn't mean we simulate the computer to act like humans! It begins from the premise that computers and humans have fundamentally asymmetric abilities; therefore, it focuses on developing divisions of responsibility that assign each agent appropriate and distinct roles and on utilizing interaction techniques to facilitate effective human-computer communication. Let us refer to this as the human complementary approach for short \cite{Terveen1995}.
 
-\subsubsection{The concept of events} % (fold)
-\label{ssub:the_concept_of_events}
-The concept of events has been used in the literature from different perspectives \cite{worboys2005a}. In general, we can distinguish two different classes: \emph{ontological} and \emph{cognitive} positions. 
+The goal is to striking an effective balance between system reasoning and user-system interaction.
 
-In the \emph{ontological} position, set out by Quine \cite{quine1985events}, events and objects are not to be distinguished, as both are first-class entities that can be localized in space and time, broken into sub-parts, and arranged in a taxonomic hierarchy. Events are defined as the occurrences in the real world and \emph{the goal of modeling the events primarily focuses on study the internal structures of the events}. For example, a traffic accident can be considered as an instance of an event type \emph{TrafficIncident}. Event types can be arranged in a subsumption hierarchy; for example, event type \emph{TrafficIncident} may subsume \emph{SeriousTrafficAccident}. Events may have parts; for example, \emph{SeriousTrafficAccident} may be composed of an event of \emph{AccidentReport} and an event of \emph{EmergencyResponse} \cite{worboys2005a}.  
+A table to show the division of work between user and system in each process step
 
-On the other hand, the \emph{cognitive} perspective defines an event as a linguistic or cognitive concept that supports the interpretation of a significant pattern of change \cite{allen1994actions}. That is, the world does not really contain events. Rather, events are the way by which agents classify certain useful and relevant patterns of change. The very same circumstance in the world might be described by any number of events. Each of these descriptions is a different way of describing the circumstances. No one description is more correct than the other, although some may be more informative for certain circumstances, in that they help predict some required information, or suggest a way of reacting to the circumstances \cite{allen1994actions}.\emph{Rather than studying the internal structure of events, modeling events from the cognitive position has mainly concentrated on what external inferences can be made from the fact that certain events are known to have occurred.} The event indicating the occurrence of a traffic accident is used to analyze possible impacts on the agent's work. For instance, the traffic accident may block the traffic flow, which make the agent's task of delivering an equipment to a destination difficult to finish on time. 
+Our design for computer-supported awareness promotion focuses on the mediation roles that the system can play to support awareness development. 
 
-In the literature of GIScience, models of geographical events have been proposed to study the dynamic geographic phenomena \cite{worboys2005a}. The concept of events in these models usually belongs to the ontological position. For example, in \cite{YuanApril20011523-0406-83}, complex geographical phenomena,such as wildfire or precipitation, have been modeled in a hierarchy of events, processes, and states. The purpose is to study the internal structure of an event. In the case of precipitation, an event marks the occurrence of precipitation in a study area. A process describes how it rains; that is the transition of precipitation states in space and time. In \cite{rodriguez2005a}, the object-oriented approach has been adopted to model all the types of occurrences in a habor's zones. The focus here is to derive the different event types that may occur in a habor and identify the relationships between them.   
+\begin{enumerate}
+   \item It provides the visual and interactive support that allow the users to interpret awareness information within their local scope of work. As the awareness information is propagated across multiple actors, the chain of reasoning can become very lengthy. By visualizing the event propagation chains with context information about activities, the users can backtrack how the awareness information is developed from the origins.
+   
+   \item It supports the relay of awareness information across local scopes. Although the actors have best knowledge within their local scopes of work to interpret and develop awareness information,  they often do not know who will be interested in receiving their interpretations. By maitaining a computational model of the ongoing activities and local scopes, the system can recognize whenever the interpretation transcends the boundaries of multiple local scopes and relay the awareness informaton to other actors.
+   
+   \item With the situated knowledge about activities and their dependencies, the system can play a even more proactive role to automate the reasoning on how certain awareness information impact the states of activities as its effects propagate across multiple activities. In this way, the system can offload some of the interpretation effort from the human actors. Meanwhile, the human actors should have the capability to revise the system’s interpretation.
+   
+\end{enumerate}
+% subsection division_of_work_between_human_and_computer (end)
+% section from_support_to_promotion (end)
 
-In the context of awareness systems, however, events are mostly defined from the cognitive position. A common theme is that events are defined as changes that exemplify a property or relationship in some locations or objects at some time. It is an application-driven concept. A specific class of events usually defines a specific type of awareness information that is supported by an awareness system. For instance, the AREA system \cite{fuchs1999a} describes events as actions performed on an artifact and the event classes are derived from the artifact class hierarchy and possible operations on them. The ENI system \cite{gross2004a} describes events from the sensors associated with actors, shared artifacts, or any other objects that generate events related to them. The primitive events represent low-level change units obtainable from individual sensor data streams. Composite events are aggregates of primitive events from single or multiple sensor data streams. An event is represented as an attribute-value tuple that represents an instance of an event type that is supported by an awareness system.
-% subsubsection the_concept_of_events (end)
+\section{Major Components} % (fold)
+\label{sec:major_components}
+Our computer-mediated awareness promotion approach has its basis in two basic parent disciplines:  artificial intelligence (AI) and human-computer interaction (HCI). From AI, it draws formal knowledge representation and reasoning techniques to model the field of work. From HCI, it draws interaction and information presentation techniques to promote the awareness processes.
+
+\subsection{Computational Model of the Field of Work} % (fold)
+\label{sub:computational_model_of_the_field_of_work}
+Requirements:
+
+1. formal representation
+
+2. support dynamic update
+
+3. support reasoning
+
+Rationale for intention, goals, and beliefs based approach?
+
+Rationale for SharedPlan-based model
+% subsection computational_model_of_the_field_of_work (end)
+
+\subsection{Event driven awareness promotion} % (fold)
+\label{sub:event_driven_awareness_promotion}
 
 \subsubsection{Why Event-Driven?} % (fold)
 \label{ssub:why_event_driven_}
@@ -40,12 +69,25 @@ In the context of awareness systems, however, events are mostly defined from the
 
 3. dynamics in activities
 
+The application of event-based model offers high potential for awareness support in geo-collaboration. As we described in Chapter 1, many geo-collaborative work settings are characterized by different types of dynamics, such as when cooperation breaks down, changes over time, and is perceived differently by different actors involved. Understanding the dynamics of cooperative work is extremely important as a way to understand how to design computer systems supporting coordination. If computer technology does not take into account support for the dynamic development, change, and breakdown in cooperation, the system fails \cite{bardram1998designing}. As a result, we consider managing the contingencies inherent to coordination work, and assume that coordination work always become necessary when certain state of the collaborative work changes, or the normal flow of work breaks down. It is the state changes in the field of coordination work that cause the actors to identify changing dependency relations, and try to resolve possible problems or conflicts \cite{symon1996coordination}. Following this argumentation, we believe that events offer a unifying and powerful abstraction to describe the necessary awareness information needed for coordination in geo-collaboration. 
+
 % subsubsection why_event_driven_ (end)
 
-% subsection understanding_events (end)
-\subsection{Event-driven awareness process} % (fold)
-\label{sub:event_driven_awareness_process}
+\subsubsection{The concept of event} % (fold)
+\label{ssub:the_concept_of_events}
+The concept of events has been used in the literature from different perspectives \cite{worboys2005a}. In general, we can distinguish two different classes: \emph{ontological} and \emph{cognitive} positions. 
 
+In the \emph{ontological} position, set out by Quine \cite{quine1985events}, events and objects are not to be distinguished, as both are first-class entities that can be localized in space and time, broken into sub-parts, and arranged in a taxonomic hierarchy. Events are defined as the occurrences in the real world and \emph{the goal of modeling the events primarily focuses on study the internal structures of the events}. For example, a traffic accident can be considered as an instance of an event type \emph{TrafficIncident}. Event types can be arranged in a subsumption hierarchy; for example, event type \emph{TrafficIncident} may subsume \emph{SeriousTrafficAccident}. Events may have parts; for example, \emph{SeriousTrafficAccident} may be composed of an event of \emph{AccidentReport} and an event of \emph{EmergencyResponse} \cite{worboys2005a}.  
+
+On the other hand, the \emph{cognitive} perspective defines an event as a linguistic or cognitive concept that supports the interpretation of a significant pattern of change \cite{allen1994actions}. That is, the world does not really contain events. Rather, events are the way by which agents classify certain useful and relevant patterns of change. The very same circumstance in the world might be described by any number of events. Each of these descriptions is a different way of describing the circumstances. No one description is more correct than the other, although some may be more informative for certain circumstances, in that they help predict some required information, or suggest a way of reacting to the circumstances \cite{allen1994actions}.\emph{Rather than studying the internal structure of events, modeling events from the cognitive position has mainly concentrated on what external inferences can be made from the fact that certain events are known to have occurred.} The event indicating the occurrence of a traffic accident is used to analyze possible impacts on the agent's work. For instance, the traffic accident may block the traffic flow, which make the agent's task of delivering an equipment to a destination difficult to finish on time. 
+
+In the literature of GIScience, models of geographical events have been proposed to study the dynamic geographic phenomena \cite{worboys2005a}. The concept of events in these models usually belongs to the ontological position. For example, in \cite{YuanApril20011523-0406-83}, complex geographical phenomena,such as wildfire or precipitation, have been modeled in a hierarchy of events, processes, and states. The purpose is to study the internal structure of an event. In the case of precipitation, an event marks the occurrence of precipitation in a study area. A process describes how it rains; that is the transition of precipitation states in space and time. In \cite{rodriguez2005a}, the object-oriented approach has been adopted to model all the types of occurrences in a habor's zones. The focus here is to derive the different event types that may occur in a habor and identify the relationships between them.   
+
+In the context of awareness systems, however, events are mostly defined from the cognitive position. A common theme is that events are defined as changes that exemplify a property or relationship in some locations or objects at some time. It is an application-driven concept. A specific class of events usually defines a specific type of awareness information that is supported by an awareness system. For instance, the AREA system \cite{fuchs1999a} describes events as actions performed on an artifact and the event classes are derived from the artifact class hierarchy and possible operations on them. The ENI system \cite{gross2004a} describes events from the sensors associated with actors, shared artifacts, or any other objects that generate events related to them. The primitive events represent low-level change units obtainable from individual sensor data streams. Composite events are aggregates of primitive events from single or multiple sensor data streams. An event is represented as an attribute-value tuple that represents an instance of an event type that is supported by an awareness system.
+% subsubsection the_concept_of_event (end)
+
+\subsubsection{Event-driven awareness processes} % (fold)
+\label{ssub:event_driven_awareness_processes}
 By distinguish different types of events, the proposed awareness mechanism follows the event processing architecture (Taylor et al., 2009), and is performed in following steps: 
 
 (1) \emph{Event generation}. Sensors recognize external events, which are represented as event objects within the system. 
@@ -66,25 +108,10 @@ Figure. 1 demonstrates how the awareness process works on top of the three const
    \caption{Event-based awareness process}
    \label{fig:event_process}
 \end{figure}
-% subsection event_driven_awareness_process (end)
-% section event_driven_awareness_process (end)
+% subsubsection event_driven_awareness_processes (end)
 
-\section{Mediation Roles of the Computer} % (fold)
-\label{sec:mediation_roles_of_the_computer}
-
-Our design for computer-supported awareness promotion focuses on the mediation roles that the system can play to support awareness development. 
-
-\begin{enumerate}
-	\item It provides the visual and interactive support that allow the users to interpret awareness information within their local scope of work. As the awareness information is propagated across multiple actors, the chain of reasoning can become very lengthy. By visualizing the event propagation chains with context information about activities, the users can backtrack how the awareness information is developed from the origins.
-	
-	\item It supports the relay of awareness information across local scopes. Although the actors have best knowledge within their local scopes of work to interpret and develop awareness information,  they often do not know who will be interested in receiving their interpretations. By maitaining a computational model of the ongoing activities and local scopes, the system can recognize whenever the interpretation transcends the boundaries of multiple local scopes and relay the awareness informaton to other actors.
-	
-	\item With the situated knowledge about activities and their dependencies, the system can play a even more proactive role to automate the reasoning on how certain awareness information impact the states of activities as its effects propagate across multiple activities. In this way, the system can offload some of the interpretation effort from the human actors. Meanwhile, the human actors should have the capability to revise the system’s interpretation.
-	
-\end{enumerate}
-
-In this study, we operationize these mediation roles within an event notification system to promote awareness. We consider events as basic units of awareness information, representing changes concerning the environment, resources, goals, and activities in a collaborative setting. We make distinctions between external (in the environment) and internal events (in the activities). External events are changes in the physical environment that have impact on the performance of activities. Internal events are state changes on any resources, goals, and activities involved in the collaboration.
-
+\subsubsection{Event-driven awareness promotion} % (fold)
+\label{ssub:event_driven_awareness_promotion}
 By adopting the event-driven approach, the mediation roles of the system to support transitive awareness process can be illustrated in Figure \ref{fig:comp_framework}. Whenever an external event is sensed by the system, it first matches the events with all the users’ predefined local scope of work and their subscriptions. If a match is found, the system notified the matched user (e.g. Actor 1) about the external event. Then upon perceiving the event, Actor 1 interprets the direct impacts of this event on his/her current activities and predicts future changes to other activities within his/her local scope of work. The inferred state changes represented as internal events are then sent back to the system. The system reasons about how these predicted changes by Actor 1 may impact other actors due to the dependencies among activities, and notify the projected state changes to other relevant users (e.g. Actor 2). Upon receiving the notification about the projected state change, Actor 2 needs to interpret the change by backtracking where this state change comes from and relating it to the activities within his/her local scope of work. Actor 2 may reject the system inference by revising the belief about the projected state change, or predict further changes due to this change, which leads to a new cycle of reasoning.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -93,9 +120,9 @@ By adopting the event-driven approach, the mediation roles of the system to supp
    \caption{Event-based awareness process}
    \label{fig:comp_framework}
 \end{figure}
-% section mediation_roles_of_the_computer (end)
-
-
+% subsubsection event_driven_awareness_promotion (end)
+% subsection event_driven_awareness_promotion (end)
+% section major_components (end)
 % chapter computational_framework (end)
 
 
