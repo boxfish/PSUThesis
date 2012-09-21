@@ -11,10 +11,13 @@ By conceptualizing the awareness phenomena in distributed, complex collaboration
 
 \subsection{Designing for individuals} % (fold)
 \label{sub:designing_for_individuals}
-At the individual level, the role of computer support can be understood in the term of designing `cognitive artifact' \cite{Norman1992}, which is defined as an artificial device designed to maintain, display, or operate upon information in order to aid cognition. Norman argues that an important design consideration for cognitive artifacts is the human action cycle which emphasizes the two sides of human action \cite{Norman1992}. One side is the `evaluation' side of action by perceiving, interpreting and evaluating the state of the environment. The other is the `execution' side that of acting upon the environment. Norman's human action cycle matches well with the major steps of awareness development at the individual level, where the `evaluation' side refers to the perception, comprehension, and projection steps, and the `execution' side includes the decision making and action execution. During each step of the cycle, cognitive artifacts need to provide two major types of functions: one is support for representation, i.e. maintaining and displaying the information; the other is support for operation, i.e. operating upon the information.
+At the individual level, the role of computer support can be understood in term of designing `cognitive artifact' \cite{Norman1992}, which is defined as an artificial device designed to maintain, display, or operate upon information in order to aid cognition. Norman argues that an important design consideration for cognitive artifacts is the human action cycle that emphasizes the two sides of human action \cite{Norman1992}. One side is the `evaluation' side of action by perceiving, interpreting and evaluating the state of the environment. The other is the `execution' side that of acting upon the environment. Norman's human action cycle matches well with the major steps of awareness development at the individual level, where the `evaluation' side refers to the \emph{perception}, \emph{comprehension}, and \emph{projection}, and the `execution' side includes the \emph{decision making} and \emph{action execution}. Within each step of the cycle, it is critical that cognitive artifacts be designed as to support both \emph{representation}, i.e. maintaining and displaying the information; and \emph{operation}, i.e. operating upon the information.
+
+
  - Perception
   - support representation: representing state of the world, representing the change
-  - support control: make the info perceivable, easy to perceive, less effort
+  - support control: support the monitor
+  make the info perceivable, easy to perceive, less effort
 
  - Comprehension
   - support representation: representing existing knowledge, context
@@ -45,6 +48,10 @@ Table ? shows the taxonomy of the whole design space with the major design issue
 \section{The State of Art} % (fold)
 \label{sec:the_state_of_art}
 
+Systems to be reviewed:
+
+DIVA \cite{springerlink:10.1023/A:1008608425504}
+
 Event notification model (GroupDesk, PoLIAwaC et al.)
 Spatial model
 Focus/Nimbus Model
@@ -67,9 +74,17 @@ whether the processes are supported by explicit representation of field of work
 2. Handling Dynamics
 
 
-
 % section design_challenges (end)
 
+\section{Discussion and Summary} % (fold)
+\label{sec:discussion_and_summary}
+In the CSCW literature, there have been several attempts to identify the design space of awareness support in collaborative systems. The awareness checklist \cite{antunes2010a} has been proposed to identify the design elements based on the analysis of Quality Assurance. The design space is structured in a list of quality assurance categories, such as accessibility, mobility, virtuality etc. Unlike these existing approaches, in this chapter we structure the design space of awareness support following a goal-oriented approach. The design issues are identified based on the cognitive and social tasks that need to be performed in each step of the whole awareness development cycle. Such an approach allows us to decompose the overall goal of supporting awareness into smaller, more manageable components. On the other hand, the components comply with our integrated conceptualization of the whole awareness phenomena, which allow us to integrate them together to provide a systematic solution.
+
+At the individual level, existing awareness systems have focused on supporting perception, the higher level of awareness processes are relatively less supported. A possible reason is that the higher-level awareness processes usually involve sophisticated cognitive and reasoning capabilities where the human can do better than the computer. As a result, most awareness systems leave the comprehension and projection to the users. However, in complex collaborative activities, as we discussed earlier, the scaling problem becomes significant, and hence it becomes much more important for the computer to provide functions to amplify and enhance human cognition, not only in the stage of perception, but also in comprehension and projection. 
+
+At the team level, existing awareness systems have focused on either supporting the explicit communication among human collaborators, or different approaches to providing `shared spaces' representing the fields of work so that the actions of each other become visible to each other. However, less discussion has been given to support the awareness interaction via mutual displaying and monitoring, which actually is an even more important aspect of awareness in many complex, real world collaborative activities \cite{heath2002a}.
+
+% section discussion_and_summary (end)
 
 % chapter designing_for_awareness_support (end)
 
