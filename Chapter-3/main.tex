@@ -7,41 +7,119 @@ Following the conceptual model of awareness phenomena in complex collaborative a
 
 \section{The Design Space} % (fold)
 \label{sec:the_design_space}
-By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development interleaved with a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level.
+By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development interleaved with a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level. Table ? shows the taxonomy of the whole design space with the major design issues for each element.
+
+\begin{longtable}{>{\raggedright}m{1.2in}>{\raggedright}p{4in}}
+\toprule 
+Awareness Processes & {\small Design Issues}\tabularnewline
+\midrule 
+{\small Perception} & \begin{itemize}
+\item \emph{\small Selection}{\small : what awareness information should
+be made perceivable?}{\small \par}
+\item \emph{\small Presentation}{\small : how should the awareness informaiton
+be made perceivable to the users?}{\small \par}
+\item \emph{\small Delivery}{\small : when should the awareness information
+be delivered to the users?}\end{itemize}
+\tabularnewline
+\midrule 
+{\small Comprehension} & \begin{itemize}
+\item \emph{\small Representation}{\small . How can the user's current goals
+and activities be represented to enable comprehension? To what level
+of details?}{\small \par}
+\item \emph{\small Linking}{\small . How can the system provide the linking
+between awareness information and the current knowledge?}{\small \par}
+\item \emph{\small Externalization}{\small . How can the system store the
+results of comprehension? }\end{itemize}
+\tabularnewline
+\midrule 
+{\small Projection} & \begin{itemize}
+\item \emph{\small Representation}{\small . How can the dependencies be
+represented to enable projection? }{\small \par}
+\item \emph{\small Reasoning}{\small . How can the system provide the capabilities
+to help users to perform the reasoning?}{\small \par}
+\item \emph{\small Externalization}{\small . How can the system store the
+results of projection? }\end{itemize}
+\tabularnewline
+\midrule 
+{\small Feedthrough} & \begin{itemize}
+\item {\small Coupling.}{\small \par}
+\item {\small Level of Details.}\end{itemize}
+\tabularnewline
+\midrule 
+{\small Manifestation} & \begin{itemize}
+\item {\small Display. How can the system support the user to indicate what
+they want to manifest?}{\small \par}
+\item {\small Visibilit. How can the user to control who and what should
+be visible?}\end{itemize}
+\tabularnewline
+\midrule 
+{\small Communication} & \begin{itemize}
+\item {\small Recipient. Who should I communicate to?}{\small \par}
+\item {\small Reference. What the user refers to?}{\small \par}
+\item {\small Modality. }\end{itemize}
+\tabularnewline
+\bottomrule
+\end{longtable}
 
 \subsection{Designing for individuals} % (fold)
 \label{sub:designing_for_individuals}
-At the individual level, the role of computer support can be understood in term of designing `cognitive artifact' \cite{Norman1992}, which is defined as an artificial device designed to maintain, display, or operate upon information in order to aid cognition. Norman argues that an important design consideration for cognitive artifacts is the human action cycle that emphasizes the two sides of human action \cite{Norman1992}. One side is the `evaluation' side of action by perceiving, interpreting and evaluating the state of the environment. The other is the `execution' side that of acting upon the environment. Norman's human action cycle matches well with the major steps of awareness development at the individual level, where the `evaluation' side refers to the \emph{perception}, \emph{comprehension}, and \emph{projection}, and the `execution' side includes the \emph{decision making} and \emph{action execution}. Within each step of the cycle, it is critical that cognitive artifacts be designed as to support both \emph{representation}, i.e. maintaining and displaying the information; and \emph{operation}, i.e. operating upon the information.
+At the individual level, the role of computer support can be understood in term of designing `cognitive artifact' \cite{Norman1992}, which is defined as an artificial device designed to maintain, display, or operate upon information in order to aid cognition. Norman argues that an important design consideration for cognitive artifacts is the human action cycle that emphasizes the two sides of human action \cite{Norman1992}. One side is the `evaluation' side of action by perceiving, interpreting and evaluating the state of the environment. The other is the `execution' side that of acting upon the environment. Norman's human action cycle matches well with the major steps of awareness development at the individual level, where the `evaluation' side refers to the \emph{perception}, \emph{comprehension}, and \emph{projection}, and the `execution' side includes the \emph{decision making} and \emph{action execution}.
 
+\subsubsection*{Perception} % (fold)
+\label{ssub:perception}
+Perception is a selective process which depends on user preferences and the requirements of the current working situation.
 
- - Perception
-  - support representation: representing state of the world, representing the change
-  - support control: support the monitor
-  make the info perceivable, easy to perceive, less effort
+1. Selection.  Not all events are of relevance to a user, nor are all the details contained in an event. Therefore, the pool of all events has to be processed to filter the relevant information. \cite{Berlage1999}
 
- - Comprehension
-  - support representation: representing existing knowledge, context
-  - support process: interaction, make the analysis easier 	
+2. Presentation. using different forms of presentation because the working situation of the user has changed. \cite{Berlage1999}
 
- - Projection
-  - support representation: represent the result of interpretation, context
-  - support link to long-term knowledge, 
+3. Delivery. \cite{Iqbal2010}
 
- - Decision Making
-  - 
+% subsubsection perception (end)
 
- - Action Execution: not necessary through the awareness system, more important is to provide the representation to guide the execution.
+\subsubsection*{Comprehension} % (fold)
+\label{ssub:comprehension}
+Comprehension is to establish the connection between the awareness information and the user's current goals and activities. \cite{oulasvirta2007a}
+
+1. Representation. How can the user's current goals and activities be represented to enable comprehension? To what level of details?
+
+2. Linking. How can the system provide the linking between awareness information and the current knowledge?
+
+3. Externalization. How can the system store the results of comprehension?
+% subsubsection comprehension (end)
+
+\subsubsection*{Projection} % (fold)
+\label{ssub:projection}
+Projection is the process that the individual uses the dependencies to predict the future states of other activities based on the comprehension of awareness information.
+
+1. Representation. How can the dependencies be represented to enable projection? 
+
+2. Reasoning. How can the system provide the capabilities to help users to perform the reasoning?
+
+3. Externalization. How can the system store the results of projection?
+
+% subsubsection projection (end)
 % subsection designing_for_individuals (end)
 
 \subsection{Designing for the team} % (fold)
 \label{sub:designing_for_the_team}
-Team Awareness Processes
- - Feed-through
- - Displaying/Monitoring
- - Communication
+
+\subsubsection{Feedthrough} % (fold)
+\label{ssub:feedthrough}
+
+% subsubsection feedthrough (end)
+\subsubsection{Communication} % (fold)
+\label{ssub:communication}
+
+% subsubsection communication (end)
+
+\subsubsection{Manifestation} % (fold)
+\label{ssub:manifestation}
+
+% subsubsection manifestation (end)
 % subsection designing_for_the_team (end)
 
-Table ? shows the taxonomy of the whole design space with the major design issues for each element.
+
 
 % section the_design_space (end)
 

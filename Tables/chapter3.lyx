@@ -69,17 +69,18 @@ Design Space for Awareness Support
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="9" columns="4">
-<features booktabs="true" tabularvalignment="middle">
-<column alignment="center" valignment="top" width="0">
+<lyxtabular version="3" rows="7" columns="3">
+<features booktabs="true" islongtable="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="0">
-<column alignment="left" valignment="top" width="1.5in">
-<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="3in">
 <row>
-<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
+<cell multicolumn="1" alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Awareness Process
 \end_layout
 
@@ -98,68 +99,72 @@ Awareness Process
 \begin_inset Text
 
 \begin_layout Plain Layout
-Representational Support
-\end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Operational Support
+\size small
+Design Issues
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Individual
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Perception
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
-1.
- Selection
-\backslash
-linebreak test
+\begin_layout Itemize
+
+\size small
+\emph on
+Selection
+\emph default
+: what awareness information should be made perceivable?
 \end_layout
 
-\begin_layout Plain Layout
-2.
+\begin_layout Itemize
+
+\size small
+\emph on
+Presentation
+\emph default
+: how should the awareness informaiton be made perceivable to the users?
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-
+\size small
+\emph on
+Delivery
+\emph default
+: when should the awareness information be delivered to the users?
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -168,36 +173,57 @@ linebreak test
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Comprehension
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
+\begin_layout Itemize
 
+\size small
+\emph on
+Representation
+\emph default
+.
+ How can the user's current goals and activities be represented to enable
+ comprehension? To what level of details?
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\size small
+\emph on
+Linking
+\emph default
+.
+ How can the system provide the linking between awareness information and
+ the current knowledge?
+\end_layout
 
+\begin_layout Itemize
+
+\size small
+\emph on
+Externalization
+\emph default
+.
+ How can the system store the results of comprehension? 
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -206,154 +232,112 @@ Comprehension
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Projection
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
-Decision Making
+\begin_layout Itemize
+
+\size small
+\emph on
+Representation
+\emph default
+.
+ How can the dependencies be represented to enable projection? 
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-
+\size small
+\emph on
+Reasoning
+\emph default
+.
+ How can the system provide the capabilities to help users to perform the
+ reasoning?
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Action Execution
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\size small
+\emph on
+Externalization
+\emph default
+.
+ How can the system store the results of projection? 
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Team
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Feedthrough
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
+\begin_layout Itemize
 
+\size small
+Coupling.
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-
+\size small
+Level of Details.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size small
+Manifestation
 \end_layout
 
 \end_inset
@@ -361,33 +345,25 @@ Feedthrough
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
-Manifestation
+\begin_layout Itemize
+
+\size small
+Display.
+ How can the system support the user to indicate what they want to manifest?
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\size small
+Visibilit.
+ How can the user to control who and what should be visible?
 \end_layout
 
 \end_inset
 </cell>
 </row>
-<row>
-<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<row endhead="true">
+<cell multirow="4" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -400,6 +376,8 @@ Manifestation
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\size small
 Communication
 \end_layout
 
@@ -408,17 +386,25 @@ Communication
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
+\begin_layout Itemize
 
+\size small
+Recipient.
+ Who should I communicate to?
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
+\begin_layout Itemize
 
-\begin_layout Plain Layout
+\size small
+Reference.
+ What the user refers to?
+\end_layout
 
+\begin_layout Itemize
+
+\size small
+Modality.
+ 
 \end_layout
 
 \end_inset
@@ -429,10 +415,6 @@ Communication
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Existing Awareness Support
 \end_layout
 
 \end_body

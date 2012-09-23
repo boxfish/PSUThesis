@@ -69,16 +69,26 @@ Design Space for Awareness Support
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="2">
-<features booktabs="true" islongtable="true" longtabularalignment="center">
-<column alignment="left" valignment="middle" width="1.2in">
-<column alignment="left" valignment="top" width="4in">
+<lyxtabular version="3" rows="7" columns="3">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top" width="0">
+<column alignment="left" valignment="top" width="0">
+<column alignment="left" valignment="top" width="3in">
 <row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multicolumn="1" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Awareness Processes
+Awareness Process
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -87,8 +97,6 @@ Awareness Processes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Design Issues
 \end_layout
 
@@ -96,13 +104,11 @@ Design Issues
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
-Perception
+Individual
 \end_layout
 
 \end_inset
@@ -110,9 +116,17 @@ Perception
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
+\begin_layout Plain Layout
+Perception
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
 \begin_layout Itemize
 
-\size small
 \emph on
 Selection
 \emph default
@@ -121,7 +135,6 @@ Selection
 
 \begin_layout Itemize
 
-\size small
 \emph on
 Presentation
 \emph default
@@ -130,7 +143,6 @@ Presentation
 
 \begin_layout Itemize
 
-\size small
 \emph on
 Delivery
 \emph default
@@ -141,13 +153,11 @@ Delivery
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
-Comprehension
 \end_layout
 
 \end_inset
@@ -155,9 +165,17 @@ Comprehension
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
+\begin_layout Plain Layout
+Comprehension
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
 \begin_layout Itemize
 
-\size small
 \emph on
 Representation
 \emph default
@@ -168,7 +186,6 @@ Representation
 
 \begin_layout Itemize
 
-\size small
 \emph on
 Linking
 \emph default
@@ -179,7 +196,6 @@ Linking
 
 \begin_layout Itemize
 
-\size small
 \emph on
 Externalization
 \emph default
@@ -191,13 +207,11 @@ Externalization
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
-Projection
 \end_layout
 
 \end_inset
@@ -205,9 +219,17 @@ Projection
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
+\begin_layout Plain Layout
+Projection
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
 \begin_layout Itemize
 
-\size small
 \emph on
 Representation
 \emph default
@@ -217,7 +239,6 @@ Representation
 
 \begin_layout Itemize
 
-\size small
 \emph on
 Reasoning
 \emph default
@@ -228,7 +249,6 @@ Reasoning
 
 \begin_layout Itemize
 
-\size small
 \emph on
 Externalization
 \emph default
@@ -240,75 +260,49 @@ Externalization
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multirow="3" alignment="center" valignment="middle" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+Team
+\end_layout
 
-\size small
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Feedthrough
 \end_layout
 
 \end_inset
 </cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
-Coupling.
-\end_layout
-
-\begin_layout Itemize
-
-\size small
-Level of Details.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
-\size small
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
 Manifestation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Itemize
-
-\size small
-Display.
- How can the system support the user to indicate what they want to manifest?
-\end_layout
-
-\begin_layout Itemize
-
-\size small
-Visibilit.
- How can the user to control who and what should be visible?
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size small
-Communication
 \end_layout
 
 \end_inset
@@ -317,24 +311,42 @@ Communication
 \begin_inset Text
 
 \begin_layout Itemize
-
-\size small
-Recipient.
- Who should I communicate to?
+Display.
+ How can the system support the user to indicate what they want to manifest?
 \end_layout
 
 \begin_layout Itemize
-
-\size small
-Reference.
- What the user refers to?
+Visibilit.
+ How can the user to control who and what should be visible?
 \end_layout
 
-\begin_layout Itemize
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
 
-\size small
-Modality.
- 
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Communication
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
