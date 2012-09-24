@@ -7,59 +7,58 @@ Following the conceptual model of awareness phenomena in complex collaborative a
 
 \section{The Design Space} % (fold)
 \label{sec:the_design_space}
-By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development interleaved with a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level. Table ? shows the taxonomy of the whole design space with the major design issues for each element.
+By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development interleaved with a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level. Table \ref{tab:design_space} shows the taxonomy of the whole design space with the major design issues for each element identified.
 
-\begin{longtable}{>{\raggedright}m{1.2in}>{\raggedright}p{4in}}
+{\footnotesize
+	\begin{longtable}{>{\raggedright}m{1.2in}>{\raggedright}p{4in}}
 \toprule 
-Awareness Processes & {\small Design Issues}\tabularnewline
+Awareness Process & Design Issues\tabularnewline
 \midrule 
-{\small Perception} & \begin{itemize}
-\item \emph{\small Selection}{\small : what awareness information should
-be made perceivable?}{\small \par}
-\item \emph{\small Presentation}{\small : how should the awareness informaiton
-be made perceivable to the users?}{\small \par}
-\item \emph{\small Delivery}{\small : when should the awareness information
-be delivered to the users?}\end{itemize}
-\tabularnewline
+Perception & \emph{1. Selection}: what awareness information should be made perceivable?
+
+\emph{2. Presentation}: how should the awareness informaiton be made
+perceivable to the users?
+
+\emph{3. Delivery}: when should the awareness information be delivered
+to the users?\tabularnewline
 \midrule 
-{\small Comprehension} & \begin{itemize}
-\item \emph{\small Representation}{\small . How can the user's current goals
-and activities be represented to enable comprehension? To what level
-of details?}{\small \par}
-\item \emph{\small Linking}{\small . How can the system provide the linking
-between awareness information and the current knowledge?}{\small \par}
-\item \emph{\small Externalization}{\small . How can the system store the
-results of comprehension? }\end{itemize}
-\tabularnewline
+Comprehension & \emph{1. Representation}. How can the user's current goals and activities
+be represented to enable comprehension? To what level of details?
+
+\emph{2. Linking}. How can the system provide the linking between
+awareness information and the current knowledge?
+
+\emph{3. Externalization}. How can the system store the results of
+comprehension? \tabularnewline
 \midrule 
-{\small Projection} & \begin{itemize}
-\item \emph{\small Representation}{\small . How can the dependencies be
-represented to enable projection? }{\small \par}
-\item \emph{\small Reasoning}{\small . How can the system provide the capabilities
-to help users to perform the reasoning?}{\small \par}
-\item \emph{\small Externalization}{\small . How can the system store the
-results of projection? }\end{itemize}
-\tabularnewline
+Projection & \emph{1. Representation}. How can the dependencies be represented
+to enable projection? 
+
+\emph{2. Reasoning}. How can the system provide the capabilities to
+help users to perform the reasoning?
+
+\emph{3. Externalization}. How can the system store the results of
+projection? \tabularnewline
 \midrule 
-{\small Feedthrough} & \begin{itemize}
-\item {\small Coupling.}{\small \par}
-\item {\small Level of Details.}\end{itemize}
-\tabularnewline
+Feedthrough & 1. Coupling.
+
+2. Level of Details.\tabularnewline
 \midrule 
-{\small Manifestation} & \begin{itemize}
-\item {\small Display. How can the system support the user to indicate what
-they want to manifest?}{\small \par}
-\item {\small Visibilit. How can the user to control who and what should
-be visible?}\end{itemize}
-\tabularnewline
+Manifestation & 1. Display. How can the system support the user to indicate what they
+want to manifest?
+
+2. Visibilit. How can the user to control who and what should be visible?\tabularnewline
 \midrule 
-{\small Communication} & \begin{itemize}
-\item {\small Recipient. Who should I communicate to?}{\small \par}
-\item {\small Reference. What the user refers to?}{\small \par}
-\item {\small Modality. }\end{itemize}
-\tabularnewline
+Communication & 1. Recipient. Who should I communicate to?
+
+2. Reference. What the user refers to?
+
+3. Modality. \tabularnewline
 \bottomrule
-\end{longtable}
+\caption{Summary of Design Space for Awareness Support}
+\label{tab:design_space}
+\end{longtable}}
+
 
 \subsection{Designing for individuals} % (fold)
 \label{sub:designing_for_individuals}
@@ -67,14 +66,11 @@ At the individual level, the role of computer support can be understood in term 
 
 \subsubsection*{Perception} % (fold)
 \label{ssub:perception}
-Perception is a selective process which depends on user preferences and the requirements of the current working situation.
+The achievement of individual awareness starts with the ability of individuals to perceive key features in the environment. The primary goal of awareness support in the perception process is to ensure that the awareness information is perceivable to the users. This goal can be achieved from two aspects: \emph{selection} and \emph{presentation}. The former focuses on filtering out the information so that only the relevant information is perceived by the users, while the latter involves strengthening the stimulus to ensure that information is perceivable.
 
-1. Selection.  Not all events are of relevance to a user, nor are all the details contained in an event. Therefore, the pool of all events has to be processed to filter the relevant information. \cite{Berlage1999}
+Support for \emph{selection} is based on the assumption that perception is a selective process that depends on the requirements of the current working situation and the tasks at hand \cite{Endsley1995}. Not all information is of relevance to a user, hence the pool of all awareness information has to be processed to filter the relevant information \cite{Berlage1999}. Support for selection is actually to delegate the effort of filtering out irrelevant information to computer systems, so that human actors can focus on processing only the relevant set of information to avoid information overload.
 
-2. Presentation. using different forms of presentation because the working situation of the user has changed. \cite{Berlage1999}
-
-3. Delivery. \cite{Iqbal2010}
-
+Support for \emph{presentation} is to strengthen the stimulus in the user interface to ensure important awareness information is perceivable. Existing studies in cognition have shown that the salience of elements in the environment will have a large impact on which portions of the environment are initially attended to, and these elements will form the basis for perception \cite{Hegarty2011}. As a result, the way in which information is presented via the interface will largely influence the perception process by determining which part of the environment will draw the user's attention.
 % subsubsection perception (end)
 
 \subsubsection*{Comprehension} % (fold)
