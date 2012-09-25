@@ -7,60 +7,9 @@ Following the conceptual model of awareness phenomena in complex collaborative a
 
 \section{The Design Space} % (fold)
 \label{sec:the_design_space}
-By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development interleaved with a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level. Table \ref{tab:design_space} shows the taxonomy of the whole design space with the major design issues for each element identified.
+By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development interleaved with a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level. 
 
-{\footnotesize
-	\begin{longtable}{>{\raggedright}m{1.2in}>{\raggedright}p{4in}}
-\toprule 
-Awareness Process & Design Issues\tabularnewline
-\midrule 
-Perception & \emph{1. Selection}: what awareness information should be made perceivable?
-
-\emph{2. Presentation}: how should the awareness informaiton be made
-perceivable to the users?
-
-\emph{3. Delivery}: when should the awareness information be delivered
-to the users?\tabularnewline
-\midrule 
-Comprehension & \emph{1. Representation}. How can the user's current goals and activities
-be represented to enable comprehension? To what level of details?
-
-\emph{2. Linking}. How can the system provide the linking between
-awareness information and the current knowledge?
-
-\emph{3. Externalization}. How can the system store the results of
-comprehension? \tabularnewline
-\midrule 
-Projection & \emph{1. Representation}. How can the dependencies be represented
-to enable projection? 
-
-\emph{2. Reasoning}. How can the system provide the capabilities to
-help users to perform the reasoning?
-
-\emph{3. Externalization}. How can the system store the results of
-projection? \tabularnewline
-\midrule 
-Feedthrough & 1. Coupling.
-
-2. Level of Details.\tabularnewline
-\midrule 
-Manifestation & 1. Display. How can the system support the user to indicate what they
-want to manifest?
-
-2. Visibilit. How can the user to control who and what should be visible?\tabularnewline
-\midrule 
-Communication & 1. Recipient. Who should I communicate to?
-
-2. Reference. What the user refers to?
-
-3. Modality. \tabularnewline
-\bottomrule
-\caption{Summary of Design Space for Awareness Support}
-\label{tab:design_space}
-\end{longtable}}
-
-
-\subsection{Designing for individuals} % (fold)
+\subsection{Designing for individual processes} % (fold)
 \label{sub:designing_for_individuals}
 At the individual level, the role of computer support can be understood in term of designing `cognitive artifact' \cite{Norman1992}, which is defined as an artificial device designed to maintain, display, or operate upon information in order to aid cognition. Norman argues that an important design consideration for cognitive artifacts is the human action cycle that emphasizes the two sides of human action \cite{Norman1992}. One side is the `evaluation' side of action by perceiving, interpreting and evaluating the state of the environment. The other is the `execution' side that of acting upon the environment. Norman's human action cycle matches well with the major steps of awareness development at the individual level, where the `evaluation' side refers to the \emph{perception}, \emph{comprehension}, and \emph{projection}, and the `execution' side includes the \emph{decision making} and \emph{action execution}.
 
@@ -68,60 +17,172 @@ At the individual level, the role of computer support can be understood in term 
 \label{ssub:perception}
 The achievement of individual awareness starts with the ability of individuals to perceive key features in the environment. The primary goal of awareness support in the perception process is to ensure that the awareness information is perceivable to the users. This goal can be achieved from two aspects: \emph{selection} and \emph{presentation}. The former focuses on filtering out the information so that only the relevant information is perceived by the users, while the latter involves strengthening the stimulus to ensure that information is perceivable.
 
-Support for \emph{selection} is based on the assumption that perception is a selective process that depends on the requirements of the current working situation and the tasks at hand \cite{Endsley1995}. Not all information is of relevance to a user, hence the pool of all awareness information has to be processed to filter the relevant information \cite{Berlage1999}. Support for selection is actually to delegate the effort of filtering out irrelevant information to computer systems, so that human actors can focus on processing only the relevant set of information to avoid information overload.
+\begin{enumerate}
+	\item Support for \emph{selection} is based on the assumption that perception is a selective process that depends on the requirements of the current working situation and the tasks at hand \cite{Endsley1995}. Not all information is of relevance to a user, hence the pool of all awareness information has to be processed to filter the relevant information \cite{Berlage1999}. Support for selection is to delegate the effort of filtering out irrelevant information to computer systems, so that human actors can focus on processing only the relevant set of information to avoid information overload.
+	\item Support for \emph{presentation} is to strengthen the stimulus in the user interface to ensure important awareness information is perceivable. Existing studies in cognition have shown that the salience of elements in the environment will have a large impact on which portions of the environment are initially attended to, and these elements will form the basis for perception \cite{Hegarty2011}. As a result, the way in which information is presented via the interface will largely influence the perception process by determining which part of the environment will draw the user's attention.
+\end{enumerate}
 
-Support for \emph{presentation} is to strengthen the stimulus in the user interface to ensure important awareness information is perceivable. Existing studies in cognition have shown that the salience of elements in the environment will have a large impact on which portions of the environment are initially attended to, and these elements will form the basis for perception \cite{Hegarty2011}. As a result, the way in which information is presented via the interface will largely influence the perception process by determining which part of the environment will draw the user's attention.
 % subsubsection perception (end)
 
 \subsubsection*{Comprehension} % (fold)
 \label{ssub:comprehension}
-Comprehension is to establish the connection between the awareness information and the user's current goals and activities. \cite{oulasvirta2007a}
+Comprehension is to understand the meaning of perceived awareness information within the context of a user's current goals and activities \cite{oulasvirta2007a}. In the comprehension process, new information must be combined with existing knowledge to develop a composite picture of the situation \cite{Endsley1995}. Hence, the computer support for comprehension is to help the users establish the connection between new awareness information and existing knowledge that forms the inferential framework \cite{carroll2003a}. In general, there are several ways that the comprehension can be supported by computer systems: 
 
-1. Representation. How can the user's current goals and activities be represented to enable comprehension? To what level of details?
-
-2. Linking. How can the system provide the linking between awareness information and the current knowledge?
-
-3. Externalization. How can the system store the results of comprehension?
+\begin{enumerate}
+	\item \emph{Representation}. First, the computer system can support human comprehension by providing external representations of the existing knowledge. Instead of merely relying on the internal representations of human users, the external representation can serve as the information store, so that the internal representation at a given time can be quite sparse, perhaps containing only detailed information about their current focus \cite{Hegarty2011}, or pointers to locations of other important information in the external representation \cite{M.1996}. In this way, the limited working memory resources of human users are freed up for other aspects of cognition \cite{M.1996}.
+	\item \emph{Contextualization}. Second, the computer system can directly aid the linking between new awareness information and existing knowledge by presenting the awareness information along with the contextual information that is potentially relevant to understand its meaning \cite{Tomaszewski2010}. Supporting comprehension by contextualization has its basis on the design principle of offloading cognitive processes onto perceptual processes \cite{M.1996}. By explicitly linking the awareness information to contextual information for interpretation, some complex cognitive processes, such as searching for and activating the relevant portion of existing knowledge, can be replaced by simple pattern recognition processes \cite{Hegarty2011}. 
+	\item \emph{Externalization}. Last, supporting comprehension also involves externalizing the results of human reasoning. This is important in two senses. First, the comprehension results is used to update the user's existing knowledge that forms the basis for further awareness processes. Second, the comprehension results can be the input for other users' awareness processes through different types of team processes as described in Chapter 2. As a result, it is important that the computer system can help the users to express and store their comprehension results.
+\end{enumerate}
 % subsubsection comprehension (end)
 
 \subsubsection*{Projection} % (fold)
 \label{ssub:projection}
-Projection is the process that the individual uses the dependencies to predict the future states of other activities based on the comprehension of awareness information.
+Projection is the process that the individual predicts the future states of other activities based on the comprehension of awareness information. As argued by Endsley \cite{Endsley1995}, this is the most difficult and taxing parts of situation awareness because it requires a fairly well developed mental model of the activities and relationships among them, and the capabilities to perform reasoning. System-generated support for projecting future events and states of the system can then target on supporting the development of the mental model by representing the activities and relationships, or supporting the reasoning processes. 
 
-1. Representation. How can the dependencies be represented to enable projection? 
-
-2. Reasoning. How can the system provide the capabilities to help users to perform the reasoning?
-
-3. Externalization. How can the system store the results of projection?
+\begin{enumerate}
+	\item \emph{Representation}. Similar to the comprehension process, the projection process can be supported by providing external representations of the existing knowledge to enhance human cognition. However, unlike the representational support for comprehension that focuses on individual activity elements, the knowledge representation for projection emphasizes the various relationships and dependencies among the activity elements, so that the users can infer how the state on one activity can lead to possible changes on other activities' states.
+	\item \emph{Reasoning}. The analytical reasoning is central to the projection process, through which users identify possible alternative future scenarios and the signs that one or another of these scenarios is coming to pass \cite{Thomas2006}. As a result, one of the critical requirements for supporting projection is to provide the analytics tools and techniques that allow the users to synthesize information and derive insight from it.
+	\item \emph{Externalization}. For the same reason as supporting comprehension, the results from the projection process need to be externalized for future use. 
+\end{enumerate}
 
 % subsubsection projection (end)
 % subsection designing_for_individuals (end)
 
-\subsection{Designing for the team} % (fold)
+\subsection{Designing for team processes} % (fold)
 \label{sub:designing_for_the_team}
+At the team level, the roles of computer in awareness support can be characterized by supporting the three basic types of team processes to propagate awareness information as described in Section \ref{ssub:team_processes}: \emph{feedthrough}, \emph{communication}, and \emph{manifestation}.
 
-\subsubsection{Feedthrough} % (fold)
+\subsubsection*{Feedthrough} % (fold)
 \label{ssub:feedthrough}
-
+The process of feedthrough is to make consequences of individual activities apparent to other participants \cite{dourish1992awareness}. In co-located collaborative environments, this usually can be achieved without computer intervening, as collaborators can readily see each other's activities and artifacts they are working on \cite{schmidt2002a}. However, in distributed collaboration, computer support becomes inevitable to enable the process of feedthrough. The role of computer to support feedthrough is to \emph{broadcast} the effects of individual actions and make them visible to each other.
 % subsubsection feedthrough (end)
-\subsubsection{Communication} % (fold)
+\subsubsection*{Communication} % (fold)
 \label{ssub:communication}
+Communication is the prevalent form to propagate awareness information, in which people explicitly talk about awareness elements with their collaborators \cite{Gutwin2002}. Computer mediated communication has been an important component in almost every distributed collaborative system, by providing team members a \emph{medium} to communicate with each other remotely.
 
+Besides providing the medium to enable distributed communication, an important aspect to support the communication process is to help the users identify the \emph{recipients} who they want to communicate with. Unlike the feedthrough process where the consequences of actions are visible to all participants, the initiators of communication must first know who the potential recipients of the communicated information will be. As a result, it is important for the computer system to provide the mechanisms that can help users identify who will be interested in the awareness information, whether or when they can be interrupted, etc.
 % subsubsection communication (end)
 
-\subsubsection{Manifestation} % (fold)
+\subsubsection*{Manifestation} % (fold)
 \label{ssub:manifestation}
+Manifestation refers to a more subtle means to propagate awareness information among team members. Instead of directly performing actions to impact each other via feedthrough, or explicitly communicating with each other, the team members can make some aspects of their individual awareness visible to others, so that anyone who is interested in these aspects, or who is monitoring the field, can perceive the information. The aspects of individual awareness that can be made visible in the manifestation process can be the raw awareness information perceived by a team member, or his/her interpretation of the awareness information during comprehension/projection, or the results of decision-making. To support the manifestation process, the computer system needs to provide the following functions:
 
+\begin{enumerate}
+	\item \emph{Authoring}. The computer system needs to provide the tools to allow the users to specify what aspects of individual awareness they want to make visible, generate or summarize the content they want to manifest.
+	\item \emph{Visibility}. The computer system should allow the users to control the visibility of their manifested information. They can specify who can see what piece of the information they make visible.
+\end{enumerate}
 % subsubsection manifestation (end)
 % subsection designing_for_the_team (end)
 
+Table \ref{tab:design_space} summarizes the whole design space with the major design issues for each element identified.
 
+{\footnotesize
+	\begin{longtable}{>{\raggedright}m{1.2in}>{\raggedright}p{4in}}
+\toprule 
+\textbf{Awareness Process} & \textbf{Supporting Aspects}\tabularnewline
+\midrule 
+Perception & \emph{1. Selection}: filtering out the information so that only the
+relevant information is perceived by the users
+
+\emph{2. Presentation}: strengthen the stimulus in the user interface
+to ensure awareness information is perceivable\tabularnewline
+\midrule 
+Comprehension & \emph{1. Representation}: providing external representations of the
+existing knowledge to support human comprehension
+
+\emph{2. Contextualization}: presenting the awareness information
+along with the contextual information that is potentially relevant
+to understand its meaning
+
+\emph{3. Externalization}: helping the users express and store the
+results of their interpretations\tabularnewline
+\midrule 
+Projection & \emph{1. Representation}: providing external representations of activities
+and their relationships 
+
+\emph{2. Reasoning}: provide analytics tools and techniques to help
+users perform reasoning
+
+\emph{3. Externalization}. helping the users express and store the
+results of projection\tabularnewline
+\midrule 
+Feedthrough & \emph{1. }\textit{Broadcasting}: making consequences of individual
+activities apparent to other participants\tabularnewline
+\midrule 
+Communication & \textit{1. Medium}: providing team members a medium to communicate
+with each other remotely
+
+\textit{2. Recipients}: helping the users to identify who the potential
+recipients of the communicated information will be \tabularnewline
+\midrule 
+Manifestation & \textit{1. Authoring}: providing tools for the users to specify what
+aspects of individual awareness they want to make visible
+
+\textit{2. Visibility}: controlling the visibility of manifested information,
+i.e. who can see what piece of the information\tabularnewline
+\bottomrule
+
+\caption{Design Space for Awareness Support}
+\label{tab:design_space}
+
+\end{longtable}	
+}
 
 % section the_design_space (end)
 
 \section{The State of Art} % (fold)
 \label{sec:the_state_of_art}
+By outlining the design space for awareness support in Section \ref{sec:the_design_space}, we can use it as a framework to review existing studies and awareness systems by looking into how the design aspects in various cognitive and social processes have been supported.
 
+\subsection{Support for perception} % (fold)
+\label{sub:support_for_perception}
+selection: user preferences, interests, context-awareness
+
+presentation: shared workspace, event notifications
+
+% subsection support_for_perception (end)
+
+\subsection{Support for comprehension} % (fold)
+\label{sub:support_for_comprehension}
+representation:
+
+contextualization: atmosphere, 
+
+externalization:
+
+% subsection support_for_comprehension (end)
+
+\subsection{Support for projection} % (fold)
+\label{sub:support_for_projection}
+representation
+
+reasoning
+
+externalization
+
+% subsection support_for_projection (end)
+
+\subsection{Support for feedthrough} % (fold)
+\label{sub:support_for_feedthrough}
+through common artifact
+
+through event notification
+
+% subsection support_for_feedthrough (end)
+
+\subsection{Support for communication} % (fold)
+\label{sub:support_for_communication}
+different modalities
+
+widgets showing who can be interrupted?
+
+% subsection support_for_communication (end)
+
+\subsection{Support for manifestation} % (fold)
+\label{sub:support_for_manifestation}
+add-on awareness?
+
+% subsection support_for_manifestation (end)
 Systems to be reviewed:
 
 DIVA \cite{springerlink:10.1023/A:1008608425504}
@@ -132,12 +193,6 @@ Focus/Nimbus Model
 Diffusion
 Atmosphere
 
-Dimensions
-Field of Work: activity, local scope, dependencies
-Processes: perception, interpretation, decision-making, action, propagation
-Interplay: 
-whether the filed of work can be updated by the processes
-whether the processes are supported by explicit representation of field of work
 
 % section the_state_of_art (end)
 

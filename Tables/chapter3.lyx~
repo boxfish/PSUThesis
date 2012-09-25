@@ -78,7 +78,7 @@ Design Space for Awareness Support
 \begin_inset Text
 
 \begin_layout Plain Layout
-Awareness Processes
+Awareness Process
 \end_layout
 
 \end_inset
@@ -87,8 +87,6 @@ Awareness Processes
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Design Issues
 \end_layout
 
@@ -100,8 +98,6 @@ Design Issues
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Perception
 \end_layout
 
@@ -110,29 +106,29 @@ Perception
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Selection
+1.
+ Selection
 \emph default
 : what awareness information should be made perceivable?
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Presentation
+2.
+ Presentation
 \emph default
 : how should the awareness informaiton be made perceivable to the users?
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Delivery
+3.
+ Delivery
 \emph default
 : when should the awareness information be delivered to the users?
 \end_layout
@@ -145,8 +141,6 @@ Delivery
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Comprehension
 \end_layout
 
@@ -155,33 +149,33 @@ Comprehension
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Representation
+1.
+ Representation
 \emph default
 .
  How can the user's current goals and activities be represented to enable
  comprehension? To what level of details?
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Linking
+2.
+ Linking
 \emph default
 .
  How can the system provide the linking between awareness information and
  the current knowledge?
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Externalization
+3.
+ Externalization
 \emph default
 .
  How can the system store the results of comprehension? 
@@ -195,8 +189,6 @@ Externalization
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Projection
 \end_layout
 
@@ -205,32 +197,32 @@ Projection
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Representation
+1.
+ Representation
 \emph default
 .
  How can the dependencies be represented to enable projection? 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Reasoning
+2.
+ Reasoning
 \emph default
 .
  How can the system provide the capabilities to help users to perform the
  reasoning?
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 
-\size small
 \emph on
-Externalization
+3.
+ Externalization
 \emph default
 .
  How can the system store the results of projection? 
@@ -244,8 +236,6 @@ Externalization
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Feedthrough
 \end_layout
 
@@ -254,16 +244,14 @@ Feedthrough
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
-
-\size small
-Coupling.
+\begin_layout Plain Layout
+1.
+ Coupling.
 \end_layout
 
-\begin_layout Itemize
-
-\size small
-Level of Details.
+\begin_layout Plain Layout
+2.
+ Level of Details.
 \end_layout
 
 \end_inset
@@ -274,8 +262,6 @@ Level of Details.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Manifestation
 \end_layout
 
@@ -284,17 +270,15 @@ Manifestation
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
-
-\size small
-Display.
+\begin_layout Plain Layout
+1.
+ Display.
  How can the system support the user to indicate what they want to manifest?
 \end_layout
 
-\begin_layout Itemize
-
-\size small
-Visibilit.
+\begin_layout Plain Layout
+2.
+ Visibilit.
  How can the user to control who and what should be visible?
 \end_layout
 
@@ -306,8 +290,6 @@ Visibilit.
 \begin_inset Text
 
 \begin_layout Plain Layout
-
-\size small
 Communication
 \end_layout
 
@@ -316,24 +298,21 @@ Communication
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Itemize
-
-\size small
-Recipient.
+\begin_layout Plain Layout
+1.
+ Recipient.
  Who should I communicate to?
 \end_layout
 
-\begin_layout Itemize
-
-\size small
-Reference.
+\begin_layout Plain Layout
+2.
+ Reference.
  What the user refers to?
 \end_layout
 
-\begin_layout Itemize
-
-\size small
-Modality.
+\begin_layout Plain Layout
+3.
+ Modality.
  
 \end_layout
 

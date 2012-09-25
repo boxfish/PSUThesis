@@ -78,6 +78,8 @@ Design Space for Awareness Support
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 Awareness Process
 \end_layout
 
@@ -87,7 +89,9 @@ Awareness Process
 \begin_inset Text
 
 \begin_layout Plain Layout
-Design Issues
+
+\series bold
+Supporting Aspects
 \end_layout
 
 \end_inset
@@ -112,7 +116,8 @@ Perception
 1.
  Selection
 \emph default
-: what awareness information should be made perceivable?
+: filtering out the information so that only the relevant information is
+ perceived by the users
 \end_layout
 
 \begin_layout Plain Layout
@@ -121,16 +126,8 @@ Perception
 2.
  Presentation
 \emph default
-: how should the awareness informaiton be made perceivable to the users?
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-3.
- Delivery
-\emph default
-: when should the awareness information be delivered to the users?
+: strengthen the stimulus in the user interface to ensure awareness information
+ is perceivable
 \end_layout
 
 \end_inset
@@ -155,20 +152,18 @@ Comprehension
 1.
  Representation
 \emph default
-.
- How can the user's current goals and activities be represented to enable
- comprehension? To what level of details?
+: providing external representations of the existing knowledge to support
+ human comprehension
 \end_layout
 
 \begin_layout Plain Layout
 
 \emph on
 2.
- Linking
+ Contextualization
 \emph default
-.
- How can the system provide the linking between awareness information and
- the current knowledge?
+: presenting the awareness information along with the contextual information
+ that is potentially relevant to understand its meaning
 \end_layout
 
 \begin_layout Plain Layout
@@ -177,8 +172,7 @@ Comprehension
 3.
  Externalization
 \emph default
-.
- How can the system store the results of comprehension? 
+: helping the users express and store the results of their interpretations
 \end_layout
 
 \end_inset
@@ -203,8 +197,8 @@ Projection
 1.
  Representation
 \emph default
-.
- How can the dependencies be represented to enable projection? 
+: providing external representations of activities and their relationships
+ 
 \end_layout
 
 \begin_layout Plain Layout
@@ -213,9 +207,7 @@ Projection
 2.
  Reasoning
 \emph default
-.
- How can the system provide the capabilities to help users to perform the
- reasoning?
+: provide analytics tools and techniques to help users perform reasoning
 \end_layout
 
 \begin_layout Plain Layout
@@ -225,7 +217,7 @@ Projection
  Externalization
 \emph default
 .
- How can the system store the results of projection? 
+ helping the users express and store the results of projection
 \end_layout
 
 \end_inset
@@ -245,41 +237,15 @@ Feedthrough
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\emph on
 1.
- Coupling.
-\end_layout
-
-\begin_layout Plain Layout
-2.
- Level of Details.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Manifestation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.
- Display.
- How can the system support the user to indicate what they want to manifest?
-\end_layout
-
-\begin_layout Plain Layout
-2.
- Visibilit.
- How can the user to control who and what should be visible?
+ 
+\shape italic
+\emph default
+Broadcasting
+\shape default
+: making consequences of individual activities apparent to other participants
 \end_layout
 
 \end_inset
@@ -295,25 +261,62 @@ Communication
 
 \end_inset
 </cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\shape italic
+1.
+ Medium
+\shape default
+: providing team members a medium to communicate with each other remotely
+\end_layout
+
+\begin_layout Plain Layout
+
+\shape italic
+2.
+ Recipients
+\shape default
+: helping the users to identify who the potential recipients of the communicated
+ information will be 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Manifestation
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\shape italic
 1.
- Recipient.
- Who should I communicate to?
+ Authoring
+\shape default
+: providing tools for the users to specify what aspects of individual awareness
+ they want to make visible
 \end_layout
 
 \begin_layout Plain Layout
+
+\shape italic
 2.
- Reference.
- What the user refers to?
-\end_layout
-
-\begin_layout Plain Layout
-3.
- Modality.
- 
+ Visibility
+\shape default
+: controlling the visibility of manifested information, i.e.
+ who can see what piece of the information
 \end_layout
 
 \end_inset
