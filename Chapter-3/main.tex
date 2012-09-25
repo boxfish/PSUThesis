@@ -132,11 +132,19 @@ i.e. who can see what piece of the information\tabularnewline
 
 \section{The State of Art} % (fold)
 \label{sec:the_state_of_art}
-By outlining the design space for awareness support in Section \ref{sec:the_design_space}, we can use it as a framework to review existing studies and awareness systems by looking into how the design aspects in various cognitive and social processes have been supported.
+By outlining the design space for awareness support in Section \ref{sec:the_design_space}, we can use it as a framework to review existing studies and awareness systems. The primary goal of the review presented here is not to provide a comprehensive investigation of existing awareness systems, but rather to inform the design of our approach, by looking into how the design aspects in various cognitive and social processes have (and have not) been supported.
 
 \subsection{Support for perception} % (fold)
 \label{sub:support_for_perception}
-selection: user preferences, interests, context-awareness
+selection: 
+
+1. user-defined filters (from single event to event patterns, to structured filters)
+2. spatial models
+3. context-awareness
+
+Fuchs et al.: There were several filters that allowed the limit of the flow of information. On the actor’s side there was an individual privacy filter that allowed the actor to set privacy policies for the events gathered about him. On the perceiver’s side an individual interest filter allowed the perceiver to subscribe only to the events in which he or she was interested. A global filter would allow for the filtering of gen- eral conditions (e.g., to comply with organizational policies)
+
+
 
 presentation: shared workspace, event notifications
 
@@ -145,8 +153,11 @@ presentation: shared workspace, event notifications
 \subsection{Support for comprehension} % (fold)
 \label{sub:support_for_comprehension}
 representation:
+spatial model
+semantic structure: atmosphere
 
-contextualization: atmosphere, 
+contextualization: 
+context of origin v.s. context of work
 
 externalization:
 
@@ -180,6 +191,9 @@ widgets showing who can be interrupted?
 
 \subsection{Support for manifestation} % (fold)
 \label{sub:support_for_manifestation}
+Rittenbruch et al. introduce and explore the notion of ``intentionally enriched awareness'' \cite{Rittenbruch2007}, which refers to the process of actively engaging users in the awareness process by enabling them to express intentions. They situate the ``intentionally enriched awareness'' between the event-based awareness systems where actors are not involved at all, and the communication tools where high level of effort from actors is required. This is very similar to our alignment of supporting the three basic awareness propagation processes, and the development of ``intentionally enriched awareness'' can be considered as part of the manifestation process, as it emphasizes the role of actors to make some of their internal states (intentions, reasons, etc.) along with their activities visible to others. Their AnyBiff prototypical system is one of the limited existing attempts to support \emph{manifestation} in awareness systems, which allows users to generate, share, and use a multitude of activity indicators to reveal intentions. The AnyBiff system is mainly used for supporting social awareness in relatively loose-coupled collaborative activities, and hence the information that the users can make visible to each other is very limited. In complex collaborative environments that we are interested in this study, we believe much more aspects of individual awareness could be made visible by the users. Supporting manifestation involves not only help users express their intentions, but also make their interpretations of awareness information during comprehension/projection, or the results of their decision-making visible.
+
+
 add-on awareness?
 
 % subsection support_for_manifestation (end)
