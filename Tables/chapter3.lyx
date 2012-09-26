@@ -114,20 +114,20 @@ Perception
 
 \emph on
 1.
- Selection
+ Presentation
 \emph default
-: filtering out the information so that only the relevant information is
- perceived by the users
+: strengthen the stimulus in the user interface to ensure awareness information
+ is perceivable
 \end_layout
 
 \begin_layout Plain Layout
 
 \emph on
 2.
- Presentation
+ Selection
 \emph default
-: strengthen the stimulus in the user interface to ensure awareness information
- is perceivable
+: filtering out the information so that only the relevant information is
+ perceived by the users
 \end_layout
 
 \end_inset
@@ -317,6 +317,236 @@ Manifestation
 \shape default
 : controlling the visibility of manifested information, i.e.
  who can see what piece of the information
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existing Studies
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features booktabs="true" islongtable="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="1.2in">
+<column alignment="left" valignment="top" width="4in">
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Supporting Aspects
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Existing Studies
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Percepetion - Presentation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.
+ Space-based: 
+\end_layout
+
+\begin_layout Itemize
+physical spaces (e.g.
+ Portholes 
+\backslash
+cite{Dourish1992})
+\end_layout
+
+\begin_layout Itemize
+virtual spaces (e.g.
+ AROMA 
+\backslash
+cite{Pedersen1997}, DIVA 
+\backslash
+cite{Berlage1999}, MASSIVE-2 
+\backslash
+cite{Benford2001})
+\end_layout
+
+\begin_layout Itemize
+workspaces (e.g.
+ ShrEdit 
+\backslash
+cite{dourish1992awareness}, GroupKit 
+\backslash
+cite{Roseman1996})
+\end_layout
+
+\begin_layout Plain Layout
+2.
+ Event-based:
+\end_layout
+
+\begin_layout Itemize
+levels of urgency (e.g.
+ GroupDesk 
+\backslash
+cite{Fuchs1995}, POLIAwaC 
+\backslash
+cite{sohlenkamp2000po})
+\end_layout
+
+\begin_layout Itemize
+configurable indicators (e.g.
+ NESSIE 
+\backslash
+cite{prinz1999a})
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Perception - Selection
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset

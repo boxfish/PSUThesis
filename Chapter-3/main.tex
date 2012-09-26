@@ -15,11 +15,11 @@ At the individual level, the role of computer support can be understood in term 
 
 \subsubsection*{Perception} % (fold)
 \label{ssub:perception}
-The achievement of individual awareness starts with the ability of individuals to perceive key features in the environment. The primary goal of awareness support in the perception process is to ensure that the awareness information is perceivable to the users. This goal can be achieved from two aspects: \emph{selection} and \emph{presentation}. The former focuses on filtering out the information so that only the relevant information is perceived by the users, while the latter involves strengthening the stimulus to ensure that information is perceivable.
+The achievement of individual awareness starts with the ability of individuals to perceive key features in the environment. The primary goal of awareness support in the perception process is to ensure that the awareness information is perceivable to the users. This goal can be achieved from two aspects: \emph{presentation} and \emph{selection}. The former focuses on strengthening the stimulus to ensure that information is perceivable, while the latter involves filtering out the information so that only the relevant information is perceived by the users.
 
 \begin{enumerate}
-	\item Support for \emph{selection} is based on the assumption that perception is a selective process that depends on the requirements of the current working situation and the tasks at hand \cite{Endsley1995}. Not all information is of relevance to a user, hence the pool of all awareness information has to be processed to filter the relevant information \cite{Berlage1999}. Support for selection is to delegate the effort of filtering out irrelevant information to computer systems, so that human actors can focus on processing only the relevant set of information to avoid information overload.
 	\item Support for \emph{presentation} is to strengthen the stimulus in the user interface to ensure important awareness information is perceivable. Existing studies in cognition have shown that the salience of elements in the environment will have a large impact on which portions of the environment are initially attended to, and these elements will form the basis for perception \cite{Hegarty2011}. As a result, the way in which information is presented via the interface will largely influence the perception process by determining which part of the environment will draw the user's attention.
+	\item Support for \emph{selection} is based on the assumption that perception is a selective process that depends on the requirements of the current working situation and the tasks at hand \cite{Endsley1995}. Not all information is of relevance to a user, hence the pool of all awareness information has to be processed to filter the relevant information \cite{Berlage1999}. Support for selection is to delegate the effort of filtering out irrelevant information to computer systems, so that human actors can focus on processing only the relevant set of information to avoid information overload.
 \end{enumerate}
 
 % subsubsection perception (end)
@@ -77,7 +77,7 @@ Manifestation refers to a more subtle means to propagate awareness information a
 Table \ref{tab:design_space} summarizes the whole design space with the major design issues for each element identified.
 
 {\footnotesize
-	\begin{longtable}{>{\raggedright}m{1.2in}>{\raggedright}p{4in}}
+	\begin{longtable}{>{\raggedright}m{1.2in}>{\raggedright}p{4.3in}}
 \toprule 
 \textbf{Awareness Process} & \textbf{Supporting Aspects}\tabularnewline
 \midrule 
@@ -132,22 +132,48 @@ i.e. who can see what piece of the information\tabularnewline
 
 \section{The State of Art} % (fold)
 \label{sec:the_state_of_art}
-By outlining the design space for awareness support in Section \ref{sec:the_design_space}, we can use it as a framework to review existing studies and awareness systems. The primary goal of the review presented here is not to provide a comprehensive investigation of existing awareness systems, but rather to inform the design of our approach, by looking into how the design aspects in various cognitive and social processes have (and have not) been supported.
+By outlining the design space for awareness support in Section \ref{sec:the_design_space}, we can use it as a framework to review existing studies and awareness systems. The primary goal of the review presented here is not to provide a comprehensive investigation of existing awareness systems, but rather to inform the design of our approach by looking into how the design aspects in various cognitive and social processes have (and have not) been supported in existing studies.
 
 \subsection{Support for perception} % (fold)
 \label{sub:support_for_perception}
-selection: 
+\subsubsection*{Presentation} % (fold)
+\label{ssub:presentation}
+Presenting the awareness information to the user is one of the basic functions that awareness systems should support. Generally, it has to be considered that there is a multitude of different presentation forms with different characteristics and different impacts on the user \cite{Berlage1999}. For our analysis, we distinguish between two basic forms of awareness information presentation that have been widely adopted in the literature: \emph{space-based} and \emph{event-based} presentation. 
+
+\emph{Space-based} presentation visualizes the state of the `shared space' among collaborators at any given time to provide awareness information, both implicitly and explicitly \cite{dourish1992awareness}. By maintaining the state of the shared work setting, people can either keep an eye on what the rest of the group is doing while doing their individual work, or actively monitor the activities of others, to perceive awareness information \cite{simone2002a}. In existing awareness systems, the `shared space' can be presented in different forms \cite{antunes2010a}. 
+\begin{enumerate}
+	\item `Shared physical space'. In the early work of supporting awareness, a significant effort was devoted to exploring the potential of media space technologies, i.e. an array of continually audio-video links between distributed actors, to provide a `shared physical space' between actors in different locations \cite{Dourish1992}. As with the awareness study, the media space investigations were concerned with informal or social aspect of awareness, and in most cases task-oriented awareness was not mentioned explicitly \cite{schmidt2002a}.
+	\item `Shared virtual space'. Rodden \cite{Rodden1996} developed the notion of `virtual space' as a collection of computer-supported interactive spaces. Many collaborative systems offer various types of virtual spaces to support awareness, including abstract media space \cite{Pedersen1997}, virtual meeting rooms \cite{Berlage1999}, and collaborative virtual environment \cite{Benford2001}. Unlike traditional media spaces that aim to establish the `shared physical space', this line of work focuses on the use of abstract representations as awareness indicators. Besides providing a kind of `shielding' for privacy of the people in the shared space \cite{Pedersen1997}, a more interesting feature of using abstract representations is the capability to organize awareness information around task-oriented structures, such as office tables, meeting rooms \cite{Berlage1999}, so that more task-oriented aspects of awareness can be supported.
+	\item `Shared workspace'. `Shared workspace' is a specialization of the notion of `shared space' that emphasizes the task-oriented awareness. According to Gutwin and Greenberg \cite{Gutwin2002}, a `shared workspace' is a bounded space where people can see and manipulate artifacts related to their activities. A group editor is a good example of this type of `shared workspace', as it serves to organize activities like writing and revising, while maintaining a coherent view of the whole \cite{dourish1992awareness}. The awareness information in `shared workspace' is presented by attaching it to the manipulable objects through which the task is carried out, and is achieved by user's interaction with the artifacts \cite{Gutwin2002}.
+\end{enumerate}
+
+\emph{Event-based} presentation, on the other hand, provides people with awareness of what is going on around them as expressed by discrete events \cite{rittenbruch2009a}. Each event highlights a piece of awareness information for a limited amount of time. The list of events that are supported in each awareness system can be totally different, depending on the application domain. As argued by Fuchs et al \cite{Fuchs1995}, we can basically imagine any kind of event, as long as it has a certain relevance when it comes to coordinating the work in a given setting. Unlike the \emph{space-based} presentation that relies on the users to monitor the shared space and perceive the awareness information, event-based presentation makes the awareness cues more perceivable for the users than other elements in the environment through different kinds of notification mechanisms \cite{McCrickard2003}. The notification can be done in different ways. In GroupDesk \cite{Fuchs1995} and POLIAwaC \cite{sohlenkamp2000po}, different urgency levels are defined to determine the form of presentation of event information at the user interface. A high urgency would typically lead to a disruptive notification, such as popping up a message window, whereas a low urgency could reflect the information by a change of color of the object's icon and leave the details of information to explicit user request. In NESSIE, the presentation of awareness information is performed by configurable indicators, including simple windows for the listing of event information, different background images, or sounds. Tools are offered that allow the users to easily map awareness events to suitable indicators \cite{prinz1999a}.
+
+These two basic forms of presenting awareness information have their own pros and cons. \emph{Space-based} presentation of awareness information has the advantage that the awareness information is presented in the context of its origin, i.e. the associated object in the shared space, and therefore ease the comprehension process. \emph{Space-based} presentation relies on the users to monitor the field of work and perceive the awareness information. This can be done efficiently if the local scopes of different users are largely overlapped, as the users can pick up the awareness information peripherally as they work on their own work \cite{schmidt2002a}. However, this becomes much more problematic when the activities of users are distributed and each of them is working on a different set of activities, as actively monitoring the shared space requires extra attentions and efforts from the users. On the other hand, \emph{event-based} presentation provides a more lightweight way to present awareness information, as only the aspects of awareness information that is of relevance are presented. Furthermore, the event-based presentation is pushed to the users by making the events more perceivable to the users. In this way, the users do not need to switch their attentions to other's activities until the event notification happens. However, awareness information in the form of events is usually presented separately from the inferential framework to comprehend it, which leads to extra effort in the comprehension process.
+% subsubsection presentation (end)
+ 
+\subsubsection*{Selection} % (fold)
+\label{ssub:selection}
+Enabling the selection of perceptual information is another commonly supported features in existing awareness systems \cite{David2001}. Many mechanisms that contribute to the improvement of the selectivity of awareness information have been discussed in the literature. 
 
 1. user-defined filters (from single event to event patterns, to structured filters)
-2. spatial models
-3. context-awareness
 
 Fuchs et al.: There were several filters that allowed the limit of the flow of information. On the actor’s side there was an individual privacy filter that allowed the actor to set privacy policies for the events gathered about him. On the perceiver’s side an individual interest filter allowed the perceiver to subscribe only to the events in which he or she was interested. A global filter would allow for the filtering of gen- eral conditions (e.g., to comply with organizational policies)
 
+Interest in events for such situations is defined by interest contexts, which consist of a set of relation types, a set of event types and a list of interested users who have subscribed to the context.   
 
+Elvin \cite{Fitzpatrick2002}: The notifications describe events using a set of named attributes of simple data types and consumers subscribe to sets of events using boolean subscription expressions. When a notification is received at the Elvin server from a producer, it is compared to the consumers’ registered subscription expressions and forwarded to those whose expressions it satisfies.
 
-presentation: shared workspace, event notifications
+This content-based selection of notifications is often sacrificed by other noti-
+fication services in favour of less flexible mechanisms because it is difficult to implement efficiently. The simpler alternative is to use named channels or topics that must be specified by both the producer and consumers. A key benefit of content-based notification is the absence of this coupling between producers and consumers, promoting system evolution and integration. Elvin can still be used as a channel-based service however by selecting an attribute as a channel identifier, thus creating a channel-based service on top of a content-based service without loss of generality.
 
+AREA requires that considerable domain knowledge be explicitly embedded in order for the tool to work usefully. Such knowledge has the advantage of facilitating support for semantic-rich notifications, but at the cost of a higher overhead of adoption and a more brittle, less evolvable system because explicit updates are needed to reflect changing application needs.
+
+2. spatial models
+
+3. context-awareness
+
+% subsubsection selection (end)
 % subsection support_for_perception (end)
 
 \subsection{Support for comprehension} % (fold)
@@ -155,9 +181,13 @@ presentation: shared workspace, event notifications
 representation:
 spatial model
 semantic structure: atmosphere
+activity awareness
 
 contextualization: 
 context of origin v.s. context of work
+
+awareness of the activities in a cooperative environment can be better achieved when awareness information is presented either in the context of work or in a social context. NESSIE provides that awareness information by the presentation of pictorial activity indicators for the members of a group as part of the shared workspace user interface \cite{prinz1999a}.
+
 
 externalization:
 
@@ -197,6 +227,46 @@ Rittenbruch et al. introduce and explore the notion of ``intentionally enriched 
 add-on awareness?
 
 % subsection support_for_manifestation (end)
+
+{\footnotesize
+\begin{longtable}{>{\raggedright}p{1.2in}>{\raggedright}p{4.3in}}
+
+\toprule 
+\textbf{Supporting Aspects} & \textbf{Existing Studies}\tabularnewline
+\midrule 
+Percepetion - Presentation & 1. Space-based: 
+\begin{itemize}
+\item physical spaces (e.g. Portholes \cite{Dourish1992})
+\item virtual spaces (e.g. AROMA \cite{Pedersen1997}, DIVA
+\cite{Berlage1999}, MASSIVE-2 \cite{Benford2001})
+\item workspaces (e.g. ShrEdit \cite{dourish1992awareness},
+GroupKit \cite{Roseman1996})
+\end{itemize}
+2. Event-based:
+\begin{itemize}
+\item levels of urgency (e.g. GroupDesk \cite{Fuchs1995},
+POLIAwaC \cite{sohlenkamp2000po})
+\item configurable indicators (e.g. NESSIE \cite{prinz1999a})\end{itemize}
+\tabularnewline
+\midrule 
+Perception - Selection & \tabularnewline
+\midrule 
+ & \tabularnewline
+\midrule 
+ & \tabularnewline
+\midrule 
+ & \tabularnewline
+\midrule 
+ & \tabularnewline
+\midrule 
+ & \tabularnewline
+\bottomrule
+
+\caption{Existing Studies in Awareness Support}
+\label{tab:existing_studies}
+\end{longtable}}
+
+
 Systems to be reviewed:
 
 DIVA \cite{springerlink:10.1023/A:1008608425504}
@@ -216,6 +286,7 @@ Atmosphere
 
 2. Handling Dynamics
 
+As Fuchs et al. show, such event based systems seem to work satisfactorily for situations where workflow can be clearly defined in advance or if the application is known from the beginning.
 
 % section design_challenges (end)
 
