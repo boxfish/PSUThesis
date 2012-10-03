@@ -1,157 +1,66 @@
 %!TEX root = ../BoYu-Dissertation.tex
 \graphicspath{{Figures/}}
 
-\chapter{Our Approach: Supporting Event Notification} % (fold)
-\label{cha:event_notification}
+\chapter{Our Approach: Updating Knowledge Representation} % (fold)
+\label{cha:knowledge_updating}
 
-\section{The Basic Interaction Scheme: Publish/Subscribe} % (fold)
-\label{sec:the_basic_interaction_scheme_publish_subscribe}
+\section{Construction and Development of the Model} % (fold)
+\label{sec:construction_and_development_of_the_model}
+different ways to do it:
 
-% section the_basic_interaction_scheme_publish_subscribe (end)
+1. the development of algorithms and heuristics for inferring mental state on the basis of observed actions While these algorithms and heuristics are domain independent, they require much rich domain-specific knowledge to work.
 
-\section{Existing Notification Approaches} % (fold)
-\label{sec:existing_notification_approaches}
-\subsection{Topic-Based Approach} % (fold)
-\label{sub:topic_based_approach}
+2. Human complementary work has attempted to avoid the problem of intent recognition by developing domain- specific languages and interfaces that allow users to specify their goals and plans directly.
 
-% subsection topic_based_approach (end)
 
-\subsection{Type-Based Approach} % (fold)
-\label{sub:type_based_approach}
+these capabilities can be added incrementally to the basic approach to ensure a favorable ratio of cost (of knowledge engineering and runtime computation) to benefit (enhanced user performance). In addition, both more and less complicated versions of these capabilities exist and can be applied. For example, goal recognition can be done the hard way, i.e. using AI plan recognition techniques. However, a very simple technique is to hard-wire in one or more domain goals. As discussed above, a third approach (of intermediate complexity) is to represent domain goals and plans in the interface and allow users to specify them explicitly. Fischer and colleagues 85.s6 discuss how combining a goal specifica- tion component with a critiquing system improves the quality of system advice t
 
-% subsection type_based_approach (end)
 
-\subsection{Content-Based Approach} % (fold)
-\label{sub:content_based_approach}
+Information about users may be acquired explicitly, by engaging a user in an interaction expressly designed to acquire information, or implicitly, inferring information on the basis of user actions 58. Both methods have draw- backs. If users must answer system questions or fill out a form, they may find this obtrusive and may have a difficult time characterizing themselves accurately. On the other hand, implicit acquisition can be a difficult computational task, depending on the type of user model being constructed. Plan recognition, as previ- ously mentioned, is a very difficult computational problem. Among other things, it is difficult to know when a user is starting a new plan (as opposed to continuing the current one), users may suspend and resume plans, actions may be part of more than one plan, and there may be multiple plans for a single goaP 6. Stereotypes can be easier to recognize; each stereotype generally has a triggering condition that, when satisfied, leads the system to categorize the user as a member of that stereotype. Also, some representations of user pref- erences are fairly simple, and thus can be computed easily. For example, simple statistics on what messages a user reads in Net News may allow a system to filter the messages the user sees in the future 7°.
 
-% subsection content_based_approach (end)
 
-% section existing_notification_approaches (end)
+However, ITS researchers have been active in designing interaction techniques that allow users to express their intent directly, rather than requiring the system to guess it 72-74.. By analyzing how a class of users works within a particular task domain, say symbolic integration, financial analysis, or medical diagnosis, researchers develop a set of goals and plans for achieving these goals. These goals and plans are represented formally in a knowledge representation language and also represented graphically as objects in a direct manipulation interface 43. Users then directly specify their goals and plans. This benefits both user and system. The user is given a medium for making problem solving explicit, rather than having to do it mentally or using noncomputational aids such as paper and pencil. The system gains access to a high-level specification of what it is that the user is trying to accomplish, thus simplifying the computations required to play a useful role in the interaction. For example, computations to track and display finished and unfinished steps in the plan, to fill in low-level details required in executing a plan, and to determine whether a plan is inappropriate are very useful and much simpler than plan recognition. Checklists 75,76, computerized versions of the everyday to- do list, are a specific interaction resource used for orga- nizing interaction and tracking and displaying progress toward a goal.
 
-\section{Activity-Based Approach} % (fold)
-\label{sec:activity_based_approach}
-\subsection{Types of Events} % (fold)
-\label{sub:types_of_events}
-\subsubsection{External and internal events} % (fold)
-\label{ssub:external_and_internal_events}
-To understand events in geo-collaboration, an important distinction has to be made between \emph{external} events (in the environment) and internal events (in the activities). 
+Systems by Self for logic tutoring 73 and Singley for
+algebra rate of change problems 77 explored the use of `goal posting'. For example, in Singley's system, a user selects a goal such as `find dp/dt in terms of t'. She next chooses a plan operator for achieving the goal, such as using the chain rule. Several subgoals might have to be satisfied before the operator can be applied. At all times, the system keeps track of which goals have and have not been satisfied, visually differentiating the current goal, satisfied goals, and unsatisfied goals. Empirical studies showed that the goal posting tech- nique improved user performance and facilitated learn- ing.
 
-External events are changes in the physical environment that have impact on the performance of collaborative activities. For instance, the occurrence of a traffic accident may block the traffic flow, which makes an actor’s activity of delivering equipment to a medical station impossible to finish on time. External events in the environment can be characterized in three major categories: changes of identity (e.g. the occurrence of a traffic accident), attribute changes of an object (e.g. the contamination level of the chemical plan is increased), or spatial changes (e.g. the impacted area is enlarged due to the wind condition).
+In addition to techniques for directly specifying goals,
+another important notion is the incremental specifica- tion of goals. People typically do not form precise defi- nitions of goals to accomplish, then plan to achieve their goals, and then carry out their plans. Rather, acting, planning, and forming and pursuing goals are interleaved. A number of interaction techniques have been explored that support incremental specification of goals in exploratory activity. The retrieval by reformula- tion 8~82 information retrieval technique interleaves query definition, querying, and evaluation of results. Experiments with critics (discussed in detail in the next section) have shown that users may refine their goals on the basis of the delivery of advice from a system about user actions. They begin by specifying information they know and care about, and then gradually refine and elaborate it in response to system advice
 
-Internal events are state changes on the basic elements (i.e. resources, goals, activities) of geo-collaboration. Resource events indicate changes on the state of any resources that are used in the activities. Resource events can impact response activities in different ways: (1) the creation of a new resource can trigger new activities (for example, a new victim may lead to the activity to perform decontamination and medical treatment); (2) the state change of a resource can impact the activity that requires the use of the resource (e.g. the mechanical breakdown of a vehicle makes the delivery activity unable to complete); (3) the state change of a resource can enable/disable the activity that depends on it (e.g. a victim’s location change leads to the satisfaction of a precondition that the victim must be located at the medical station, which further enables the activity to perform medical treatment on the victim). Condition events indicate changes on a certain relationship between multiple objects in a collaborative activity. For example, a condition may express a spatial relationship that the victim must be located at the decontamination station. The condition will change the state from open to holding when a driver has picked up the victim and transpored him/her to the station. Activity events are described as change of activity states, such as the initiation of a new activity, the completion or delay of an ongoing activity. 
 
-The distinction between external and internal events is very important to identify the set of events that should be captured and modeled in the awareness mechanism. Not all the external events in the environment are important for the actors to perform their activities. Rather, only a subset of the external events that can lead to changes within the activities (i.e. the internal events) is meaningful. The derivation of internal events from external events is an active cognitive process that requires interpreting the meaning of external events within the context of the collaborative activities.
-% subsubsection external_and_internal_events (end)
+\subsection{The Development of PlanGraph} % (fold)
+\label{sub:the_development_of_plangraph}
 
-\subsubsection{Local and remote events} % (fold)
-\label{ssub:local_and_remote_events}
-The distinction between external and internal events is based on the boundary between the surrounding environment and the overall collaborative activities as a whole. However, in order to understand the awareness information needed for each individual, another important distinction between local and remote events has to be made. 
 
-The local and remote events are defined with aspect to the local scope of work for each individual actor. Local events reflect the state changes of basic elements (i.e. resources, goals, activities) within an actor’s local scope of work. For instance, the report of a new victim that needs to be decontaminated, the exceeding capacity of a decontamination station are local events within the decontamination manager’s local scope of work. Remote events are the changes outside an actor’s local scope of work. For instance, a victim that doesn’t need to be decontaminated is transported to a shelter is a remote event for the decontamination manager. The distinction of local and remote events is relative to each individual actor. A local event of one actor may be a remote event for another actor due to their different local scopes of work. In addition, a remote event can be internal, reflecting the state changes of another actor’s activities, or it can be external, reflecting changes in the environment. 
 
-The distinction between local and remote events is important to identify the relevance of events that should be notified to each actor. Local events reflect changes within an actor’s local scope of work and therefore are directly relevant to the actor. On the other hand, due to the existence of the web of dependencies among activities, some of the remote events can (or potentially can) lead to changes in the actor’s local scope of work, i.e. the impact of a remote event may be propagated to the local scope of the actor as derived local events, and therefore they also become relevant. For instance, the traffic jam on the road is a remote event for the decontamination manager. However, because the traffic jam happens on the way of a victim to be delivered to a decontamination station, it can potentially delay the decontamination operation on the victim, which becomes a relevant local event for the decontamination manager. As a result, the goal of an awareness system is to notify an actor not only all the relevant local events, but also the subset of remote events that can be propagated to the actor’s local scope through the web of dependencies. 
 
-% subsubsection local_and_remote_events (end)
-% subsection types_of_events (end)
 
-\subsection{Event Subscription} % (fold)
-\label{sub:event_subscription}
-\subsubsection{Specifying Local Scopes} % (fold)
-\label{ssub:specifying_local_scopes}
+Considering the collaborative activity as a process from a partial SharedPlan to a full SharedPlan among the participants, the PlanGraph, which is used to represent the collaborative activity, should also be considered as dynamically developed. To facilitate the development of PlanGraph, the PlanGraph model provides the reasoning mechanisms to decide how the interaction between the system and human participants, or between the human participants, influences the state of collaborative activity and update the changes in the PlanGraph. In general, the reasoning mechanism in PlanGraph model includes two steps: the plan explanation and the plan elaboration.
 
-% subsubsection specifying_local_scopes (end)
-
-\subsubsection{Defining Event Patterns} % (fold)
-\label{ssub:defining_event_patterns}
-
-% subsubsection defining_event_patterns (end)
-% subsection event_subscription (end)
-
-\subsection{Event Matching} % (fold)
-\label{sub:event_matching}
-
-% subsection event_matching (end)
-
-% section activity_based_approach (end)
-
-\section{A Simulation Experiment} % (fold)
-\label{sec:a_simulation_experiment}
-We conduct a simulation experiment to compare the content-based event notification approach and the proposed activity-based approach. The basic hypothesis is that, in dynamic environment where the user's activity changes frequently, the proposed activity-based approach provides a more accurate way for the user to express their awareness interests than the content-based approach. We use the emergency response scenario as described in the Introduction Chapter to perform the experiment, from the perspective of the decontamination manager.
-
-\subsection{Variables of Interests} % (fold)
-\label{sub:variables_of_interests}
-We are interested in the capability of these two notification approaches in handling different types of activity dynamics. Particularly, we are interested in three types of dynamics that may occur in the scenario: 
-\begin{enumerate}
-	\item \textbf{Parameter Change}: the value of a parameter is changed. In the scenario, it can be the case when the decontamination manager re-assign a new station where a victim will be decontaminated.
-	\item \textbf{Plan Development}: the plan of the actor is changed. In the scenario, it can be the case when the decontamination manager starts to concern about certain equipment delivery after the stock is running low.
-	\item \textbf{Local Scope Change}: the actor's local scope of work is changed. In the scenario, it can be the case when another manager joins the activity, and take a subset of tasks away from the modeling manager.  
-\end{enumerate}
-
-To perform the experiment, we define four scenes to reflect the three types of activity dynamics:
-\begin{enumerate}
-	\item Initial scene ($S_0$): indicates the current state of the decontamination manager's activities
-	\item Parameter change scene ($S_1$): indicates one of the parameters of the decontamination manager (station) has been assigned with a new value, comparing with $S_0$
-	\item Plan development scene ($S_2$): indicates one of the conditions has been elaborated into a more concrete plan, comparing with $S_1$
-	\item local scope change ($S_3$): indicates the another actor joins the activity, and the local scope of the modeled user has been reduced to a smaller set, comparing with $S_2$
-\end{enumerate}
-% subsection variables_of_interests (end)
-
-\subsection{Simulating Event Generation} % (fold)
-\label{sub:event_generation}
-A set of events are randomly generated based on the whole group activities. Given the current PlanGraph model, the events can happen on any of the activity, resource, or condition node, and indicate any types of possible changes that are defined in Chapter 5.
-% subsection event_generation (end)
-
-\subsection{Creating Subscriptions} % (fold)
-\label{sub:content_based_subscriptions}
-Two sets of content-based subscriptions will be generated. 
-\begin{enumerate}
-	\item The first set of subscriptions are defined merely based on the current interest of the manager in the initial scene ($S_0$). This set only includes the events that are relevant to the manager's current activities. Therefore, it can be considered as the minimal subscription set of events, using the content-based notification approach ($CON_{min}$).
-	\item The second set of subscriptions are defined based on considering all the three possible activities dynamics defined in scenes ($S_1$, $S_2$, $S_3$). It includes all the possible events that might be relevant to the manager in all the scenes. Because we attempt to include the maximum set of events that could be relevant for the manager across all the scenes, we define this content-based subscription as ($CON_{max}$).  
-\end{enumerate}
-
-In addition, the activity-based subscription will also be generated, following the steps described in previous section. The subscription includes the specification of local scope of the decontamination manager, his/her intentions and detailed event patterns on each node in the local scope. We define this activity-based subscription as $ACT$.
-% subsection creating_subscriptions (end)
-
-\subsection{Procedures} % (fold)
-\label{sub:procedures}
-The experiment includes four runs. 
-\begin{enumerate}
-	\item The first run $R_0$ is the human judgment on the relevance of the simulated event set to form the baseline result. The human analysts run through the list of simulated event set to decide on whether each event is relevant to the modeled decontamination manager, under the four scenes respectively. To reduce the subjective errors of human judgment, two analysts will perform the judgment separately and then discuss on the differences to form the final sets of events.
-	\item In the second run $R_1$, the simulated event set will be fed into the matching program following  content-based notification approach, using the set of subscriptions defined as $CON_{min}$.
-	\item In the third run $R_2$, the simulated event set will be fed into the matching program following  content-based notification approach, using the set of subscriptions defined as $CON_{max}$.
-	\item In the fourth run $R_3$, the the simuated event set will be fed into the matching program following activity-based notification approach, using the set of subscriptions defined as $ACT$.
-\end{enumerate}
-% subsection procedures (end)
-
-\subsection{Measures} % (fold)
-\label{sub:measures}
-Two measures will be used to compare the results of different notification approaches:
-\begin{enumerate}
-	\item \textbf{Miss rate} is defined as the ratio between number of events that are considered as relevant in $R_0$ but missing in the result of $R_i$ ($i \in \{1, 2, 3\}$), and the total number of events considered as relevant in $R_0$.
-	\item \textbf{False alarm rate} is defined as the ratio between number of events that are considered as relevant in $R_i$ ($i \in \{1, 2, 3\}$), but missing in the result of $R_0$, and the total number of events considered as relevant in $R_i$ ($i \in \{1, 2, 3\}$).
-\end{enumerate}
-
-% subsection measures (end)
-
-\subsection{Results} % (fold)
-\label{sub:results}
-Some results we expect from the experiment can be:
+\subsubsection*{Plan Explanation}
+Participants in a collaborative activity need to interact with each other to contribute to the activity. It is through the communication between the participants that collaboration can be enacted. Therefore, the input of an agent can be treated as the way that the agent tries to express their intentions to the other agents in the collaborative activity. Plan explanation is the step where the system attempts to explain how the meanings of the new piece of interaction relate to the current PlanGraph. In general, the new input is said to be meaningfully merged with the current collaboration context if one of the following conditions is satisfied:
 
 \begin{enumerate}
-	\item Comparing with the context-based notification using subscriptions defined as $CON_{min}$, the activity-based notification has lower miss rate in the scenes $S_1$, $S_2$, $S_3$. The difference between miss rates of the two methods increases as the scene evolves.
-	\item Comparing with the context-based notification using subscriptions defined as $CON_{max}$, the activity-based notification has lower false alarm rate in the scenes $S_1$, $S_2$, $S_3$. The difference between false alarm rates of the two methods decreases as the scene evolves.
+\item The new input provides a piece of information that helps the agents to assign/change a value to a parameter in the current PlanGraph. 
+\item The new input provides more details on the performance of a complex action in the PlanGraph. For example, the user suggests performing a sub-action or identifying a parameter in order to complete the action.
+\item The new input helps to establishing necessary mental states for a collaborative action. In this case, the agent's new input serves as an indicator of the speaker's mental attitudes, such as confirmation or refusal towards certain states of fairs. 
 \end{enumerate}
 
-% subsection results (end)
+If the new user input can be successfully explained in current PlanGraph, it will be merged to update the PlanGraph accordingly, i.e. the contextual information about the ongoing activity is changed.
 
-\subsection{Discussion} % (fold)
-\label{sub:discussion}
+\subsubsection*{Plan Elaboration}
+The main goal in elaboration stage is to advance the collaborative activity from the system side based on the change from the new input. After the interpretation process, the context of the activity is changed. Therefore, the system needs to elaborate the PlanGraph to accommodate the changes. The elaboration process begins with the root node of the PlanGraph and uses the depth-first traverse to visit the whole plan based on reasoning rules associated with PlanGraph model. The elaboration ends when no more parts of the PlanGraph can be further elaborated.
 
-% subsection discussion (end)
+The system can elaborate the PlanGraph in several ways. First, the system can contribute to the collaborative activity by retrieving a recipe for an action from the knowledge base. Second, the system can execute the basic actions that can be performed without further inputs from other human agents. Lastly, the system can identify the value for a parameter by retrieving the default or suggested values from the knowledge base. 
 
+After the elaboration process, the PlanGraph again reflects the current state of the collaborative activity. Therefore, the information from the PlanGraph can be used by the system to represent the current state of the activity context. 
 
-% section a_simulation_experiment (end)
-% chapter event_notification (end)
+This elaboration process also attempts to discover all the open nodes in the PlanGraph that might be addressed later in the collaboration, such as unidentified parameters, unperformed actions, conflicting beliefs, missing details, or ambiguous choices. These possible open nodes are   stored in an agenda to include all the possible attentional states that require further development in the collaboration. During the elaboration process, when the system encounters some problem to elaborate an action node, is unable to identify the value of a parameter, or fail to execute an action, the system will put the node into the agenda.
+% subsection the_development_of_plangraph (end) 
+
+% section construction_and_development_of_the_model (end)
+
+% chapter knowledge_updating (end)
 
 
 

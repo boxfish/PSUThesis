@@ -1,8 +1,12 @@
 %!TEX root = ../BoYu-Dissertation.tex
 \graphicspath{{Figures/}}
 
-\chapter{Our Approach: Modeling the Filed of Work} % (fold)
-\label{cha:field_of_work}
+\chapter{Our Approach: Knowledge Representation} % (fold)
+\label{cha:knowledge_reprsentation}
+
+Two parts:
+the field of work
+the events
 
 We employ the computational theory of SharedPlan \cite{grosz1996collaborative,Grosz98theevolution} to represent collaborative activities as shared plans, and then use this model of activities to derive the knowledge about local scopes of work and dependencies. In the following parts of this chapter, we first describe the basis and different components of the SharedPlan model, then describe how the different components of the filed work can be represented using the PlanGraph model.
 
@@ -169,36 +173,9 @@ $produce(a, r)$ &  $a$ is a subsidiary action node under the parameter node repr
 \end{center}
 %\end{table}%
 
-\section{Construction and Development of the Model} % (fold)
-\label{sec:construction_and_development_of_the_model}
-\subsection{The Development of PlanGraph} % (fold)
-\label{sub:the_development_of_plangraph}
-Considering the collaborative activity as a process from a partial SharedPlan to a full SharedPlan among the participants, the PlanGraph, which is used to represent the collaborative activity, should also be considered as dynamically developed. To facilitate the development of PlanGraph, the PlanGraph model provides the reasoning mechanisms to decide how the interaction between the system and human participants, or between the human participants, influences the state of collaborative activity and update the changes in the PlanGraph. In general, the reasoning mechanism in PlanGraph model includes two steps: the plan explanation and the plan elaboration.
 
-\subsubsection*{Plan Explanation}
-Participants in a collaborative activity need to interact with each other to contribute to the activity. It is through the communication between the participants that collaboration can be enacted. Therefore, the input of an agent can be treated as the way that the agent tries to express their intentions to the other agents in the collaborative activity. Plan explanation is the step where the system attempts to explain how the meanings of the new piece of interaction relate to the current PlanGraph. In general, the new input is said to be meaningfully merged with the current collaboration context if one of the following conditions is satisfied:
 
-\begin{enumerate}
-\item The new input provides a piece of information that helps the agents to assign/change a value to a parameter in the current PlanGraph. 
-\item The new input provides more details on the performance of a complex action in the PlanGraph. For example, the user suggests performing a sub-action or identifying a parameter in order to complete the action.
-\item The new input helps to establishing necessary mental states for a collaborative action. In this case, the agent's new input serves as an indicator of the speaker's mental attitudes, such as confirmation or refusal towards certain states of fairs. 
-\end{enumerate}
-
-If the new user input can be successfully explained in current PlanGraph, it will be merged to update the PlanGraph accordingly, i.e. the contextual information about the ongoing activity is changed.
-
-\subsubsection*{Plan Elaboration}
-The main goal in elaboration stage is to advance the collaborative activity from the system side based on the change from the new input. After the interpretation process, the context of the activity is changed. Therefore, the system needs to elaborate the PlanGraph to accommodate the changes. The elaboration process begins with the root node of the PlanGraph and uses the depth-first traverse to visit the whole plan based on reasoning rules associated with PlanGraph model. The elaboration ends when no more parts of the PlanGraph can be further elaborated.
-
-The system can elaborate the PlanGraph in several ways. First, the system can contribute to the collaborative activity by retrieving a recipe for an action from the knowledge base. Second, the system can execute the basic actions that can be performed without further inputs from other human agents. Lastly, the system can identify the value for a parameter by retrieving the default or suggested values from the knowledge base. 
-
-After the elaboration process, the PlanGraph again reflects the current state of the collaborative activity. Therefore, the information from the PlanGraph can be used by the system to represent the current state of the activity context. 
-
-This elaboration process also attempts to discover all the open nodes in the PlanGraph that might be addressed later in the collaboration, such as unidentified parameters, unperformed actions, conflicting beliefs, missing details, or ambiguous choices. These possible open nodes are   stored in an agenda to include all the possible attentional states that require further development in the collaboration. During the elaboration process, when the system encounters some problem to elaborate an action node, is unable to identify the value of a parameter, or fail to execute an action, the system will put the node into the agenda.
-% subsection the_development_of_plangraph (end) 
-
-% section construction_and_development_of_the_model (end)
-
-% chapter field_of_work (end)
+% chapter knowledge_reprsentation (end)
 
 
 

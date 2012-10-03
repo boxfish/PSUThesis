@@ -3,7 +3,9 @@
 \chapter{Understanding Awareness} % (fold)
 \label{cha:understanding_awareness}
 
-\fxfatal{Add a general diagram to layout the framework, discuss existing work in the framework, add a table to compare and summarize the literature}
+\section{Overview} % (fold)
+\label{sec:overview}
+\fxerror{Add a general diagram to layout the framework, discuss existing work in the framework, add a table to compare and summarize the literature}
 
 The concept of awareness has come to play a central role in both social and technical research in CSCW. However, what in CSCW labeled as `awareness' has little in common, besides the fact that it represents some aspect of human interaction that is important for successful collaboration \cite{schmidt2002a}. In a broad sense, two types of awareness can be distinguished in the CSCW research area: \emph{social awareness} and \emph{task-oriented awareness} \cite{prinz1999a,schmidt2002a}.
 
@@ -16,6 +18,8 @@ In this study, we focuses on the \textbf{task-oriented aspect of awareness}, bec
 Within the scientific investigation into task-oriented awareness phenomena in collaboration, two lines of research can be identified. On one hand is the research aiming to establish conceptual understanding of the awareness phenomena from the cognitive and social aspects \cite{Salmon2008}, and on the other hand is an increasing bearing on system design and development in particular technologies to promote awareness \cite{rittenbruch2009a}. Although our work has an emphasis on the second aspect, i.e. the supportive technologies to promote awareness, we believe that a solid conceptualization of awareness phenomena in collaboration is extremely important for awareness promotion. System designers need to know what awareness might comprise and also how it is built and maintained in order to identify the specific awareness features they want to support \cite{Stanton2006}. 
 
 As a result, before we move to the computational issues for awareness promotion, this chapter attempts to identify which of the existing theories and conceptualization of awareness in the literature is the most suitable for understanding the awareness phenomena in real world complex collaborative activities. A review and critique of what is currently known on the concept of awareness at both individual and team levels is presented, following which an integrated conceptual framework of awareness phenomena in complex collaborative activities is presented. In next chapter, we will show how such a conceptual framework helps us to evaluate existing computational awareness models and systems, and informs our design of the computational framework for awareness promotion.
+% section overview (end)
+
 
 \section{Situation Awareness}
 \label{sec:awareness_in_individuals}
@@ -134,7 +138,7 @@ The concept of distributed team awareness has been investigated by the authors i
 % section awareness_in_collaboration (end)
 
 \section{An Integrated Conceptual Model of Awareness} % (fold)
-\label{sec:discussion}
+\label{sec:integrated_conceptual_model_of_awareness}
 By reviewing the existing theories and conceptualizations of awareness, we believe that, instead of adopting one particular viewpoint, a suitable conceptual model for understanding the awareness phenomena in real world complex collaborative activities requires the integration of multiple constructs in the literature. Specifically, we identify the following requirements:
 
 \begin{enumerate}
@@ -224,7 +228,7 @@ At the individual level, each team member develops his/her own awareness in the 
    \label{fig:individual_processes}
 \end{figure}
 
-\fxfatal{The individual processes need to be modified.}
+\fxerror{The individual processes need to be modified.}
 \begin{enumerate}
 	\item \emph{Perception}. The process of perception is very similar to the concept in the perceptual cycle model. An actor must first be able gather perceptual information in the surrounding situation, and be able to selectively attend to those elements that are most relevant for the task at hand. The only difference is that the perception is constrained by the actor's local scope, i.e. he/she can only perceive the information about the environment, acitivities, or other objects defined in his/her local scope.
    \item \emph{Comprehension}. Comprehension refers to the mental activities where perceived awareness information is processed for the purpose of understanding its meaning in the context of the individual's goals and activities.
@@ -239,7 +243,7 @@ At the individual level, each team member develops his/her own awareness in the 
 \label{ssub:team_processes}
 Beyond the individual processes of awareness development, our conceptual model allows the awareness propagation across multiple actors in a team. In general, we can identify three basic trajectories of how the propagation can work: (1) via explicit communication, (2) via implicit feed-through via action execution, and (3) via the manifestation on boundary objects in overlapping local scopes.
 
-\fxfatal{Elaborate on how each approach in more detail}
+\fxerror{Elaborate on how each approach in more detail}
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -278,7 +282,7 @@ Figure \ref{fig:conceptual_framework} shows the integrated conceptual framework 
    \label{fig:conceptual_framework}
 \end{figure}
 
-\fxfatal{This example needs to be revised and elaborated!}
+\fxerror{This example needs to be revised and elaborated!}
 Figure \ref{fig:awareness_process} demonstrates how the awareness processes work on top of the three constructs. In the beginning, Actor 1 perceives some unexpected event happening in the environment, and attempts to interpret it as whether and how it can impact the activities within her local scope of work. After understanding the event, she associates it with a state change of Activity 1. Furthermore, she predicts how the state change of this activity will impact other activities because of the dependencies among them. After Actor 1’s interpretation, the event is likely to impact another activity (Activity 2), and Actor 1 decides to propagate it. The propagated event falls into Actor 2’s local scope of work. Upon receiving this interpretation from Actor 1, Actor 2 first needs to understand where this event comes from by backtracking the interpretation, and evaluate how this event will impact his own line of work, which leads to a new projected state change of Activity 3. The similar process then is propagated to Actor 3’s local scope of work. In this way, the team’s awareness of the initial external event is collaborative developed as the relevant actors gradually attach their interpretations to it. 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -296,6 +300,6 @@ The proposed conceptual framework shows the capabilities to satisfy the three re
 	\item Last, our structure of the field of work is based on the activity theory, which enables the integration of awareness and activity.  
 \end{enumerate}
 % subsection discussion (end)
-% section discussion (end)
+% section sec:integrated_conceptual_model_of_awareness (end)
 
 % chapter understanding_coordination (end)
