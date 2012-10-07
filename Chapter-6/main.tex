@@ -1,11 +1,42 @@
 %!TEX root = ../BoYu-Dissertation.tex
 \graphicspath{{Figures/}}
 
-\chapter{Our Approach: Updating Knowledge Representation} % (fold)
+\chapter{Our Approach: Knowledge Updating} % (fold)
 \label{cha:knowledge_updating}
+1. initial construction of PlanGraph, local scopes based on roles, 
+2. intention update
+3. belief update using Bayesian
+
+both update the knowledge and enrich the events
+
+
+how to update depends on what needs to be updated?
+1. how to update capabilities? actor's beliefs, reasoning by system
+2. how to update intentions? actor's beliefs, reasoning by system
+3. how to update states? Bayesian network
+4. what else?
+
+system's comprehension: update the knowledge
+system's projection: enrich the events
+
+
+conseqence of external events:
+Direct change to entities and relations
+triggering events
+the effect of actions
+
+internal events:
+Intentions
+beliefs about capability, state, 
+contribute to plan or replan
+
 
 \section{Construction and Development of the Model} % (fold)
 \label{sec:construction_and_development_of_the_model}
+Therefore, the development of a collaborative activity can be represented as a dynamic process of constructing a PlanGraph. Before the collaboration begins, the PlanGraph is empty. As agents perform some actions to fulfill the shared goal, new plan nodes are introduced to the PlanGraph. If the root action in the PlanGraph is complex, agents will decompose it by selecting a recipe collaboratively. Then, agents move their attention to the parameters and sub-actions. These sub-actions may themselves be complex, and will become the subjects of further elaboration to form a sub-plan for performing. In the course of development, the PlanGraph will store the mental states of the agents toward each action node and update them in corresponding slots. 
+
+
+
 different ways to do it:
 
 1. the development of algorithms and heuristics for inferring mental state on the basis of observed actions While these algorithms and heuristics are domain independent, they require much rich domain-specific knowledge to work.

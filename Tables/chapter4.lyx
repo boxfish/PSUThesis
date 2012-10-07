@@ -1,0 +1,538 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+awarness support v.s.
+ awareness promotion 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="3">
+<features booktabs="true" islongtable="true" longtabularalignment="center">
+<column alignment="left" valignment="top" width="1.1in">
+<column alignment="left" valignment="top" width="2.2in">
+<column alignment="left" valignment="top" width="2.2in">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Awareness processes
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Awareness support
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Awareness promotion
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Percepetion
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Space-based
+\emph default
+ models: 
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ shares information in a common space
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ monitors the shared space to perceive information
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+Event-based
+\emph default
+ models: 
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ subscribes to events based on interests
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ filters out events based on human subscription 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ uses the information to update its knowlege representation
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ uses its knowledge representation to infer who the information is relevant
+ to, and present it only to the relevant actors
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+user
+\emph default
+ can modify the computer's knowledge representation 
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Comprehension
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Space-based
+\emph default
+ and 
+\emph on
+event-based
+\emph default
+ models:
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ links the awareness information to the context of its origin
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ infers the connection between the context of origin and his/her work context
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ connects the awareness information to the human's work context 
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ interprets the information, and sends the result to the computer
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ updates its knowledge representaton based on human interpretation
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Projection
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Space-based
+\emph default
+ and 
+\emph on
+event-based
+\emph default
+ models:
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ performs the projection on the own
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ performs the projection based on its knowledge representation
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ presents the projection results to the human
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ reviews and modifies the computer's reasoning
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ updates its knowledge representation based on human modification
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Feedthrough
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Space-based
+\emph default
+ models:
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ broadcasts the effect to everyone
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+Event-based
+\emph default
+ models:
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ notified the effect to all subscribers
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ uses the effect to update its knowlege representation
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ uses its knowledge representation to decide on who should receive the effect
+ and notify them
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ can control who can see the effects of his/her activities
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Manifestation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Space-based
+\emph default
+ models: 
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ creates an annotation 
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ makes it visible to everyone
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+Event-based
+\emph default
+ models:
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ indicates his/her intention as an event
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ notified the event to all subscribers
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ generates awareness information indicating some aspects of his/her individual
+ awareness
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+human
+\emph default
+ can control who can see the generated awareness information
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ uses the generated awareness information to update its knowlege representation
+\end_layout
+
+\begin_layout Itemize
+the 
+\emph on
+computer
+\emph default
+ uses its knowledge representation to decide on who should receive the informati
+on and notify them
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
