@@ -11,17 +11,17 @@ Our approach to supporting awareness in complex, distributed geo-collaborative a
    \item By conceptualizing the awareness phenomena in complex, distributed collaborative activities as a continuous development of awareness knowledge through a variety of integrated cognitive and social processes, it is very important to consider the awareness support from a collective perspective and provide integrated support for the whole awareness development cycle.
 \end{enumerate}
 
-This chapter provides an overview of our approach. The general design principle of our approach is to emphasize the active role of computer system to not merely support, but rather mediate awareness in complex collaborative activities. In the following, we first describe the design concept of awareness mediation, and then describe the major components of our awareness mediation framework.
+This chapter provides an overview of our approach. The general design principle of our approach is to emphasize the active role of computer system to not merely support, but rather promote awareness in complex collaborative activities. In the following, we first describe the design concept of awareness promotion, and then describe the major components of our awareness promotion framework.
 
-\section{From Awareness Support to Awareness Mediation} % (fold)
+\section{From Awareness Support to Awareness Promotion} % (fold)
 \label{sec:from_support_to_promotion}
-In order to address the design challenges of scaling up and integrated support, we argue that the computer system needs to play an active role to mediate awareness among collaborators. Our awareness promotion approach has its basis in two basic parent disciplines:  artificial intelligence (AI) and human-computer interaction (HCI). 
+In order to address the design challenges of scaling up and integrated support, we argue that the computer system needs to play an active role to promote awareness among collaborators. Our awareness promotion approach has its basis in two basic parent disciplines:  artificial intelligence (AI) and human-computer interaction (HCI). 
 \begin{enumerate}
-   \item From AI, we consider the computer as \emph{an active agent} \cite{Brown99activeuser}, situated within the collaborative environment that adaptively sense, acts, and reacts within this environment over time, to pursue its goal of mediating awareness.
+   \item From AI, we consider the computer as \emph{an active agent} \cite{Brown99activeuser}, situated within the collaborative environment that adaptively sense, acts, and reacts within this environment over time, to pursue its goal of promoting awareness.
    \item From HCI, we act on the premise that computers and humans have fundamentally asymmetric abilities \cite{Dalal1994}; therefore, we focus on developing divisions of responsibility that exploit the strengths and overcome the weaknesses of both, and utilizing interaction techniques to facilitate effective \emph{human-computer collaboration} \cite{Terveen1995}.
 \end{enumerate}
 
-\subsection{The role of computer: from tool to mediator} % (fold)
+\subsection{The role of computer: from tool to actor} % (fold)
 \label{sub:the_role_of_computer}
 In existing awareness systems, the role of computer can be described in the metaphor of `tool'. The `tool' perspective emphasizes the human achieves his/her goal through the computer application \cite{Bodker1997}. In term of supporting awareness, it means the human actors use the computer to achieve awareness. The tool perspective emphasizes the control on the human user's side, and how the computer is used to achieve awareness depends on the human user's own knowledge. For example, in space-based systems, the system relies on the user to monitor the shared space to perceive awareness information; in event-based systems, the user needs to explicitly express his/her interests so that the computer can filter out events. 
 
@@ -41,19 +41,19 @@ While considering the computer as an active actor to support awareness, it does 
 
 In our approach, we also base on these two premises to propose supporting the awareness development in distributed, complex collaboration as a human computer collaborative system. While human actors still need to undergo the cognitive processes to develop individual awareness, and use it to make decision and perform activities in their own local scopes; the computer system take the responsibility to maintain a collective picture of the whole field of work, and utilize this knowledge to facilitate the various cognitive and social awareness processes among human actors.
 
-In sum, we use the term `awareness mediation' to define the paradigm of awareness support that follow these two design principles: (1) the computer plays the role as an `actor' actively engaged in the collaborative activities along with human actors, maintains a collective knowledge representation of the whole field of work, and uses it to adapt behaviors to support the various awareness processes; (2) the computer provides adequate interaction techniques to allow the human actors to collaborate with it to develop awareness at both the individual and team level. 
+In sum, we use the term `awareness promotion' to define the paradigm of awareness support that follow these two design principles: (1) the computer plays the role as an `actor' actively engaged in the collaborative activities along with human actors, maintains a collective knowledge representation of the whole field of work, and uses it to adapt behaviors to support the various awareness processes; (2) the computer provides adequate interaction techniques to allow the human actors to collaborate with it to develop awareness at both the individual and team level. 
 
-Table \ref{tab:awareness_support_vs_mediation} illustrates the major differences between the traditional awareness support paradigm and awareness mediation in addressing the different awareness processes. From the table, we can clearly see some of the distinguishing characteristics of awareness mediation. 
+Table \ref{tab:awareness_support_vs_promotion} illustrates the major differences between the traditional awareness support paradigm and awareness promotion in addressing the different awareness processes. From the table, we can clearly see some of the distinguishing characteristics of awareness promotion. 
 
 \begin{enumerate}
-   \item First, the awareness mediation approach emphasizes the computer's knowledge representation of the field of work, and its relationship to awareness information. One one hand, the awareness information is used to update the computer's knowledge representation so that it matches the current state of the field of work. On the other hand, the knowledge representation is used by the computer in almost every awareness process to perform a variety of reasoning tasks to support awareness.
-   \item Second, comparing with the traditional awareness support, the awareness mediation approach shows much more frequent interactions between the computer and the human users. Each awareness process involves both the computer's reasoning and the human's cognition, as well as the interaction to combine them together. 
+   \item First, the awareness promotion approach emphasizes the computer's knowledge representation of the field of work, and its relationship to awareness information. One one hand, the awareness information is used to update the computer's knowledge representation so that it matches the current state of the field of work. On the other hand, the knowledge representation is used by the computer in almost every awareness process to perform a variety of reasoning tasks to support awareness.
+   \item Second, comparing with the traditional awareness support, the awareness promotion approach shows much more frequent interactions between the computer and the human users. Each awareness process involves both the computer's reasoning and the human's cognition, as well as the interaction to combine them together. 
 \end{enumerate} 
 
 {\footnotesize
 \begin{longtable}{>{\raggedright}p{1.1in}>{\raggedright}p{2.2in}>{\raggedright}p{2.2in}}
 \toprule 
-\textbf{Awareness processes} & \textbf{Awareness support} & \textbf{Awareness mediation}\tabularnewline
+\textbf{Awareness processes} & \textbf{Awareness support} & \textbf{Awareness promotion}\tabularnewline
 \midrule 
 Percepetion & \emph{Space-based} models: 
 \begin{itemize}[nosep]
@@ -132,24 +132,24 @@ its knowlege representation
 who should receive the information and notify them\end{itemize}
 \tabularnewline
 \bottomrule
-\caption{Awareness support v.s. awareness mediation}
-\label{tab:awareness_support_vs_mediation}
+\caption{Awareness support v.s. awareness promotion}
+\label{tab:awareness_support_vs_promotion}
 \end{longtable}
 }
 
-We believe these distinguishing characteristics of awareness mediation approach provide the potential to address the two design challenges, i.e. handling the scaled up complexity and dynamics, and providing integrated awareness support. First, the awareness mediation approach utilizes the computational knowledge representation to model the field of work and offloads some of the representation and reasoning efforts from the human to the computer. Hence, it can  handle more complex situations than existing awareness models. Meanwhile, the knowledge representation is dynamically updated to reflect the current state of the field of work, which allows it to handle increased level of dynamics. Second, as the computer is equipped with the computational knowledge representation and reasoning capabilities, it allows the computer to provide support on the higher level of awareness processes.
+We believe these distinguishing characteristics of awareness promotion approach provide the potential to address the two design challenges, i.e. handling the scaled up complexity and dynamics, and providing integrated awareness support. First, the awareness v approach utilizes the computational knowledge representation to model the field of work and offloads some of the representation and reasoning efforts from the human to the computer. Hence, it can  handle more complex situations than existing awareness models. Meanwhile, the knowledge representation is dynamically updated to reflect the current state of the field of work, which allows it to handle increased level of dynamics. Second, as the computer is equipped with the computational knowledge representation and reasoning capabilities, it allows the computer to provide support on the higher level of awareness processes.
 % subsection human_computer_collaboration (end)
 % section from_support_to_promotion (end)
 
-\section{The Awareness Mediation Framework} % (fold)
-\label{sec:awareness_mediation_framework}
-To operationalize the awareness mediation approach, we propose a computational awareness mediation framework. Following our conceptualization of the awareness phenomena in Section \ref{sec:integrated_conceptual_model_of_awareness}, our approach is built on top of two major knowledge components: a computational representation of the field of work based on the SharedPlan theory, and an event-driven model of the awareness processes. Then the computer system's behaviors to mediate awareness are embedded in the interaction between these two components. On one hand is how the computer constructs and develops the knowledge representation of the field of work within the event-driven processes, and on the other hand is how the knowledge representation is used to mediate these event-driven awareness processes.
+\section{The Awareness Promotion Framework} % (fold)
+\label{sec:awareness_promotion_framework}
+To operationalize the awareness promotion approach, we propose a computational awareness promotion framework. Following our conceptualization of the awareness phenomena in Section \ref{sec:integrated_conceptual_model_of_awareness}, our approach is built on top of two major knowledge components: a computational representation of the field of work based on the SharedPlan theory, and an event-driven model of the awareness processes. Then the computer system's behaviors to promote awareness are embedded in the interaction between these two components. On one hand is how the computer constructs and develops the knowledge representation of the field of work within the event-driven processes, and on the other hand is how the knowledge representation is used to promote these event-driven awareness processes.
 
-This section provides an overview of the awareness mediation framework and discusses the major design choices, but leave the details to the next few chapters.
+This section provides an overview of the awareness promotion framework and discusses the major design choices, but leave the details to the next few chapters.
 
 \subsection{Computational representation of the field of work} % (fold)
 \label{sub:computational_representation_of_the_field_of_work}
-The nature of awareness phenomena in distributed, complex collaboration as we conceptualized in Section \ref{sec:integrated_conceptual_model_of_awareness}, and the goal of mediating awareness impose several requirements for the knowledge representation of the field of work:
+The nature of awareness phenomena in distributed, complex collaboration as we conceptualized in Section \ref{sec:integrated_conceptual_model_of_awareness}, and the goal of promoting awareness impose several requirements for the knowledge representation of the field of work:
 
 \begin{enumerate}
    \item The knowledge representation should provides a precise model that can capture knowledge about all the three constructs that compose the field of work, i.e. the basic elements of human activities, the local scope of work for each actor, and the various dependency relationships among the activities. 
@@ -230,26 +230,26 @@ Figure \ref{fig:example_awareness_traj} shows an example of how these event-driv
 % subsection event_driven_awareness_processes (end)
 
 \subsection{The framework} % (fold)
-\label{sub:the_awareness_mediation_framework}
-Built on top of the computational representation of the field of work, and the event-driven model of the awareness processes, our awareness mediation framework focuses on the interaction between these two components (Figure \ref{fig:awareness_mediation_framework}). 
+\label{sub:the_awareness_promotion_framework}
+Built on top of the computational representation of the field of work, and the event-driven model of the awareness processes, our awareness promotion framework focuses on the interaction between these two components (Figure \ref{fig:awareness_promotion_framework}). 
+
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=5.5in]{awareness_mediation_framework.pdf} 
-   \caption{Awareness mediation framework}
-   \label{fig:awareness_mediation_framework}
+   \includegraphics[width=5.5in]{awareness_promotion_framework.pdf} 
+   \caption{Awareness promotion framework}
+   \label{fig:awareness_promotion_framework}
 \end{figure}
 
 On one hand is how the computer constructs and develops the knowledge representation of the field of work within the event-driven processes. As we argued in Section \ref{sub:computational_representation_of_the_field_of_work}, one of the requirements for the computational representation of the field of work is that it should support dynamic adaptation so that it always reflects the current state of the changing field of work. We utilize the \emph{events} to achieve this goal. As human actors use a subset of the events to develop their individual awareness, the system processes every event to develop its knowledge representation of the whole field of work. The events can be generated by sensing the occurrences in real world, or they can be the results of human actors' externalization of their individual awareness. All of these events will be processed by the computer system to update its knowledge representation of the field of work.
 
-On the other hand, the knowledge representation is used by the computer system to mediate the awareness processes. Following the design principle of human-computer collaboration emphasizing the appropriate partition of responsibility between human actors and computer systems (Section \ref{sub:human_computer_collaboration}), the mediation role of the computer system is to strike a balance between the system's reasoning capabilities and providing visual and interactive support. With the computational knowledge about the field of work, the system can offload some of the reasoning effort from the human actors. Meanwhile, the system knowledge can also be visualized to help the human actors perform their part of the work or overwrite the computer's behaviors. 
+On the other hand, the knowledge representation is used by the computer system to promote the awareness processes. Following the design principle of human-computer collaboration emphasizing the appropriate partition of responsibility between human actors and computer systems (Section \ref{sub:human_computer_collaboration}), the promotion role of the computer system is to strike a balance between the system's reasoning capabilities and providing visual and interactive support. With the computational knowledge about the field of work, the system can offload some of the reasoning effort from the human actors. Meanwhile, the system knowledge can also be visualized to help the human actors perform their part of the work or overwrite the computer's behaviors. 
 
-As shown in Figure \ref{fig:awareness_mediation_framework}, we exclude the event generation process, i.e. the transformation from real world occurrences to events; and the action process, i.e. the transformation from awareness to real world occurrences, from the scope of awareness mediation in this study. It does not mean that these processes are less important or they can be separated from the rest. Rather, we believe these processes are relatively standalone processes that are out of the scope of this study, and therefore we do not claim contributions to these processes. 
+As shown in Figure \ref{fig:awareness_promotion_framework}, we exclude the event generation process, i.e. the transformation from real world occurrences to events; and the action process, i.e. the transformation from awareness to real world occurrences, from the scope of awareness promotion in this study. It does not mean that these processes are less important or they can be separated from the rest. Rather, we believe these processes are relatively standalone processes that are out of the scope of this study, and therefore we do not claim contributions to these processes. 
 
-The next four chapters provide details of this awareness mediation framework. Chapter \ref{cha:knowledge_reprsentation} describes the two knowledge components, i.e. the computational representation of the field of work and the specification of events. Chapter \ref{cha:knowledge_updating} then presents the mechanisms for updating the knowledge representation with events. Chapter \ref{cha:mediate_individual_awareness_processes} describes the mediation of individual awareness processes, and Chapter \ref{cha:mediate_awareness_propagation} presents the mediation behaviors of awareness propagation.
-
-% subsection the_awareness_mediation_framework (end)
-% section awareness_mediation_framework (end)
+The next two chapters provide details of this awareness promotion framework. Chapter \ref{cha:knowledge_reprsentation} describes the two knowledge components, i.e. the computational representation of the field of work and the specification of events, and the mechanisms for updating the knowledge representation with events. Chapter \ref{cha:promoting_event_driven_awareness} describes the promotion of individual awareness processes and awareness propagation.
+% subsection the_awareness_promotion_framework (end)
+% section awareness_promotion_framework (end)
 % chapter our_approach_overview (end)
 
 
