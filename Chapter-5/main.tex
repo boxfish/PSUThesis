@@ -1,7 +1,7 @@
 %!TEX root = ../BoYu-Dissertation.tex
 \graphicspath{{Figures/}}
 
-\chapter{Our Approach: Knowledge Representation and Updating} % (fold)
+\chapter{Knowledge Representation and Updating} % (fold)
 \label{cha:knowledge_reprsentation_and_updating}
 In this chapter, we describe the two major knowledge components: the computational representation of the field of work, and the events. We first provides a formalization of the field of work using a first-order logic, augmented with several modal operators and meta predicates. The formalization is not intended to be directly implemented, rather it is intended to be used as a specification for designing knowledge representation and reasoning capabilities. We then discuss how the formalization can be computational represented using the PlanGraph model. Then, we discuss the specification and typology of events in our approach.
 
@@ -531,29 +531,61 @@ Composite events are a special type of events that can consist of several other 
 % subsection event_types (end)
 % section representing_events (end)
 
-\section{Knowledge updating process} % (fold)
+\section{The knowledge updating process} % (fold)
 \label{sec:knowledge_updating_process}
-Each time when the system detects that there is a new event, it triggers the knowledge updating process to decide how it influences the state of the field of work and update the correspondent in the PlanGraph. In general, the knowledge updating is a four-step process of \emph{association}, \emph{assessment}, \emph{elaboration}, and \emph{propagation}.
+Each time when a new event is input into the system, it triggers the knowledge updating process. The knowledge updating process performs two important tasks: (1) it decides on how the input event influences the state of the field of work and updates the correspondent in the PlanGraph model; (2) it augments the event representation by establishing the links between the event and the corresponding entities in the PlanGraph, and records the development of the event based on the system's reasoning.
+
+\paragraph*{Updating the PlanGraph} % (fold)
+\label{par:updating_the_plangraph}
+In general, the knowledge updating is a four-step process of \emph{association}, \emph{assessment}, \emph{elaboration}, and \emph{propagation}, through which the knowledge representation of the field of work, i.e. the PlanGraph model is updated (Figure \ref{fig:updating_plangraph}).
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{updating_plangraph.pdf} 
+	\caption{The knowledge updating process}
+	\label{fig:updating_plangraph}
+\end{figure}
+
 \begin{enumerate}
-	\item \emph{Association}. The knowledge updating starts with the association of an event with the field of work. In this step, the system searches the current PlanGraph model for an appropriate match between the input event and the entities or relations in the field of work. If a match is found, the system uses the information stored in the event to update the PlanGraph.
-	\item \emph{Assessment}. The second step is to assess how the event can contribute to new changes in the collaborative activity. It may trigger new actions that need to be added to the field of work, or change the current state of existing actions. 
-	\item \emph{Elaboration}. Based on the assessment of new changes, the elaboration step is to reason about the system's expectation on any new actions that need to be added to the field of work, or what actors will be potentially involved in these new actions. This is usually performed with domain specific knowledge, such as recipes of performing an action, and the specification of role responsibility.
-	\item \emph{Propagation}. The propagation step focuses on evaluating how the current change can be possibly propagated other actions in the field of work because of the dependencies among them. 
+	\item \emph{Association}. The knowledge updating starts with the association of an event with the PlanGraph model. In this step, the system searches the PlanGraph for an appropriate match between the input event and the entities or relations in the field of work. If a match is found, the system uses the information stored in the event to update the corresponding entities or relations in the PlanGraph.
+	\item \emph{Assessment}. The second step is to assess how the event can contribute to new changes in the collaborative activity. It may trigger new actions that need to be added to the PlanGraph, or change the current state of existing actions. 
+	\item \emph{Elaboration}. Based on the assessment of new changes, the elaboration step is to reason about the system's expectation on any new actions that need to be added to the PlanGraph model, or what actors will be potentially involved in these new actions. This is usually performed with domain specific knowledge, such as recipes of performing an action, and the specification of role responsibility.
+	\item \emph{Propagation}. The propagation step focuses on evaluating how the current change can be possibly propagated other actions in the PlanGraph model because of the dependencies among them. 
 \end{enumerate}
 
 The four steps of knowledge updating process share some commonality with the human actor's awareness development processes. The \emph{association} and \emph{assessment} steps are very similar to the \emph{comprehension} process, where the actor comprehend or understand the relevance of awareness information in relation to its tasks and goals. The \emph{elaboration} and \emph{propagation} can be considered as the projection of the states in the near future, as the actor forecasts likely future states in the situation. In this way, we can think of the knowledge updating process as the computer system's awareness development process. The only difference is that, as the human actor usually only needs to be aware of things in his/her local scope of work, the computer system aims to possesses the knowledge of the whole field of work through the knowledge updating.
 
 One thing to note is that not every event will be processed through all the four steps. Some external event may not directly link to any entity in the field of work, or the system does not have the complete knowledge to assess its implication on the field of work. In such case, the event will be passed by to the human actors for interpretation. The result of human actor's interpretation as a new internal event then starts a new round of knowledge updating, during which the system's knowledge is updated.
+% paragraph updating_the_plangraph (end)
 
-As we emphasize in the beginning, the knowledge updating is a two-way process, i.e. while the PlanGraph model of the field of work is updated by the new event, the event itself is also developed in the system's reasoning processes. For example, in the \emph{assessment} step, an external event \emph{`TrafficBlocked'} causes the system to believe that the action to delivery a resource to an actor cannot be achieved, i.e. a new internal event describing the system's belief about the state change on the delivery action can be derived. Later, in the \emph{propagation} step, the system may generate a new internal event to indicate that because of the state change on the delivery action, the actor's action that is waiting for the resource delivery will also be impacted. In this way, the original event is derived into a chain of events as the knowledge updating process proceeds.
+\paragraph*{Updating the event representation} % (fold)
+\label{par:updating_the_event_representation}
+As we emphasize in the beginning, while the PlanGraph model of the field of work is updated by the new event, the event itself is also developed in the system's reasoning processes. For example, in the \emph{assessment} step, an external event \emph{`TrafficBlocked'} causes the system to believe that the action to delivery a resource to an actor cannot be achieved, i.e. One one hand, this causes the system to modify the state of the delivery action in the PlanGraph model. Meanwhile, the system generates a new internal event describing the system's belief about the state change on the delivery action. Later, in the \emph{propagation} step, the system may generate a new internal event to indicate that because of the state change on the delivery action, the actor's action that is waiting for the resource delivery will also be impacted. In this way, the original event is derived into a chain of events as the knowledge updating process proceeds.
 
-To recording the development of an event in the knowledge updating process, we define an \emph{event chain} $\Theta$ as an ordered sequence of events: $\Theta=(e_0, e_1, e_2, ...)$. In the beginning of the knowledge updating process, there may be only one event $e_0$, i.e the original external event in the event chain $\Theta$. As the knowledge updating proceeds, more events are added to the chain. In the assessment step, the system may generate derived events indicating the system's belief on how the field of work has been changed due to the original events. In the propagation step, the system predicates the future state changes, and attaches more anticipatory events to the chain. Figure \ref{fig:knowledge_updating} shows the knowledge updating process with the development of the event chain.
+To record the development of an event in the knowledge updating process, we define an \emph{event chain} $EC$ as an ordered sequence of events: $EC=(e_0, e_1, e_2, ...)$. In the beginning of the knowledge updating process, there may be only one event $e_0$, i.e the original external event in the event chain $EC$. As the knowledge updating proceeds, more events are added to the chain. In the assessment step, the system may generate \emph{derived events} indicating the system's belief on how the field of work has been changed due to the original events. In the propagation step, the system predicates the future state changes, and attaches more \emph{anticipatory events} to the chain. Figure \ref{fig:knowledge_updating} shows the knowledge updating process with the development of the event chain.
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
 	\includegraphics{knowledge_updating.pdf} 
-	\caption{The knowledge updating process}
+	\caption{The development of an event chain}
 	\label{fig:knowledge_updating}
 \end{figure}
+
+Within the structure of our event representation (Section \ref{sub:defining_events}), the \emph{event chain} is achieved by three additional attributes in the \emph{open content} section of an event: 
+
+\begin{enumerate}
+ 	\item A text string (\emph{label}) indicates the functional role of the event in the event chain, i.e. whether the event is an \emph{original} event, a \emph{derived} event, or an \emph{anticipatory} event.
+ 	\item An event reference (\emph{prevEvent}) points to its preceding event in the event chain. It can be optional when the current event is an \emph{original} event, but required for \emph{derived} and \emph{anticipatory} events.
+ 	\item An event reference (\emph{nextEvent}) points to its succeeding event in the event chain. It can be optional if the current event is the end of an event chain.
+ \end{enumerate} 
+
+ Figure \ref{fig:event_chain_structure} shows how the information about the event chain is included in an event's representation. 
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{event_chain_structure.pdf} 
+	\caption{Event structure in an event chain}
+	\label{fig:event_chain_structure}
+\end{figure}
+% paragraph updating_the_event_representation (end)
 
 \subsection{Association} % (fold)
 \label{sub:association}

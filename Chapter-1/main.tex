@@ -48,7 +48,9 @@ Such an emergency situation usually involves multiple individuals and organizati
 
 \subsection{Challenges in coordinating geo-collaboration} % (fold)
 \label{sub:challenges_in_coordination}
-This scenario clearly demonstrates the three major challenges to coordinate complex geo-collaborative activities: the complexity and contingency of collaborative activities, and the involvement of geographical space.
+This scenario clearly demonstrates two major challenges to support awareness in complex geo-collaborative activities: the high level complexity and contingency of collaborative activities.
+
+\fxwarning{This section needs to be updated to more focus on the awareness support.}
 
 \subsubsection{High level of complexity} % (fold)
 \label{ssub:high_level_of_complexity}
@@ -67,15 +69,6 @@ The contingency of dependencies can be clearly evidenced in the motivating scena
 
 As a result, we believe that the contingency in the interdependence of work represents a major feature of complex geo-collaborative work, but existing coordination tools have not taken this into account seriously. When a collaborative activity involves an extended period of work with volatile dependencies, the potential dependencies (i.e. the collective set of all dependencies that could potentially happen during the whole activity) are a quite large number, but the actual dependencies (i.e. those dependencies that are live and need to be coordinated) are rather a relatively small number. Coordination tools could play a more effective role if they target coordination of actual dependencies, rather than potential dependencies. However, identifying the set of actual dependencies at any given moment is difficult due to the fact that such dependencies are unknown a priori and they emerge as a consequence of the evolving activity. It would be highly desirable for collaborative tools to be able to assess the characteristics of the activities, computationally identify actual dependencies, and track their changes over time. 
 % subsubsection high_level_of_contingency (end)
-
-\subsubsection{The uniqueness of being spatial} % (fold)
-\label{ssub:the_uniqueness_of_being_spatial}
-Coordination work varies, according to the complexity of the interdependence, that is, depending on factors such the distribution of activities in time and space, the number of participants in the cooperative ensemble, the structural complexity posed by the field of work (interactions, heterogeneity), the degree and scope of specialization among participants, and so on \cite{schmidt1996a}. As a result, different types of dependency relationships have been discussed in the literature. For example, Yu and Mylopoulos \cite{yu1993actor} illustrate that actors can depend on each other in various means: they may depend on each other for goals to be achieved, activities to be performed, and resources to be furnished. In the case of task dependencies, Malone and Crowston \cite{malone1994interdisciplinary} identify several common types of dependency relationships between tasks, including temporal relationships, resource-related relationships, and goal-related relationships. 
-
-In the context of geo-collaborative activities, some of dependency relationships may be directly cast on the geospatial relationships between entities. For example, in the scenario, the different rescue resources, e.g. vehicles, equipments, the victims, the response actors, and their activities are spatially distributed. The locations of these entities and spatial relationships among them can raise dependencies that need to be managed explicitly in the coordination work. A traffic jam at a given location may have no direct impact on the actor who is performing the task to take care of victims. However, the fact that the location of the traffic jam is on the path of a rescue vehicle delivering vital medical equipments to the actor may poses a dependency between the traffic jam and the actor's current work. As a result, the actor may have to switch the focus to explicitly manage this dependency before the domain task can be performed.
-
-The nature of being spatial in these geo-collaborative activities provides a unique type of dependency relationships that need to be explicitly managed. However, existing models of dependencies lack of support for dependencies that involves spatial relationships. To understand and manage the dependencies involving spatial relationships, we must develop a deep understanding of how geographic space and human activities are related to each other, and integrate these spatially-related dependencies with other types of dependencies in a coherent framework.
-% subsubsection the_uniqueness_of_being_spatial (end)
 % subsection challenges_in_coordination (end)
 % section motivation (end)
 
@@ -86,9 +79,11 @@ By setting the scene in the previous section, the overall objective of this diss
 
 To achieve the research objective, this study follows the design science paradigm in information systems research \cite{Hevner2004}. Knowledge and understanding of the aforementioned coordination problems in geo-collaboration and their solutions are achieved through a set of design activities, including building, evaluation, and application of the designed artifact. Figure \ref{fig:research_overview} provides the overview of the research approach in this study.
 
-The research starts with justifying the relevance of the research to the problem domain, i.e. geo-collaborative activities. The unique characteristics of geo-collaboration motivate this study. Then the existing knowledge about theories, models, and methods of coordination is reviewed to provide the scientific foundation of this study. Based on the grounding work in the literature, the overall design framework is developed. Such a design framework help the author to identify knowledge gaps in existing studies, and develop concrete research questions that need to be answered. Answers to these research questions are achieved through a set of design research activities. During the process of these design activities, more relevant knowledge from existing literature is applied.
+The research starts with justifying the relevance of the research to the problem domain, i.e. the awareness phenomena in collaborative activities. The unique characteristics of geo-collaboration motivate this study. Then the existing knowledge about theories, models, and methods of awareness is reviewed to provide the scientific foundation of this study. Based on the grounding work in the literature, the overall design framework is developed. Such a design framework help the author to identify knowledge gaps in existing studies, and develop concrete design issues that need to be addressed. These design issues motivates our computational framework.
 
-Following the design-research paradigm, the expected contributions of this research are two-folded. On the one hand, the research activities in this study have the potential to extend our understanding of spatial dependencies in geo-collaboration, and provide a comprehensive approach to supporting awareness process in coordinating geo-collaborative activities. On the other hand, the proposed approach can be applied in many geo-collaborative activities, such as emergency response, transportation management, to offer solutions to important real life problems.
+Following the design-research paradigm, the expected contributions of this research are two-folded. On the one hand, the research activities in this study have the potential to extend our understanding of the awareness phenomena in complex collaboration. On the other hand, the proposed approach can be applied in many collaborative activities, such as emergency response, transportation management, to offer solutions to important real life problems.
+
+\fxwarning{The figure needs to be updated!}
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -101,5 +96,5 @@ Following the design-research paradigm, the expected contributions of this resea
 
 \section{Thesis Structure} % (fold)
 \label{sec:thesis_structure}
-The rest of this document is structured corresponding to how each chapter fits into the overall research framework. Chapter 2 presents the grounding work of this study, including the various studies on coordination and awareness mechanisms. Chapter 3 provides the overall design framework and relevant research questions. Chapter 4-6 provide the research activities and answers to these research questions respectively. Chapter 7 presents the design and implementation details. Chapter 8 demonstrates the use of the approach in the domain of emergency response. Chapter 9 concludes the study.
+The rest of this document is structured corresponding to how each chapter fits into the overall research framework. Chapter 2 presents the grounding work of this study, including the various studies on awareness phenomena. Chapter 3 provides the overall design framework and used it to review existing studies. Chapter 4-7 provide the details of our approach to awareness promotion. Chapter 8 demonstrates the use of the approach in several cast studies. Chapter 9 concludes the study.
 % section thesis_structure (end)

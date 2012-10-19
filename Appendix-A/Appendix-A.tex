@@ -1,0 +1,281 @@
+\Appendix{Episode Description in the Emergency Response Scenario}
+
+\section{Episode 1: Goal activation} % (fold)
+\label{sec:episode_1_goal_activation}
+\footnotesize
+{
+	\begin{longtable}{>{\raggedright}p{1.2in}>{\raggedright}p{1.2in}>{\raggedright}p{3in}}
+\toprule 
+\textbf{Actor} & \textbf{Type} & \textbf{Description}\tabularnewline
+\midrule 
+Fireman & Generate event (E1) & E1: A new victim has been found at a given location within the impacted
+area\tabularnewline
+\midrule 
+\multirow{3}{1.2in}{Victim manager (VM)} & Consume event (E1) & Upon receiving E1, VM activate the goal that the victim needs to be
+rescued, and decomposes the action to rescue the victim into sub-actions.\tabularnewline
+\cmidrule{2-3} 
+ & Perform action & In order to rescue the victim, VM first evaluates the status of the
+victim. 
+
+Because the radiation level of the victim exceeds the threshold, the
+victim needs to be first decontaminated.
+
+Because the victim is also physically injured, the victim needs to
+be treated at a medical station after decontamination.
+
+After the treatment, the victim needs to be evacuated to a shelter
+for recovery.\tabularnewline
+\cmidrule{2-3} 
+ & Generate events (E2, E3, E4) & E2: A new goal to decontaminate the victim is activated
+
+E3: A new goal to treat the victim is activated
+
+E4: A new goal to evacuate the victim is activated\tabularnewline
+\midrule 
+\multirow{3}{1.2in}{Decontamination manager (DM)} & Consume event (E2) & Upon receiving E2, DM infers that the action to decontaminate is within
+her responsibility and she is capable of performing it, so she is
+committed to performing the action, decompose the action into sub-actions.\tabularnewline
+\cmidrule{2-3} 
+ & Perform action & To perform decontamination, DM first needs to assign a decontamination
+station to the victim.
+
+After the assignment of station (DS1) to the victim, the DM activates
+the goal to transport the victim to the station. \tabularnewline
+\cmidrule{2-3} 
+ & Generate event (E5) & E5: A new goal to transport the victim to the assigned decontamination
+station is activated\tabularnewline
+\midrule 
+Medical manager (MM) & Consume event (E3) & Upon receiving E3, MM infers that the action to treat the victim is
+within her responsibility. However, because the action depends on
+the action to decontaminate the victim to be completed first, she
+has to wait for now.\tabularnewline
+\midrule 
+\multirow{4}{1.2in}{Transportation manager (TM)} & Consume event (E4) & Upon receiving E4, TM infers that the action to evacuate the victim
+is within her responsibility.
+
+However, because the action depends on the action to treat the victim
+to be completed first, she has to wait for that first.\tabularnewline
+\cmidrule{2-3} 
+ & Consume event (E5) & Upon receiving E5, TM infers that the action to transport the victim
+to the station is within her responsibility and she is capable of
+performing it, so she is committed to performing the action, and further
+decompose the action.\tabularnewline
+\cmidrule{2-3} 
+ & Perform action & TM first needs to assign a driver (DR1) with a rescue vehicle to the
+action.
+
+Because the actual transportation action is out of the DM's responsibility,
+she is waiting for the driver to perform it.\tabularnewline
+\cmidrule{2-3} 
+ & Generate event (E6) & E6: The driver (DR1) has been assigned to the action to transport
+the victim \tabularnewline
+\midrule 
+Driver (DR1) & Consume event (E6) & Upon receiving E6, DR1 infers that the action to transport the victim
+to the station is within her responsibility and she is capable of
+performing it, so she starts to perform the action.\tabularnewline
+\bottomrule
+\caption{Episode 1 in the emergency response scenario}
+\label{tab:episode_1_appendix}
+
+\end{longtable}
+}
+
+% section episode_1_goal_activation (end)
+
+\section{Episode 2: Plan development} % (fold)
+\label{sec:episode_2_plan_development}
+\footnotesize
+{
+	\begin{longtable}{>{\raggedright}p{1.2in}>{\raggedright}p{1.2in}>{\raggedright}p{3in}}
+\toprule 
+\textbf{Actor} & \textbf{Type} & \textbf{Description}\tabularnewline
+\midrule 
+Operator at the decontamination station (DS1) & Generate event (E1) & E1: The quantity of available rinse tanks in the station (DS1) is
+running low.\tabularnewline
+\midrule 
+Decontamination manager (DM) & Consume event (E1) & Upon receiving E1, DM infers that the station (DS1) cannot work properly
+due to this resource shortage. In order to ensure the victim is successfully
+decontaminated, a new action to resolve the resource shortage is added
+to the current plan to rescue the victim. \tabularnewline
+\midrule 
+ & Perform action & DM first needs to locate an inventory where the rinse tanks can be
+supplied.
+
+After identification of the inventory (INV1) to the victim, the DM
+activates the goal to deliver the resource from the inventory to the
+station. \tabularnewline
+\midrule 
+ & Generate event (E2) & E2: A new goal to deliver the resource from (INV1) to the station
+(DS1) is activated.\tabularnewline
+\midrule 
+Inventory manager (IM) & Consume event (E2) & Upon receiving E2, IM starts a new action to deliver the resource.\tabularnewline
+\midrule 
+ & Perform action & IM first needs to prepare the resource for delivery. Once the resource
+is ready, she activates the goal to transport the resource to the
+station (DS1)\tabularnewline
+\midrule 
+ & Generate event (E3) & E3: A new goal to transport the resource to the station (DS1) is activated\tabularnewline
+\midrule 
+Transportation manager (TM) & Consume event (E3) & Upon receiving E3, TM starts a new action to transport the resource.\tabularnewline
+\midrule 
+ & Perform action & TM first needs to assign a driver (DR2) with a rescue vehicle to the
+action.
+
+Because the actual transportation action is out of the DM's responsibility,
+she is waiting for the driver to perform it.\tabularnewline
+\midrule 
+ & Generate event (E4) & E4: The driver (DR2) has been assigned to the action to transport
+the victim \tabularnewline
+\midrule 
+Driver (DR2) & Consume event (E4) & Upon receiving E4, DR2 infers that the action to transport the victim
+to the station is within her responsibility and she is capable of
+performing it, so she starts to perform the action.\tabularnewline
+\midrule 
+ &  & \tabularnewline
+\bottomrule
+
+	\caption{Episode 2 in the emergency response scenario}
+	\label{tab:episode_2_appendix}
+	\end{longtable}
+
+}
+% section episode_2_plan_development (end)
+
+\section{Episode 3: Responsibility transfer} % (fold)
+\label{sec:episode_3_responsibility_transfer}
+\footnotesize
+{
+\begin{longtable}{>{\raggedright}p{1.2in}>{\raggedright}p{1.2in}>{\raggedright}p{3in}}
+\toprule 
+\textbf{Actor} & \textbf{Type} & \textbf{Description}\tabularnewline
+\midrule 
+Driver (DR1) & Generate event (E1) & E1: The rescue vehicle with the driver (DR1) encounters a mechanical
+breakdown.\tabularnewline
+\midrule 
+Transportation manager (TM) & Consume event (E1) & Upon receiving E1, TM infers that because of the vehicle breakdown,
+the DR1's action to transport the victim cannot be achieved.\tabularnewline
+\midrule 
+ & Perform action & To solve the problem, TM attempts to assign another driver to the
+action.
+
+However, because all the drivers are currently in duty, the TM cannot
+find a driver to perform the action until a later time.\tabularnewline
+\midrule 
+ & Generate event (E2) & E2: The action to transport the victim has to be delayed because of
+the unavailability of drivers.\tabularnewline
+\midrule 
+Decontamination manager (DM) & Consume event (E2) & Upon receiving E2, DM infers that because of the delay to transport
+the victim, the action to decontaminate the victim is also delayed.\tabularnewline
+\midrule 
+ & Generate event (E3) & E3: The action to decontaminate the victim will be delayed because
+of the delay of the transportation task.\tabularnewline
+\midrule 
+Victim manager (VM) & Consume event (E3) & Upon receiving E3, VM infers that because of the delay to transport
+the victim, the action to rescue the victim is delayed.\tabularnewline
+\midrule 
+ & Generate event (E4) & E4: The action to rescue the victim is delayed because of the delay
+of the transportation task.\tabularnewline
+\midrule 
+Fireman & Consume event (E4) & Upon receiving E4, the fireman infers that although delivery of the
+victim is not in the scope of her responsibility, however she can
+help the rescue action by sending the victim to the decontamination
+station (DS1). \tabularnewline
+\midrule 
+ & Generate event (E5) & E5: The fireman activates the goal to send the victim to the decontamination
+station (DS1). \tabularnewline
+\midrule 
+Transportation manager (TM) & Consume event (E5) & Upon receiving E5, TM infers that because of the new action of the
+fireman, the responsibility of transporting the victim is now transferred
+from her to the fireman.\tabularnewline
+\bottomrule
+
+	\caption{Episode 3 in the emergency response scenario}
+	\label{tab:episode_3_appendix}
+	\end{longtable}
+}
+% section episode_3_responsibility_transfer (end)
+
+\section{Episode 4: Opportunistic re-planning} % (fold)
+\label{sec:episode_4_opportunistic_re_planning}
+\footnotesize
+{
+	\begin{longtable}{>{\raggedright}p{1.2in}>{\raggedright}p{1.2in}>{\raggedright}p{3in}}
+\toprule 
+\textbf{Actor} & \textbf{Type} & \textbf{Description}\tabularnewline
+\midrule 
+Fireman & Generate event (E1) & E1: The physical injury of the victim becomes severe and prevents
+the fireman from moving the victim into the vehicle.\tabularnewline
+\midrule 
+Victim manager (VM) & Consume event (E1) & Upon receiving E1, VM evaluates the situation of the vitim and decides
+that because of the serious injury, the original plan to rescue the
+victim is no longer appropriate. A new plan needs to be adopted: a
+special team needs to be dispatched to the victim's location to decontaminate
+and treat the victim on spot, and then the victim is directly sent
+to the hospital for further treatment.\tabularnewline
+\midrule 
+ & Generate events (E2, E3, E4, E5, E6) & E2: The current goal to decontaminate the victim is deactivated
+
+E3: The current goal to treat the victim is deactivated
+
+E4: The current goal to evacuate the victim is deactivated
+
+E5: A new goal to dispatch a special team to the victim is activated
+
+E6: A new goal to send the victim to the hospital is activated\tabularnewline
+\midrule 
+Decontamination manager (DM) & Consume event (E2) & Upon receiving E2, DM removes the action to decontaminate the victim
+from her current responsibility.\tabularnewline
+\midrule 
+ & Consume event (E5) & Upon receiving E5, DM infers that in order to perform the action to
+dispatch a special team to the victim, a decontamination operator
+needs to be assigned to the team sent to the victim. \tabularnewline
+\midrule 
+ & Perform action & By reviewing the available operators, DM decides on the operator that
+will be sent to the victim\tabularnewline
+\midrule 
+ & Generate event (E7) & The decontamination operator has been assigned to the special team
+to the victim.\tabularnewline
+\midrule 
+Medical manager (MM) & Consume event (E3) & Upon receiving E3, MM removes the action to treat the victim from
+her current responsibility.\tabularnewline
+\midrule 
+ & Consume event (E5) & Upon receiving E5, DM infers that in order to perform the action to
+dispatch a special team to the victim, a medical professional needs
+to be assigned to the team sent to the victim. \tabularnewline
+\midrule 
+ & Perform action & By reviewing the available actors, DM decides on the medical professional
+that will be sent to the victim\tabularnewline
+\midrule 
+ & Generate event (E8) & The medical professional has been assigned to the special team to
+the victim.\tabularnewline
+\midrule 
+Transportation Manager & Consume event (E4) & Upon receiving E4, TM removes the action to evacuate the victim from
+her current responsibility.\tabularnewline
+\midrule 
+ & Consume event (E5) & Upon receiving E5, TM infers that in order to perform the action to
+dispatch a special team to the victim,  the action to transport the
+team to the victim needs to be activated. \tabularnewline
+\midrule 
+ & Perform action & TM first needs to assign a driver with a rescue vehicle to the action.
+Because the deactivation of the original decontamination action, the
+driver (DR2) who was assigned for delivering the equipment is now
+available for this action.\tabularnewline
+\midrule 
+ & Generate event (E9) & E9: The driver (DR2) has been assigned to the action to transport
+the special team to the victim \tabularnewline
+\midrule 
+ & Consume event (E6) & Upon receiving E6, TM infers that the action to send the victim to
+hospital is within her responsibility.
+
+However, because the action depends on other actions to be completed
+first, she has to wait for those first.\tabularnewline
+\midrule 
+Driver (DR2) & Consume event (E9) & Upon receiving E9, DR2 starts to perform the action to transport the
+special team to the victim.\tabularnewline
+\bottomrule
+	\caption{Episode 4 in the emergency response scenario}
+	\label{tab:episode_4_appendix}
+\end{longtable}
+}
+
+% section episode_4_opportunistic_re_planning (end)

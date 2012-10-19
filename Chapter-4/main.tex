@@ -1,7 +1,7 @@
 %!TEX root = ../BoYu-Dissertation.tex
 \graphicspath{{Figures/}}
 
-\chapter{Our Approach: Overview} % (fold)
+\chapter{Overview of Our Approach} % (fold)
 \label{cha:our_approach_overview}
 
 Our approach to supporting awareness in complex, distributed geo-collaborative activities aims to address the two major design challenges identified in Section \ref{sec:review_discussion}: 
@@ -168,6 +168,8 @@ In this study we draw knowledge representation and reasoning techniques from exi
 \label{sub:event_driven_awareness_processes}
 In our approach, we adopt the general event-driven interaction paradigm \cite{Etzion2010} to model the awareness processes. In an event-driven mode of interaction, actors (both human and computer) communicate by generating and receiving events. Each actor receives events from environment and other actors, reacts to them, and generates new events to other actors. We believe that the event-driven paradigm is suitable for modeling awareness processes in our study for two major reasons:
 
+\fxwarning{emphasize the iterative process, the events are connected.}
+
 \begin{enumerate}
    \item The collaborative environments under discussion in this study are naturally centered on events. As we focus on the set of physical collaborative activities that entails rapid and frequent changes in environment and activities, human activities are usually triggered by the detection of events, and then are performed to analyze and react to these events. In the motivating scenario of emergency response, for example, the collective efforts are triggered by an incident, or a disaster, i.e. an event happening in the environment. To respond to the initial event, actors perform activities that add more events building up the situation. In addition, unexpected new events can occur in the environment, requiring continuous response \cite{Turoff2004}. It is these critical events that form the actors' awareness needs and cause the actors to adopt certain goals and perform activities to resolve possible problems.
    \item The event-driven paradigm provides an effective way to represent and process awareness information. Instead of asking the actors to monitor the environment and pull awareness information from it, events are pushed to the actors as they occur. In this way, the actors do not need to split their limited attentions to monitor the environment and each other's activities. This is very important for supporting awareness, as one general design concern for awareness system is that awareness must be achieved with minimal attention and effort so that it does not interrupt the current line of action \cite{schmidt2002a}. 
@@ -179,6 +181,7 @@ Our event-driven model of awareness processes shares some commonality with exist
    \item In existing event-based models, the computer primarily plays the role as producers of events. It detects events from sensors in the environment or feedbacks of human actions, filters them out based on user subscriptions, and present them to the users. However, in our approach, the computer is also the consumer of events. As to maintain the knowledge representation of the field of work, the computer needs to take the events as input of its reasoning process, and use them to make inference and update its knowledge representation. In this way, the computer behaves like other human actors to consume the events to develop its own awareness.
    \item The concept of events in our approach has a much richer meaning than existing event-based models. It is not only used to describe the occurrences in the environment and in human activities, but also the psychological experience of these occurrences as human actors perceive and interpret them. We make a clear distinction between real world occurrence, event, and awareness in Section \ref{ssub:the_concept_of_events}.
    \item Existing event-based models focus on the generation and presentation of events to the users, but our approach emphasizes the whole process of awareness development driven by events. This means we are not only concerned about how to select and present events to the users, but also how to support the interpretation of these events, and how new events are generated based upon existing ones.
+   \fxwarning{the support is not discrete, but continuous.}
 \end{enumerate}
 
 In sum, we consider the event not only as a way to represent awareness information, but also an effective interaction mode to drive the awareness development. Each round of awareness development is triggered by receiving certain events, and finished with generating new events that will be consumed by other actors. In the following, we first clarify our concept of event, then describe the event-driven awareness processes. 
@@ -236,7 +239,7 @@ Built on top of the computational representation of the field of work, and the e
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=5.5in]{awareness_promotion_framework.pdf} 
+   \includegraphics{awareness_promotion_framework.pdf} 
    \caption{Awareness promotion framework}
    \label{fig:awareness_promotion_framework}
 \end{figure}
