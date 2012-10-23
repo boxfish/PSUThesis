@@ -3,9 +3,40 @@
 
 \chapter{Conclusion} % (fold)
 \label{cha:conclusion}
-\section{Contributions} % (fold)
+\section{Research Contributions} % (fold)
 \label{sec:contributions}
+Focusing on the design of a computational system to support awareness in collaborative activities with high level of complexity, this research fits into the design-science paradigm in information science \cite{Hevner2004}. As argued by Hevner et al \cite{Hevner2004}, effective design-science research must provide clear contributions in at least one of the following areas: (1) the development of constructs or models that extend and improve the understanding of the design problem (i.e. foundations), (2) the development of methods or tools that enable solutions to the design problem (i.e. design artifacts), (3) and the development or creative use of evaluation methods or new evaluation metrics (i.e. methodologies). In this study, we claim contributions in the first two areas. 
 
+\paragraph*{A conceptual framework of awareness in complex collaborations} % (fold)
+\label{par:a_conceptual_framework_of_awareness_in_complex_collaborations}
+The first contribution of this research is the integrated conceptual framework for understand the awareness phenomena in complex collaborations. Our conceptual framework is built on top of existing theories and models for understanding the awareness phenomena in the literature, and in turn contribute to existing knowledge foundations in two aspects:
+
+\begin{enumerate}
+	\item We adopt several interrelated constructs, i.e. activity, local scope, and dependency, to understand the \emph{product} of awareness phenomena, i.e. what part of the world the collaborators should be aware of. These constructs together enrich the existing understanding of the awareness phenomena in collaborative environment. Beyond the knowledge sharing perspective, we emphasize the distributed nature of the awareness phenomena. Because of the differences in local scopes, each team member's awareness is partial, but at the same time is compatible for the team to perform collaborative activities successfully.
+	\item We build on top of these constructs to understand the awareness \emph{process} in collaborative environments. Our framework is able to account for how the awareness is distributed across multiple team members. Comparing with existing models, our framework provides a better explanation of how the compatibility of different collaborators' awareness is achieved through the integration of individual cognitive processes and social processes.
+\end{enumerate}
+
+Beyond the theoretical contribution, this conceptual framework has also shown its value in guiding the design of awareness supporting tools in our study:
+
+\begin{enumerate}
+	\item First, it helps us to understand the design space of awareness support and identify key design issues to support awareness. By conceptualizing the awareness phenomena in distributed, complex collaboration as continuous developed through a variety of cognitive and social processes, the design issues for awareness support can be organized at both the individual level and the team level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve compatible awareness.
+	\item Second, the conceptual framework also guides our design of the awareness promotion approach. On one hand, the knowledge representation of our approach is designed to comply with the the three constructs in the conceptual framework. As these constructs describe the configuration of the field of work that regulates how the awareness is distributed across team members, they provide the necessary knowledge for the system to reason about human actors' needs and promote awareness. Furthermore, one of the design principles of our awareness promotion is to consider the awareness support from a collective perspective and provide integrated support for the whole awareness development cycle, which is motivated by the understanding of the awareness process in the conceptual framework.
+\end{enumerate}
+% paragraph a_conceptual_framework_of_awareness_in_complex_collaborations (end)
+
+\paragraph*{The awareness promotion approach} % (fold)
+\label{par:the_awareness_promotion_approach}
+The second major contribution of this study is the awareness promotion approach. This approach is based on two major design principles: (1) it aims to design a knowledge-based system that maintains a collective knowledge representation of the field of work, and utilizes it to support the various awareness processes; (2) it emphasizes the division of work between the computational system and human actors, and provides adequate interaction techniques to allow the human actors to collaborate with the computer to develop awareness. Following these design principles, the awareness promotion approach is built on top of two major components: a computational representation of the field of work based on the SharedPlan theory, and an event-driven model of the awareness processes. Then the computer system’s behaviors to promote awareness are embedded in the interaction between these two components. On one hand is how the computer constructs and develops the knowledge representation of the field of work within the event-driven processes, and on the other hand is how the knowledge representation is used to promote these event-driven awareness processes.
+
+The awareness promotion approach has several advantages to handle the scaled up complexity and dynamics in collaborative activities, and provides integrated awareness support. 
+
+\begin{enumerate}
+	\item First, it utilizes the computational knowledge representation to model the field of work and offloads some of the representation and reasoning efforts from the human to the computer. Hence, it can handle more complex situations than existing awareness models.
+	\item Meanwhile, the knowledge representation is dynamically updated to reflect the current state of the field of work, which allows it to handle increased level of dynamics.
+	\item The awareness promotion approach shows much more frequent interactions between the computer and the human users. Each awareness process involves both the computer’s reasoning and the human’s cognition, as well as the interaction to combine them together.
+\end{enumerate}
+
+% paragraph the_awareness_promotion_approach (end)
 % section contributions (end)
 
 \section{Comparison with Existing Studies} % (fold)
@@ -13,8 +44,15 @@
 
 % section comparison_with_existing_studies (end)
 
-\section{Future Work} % (fold)
-\label{sec:future_work}
+\section{Future Directions} % (fold)
+\label{sec:future_directions}
+Behavioral study to understand the conceptualization.
+
+Formal evaluation of the system. 
+
+Extension to asynchronous 
+
+Extension to multi-tasking
 
 % section future_work (end)
 % chapter conclusion (end)
