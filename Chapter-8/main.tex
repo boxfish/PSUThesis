@@ -295,7 +295,7 @@ The last episode shows the most significant change to the existing plan to rescu
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=5.8in]{episode_4_interaction.pdf} 
-   \caption{Episode 4: Responsibility transfer}
+   \caption{Episode 4: Opportunistic re-planning}
    \label{fig:episode_4_interaction}
 \end{figure}
 
@@ -303,7 +303,7 @@ The last episode shows the most significant change to the existing plan to rescu
 	\item As the fireman decides to directly send the victim to the decontamination station, she finds that the physical injury of the victim becomes severe and prevents the fireman from moving the victim into the vehicle. The fireman has to report the status change of the victim as a new event.
 	\item The event is received by the $VM$. $VM$ evaluates the situation of the victim and decides that because of the serious injury, the original plan to rescue the victim is no longer appropriate. A new plan needs to be adopted: a special team needs to be dispatched to the victim’s location to decontaminate and treat the victim on spot, and then the victim is directly sent to the hospital for further treatment. The changes to the plan are represented as a set of events and distributed to relevant actors.
 	\item Upon receiving events from the $VM$, $DM$ first removes the current action to decontaminate the victim from her responsibility. Then $DM$ infers that in order to perform the action to dispatch a special team to the victim, a decontamination operator needs to be assigned to the team. By reviewing the available operators, DM decides on the operator who will be sent to the victim, and generate an event to indicate the assignment of the operator to the team.
-	\item Similar to $DM$, the $MM$ first removes the action to treat the victim from her current responsibility, and decides on the medical professional that will be assigned to the special team. An event to indicate the assignment is then generated.
+	\item Similar to $DM$, the $MM$ first removes the action to treat the victim from her current responsibility, and decides on the paramedic that will be assigned to the special team. An event to indicate the assignment is then generated.
 	\item The $TM$ removes the action to evacuate the victim from her current responsibility. Then the $TM$ infers that in order to perform the action to dispatch a special team to the victim, the action to transport the team to the victim needs to be activated. TM needs to assign a driver with a rescue vehicle to the action. Because the deactivation of the original decontamination action, the driver $DR2$ who was assigned for delivering the equipment during the decontamination action is now available for this action. As a result, $TM$ generates the event to describe the assignment of $DR2$ to the action to transport the special team to the victim.
 	\item The driver $DR2$ receives the event about the new assignment and starts to perform the action.
 \end{enumerate}
@@ -326,267 +326,448 @@ The four episodes demonstrates several characteristics of the collaborative acti
 
 \section{Knowledge representation and updating in the scenario} % (fold)
 \label{sec:knowledge_representation_and_updating_in_the_scenario}
+The goal of this section is to examine the expressiveness of the PlanGraph model in our approach to represent the field of work and validate the knowledge updating process within the context of the scenario. To achieve this goal, we simulate the development of the four episodes described in previous section in our prototype system, the EDAP platform. We walk through the four episodes to investigate how the PlanGraph is updated by the \emph{Knowledge Updating Module}, driven by the set of events occur in the episodes. Later, the simulation results allow us to analyze the characteristics of the field of work in the scenario.
 
+In general, the simulation is conducted in three steps:
+
+\begin{enumerate}
+	\item First, we engineer the knowledge base to model knowledge about all the actions, recipes, and actors that are described in the four episodes. For example, Figure \ref{fig:example_recipes_in_scenario} shows the two recipes associated with the action to rescue the victim that have been described in Episode 4.
+	\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   		\centering
+   		\includegraphics[width=5.8in]{example_recipes_in_scenario.pdf} 
+   		\caption{Example recipes in the scenario}
+   		\label{fig:example_recipes_in_scenario}
+	\end{figure}
+	\item Then, we develop an event simulator to input the events that occur in the episodes to the EDAP server. The event simulator is a simple command line tool that reads a pre-defined script recording the sequence of events that are described in the four episodes. At a given time interval, the event simulator emits one event from the sequence and sends it to the \emph{Event Publishing Service} in the EDAP server via HTTP request. 
+	\item As we described in Section \ref{sub:service_oriented_modules}, each of the events received by the \emph{Event Publishing Service} is then passed to the \emph{Knowledge Updating Module} to update the PlanGraph model. We persist the PlanGraph during each step in the database for analysis.
+\end{enumerate}
+
+In the following of this section, we report the simulation results including the development of the PlanGraph model and the constructed local scopes and dependencies in the four episodes. The former is to show the capability of the system to keep track of the event-driven development of the field of work in the episodes, and the latter is to analyze the three characteristics of the field of work as we conceptualize in Section \ref{sub:characteristics_of_the_field_of_work}.
+
+\subsection{Simulating the knowledge updating} % (fold)
+\label{sub:simulating_the_knowledge_updating}
+\subsubsection{Episode 1} % (fold)
+\label{ssub:episode_1}
+In Episode 1, the first event sent to the system is an event reporting that a new victim has been found by the fireman ($E1$). The event has an event type \emph{`NewVictim'} and has several key attributes (e.g. id, detection time, name, location, radiation level, injury information, etc.). 
+
+In response to this event, the \emph{Knowledge Updating Module} performs the four-step knowledge updating process.
+
+\begin{enumerate}
+	\item First, the system attempts to associate with any existing entities in the PlanGraph model. Because this is the start of the activity, the PlanGraph is empty at the moment and no association can be found.
+	\item Second, the system checks whether the event can lead to changes towards the action performance or trigger new action in the assessment step. In our knowledge base, we store an association rule that indicates that every \emph{`NewVictim'} will activate the action to rescue it. Following this activation rule, a new action node \emph{`rescue victim'} is added to the PlanGraph as the root node representing this new action to rescue the victim.
+	\item After the assessment, the system finds that a new action has been added to the PlanGraph, which triggers the elaboration process. The system searches the knowledge base to find a recipe for the \emph{`rescue victim'} action. In our knowledge base, we have two recipes that are associated with the \emph{`rescue victim'} action and the system chooses the first one that represents the normal work flow to construct the default plan of the action. During the elaboration process, the \emph{`victim'} parameter is assigned with the value stored in the event. The \emph{`evacuate status'} action is added to the plan. Because the rest of the subsidiary actions (\emph{`decontaminate'}, \emph{`treat'}, \emph{`evacuate'}) are optional, i.e. whether they should be added to the plan depends on the result of \emph{`evacuate status'} action, the recipe selection stops. In addition to the recipe selection and parameter binding, the elaboration step also involves searching for the actors who might be potentially intended to or capable of performing the action. By retrieving this knowledge from the knowledge base, the system believes that the victim manager $VM$ is potentially intended to perform the action and have the capability to perform the \emph{`evacuate status'} action. This is used to update the corresponding \emph{`Intentions'} and \emph{`Capabilities'} attributes attached with the PlanGraph nodes.
+	\item Because the event does not indicate any state change on current actions, the propagation step is skipped.
+\end{enumerate}
+
+Figure \ref{fig:plangraph_ep1_e1} shows the PlanGraph after the knowledge updating process on the first event ($E1$) in Episode 1.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{plangraph_ep1_e1.pdf} 
+	\caption{PlanGraph after $E1$ in Episode 1}
+	\label{fig:plangraph_ep1_e1}
+\end{figure}
+
+The second event ($E2$) in Episode 1 is an internal event generated by the victim manager $VM$ to indicate the intention that ($int.th$) the \emph{`decontaminate'} action is performed, based on the result of the \emph{`evacuate status'} action. This intention event has several key attributes, including the actor’s id ($VM$), the action he intends to perform (\emph{`decontaminate'}), and the intention type ($int.th$).
+
+\begin{enumerate}
+	\item As the system receives this event $E2$, the system first attempts to associate it with any existing entities in the PlanGraph model. Because this is an intention event, the system traverses through the PlanGraph to search for any match between the \emph{`decontaminate'} action mentioned in the event and the action nodes in the PlanGraph. When the system is able to find such a match, the system uses the information in the event to update $VM$’s intention level on it.
+	\item During the assessment step, the system could not find any applicable association rules.
+	\item Because the \emph{`decontaminate'} action is now added to the PlanGraph as a new action, the system searches the knowledge base to find a recipe for the \emph{`decontaminate'} action, and use it to elaborate the PlanGraph. Because the system does not have knowledge about how to identify the parameter \emph{`decontamination station'} of the \emph{`decontaminate'} action, the PlanGraph cannot be further elaborated. Besides, the system believes that the decontamination manager $DM$ has potentially intention to perform the \emph{`decontaminate'} action and knows how to perform the action. This is used to update the corresponding \emph{`Inentions'} and \emph{`Capabilities'} attributes attached with the PlanGraph nodes.
+	\item Because the event does not indicate any state change on current actions, the propagation step is skipped.
+\end{enumerate}
+
+The $E3$ and $E4$ are very similar to $E2$, as they are also internal events generated by the victim manager $VM$ to indicate the intention that ($int.th$) the \emph{`treat'} and the \emph{`evacuate'} action is performed, based on the result of the \emph{`evacuate status'} action. We skip the details here, and Figure \ref{fig:plangraph_ep1_e4} shows the PlanGraph after these events are processed.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{plangraph_ep1_e4.pdf} 
+	\caption{PlanGraph after $E4$ in Episode 1}
+	\label{fig:plangraph_ep1_e4}
+\end{figure}
+
+Events $E5$, $E6$ are generated by the decontamination manager $DM$ in the process of elaborating the action to decontaminate the victim. The system processes these events and elaborate the PlanGraph model in the similar way as the previous events. Finally, the event $E7$ is generated by the transportation manager $TM$ to further elaborate the action to transport the victim to the decontamination station. We skip details about these events as well since the system's reasoning processes on them are very similar to previous ones. Figure \ref{fig:plangraph_ep1_e7} shows the PlanGraph after all the events in Episode 1 are processed.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{plangraph_ep1_e7.pdf} 
+	\caption{PlanGraph after Episode 1}
+	\label{fig:plangraph_ep1_e7}
+\end{figure}
+% subsubsection episode_1 (end)
+\subsubsection{Episode 2} % (fold)
+\label{ssub:episode_2}
+In Episode 2, the first event sent to the system ($E1$) is a resource event reported by an operator at $DS1$, where the decontamination of the victim will be performed. The event shows that the quantity of available rinse tanks in DS1 is running low. The four-step knowledge updating process that is triggered by this event is summarized as follow:
+
+\begin{enumerate}
+	\item In the beginning, the system associates the event with the \emph{`decon station'} parameter under the \emph{`decontaminate'} action, as it indicates the value change of an attribute (i.e. quantity of rinse tanks) of the station, and updates the corresponding values of the parameter.
+	\item Second, the system checks whether the event can lead to state changes of the entities in the PlanGraph model. By evaluating the conditions associated with the parameter, the system finds that the condition that the quantity of the rinse tanks should be above 5 can no longer be satisfied because of this event. As a result, a new derived event is generated by the system to indicate the state change of this condition (from \emph{`holding'} to \emph{`open'}).
+	\item During the elaboration step, since the condition is no longer holding, the system searches the knowledge base to find any action that can be performed to satisfy the condition. In our knowledge base, we have an action \emph{`resolve resource shortage'} that can be used to satisfy the condition, and therefore the system add the action to the PlanGraph and load the recipe to perform the action. The system applies the initial intention $pot.int$ and capability $knows$ of the $DM$ to this new action. Because the system does not have knowledge about how to identify the parameter \emph{`inventory'}, the PlanGraph cannot be further elaborated.
+	\item Because a state change event has been derived in the assessment step, the system attempts to predict future state changes in the field of work in the propagation step. A Bayesian network is constructed based on the current PlanGraph model and used to reason how likely the other entities in the PlanGraph will be impacted by the initial state change. After the Bayesian network-based reasoning, the system finds that the state change of this condition (from \emph{`holding'} to \emph{`open'}) will lead to the failing of the \emph{`decon station'} parameter, which may be further propagated to the upper-level \emph{`decontaminate'} and \emph{`rescue'} actions.
+\end{enumerate}
+
+Figure \ref{fig:plangraph_ep2_e1} shows the PlanGraph after the knowledge updating process on the first event ($E1$) in Episode 2, and Figure \ref{fig:eventchain_ep2_e1} shows the event chain generated by the system in the process.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{plangraph_ep2_e1.pdf} 
+	\caption{PlanGraph after $E1$ in Episode 2}
+	\label{fig:plangraph_ep2_e1}
+\end{figure}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{eventchain_ep2_e1.pdf} 
+	\caption{Event chain after $E1$ in Episode 2}
+	\label{fig:eventchain_ep2_e1}
+\end{figure}
+
+The following steps in Episode 2 are developed in the same way as the goal activation process in Episode 1. The decontamination manager $DM$ identifies the \emph{`inventory'} parameter, and then activates the goal to deliver the resource from the inventory to the station $DS1$. The inventory manager then works on the \emph{`deliver resource'} action by preparing the resource and activates the goal to transport the resource to the station. The transportation manager then further elaborate the transportation action. Figure \ref{fig:plangraph_ep2} shows the PlanGraph after all the events in Episode 2 are processed.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{plangraph_ep2.pdf} 
+	\caption{PlanGraph after Episode 2}
+	\label{fig:plangraph_ep2}
+\end{figure}
+% subsubsection episode_2 (end)
+\subsubsection{Episode 3} % (fold)
+\label{ssub:episode_3}
+Episode 3 happens after driver $dr_1$ starts the action \emph{`transport victim'} and is on the way to pick up the victim. It is an external event indicating a status change of the rescue vehicle with driver $dr_1$, i.e. it encounters a mechanical breakdown. The event has an event type \emph{`ResourceStatusChange'} and carries information about the driver, the vehicle, and the current status of the vehicle. The knowledge updating process performed on this event by the system is described as follow.
+
+\begin{enumerate}
+	\item When the event is sent to the system, the system attempts to associate with any existing entities in the PlanGraph model. Because this is an external event indicating an attribute change on a resource, the system traverses through the PlanGraph to search for any match between the resource (\emph{`vehicle'}) mentioned in the event and the nodes in the PlanGraph. When the system is able to find such a match, the system uses the information in the event to update the value attached to the parameter (\emph{`vehicle'}).
+	\item Then the event is further processed in the assessment step. A simple assessment rule is applicable in this case, i.e. if the status of the rescue vehicle is changed to breakdown, the parameter that is assigned with this resource becomes unavailable. As a result, a new state change event \emph{`ExecStatChange'} on the execution state of the parameter is derived.
+	\item As nothing can be done by the system to fix this problem by searching the knowledge base, the elaboration is done with nothing added to the PlanGraph.
+	\item Because a state change event has been derived in the assessment step, the system attempts to predict future state changes in the field of work in the propagation step. After the Bayesian network-based reasoning, the system finds that the execution state of the $dr_1$'s action to transport the victim (\emph{`transport victim'}) is changed from \emph{executing} to \emph{failing}, and a new anticipatory event describing this state change is generated, and added to the output event chain. Furthermore, the state change is propagated to the higher level \emph{`transport'} action with a confidence level of 0.5, as the system infers that the action is likely to be impacted, meanwhile the problem can be resolved by assigning another vehicle to perform the \emph{`transport victim'} action.
+\end{enumerate}
+
+As we can see in the knowledge updating process, the initial event is augmented into an event chain with four events (Figure \ref{fig:eventchain_ep3_e1}): the original external event $E1$, the derived event describing the execution state change of the parameter \emph{`vehicle'}, and the two anticipatory event predicting the execution state change event on the action \emph{`transport victim'} and the \emph{`transport'} action. The processing of $E1$ in Episode 1 shows the capability of the system to enrich the original event by performing reasoning on the PlanGraph.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{eventchain_ep3_e1.pdf} 
+	\caption{Event chain after $E1$ in Episode 3}
+	\label{fig:eventchain_ep3_e1}
+\end{figure}
+
+The following events $E2$, $E3$, and $E4$ are the internal events that are contributed by the transportation manager ($TM$), decontamination manager ($DM$), and victim manager ($VM$) respectively. These events are used to express the corresponding actors' interpretation on the initial event $E1$. As receiving $E1$, the $TM$ first attempts to fix the problem by assigning another driver to the \emph{`transport victim'} action. However, because all the drivers are currently in duty, the $TM$ cannot find a driver to perform the action until a later time. As a result, the $TM$ generates $E2$ to confirm the state change of the \emph{`transport'} action that was previously inferred by the system. This new event $E2$ is then received by the $DM$, and then $DM$ further derives another event $E3$ to express her belief that the \emph{`decontaminate'} will also be delayed because of $E2$. In the similar way, $VM$ generates the other event $E4$ to propagate the state change. 
+
+The processing of these events allow the system to update the event chain starting with $E1$ using human actors' interpretation, and in this way the event propagation tree can be generated. Figure \ref{fig:eventchain_ep3_e4} shows the active event propagation chain that is derived from the event propagation tree, spanning from $E1$ to $E4$.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{eventchain_ep3_e4.pdf} 
+	\caption{Active event propagation chain after $E4$ in Episode 3}
+	\label{fig:eventchain_ep3_e4}
+\end{figure}
+
+The last event $E5$ in Episode 3 indicates the fireman's reaction to the situation developed through $E1$ to $E4$. Although delivery of the victim is not in the scope of the fireman's responsibility, she can help fix the problem by directly sending the victim to the decontamination station $DS1$. By receiving $E5$, the system updates the PlanGraph by revising the plan of the \emph{`transport'} action: (1) first the fireman's intention to perform the \emph{`transport'} action is updated in the \emph{Intentions} attribute of the action node during the association step, (2) the value of the \emph{`vehicle'} parameter is now replaced by the vehicle assigned to the fireman, (3) and then the fireman's action to send the victim, i.e. \emph{`send victim'} is added to the \emph{`transport'} action as a sub-action. Figure \ref{fig:plangraph_ep3} shows the PlanGraph after all the events in Episode 3 are processed.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{plangraph_ep3.pdf} 
+	\caption{PlanGraph after Episode 3}
+	\label{fig:plangraph_ep3}
+\end{figure}
+% subsubsection episode_3 (end)
+
+\subsubsection{Episode 4} % (fold)
+\label{ssub:episode_4}
+Episode 4 starts with an event $E1$ that indicates the attribute change of a victim, i.e. the injury information is changed. The system associates this event with the \emph{`victim'} parameter under the \emph{`rescue'} action, and update the attribute storing the injury information. However, such descriptive information cannot be directly interpreted by the system, all the following three steps of the knowledge updating process is skipped. 
+
+The event $E1$ is then interpreted by the victim manager $VM$, who evaluates the changing situation of the victim and decides that because of the serious injury, the original plan to rescue the victim has to be replaced with a new plan. A series of events ($E2$, $E3$, $E4$, $E5$, and $E6$) are then generated by the $VM$ to indicate the change of plan. The system updates the knowledge by removing and adding corresponding actions from the PlanGraph in the association step. During the elaboration step, the system retrieves recipes for the newly added actions and apply default knowledge about intentions and capabilities from the knowledge base. Figure \ref{fig:plangraph_ep4_e6} shows the PlanGraph after the planning events generated by the $VM$ have been processed.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{plangraph_ep4_e6.pdf} 
+	\caption{PlanGraph after $E6$ in Episode 4}
+	\label{fig:plangraph_ep4_e6}
+\end{figure}
+
+After these events are distributed to the corresponding actors ($E2$ and $E5$ for the $DM$, $E3$, $E5$ for the $MM$, and $E4$, $E5$ and $E6$ for the $TM$), these actors interpret them, perform actions in the new plan, and generate new events ($E7$ from the $DM$, $E8$ from the $MM$, and $E9$ from the $TM$) that are then used to update the system's knowledge. The knowledge updating processes triggered by these events are similar to some cases in previous episodes, so we skip the details and shows the final PlanGraph after they are processed in Figure \ref{fig:plangraph_ep4}.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{plangraph_ep4.pdf} 
+	\caption{PlanGraph after Episode 4}
+	\label{fig:plangraph_ep4}
+\end{figure}
+% subsubsection episode_4 (end)
+% subsection simulating_the_knowledge_updating (end)
+
+\subsection{Analyzing the field of work} % (fold)
+\label{sub:analyzing_the_field_of_work}
+As we persist the PlanGraphs in the four episodes in the database during the simulation, we can use them to construct the local scopes and dependency networks following the algorithms described in Section \ref{sub:representing_local_scopes} and \ref{sub:representing_dependencies}. These algorithms are implemented in the EDAP server as global functions as they are frequently used by the \emph{Visualization Service} and \emph{Notification Module}. We use these constructed local scopes and dependency networks to analyze the three essential characteristics of the field of work as we described in our conceptual framework \ref{sub:characteristics_of_the_field_of_work}.  
+
+\subsubsection{Partiality of local scopes} % (fold)
+\label{ssub:partiality_of_local_scopes}
+One of the central concepts in our approach is the local scopes of different actors in a collaborative activity. Comparing with the filed of work representing the overall collaborative activity, the local scope of an actor represents the part of the field of work that the actor is participated in. The partiality of local scopes provides the basic for handling complexity in our approach. As the whole field of work can grow significantly in a collaborative activity, the local scopes are relatively small, and hence much more manageable for each actor.
+
+To compare the magnitudes of local scopes and the field of work, we count the total number of entities (i.e. actions, parameters, and conditions) in the PlanGraph and the number of entities in the constructed local scope of the victim manager $VM$, the decontamination manager $DM$, the transportation manager $TM$, and the medical manager $MM$. We choose the four actors because they are involved in all the four episodes. The chart in Figure \ref{fig:partiality_of_local_scopes} shows the counting results. As we can see from the chart, the total number of entities in the PlanGraph (with an average of 20) is much greater than the number of entities in any of the actors' local scopes (the average is 5.5 for $VM$, 6.25 for $DM$, 3.5 for $MM$, and 6.75 for $TM$). 
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{partiality_of_local_scopes.jpg} 
+	\caption{Numbers of entities in local scopes}
+	\label{fig:partiality_of_local_scopes}
+\end{figure}
+
+% subsubsection partiality_of_local_scopes (end)
+
+\subsubsection{Connectivity of local scopes} % (fold)
+\label{ssub:connectivity_of_local_scopes}
+The second characteristics of the field of work is that the entities from different actors' local scopes are connected with each other, which is the basic assumption behind our event propagation mechanism. As we discussed in Section \ref{sub:characteristics_of_the_field_of_work}, there are two ways that the entities in different local scopes can be connected: through the boundary objects in overlapping local scopes and through the dependency relations.
+
+To examine the connectivity of local scopes, we construct the dependency network from the PlanGraph after Episode 2, and map the different entities in the dependency network into the corresponding actor's local scopes. Figure \ref{fig:dependencies_ep2} shows the visualization of the mapping result. The arrows in the figure indicate the dependency relations between entities, and the shapes in dotted lines with different colors show the local scopes of different actors. The similar mapping results can be generated for the other three episodes, however here we only focus on the Episode 2 as the PlanGraph after Episode 2 is the one with the highest level of complexity.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{dependencies_ep2.pdf} 
+	\caption{Dependency network in Episode 2 with local scopes}
+	\label{fig:dependencies_ep2}
+\end{figure}
+
+From this figure, we can clearly see how the entities from different local scopes can be connected through both boundary objects and dependency relations. 
+
+\begin{enumerate}
+	\item The entities with the red stroke are the boundary objects that are shared by two overlapping local scopes. For example, the \emph{`delivery resource'} action is a shared object between the decontamination manager $DM$ and the inventory manager $IM$. On one hand, the $DM$ has the intention that the \emph{`delivery resource'} action is performed as it is a subsidiary action for the \emph{`resolve shortage'} action. On the other hand, the $IM$ intends to perform the \emph{`delivery resource'} action because the action is within her responsibility. 
+	\item The arrows in red highlight the dependency relations that cross the boundary of two local scopes, i.e. the entity as the depender and the entity as the dependee belong to different actors' local scopes. The temporal dependency relation between the \emph{`decontaminate'} and the \emph{`treat'} action is such an example, as these two actions belong to the decontamination manager and the medical manager respectively. Although the two actors' local scopes do not overlap with each other, the execution state of the \emph{`decontaminate'} action can still have impact on the medical manager, because the \emph{`treat'} action can only be performed after the \emph{`decontaminate'} action is done.
+\end{enumerate} 
+% subsubsection connectivity_of_local_scopes (end)
+
+\subsubsection{Dynamics of the field of work} % (fold)
+\label{ssub:dynamics_of_the_field_of_work}
+From the discussion in Section \ref{sub:simulating_the_knowledge_updating}, we already see how the PlanGraph representing the field of work has been modified gradually by the events. By comparing the local scopes and dependency networks for each step, we can see that the local scopes and dependency relations are also changing in the process.
+
+Figure \ref{fig:dynamics_of_local_scopes} shows the changing numbers of entities in the local scope for each actor. From the chart, we can see the different actors' local scopes have quite different growing curves as the collaborative activity is developed. 
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{dynamics_of_local_scopes.jpg} 
+	\caption{Changing numbers of entities in local scopes}
+	\label{fig:dynamics_of_local_scopes}
+\end{figure}
+
+Figure \ref{fig:dynamics_of_dependencies} shows the changing size of the dependency networks through the four episodes. For each dependency network, we measure the \emph{size} of the network, i.e. total number of edges in a graph; and the \emph{order} of the network, i.e. total number of vertices in a graph. The chart in the figure shows how the size of the dependency networks is changed from Episode 1 to Episode 4.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{dynamics_of_dependencies.jpg} 
+	\caption{The size of dependency networks in the scenario}
+	\label{fig:dynamics_of_dependencies}
+\end{figure}
+% subsubsection dynamics_of_local_scopes (end)
+% subsection analyzing_the_field_of_work (end)
 % section knowledge_representation_and_updating_in_the_scenario (end)
 
 \section{Promoting awareness in the scenario} % (fold)
 \label{sec:promoting_awareness_in_the_scenario}
+The four episodes described in Section \ref{sub:event_driven_activity_development} demonstrate the best practices in which the events drive the development of the field of work smoothly in the scenario. However, these best practices are achievable only if the actors in the scenario could successfully develop their awareness in the process. More specifically, these episodes can only happen if the following conditions were satisfied:
 
+\begin{enumerate}
+	\item First, the events must be distributed to the right actors at the right time . For example, Episode 1 can only happen if the $VM$ first receives the event $E1$ indicating the discovery of a new victim, and then $E2$, $E3$, and $E4$ are consumed by the $DM$, $MM$, and $TM$ respectively (\emph{Event notification}).
+	\item Second, the events must be successfully interpreted by the receivers and hence they are able to make right decisions based on the interpretation (\emph{Event interpretation}). 
+	\item Last, the actors must be able to propagate the effect of an event by generating follow-up events that are later consumed by other actors, e.g. Episode 1 works only if $VM$ can propagate the effect of $E1$ by deriving $E2$, $E3$, and $E4$ from it \emph{Event propagation}.
+\end{enumerate}
+
+To satisfy these conditions, awareness support mechanisms become very important. This section analyzes how our awareness promotion approach can be applied in the scenario to enable the satisfaction of these conditions, and compare it with existing awareness support mechanisms.
+
+\subsection{Supporting event notification} % (fold)
+\label{sub:supporting_event_notification}
+To enable that the events are distributed to the right actors at the right time, event notification mechanisms can be applied. As we described in Section \ref{sec:the_state_of_art}  , existing notification mechanisms rely on event subscriptions that are managed by the human actors. The human actors register the interests in receiving certain kinds of events as subscriptions. The system filters incoming events based on the subscriptions and delivers those matched events to the actors. The event distribution in Episode 1, for example, can be achieved by a set of subscriptions that are managed by different actors. In order to receive $E1$, $VM$ needs to subscribe to all the \emph{`new victim'} events. In order to receive $E2$, $DM$ needs to subscribe to the \emph{`goal activation'} events with the condition that the goal is to decontaminate a victim. Similarly, $MM$ needs to subscribe to the \emph{`goal activation'} events with the condition that the goal is to treat an injured victim to receive $E3$, and $TM$ needs to subscribe to the \emph{`goal activation'} events with the condition that the goal is to evacuate a victim. Table \ref{tab:episode_1_subscriptions} shows the set of subscriptions that need to be managed by the actors to support the event distribution in Episode 1.
+
+{\footnotesize
+	\begin{longtable}{c>{\raggedright}p{2in}>{\raggedright}p{2.5in}}
+\toprule 
+\textbf{Event} & \textbf{Reciever} & \textbf{Subscription}\tabularnewline
+\midrule 
+E1  & Victim manager (VM) & VM needs to subscribe to all the \emph{`new victim'} events\tabularnewline
+\midrule 
+E2 & Decontamination manager (DM) & DM needs to subscribe to the \emph{`goal activation'} events with
+the condition that the goal is to decontaminate a victim\tabularnewline
+\midrule 
+E3 & Medical manager (MM) & MM needs to subscribe to the \emph{`goal activation'} events with
+the condition that the goal is to treat an injured victim\tabularnewline
+\midrule 
+E4 & Transportation manager (TM) & TM needs to subscribe to the \emph{`goal activation'} events with
+the condition that the goal is to evacuate a victim\tabularnewline
+\midrule 
+E6 & Transportation manager (TM) & TM needs to subscribe to the \emph{`goal activation'} events with
+the condition that the goal is to transport a victim to a station\tabularnewline
+\midrule 
+E7 & Driver (DR1) & DR1 needs to subscribe to the \emph{`resource assignment' }events
+with her vehicle as the assigned resource\emph{.}\tabularnewline
+\bottomrule
+\caption{Subscription-based event distribution in Episode 1}
+\label{tab:episode_1_subscriptions}
+
+\end{longtable}
+}
+
+Alternatively, the local scope-based event notification mechanism as we propose in Section \ref{sec:event_notification_mechanism} provides an approach to distributing the events without explicit event subscriptions by the actors. In our local scope-based approach, the events are distributed to an actor if they are within the actor's local scope. For instance, the event distribution in Episode 1 can be achieved by our approach in the following way:
+
+\begin{enumerate}
+	\item Upon receiving $E1$, the system triggers the knowledge updating process in which the system activates the goal to rescue the victim, elaborates the plan to achieve it, associates $E1$ to the \emph{`victim'} parameter, and applies the $VM$'s potential intention to the \emph{`resuce'} action. The detailed explanation of this knowledge updating process can be found at Section \ref{ssub:episode_1}. Then during the notification process, the system finds that $E1$ is associated with the \emph{`victim'} parameter that falls into $VM$'s local scope. As a result, the system believes that $E1$ is relevant and should be notified to the $VM$.
+	\item Upon receiving $E2$, the system associates the event with the \emph{`decontaminate'} action, and applies the $DM$'s potential intention to it. During the notification process, the system finds that $E2$ is associated with the \emph{`decontaminate'} action that is within the $DM$'s local scope, and therefore should be distributed to $DM$.
+	\item The similar analysis can be performed on the rest of the events in Episode 1, and the system achieves the same effect of distributing these events to the corresponding actors as the subscription-based approach.
+\end{enumerate}
+
+Figure \ref{fig:episode_1_ls_distribution} shows how the events in Episode 1 are associated with the entities in the PlanGraph. The different actors' local scopes are also shown in the figure so that we can clearly see how these events fall into the corresponding receivers' local scopes.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{episode_1_ls_distribution.pdf} 
+	\caption{Local scope-based event notification in Episode 1}
+	\label{fig:episode_1_ls_distribution}
+\end{figure}
+
+Comparing with the subscription-based approach, our local scope-based event notification mechanism has two advantages in supporting event distribution: (1) the leverage of system's reasoning to limit the human actor's effort to manage subscriptions within local scopes, and (2) the capability to handle the dynamics of the field of work. We use two concrete cases in the scenario to justify these claims.
+
+\paragraph*{Case 1: Reducing the effort to manage subscriptions} % (fold)
+\label{par:case_1_reducing_the_effort_to_manage_subscriptions}
+In the first case, we consider the awareness need of the decontamination manager $DM$ in Episode 2. Figure \ref{fig:case_1_dm} shows a portion of the PlanGraph within the $DM$'s local scope and the actions that $DM$'s actions depend on. For example, the \emph{`delivery resource'} action that is within the $DM$'s local scope depends on the inventory manager $IM$'s action to \emph{`prepare the resource'}. The action to transport the victim to the decontamination station depends on the driver $DR1$ to actually perform the transportation operation. 
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{case_1_dm.pdf} 
+	\caption{The $DM$'s local scope in Episode 2}
+	\label{fig:case_1_dm}
+\end{figure}
+
+Now we consider an event that occurs on an action that is outside the $DM$'s local scope. This event ($E1$) describes that the $IM$'s action to \emph{`prepare the resource'} failed. Although the $IM$'s action to \emph{`prepare the resource'} is outside the $DM$'s local scope, such an event is relevant to the $DM$ because the failing of this action will cause the \emph{`delivery resource'} action that is within the $DM$'s local scope to fail as well. Receiving this event allows the $DM$ to evaluate the impact on her own action, for example, the $DM$ can assign another inventory to supply the resource, or even assign the victim to another decontamination station to avoid the problem. 
+
+In the subscription-based approaches, this means that the $DM$ has to subscribe to the events that may occur on the entities outside her local scope, i.e. the $DM$ needs to manage the subscriptions on the $IM$'s action to \emph{`prepare the resource'}, the $TM$'s action to \emph{`transport'} the resource, and the fireman's action to \emph{`send victim'} to the station.
+
+In our approach, on the other hand, the system performs the reasoning on $E1$ during the knowledge updating process, which allows the system to generate an anticipatory event $E2$ to indicate the potential failing on the \emph{`delivery resource'} action, and attach $E2$ to the event chain along with $E1$. During the local scope-based notification process, because $E2$ falls into $DM$'s local scope, the event chain is then distributed to the $DM$. In this way, the $DM$ only needs to manage the subscriptions within the local scope, e.g. to specify the notification style of the state change on the \emph{`delivery resource'} action, but leaves the task to distribute events outside the local scope to the system.
+% paragraph case_1_reducing_the_effort_to_manage_subscriptions (end)
+
+\paragraph*{Case 2: handling the dynamics of the field of work} % (fold)
+\label{par:case_2_handling_the_dynamics_of_the_field_of_work}
+In the second case, we consider the changing awareness need of the decontamination manager $DM$ in the scenario. As we have shown earlier in Section \ref{ssub:dynamics_of_the_field_of_work}, the actors' local scopes change a lot in the development of the collaborative activity. Figure \ref{fig:case_2_dm} shows the changing local scope of $DM$ throughout the four episodes. From Episode 1 to Episode 2, more entities are added to the $DM$'s local scope, and from Episode 3 to Episode 4, the $DM$'s local scope is significantly simplified due to the re-planning on the \emph{`rescue'} action.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{case_2_dm.pdf} 
+	\caption{The changing local scope of the $DM$}
+	\label{fig:case_2_dm}
+\end{figure}
+
+Within the context of the changing local scope, we can easily see how the $DM$'s awareness need is also changed. We consider the event $E1$ that indicates the status change of the inventory that is used to supply the rinse tanks for the station $DS1$. Such an event is only relevant to the $DM$ in the Episode 2 and 3 when it is used to resolve the resource shortage. Similarly, the event $E2$ that indicates the status change of the decontamination station is useful information for the $DM$ in the first three episodes, but it becomes irrelevant in Episode 4 as the $DM$ now only focuses on assigning the operator to the rescue team.
+
+The subscription-based notification mechanisms have difficulties to handle this kind of dynamics. In many existing systems, the subscriptions are pre-defined by the users before the collaborative activity starts. As a result, the subscriptions may be either too narrow to cover all the possible relevant events in the process, or so broad that the system notifies the user the information that has not become relevant yet. To remedy the problem, some systems allow the user to modify the subscriptions on the fly, which provides more flexibility for the users to express their changing needs. However, it requires the users to stop their current work and spend extra effort to explicitly manage the changes in their subscriptions.
+
+Instead, Our local scope-based notification mechanism provides a better solution to handle the dynamics. As the system keeps tracking of the changing field of work, the events are always filtered out based on the current local scopes. For example, if $E1$ is generated during Episode 1, because the system is unable to associate it with any entities in $DM$'s local scope, it is judged as irrelevant to the $DM$. However, if the same event occurs in Episode 2, the system will associate it with the \emph{`inventory'} parameter that is within $DM$'s local scope, and hence it is relevant to $DM$ now.
+
+% paragraph case_2_handling_the_dynamics_of_the_field_of_work (end)
+% subsection supporting_event_notification (end)
+\subsection{Supporting event interpretation} % (fold)
+\label{sub:supporting_event_interpretation}
+The event interpretation process plays an important role in the development of collaborative activity throughout the four episodes. On one hand, it allows the actor to consume the perceived events by understanding their meanings within the actor’s local scope. Meanwhile, by predicting the future states of entities in the field of work, the actor can generate new events that drive the development of the collaborative activity. 
+
+In the scenario, two types of reasoning tasks can be identified in the event interpretation process:
+
+\begin{enumerate}
+	\item \textbf{Backward tracking to understand the origin of an event.} During the event interpretation process, the actors frequently review the historical development of an event to understand where the event comes from. The backward tracking allows the actors to dig into the reasons behind the perceived events to support their decision making. A good example of backward tracking is the fireman's interpretation of $E4$ in Episode 3. In this case, the fireman receives the execution state change event from the victim manager showing that the action to rescue the victim is delayed. Upon receiving this event, the fireman starts the backward tracking to understand that the reason for the occurrence of this event is because the action to decontaminate the victim is delayed, which in turn is because the action to transport the victim to the decontamination station is delayed. By understanding the reason behind the event, the fireman decides to send the victim directly to the decontamination station. Without the backward tracking, it is unlikely that the fireman can change the plan to perform the transportation action that is outside of her responsibility.
+	\item \textbf{Forward tracking to evaluate the potential impact of an event.} The forward tracking of an event allows the actors to predict the future states of their actions, which motivates the actors to make changes in the field of work. For instance, the decontamination manager's interpretation of $E1$ in Episode 2 starts with the forward tracking to evaluate the potential impact of the reduced quantity of rinse tanks in the station. During the forward tracking, the decontamination manager infers that the station cannot work properly due to this resource shortage, which in turn will impact the action to decontaminate the victim in the future. The forward tracking of the event motivates the actor to fix the problem caused by the event and activates the new action to resolve the resource shortage.
+\end{enumerate}
+
+In our approach, both the backward and forward tracking can be supported through the interlinked event view and activity view as we proposed in Section \ref{sec:supporting_event_interpretation}. 
+
+\paragraph*{Supporting backward tracking} % (fold)
+\label{par:supporting_backward_tracking}
+The capability of the system to support backward tracking is based on the event propagation tree to keep track of the event development. When an actor generates a new event upon interpreting an existing event, a reference to the current event under interpretation will automatically attached to this new event so that the system can insert it to the event propagation tree. In this way, the system allows the actors to navigate through the event view backward to understand the origin. Figure \ref{fig:backward_chain} shows the sequence of the events that the fireman needs to look into during the interpretation of $E4$ in Episode 3, and how they are linked to the fireman's activity view. 
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{backward_chain.pdf} 
+	\caption{Backward tracking in the interpretation of $E4$ in Episode 3}
+	\label{fig:backward_chain}
+\end{figure}
+% paragraph supporting_backward_tracking (end)
+
+\paragraph*{Supporting forward tracking} % (fold)
+\label{par:supporting_forward_tracking}
+The forward tracking is supported by the system's capability to perform the reasoning tasks for the human actors. During the knowledge updating process, the system evaluates the consequences of the event and predicts the future states on other activities in the propagation step, and generates the event chain. As we described in Section \ref{ssub:episode_2}, upon receiving $E1$ in Episode 2, the system evaluates the conditions associated with the parameter, and finds that the condition that the quantity of the rinse tanks should be above 5 can no longer be satisfied because of this event. As a result, a new derived event is generated by the system to indicate the state change of this condition (from \emph{`holding'} to \emph{`open'}). Then the system performs the Bayesian network-based reasoning in the propagation step and finds that the state change of this condition (from \emph{`holding'} to \emph{`open'}) will lead to the failing of the \emph{`decon station'} parameter, which may be further propagated to the upper-level \emph{`decontaminate'} action. In this way, the event chain is formed that allows the actors to navigate through the event view forward to predict future states. Figure \ref{fig:forward_chain} shows the sequence of the events that the decontamination manager needs to look into during the interpretation of $E1$ in Episode 2.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{forward_chain.pdf} 
+	\caption{Forward tracking in the interpretation of $E1$ in Episode 2}
+	\label{fig:forward_chain}
+\end{figure}
+% paragraph supporting_forward_tracking (end)
+% subsection supporting_event_interpretation (end)
+
+\subsection{Supporting event propagation} % (fold)
+\label{sub:supporting_event_propagation}
+The social process of event propagation, i.e. the development of awareness involving a series of interactions among multiple actors, can be observed in all the four episodes. The actor who receives the initial event generates his/her own interpretation of the event, which may lead to new goal activated (Episode 1\&2), execution state of existing actions changed (Episode 3), or new plan generated (Episode 4). T actor externalizes the interpretation as new events, which are then received by other actors. These actors build their interpretation on top of the first actor’s, and may generate new events that are received by other actors. In this way, as the initial event is propagated to multiple actors, the team awareness is developed.
+
+As we discussed in Section \ref{sec:mediating_event_propagation}, our approach to support event propagation can be analyzed from both the human and the computer's perspectives. From the human perspective, it includes the functionalities to assist human actors to interpret the events built on top of each other’s and externalize their own interpretations as new events. From the system's perspective, it focuses on disseminating these events to the actors who are interested in further developing them.
+
+Supporting the human effort in the event propagation process is achieved by the following functionalities provided by our approach:
+
+\begin{enumerate}
+	\item First, the system keeps track of the event propagation process and stores the social development history of each event in the corresponding event propagation tree. The visualization of the event propagation tree and active event propagation chain in the event view allows the actors to understand who else have contributed to its development, and whose work can be impacted by the event. Figure \ref{fig:event_chains_in_eps} shows the active event propagation chains that are generated by the system at the end of each episode.
+	\item The capability of the human actors to externalize the results of their interpretation as new events is supported by directly manipulating the nodes in the activity view. The EDAP client described in Section \ref{sec:implementation_of_edap_client} demonstrates the functionality to support the externalization. In addition, the interface for the actors to to control the visibility of their newly generated events is also supported in the client.
+\end{enumerate}
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{event_chains_in_eps.pdf} 
+	\caption{Active event propagation chains in the episodes}
+	\label{fig:event_chains_in_eps}
+\end{figure}
+
+On the other hand, the capability of system to disseminate these derived events to relevant actors is enabled by the connectivity of local scopes and the local scope-based event notification mechanism. The analysis in \ref{ssub:connectivity_of_local_scopes} clearly shows that the entities from different actors' local scopes can be connected with each other, either through the boundary objects in overlapping local scopes or through the dependency relations. The connectivity of local scopes allows the system to propagate the events using the local scope-based event notification mechanism. As long as the new events generated by an actor are associated with the entities that are shared with another actor, or are the dependee of another actor's actions, these events will be propagated to the other actor. 
+
+In the scenario, event propagation through both shard boundary objects and the dependency relations are evident. Figure \ref{fig:two_cases_in_event_proagation} illustrates the two cases of event propagation in the scenario.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{two_cases_in_event_proagation.pdf} 
+	\caption{Event propagation through boundary objects and dependency relations}
+	\label{fig:two_cases_in_event_proagation}
+\end{figure}
+
+The first case happens in Episode 3 when $E2$ is generated by the transportation manager $TM$ to report the delay of the action to \emph{`transport'} the victim. Such an event is the result of the $TM$'s interpretation of the mechanical breakdown of the $DR1$'s vehicle, and is later propagated to the decontamination manager $DM$. In this case, the event propagation happens because the action to \emph{`transport'} the victim is a shared boundary object between both the $DM$ and $TM$'s local scopes. As $E2$ is associated with this boundary object, it falls into the $DM$'s local scope, and as a result, our notification mechanism distributes the event to $DM$.
+
+In the second case, we consider a similar case, but this time the event $E1^\prime$ is generated by the transportation manager $TM$ to report the delay of the action to \emph{`transport'} the resource. In this case, the $TM$'s action to \emph{`transport'} the resource is outside the $DM$'s local scope, however such an event is still relevant to the $DM$ because the dependency relation between the \emph{`transport'} action and the \emph{`prepare the resource'} action. The system performs the reasoning on $E1^\prime$ during the knowledge updating process, which allows the system to generate an anticipatory event $E2^\prime$ to indicate the potential delay on the \emph{`delivery resource'} action, and attach $E2^\prime$ to the event chain along with $E1^\prime$. During the local scope-based notification process, because $E2^\prime$ falls into $DM$'s local scope, it will still be notified to the $DM$. In this case, $E1^\prime$ is propagated to $DM$ because of the dependency relation connecting the two actors' local scopes.
+% subsection supporting_event_propagation (end)
 % section promoting_awareness_in_the_scenario (end)
+\section{Summary and Discussion} % (fold)
+\label{sec:summary_and_discussion}
+This chapter describes a case study in the domain of emergency response to justify our awareness promotion approach. 
 
-Possible variables:
+In Section \ref{}, we first describe the characteristics of the emergency response operations and the current status of awareness support in the domain. With the high level complexity and contingency, emergency response fits well into the scope of collaborative activities discussed in this study. The domain of emergency response has foundations in event driven task accomplishment that makes the event-driven awareness support more appropriate. The limitations of existing event-based models as we discussed in previous chapters also exist in the emergency response domain, which motivates our approach.
 
-1. complexity of interdependencies (e.g. the number of dependencies)
+The four episodes described in Section \ref{} demonstrate the different types of contingency that may occur in the emergency response scenario, and how the complexity of the collaborative activity is growing with the contingency through the event-driven development of the field of work. On one hand is the events triggering the development of the field of work, and on the other hand is the changes to the field of work generate new events. It is within this recursive cycle between the events and the field of work that more actors get involved in the collaboration and their plans of actions are developed.
 
-2. task-specific asymmetries (e.g. to what extent the local scopes are overlapped)
- 
-3. dynamics (e.g. chances of re-planning)
-
-4. concurrent multiple activities
-
-Demonstrate three features:
-
-1. The effectiveness of using local scope to reduce complexity:
-
-As the field of work grows, the local scope stays relatively stable
-
-Strategy: generate the PlanGraph model in three different application domains, showing how complex the PlanGraph model can become, but at the same time the local scope for each actor is relatively small.
-
-2. The effectiveness of using local scope to manage subscription, especially for handling dynamics
-
-Strategy: (1) define an actor's information needs; (2) use the content-based approach to generate the set of subscriptions; (3) use our local-scope approach to generate the set of subscriptions; (4) compare the number of subscriptions that the user needs to generate in each case; (5) make changes to the activity model, compare the number of modifications needed for both approaches.
-
-3. Show how could the social event chain be used in the coordination work? Some possibilities:
-
-(1) the ability to detect conflicts/duplicates
-
-(2) the ability to seek/offer help
-
-
-
-\section{Activity-Based Approach} % (fold)
-\label{sec:activity_based_approach}
-\subsection{Types of Events} % (fold)
-\label{sub:types_of_events}
-\subsubsection{External and internal events} % (fold)
-\label{ssub:external_and_internal_events}
-To understand events in geo-collaboration, an important distinction has to be made between \emph{external} events (in the environment) and internal events (in the activities). 
-
-External events are changes in the physical environment that have impact on the performance of collaborative activities. For instance, the occurrence of a traffic accident may block the traffic flow, which makes an actor’s activity of delivering equipment to a medical station impossible to finish on time. External events in the environment can be characterized in three major categories: changes of identity (e.g. the occurrence of a traffic accident), attribute changes of an object (e.g. the contamination level of the chemical plan is increased), or spatial changes (e.g. the impacted area is enlarged due to the wind condition).
-
-Internal events are state changes on the basic elements (i.e. resources, goals, activities) of geo-collaboration. Resource events indicate changes on the state of any resources that are used in the activities. Resource events can impact response activities in different ways: (1) the creation of a new resource can trigger new activities (for example, a new victim may lead to the activity to perform decontamination and medical treatment); (2) the state change of a resource can impact the activity that requires the use of the resource (e.g. the mechanical breakdown of a vehicle makes the delivery activity unable to complete); (3) the state change of a resource can enable/disable the activity that depends on it (e.g. a victim’s location change leads to the satisfaction of a precondition that the victim must be located at the medical station, which further enables the activity to perform medical treatment on the victim). Condition events indicate changes on a certain relationship between multiple objects in a collaborative activity. For example, a condition may express a spatial relationship that the victim must be located at the decontamination station. The condition will change the state from open to holding when a driver has picked up the victim and transpored him/her to the station. Activity events are described as change of activity states, such as the initiation of a new activity, the completion or delay of an ongoing activity. 
-
-The distinction between external and internal events is very important to identify the set of events that should be captured and modeled in the awareness mechanism. Not all the external events in the environment are important for the actors to perform their activities. Rather, only a subset of the external events that can lead to changes within the activities (i.e. the internal events) is meaningful. The derivation of internal events from external events is an active cognitive process that requires interpreting the meaning of external events within the context of the collaborative activities.
-% subsubsection external_and_internal_events (end)
-
-\subsubsection{Local and remote events} % (fold)
-\label{ssub:local_and_remote_events}
-The distinction between external and internal events is based on the boundary between the surrounding environment and the overall collaborative activities as a whole. However, in order to understand the awareness information needed for each individual, another important distinction between local and remote events has to be made. 
-
-The local and remote events are defined with aspect to the local scope of work for each individual actor. Local events reflect the state changes of basic elements (i.e. resources, goals, activities) within an actor’s local scope of work. For instance, the report of a new victim that needs to be decontaminated, the exceeding capacity of a decontamination station are local events within the decontamination manager’s local scope of work. Remote events are the changes outside an actor’s local scope of work. For instance, a victim that doesn’t need to be decontaminated is transported to a shelter is a remote event for the decontamination manager. The distinction of local and remote events is relative to each individual actor. A local event of one actor may be a remote event for another actor due to their different local scopes of work. In addition, a remote event can be internal, reflecting the state changes of another actor’s activities, or it can be external, reflecting changes in the environment. 
-
-The distinction between local and remote events is important to identify the relevance of events that should be notified to each actor. Local events reflect changes within an actor’s local scope of work and therefore are directly relevant to the actor. On the other hand, due to the existence of the web of dependencies among activities, some of the remote events can (or potentially can) lead to changes in the actor’s local scope of work, i.e. the impact of a remote event may be propagated to the local scope of the actor as derived local events, and therefore they also become relevant. For instance, the traffic jam on the road is a remote event for the decontamination manager. However, because the traffic jam happens on the way of a victim to be delivered to a decontamination station, it can potentially delay the decontamination operation on the victim, which becomes a relevant local event for the decontamination manager. As a result, the goal of an awareness system is to notify an actor not only all the relevant local events, but also the subset of remote events that can be propagated to the actor’s local scope through the web of dependencies. 
-
-% subsubsection local_and_remote_events (end)
-% subsection types_of_events (end)
-
-\subsection{Event Subscription} % (fold)
-\label{sub:event_subscription}
-\subsubsection{Specifying Local Scopes} % (fold)
-\label{ssub:specifying_local_scopes}
-
-% subsubsection specifying_local_scopes (end)
-
-\subsubsection{Defining Event Patterns} % (fold)
-\label{ssub:defining_event_patterns}
-
-% subsubsection defining_event_patterns (end)
-% subsection event_subscription (end)
-
-\subsection{Event Matching} % (fold)
-\label{sub:event_matching}
-
-% subsection event_matching (end)
-
-% section activity_based_approach (end)
-
-\section{A Simulation Experiment} % (fold)
-\label{sec:a_simulation_experiment}
-We conduct a simulation experiment to compare the content-based event notification approach and the proposed activity-based approach. The basic hypothesis is that, in dynamic environment where the user's activity changes frequently, the proposed activity-based approach provides a more accurate way for the user to express their awareness interests than the content-based approach. We use the emergency response scenario as described in the Introduction Chapter to perform the experiment, from the perspective of the decontamination manager.
-
-\subsection{Variables of Interests} % (fold)
-\label{sub:variables_of_interests}
-We are interested in the capability of these two notification approaches in handling different types of activity dynamics. Particularly, we are interested in three types of dynamics that may occur in the scenario: 
-\begin{enumerate}
-	\item \textbf{Parameter Change}: the value of a parameter is changed. In the scenario, it can be the case when the decontamination manager re-assign a new station where a victim will be decontaminated.
-	\item \textbf{Plan Development}: the plan of the actor is changed. In the scenario, it can be the case when the decontamination manager starts to concern about certain equipment delivery after the stock is running low.
-	\item \textbf{Local Scope Change}: the actor's local scope of work is changed. In the scenario, it can be the case when another manager joins the activity, and take a subset of tasks away from the modeling manager.  
-\end{enumerate}
-
-To perform the experiment, we define four scenes to reflect the three types of activity dynamics:
-\begin{enumerate}
-	\item Initial scene ($S_0$): indicates the current state of the decontamination manager's activities
-	\item Parameter change scene ($S_1$): indicates one of the parameters of the decontamination manager (station) has been assigned with a new value, comparing with $S_0$
-	\item Plan development scene ($S_2$): indicates one of the conditions has been elaborated into a more concrete plan, comparing with $S_1$
-	\item local scope change ($S_3$): indicates the another actor joins the activity, and the local scope of the modeled user has been reduced to a smaller set, comparing with $S_2$
-\end{enumerate}
-% subsection variables_of_interests (end)
-
-\subsection{Simulating Event Generation} % (fold)
-\label{sub:event_generation}
-A set of events are randomly generated based on the whole group activities. Given the current PlanGraph model, the events can happen on any of the activity, resource, or condition node, and indicate any types of possible changes that are defined in Chapter 5.
-% subsection event_generation (end)
-
-\subsection{Creating Subscriptions} % (fold)
-\label{sub:content_based_subscriptions}
-Two sets of content-based subscriptions will be generated. 
-\begin{enumerate}
-	\item The first set of subscriptions are defined merely based on the current interest of the manager in the initial scene ($S_0$). This set only includes the events that are relevant to the manager's current activities. Therefore, it can be considered as the minimal subscription set of events, using the content-based notification approach ($CON_{min}$).
-	\item The second set of subscriptions are defined based on considering all the three possible activities dynamics defined in scenes ($S_1$, $S_2$, $S_3$). It includes all the possible events that might be relevant to the manager in all the scenes. Because we attempt to include the maximum set of events that could be relevant for the manager across all the scenes, we define this content-based subscription as ($CON_{max}$).  
-\end{enumerate}
-
-In addition, the activity-based subscription will also be generated, following the steps described in previous section. The subscription includes the specification of local scope of the decontamination manager, his/her intentions and detailed event patterns on each node in the local scope. We define this activity-based subscription as $ACT$.
-% subsection creating_subscriptions (end)
-
-\subsection{Procedures} % (fold)
-\label{sub:procedures}
-The experiment includes four runs. 
-\begin{enumerate}
-	\item The first run $R_0$ is the human judgment on the relevance of the simulated event set to form the baseline result. The human analysts run through the list of simulated event set to decide on whether each event is relevant to the modeled decontamination manager, under the four scenes respectively. To reduce the subjective errors of human judgment, two analysts will perform the judgment separately and then discuss on the differences to form the final sets of events.
-	\item In the second run $R_1$, the simulated event set will be fed into the matching program following  content-based notification approach, using the set of subscriptions defined as $CON_{min}$.
-	\item In the third run $R_2$, the simulated event set will be fed into the matching program following  content-based notification approach, using the set of subscriptions defined as $CON_{max}$.
-	\item In the fourth run $R_3$, the the simuated event set will be fed into the matching program following activity-based notification approach, using the set of subscriptions defined as $ACT$.
-\end{enumerate}
-% subsection procedures (end)
-
-\subsection{Measures} % (fold)
-\label{sub:measures}
-Two measures will be used to compare the results of different notification approaches:
-\begin{enumerate}
-	\item \textbf{Miss rate} is defined as the ratio between number of events that are considered as relevant in $R_0$ but missing in the result of $R_i$ ($i \in \{1, 2, 3\}$), and the total number of events considered as relevant in $R_0$.
-	\item \textbf{False alarm rate} is defined as the ratio between number of events that are considered as relevant in $R_i$ ($i \in \{1, 2, 3\}$), but missing in the result of $R_0$, and the total number of events considered as relevant in $R_i$ ($i \in \{1, 2, 3\}$).
-\end{enumerate}
-
-% subsection measures (end)
-
-\subsection{Results} % (fold)
-\label{sub:results}
-Some results we expect from the experiment can be:
+To evaluate the expressiveness of the PlanGraph model to represent the field of work, and the validity of the knowledge updating processes, we use the EDAP platform to simulate the event-driven development in the four episodes (Section \ref{}). The development of the PlanGraph model in the four episodes shows the capability of the system to keep track of the event-driven development of the field of work. Our system is able to handle the four typical development trajectories of collaborative activities as represented by the four episodes respectively. 
 
 \begin{enumerate}
-	\item Comparing with the context-based notification using subscriptions defined as $CON_{min}$, the activity-based notification has lower miss rate in the scenes $S_1$, $S_2$, $S_3$. The difference between miss rates of the two methods increases as the scene evolves.
-	\item Comparing with the context-based notification using subscriptions defined as $CON_{max}$, the activity-based notification has lower false alarm rate in the scenes $S_1$, $S_2$, $S_3$. The difference between false alarm rates of the two methods decreases as the scene evolves.
+	\item Episode 1 shows the capability of the system to handle the top-down action decomposition as triggered by goal activation.
+	\item Episode 2 shows how the system can update the PlanGraph according to the actor's opportunistic plan development driven by unexpected events.
+	\item Episode 3 demonstrates the system's capability to project the impact of an event throughout the PlanGraph, and keep track of the human actors' social development of an event, i.e. tracking the event propagation process.
+	\item Episode 4 shows how the system can handle the opportunistic re-planning and modify the PlanGraph to accommodate the changes.
 \end{enumerate}
 
-% subsection results (end)
-
-\subsection{Discussion} % (fold)
-\label{sub:discussion}
-
-% subsection discussion (end)
-
-
-% section a_simulation_experiment (end)
-\section{The Cognitive Basic} % (fold)
-\label{sec:the_cognitive_basic}
-The cognitive principles that guide the design of visual displays for event interpretation.
+Along with the development of the PlanGraph in the episodes, we construct the corresponding local scopes and dependency networks to analyze the expressiveness of the PlanGraph model to represent the field of work in the scenario. The results of our analysis provide the evidence that the three characteristics of the field of work as we conceptualized in Section \ref{sec:integrated_conceptual_model_of_awareness} can be supported by the PlanGraph model.
 
 \begin{enumerate}
-	\item The schemata theory (Bartlett et al.): when human respond to incoming stimuli, they make use of their existing knowledge as a frame of reference to make sense of the incoming stimuli and produce behavior. The active organization of existing knowledge is defined as `schema'. Schemata can be merely mental templates in human mind, or retrieved dynamically from the external visual artifacts. 
-	\item The relevance principle (Kosslyn 2006): Visual displays should present no more or no less information than is needed by the user. Presenting all of the relevant information in the display relieves the user of the need to maintain a detailed representation of this information in working memory, where presenting too much information in the display leads to visual clutter or distraction by irrelevant information (Rosenholtz et al. 2007; Wickens \& Carswell, 1995).
-	\item The task specificity principle (Hegarty et al. 2009). Visual displays are used for many different tasks, and there is no such thing as a `best' visual display, independent of the task to be carried out with this display. 
+	\item The difference between the total number of entities in the PlanGraph and the numbers of entities in different actors' local scopes shows the partiality of the local scopes. Comparing with the entities in the whole field of work represented by the PlanGraph, each local scope is relatively small, and only includes a small set of the entities.
+	\item The mapping of local scopes into the dependency network clearly shows the entities from different actors' local scopes are connected with each other, either through the boundary objects in overlapping local scopes or through the dependency relations.
+	\item The numbers of entities in the local scopes and numbers of dependency relations keep changing in the development of the four episodes, which makes the dynamics of the field of work evident. 
 \end{enumerate}
 
-What these cognitive principles can inform us are:
+In Section \ref{}, we apply the awareness promotion approach in the context of the scenario to analyze the utility of our approach to support the awareness processes in the four episodes. 
 \begin{enumerate}
-	\item When the user interprets an awareness event, he/she needs to activate and connect the event to his/her contextual knowledge of the situation. The visual display can enhance the interpretation by externalizing part of the knowledge in the visual representation and freeing up working memory resources.
-	\item However, the effectiveness of the visual display depends on how much relevant information is represented. We want to provide the users with just enough contextual information without causing visual clutter or distraction.
-	\item The relevance of contextual information to be displayed is dependent on the current task to be carried out, or the decision that need to be made by the user.
-
-\end{enumerate}
-% section the_cognitive_basic (end)
-
-\section{Activity-Aware Event Interpretation} % (fold)
-\label{sec:activity_aware_event_interpretation}
-The problem we want to address here is that: how the computational model of activities and local scopes can inform the system to decide on what contextual information should be displayed when the users interpret awareness events.
-
-The decisions can be made based on two factors: the incoming event and the activities/local scope the user is working on. By maintaining the PlanGraph model, the system can infer how the event will impact the user's activities, which can be used to infer what decisions the user needs to make next, or what tasks the user will focus on, which can be used to decide on what should be displayed on the user interface.
-
-Generate the set of rules based on SharedPlan Theory.
-
-Some examples:
-
-1. If the event initiates a new goal of the user, by elaborating on the plan, the system can infer that the user will work on identifying the set of parameters first.
-
-2. If the event indicates the failure of a parameter, and there is no plan to fix the failure, the system can infer that the user will re-assign the values of this parameter.
-
-3. if the event indicates the failure of a parameter, and there is plan to fix the failure, the system can infer that the user will work on the plan to fix it.
-
-% section activity_aware_event_interpretation (end)
-
-\section{Experimental Study}
-\subsection{Hypotheses} % (fold)
-\label{sec:hypotheses}
-The general assumption is that maps with contextual information that is adapted to the user's current activities are more effective to support awareness event interpretation, than maps with fixed contextual information.
-% section hypotheses (end)
-
-\subsection{Experimental Design} % (fold)
-\label{sec:experimental_design}
-\subsubsection{Participants} % (fold)
-\label{sub:participants}
-Twelve undergraduate or graduate students will be recruited as participants in this study. All participants need to use computers on a daily basis. Prior experience with emergency response planning or operations is welcomed, but not required.
-
-% subsection participants (end)
-\subsubsection{Tasks} % (fold)
-\label{sub:tasks}
-The participants are asked to perform simulation tasks in an emergency response scenario, from the perspective of the decontamination manager. The tasks that the participants need to perform are driven by the events they receive.
-
-Some example events and triggered tasks include:
-
-\begin{enumerate}
-	\item E1: A new victim that needs to be decontaminated is reported by the victim manager. The task that the participant needs to do is to assign a decon station for the victim.
-	\item E2: The impacted area is enlarged and a decon station becomes inside of the impacted area. The task that the participants need to do is to re-assign the victims that are assigned to the station to other stations.
-	\item E3: A type of resource in a particular decon station is running low in stock. The participant need to request for a resource delivery from one of the suppliers.
-	\item E4: The delay on a victim's arrival at assigned station. The participant needs to check whether it will conflict with the victim's deadline on decontamination. If so, he/she needs to plan for sending the victim to other station.
+	\item The local scope-based event notification mechanism shows two advantages in supporting event presentation in the scenario: (1) the leverage of system knowledge to limit the human actor’s effort to manage subscriptions within local scopes, (2) and the capability to handle dynamics. Because of the partiality of local scopes, our approach reduces the complexity of the event notification problem since the human actors only need to manage subscriptions within their local scopes. On the other hand, the capability of our approach to model dynamics in the field of work provides a more adaptive way to judge the relevance of the events. Instead of relying on pre-defined subscriptions, the relevance of an event is evaluated based on the relation to the up-to-date local scopes in the changing field of work.
+	\item Our visualization framework for event interpretation supports two types of reasoning tasks that can be identified in the scenario: (1) backward tracking to understand the origin of an event, and (2) forward tracking to evaluate the potential impact of an event. The former is supported by the capability of the system to keep track of the event development in the knowledge updating process, so that the system can provide the event view to visualize the historical development of an event. The forwarding tracking is supported by the system’s capability to perform the reasoning tasks for the human actors. The system's evaluation of an event's consequences and prediction of future states provide suggestions for the human actors to interpret the event. 
+	\item Our approach to supporting event propagation includes (1) the functionalities to assist human actors to interpret the events built on top of each others and externalize their own interpretations as new events, and (2) the dissemination of events to relevant actors. The former emphasizes the social aspect of the event propagation process, as how the events are collectively generated and interpreted by multiple actors. The latter is enabled by the connectivity of local scopes in the field of work. The shared boundary objects within the overlapping local scopes and the dependency relations between entities in different actors' local scopes provide the basis for the system to propagate events using the local scope-based event notification mechanism.
 \end{enumerate}
 
-% subsection task (end)
-
-\subsubsection{Design settings} % (fold)
-\label{sub:design_settings}
-Participants are randomly assigned to one of the two design settings in one experiment session to perform their tasks. The three design settings are described as follow: 
-\begin{itemize}
-    \item The first design setting ($D_1$) shows a map showing locations of all the stations, victims, and resource suppliers as separate layers. The user can turn on/off each layer, or filter the objects based on spatial distances.
-    
-    \item In the second design setting ($D_2$), the features displayed in the map are adapted based on the event and the tasks that the user needs to perform. 
-\end{itemize}
-% subsection design_settings (end)
-
-\subsubsection{Procedure} % (fold)
-\label{sub:procedure}
-In the beginning of each experiment session, the participant is randomly assigned to one of the three design settings and given a couple of minutes to learn the functions of the assigned design setting. In addition to the training of the simulation system, the participant is also provided with the general picture of the collaborative activity. Information about other agents, related resources in the activity, and the current goals and tasks of the group are presented to the participant, so he/she has a clear understanding of the task in the context of the whole activity and provides the basis for interpreting the awareness events. After the training session, the participant is asked to perform the simulation task. During the performance of the task, the participant is notified with a list of awareness events, and asked to finish the assessment form to answer relevant questions after each event notification.
-
-Each experiment session is composed as a series of interaction episodes between the participant and the system. Each interaction episode defines how an agent (role-played by the participant) responds to a particular event in the collaborative scenario. Each interaction episode starts with the provision of an awareness event in the interface, and then the participant is perform corresponding tasks based on their understanding of the event.
-
-% subsection procedure (end)
-
-\subsubsection{Measurement} % (fold)
-\label{sub:data_collection}
-To measure the overall performance during the experiment session, we record the completion time of each experiment session and the participant's responses to each awareness event. In the design phase of the awareness events, each event is associated with a set of optimal responses. The participant's responses are then compared with the optimal set to indicate the quality level of task completion. 
-
-% section data_collection (end)
-
-\subsection{Results} % (fold)
-\label{sec:results_and_discussion}
-In general, we expect that 
-
-1. the participants in design setting $D_2$ will generate more valid responses than the participants in design setting $D_1$.
-
-2. the participants in design setting $D_2$ should spend less time to finish the tasks than the participants in design settings $D_1$ in average.
-% section results_and_discussion (end)
-
-\subsection{Discussion}
-
+% section summary_and_discussion (end)
 % chapter case_studies (end)
 
 

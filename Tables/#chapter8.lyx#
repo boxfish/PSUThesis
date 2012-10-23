@@ -1089,7 +1089,7 @@ After the assignment of station (DS1) to the victim, the DM activates the
 \begin_inset Text
 
 \begin_layout Plain Layout
-Generate event (E5)
+Generate event (E5, E6)
 \end_layout
 
 \end_inset
@@ -1098,7 +1098,12 @@ Generate event (E5)
 \begin_inset Text
 
 \begin_layout Plain Layout
-E5: A new goal to transport the victim to the assigned decontamination station
+E5: The station (DS1) has been assigned to the decontamination action on
+ victim.
+\end_layout
+
+\begin_layout Plain Layout
+E6: A new goal to transport the victim to the assigned decontamination station
  is activated
 \end_layout
 
@@ -1186,7 +1191,7 @@ However, because the action depends on the action to treat the victim to
 \begin_inset Text
 
 \begin_layout Plain Layout
-Consume event (E5)
+Consume event (E6)
 \end_layout
 
 \end_inset
@@ -1252,7 +1257,7 @@ Because the actual transportation action is out of the DM's responsibility,
 \begin_inset Text
 
 \begin_layout Plain Layout
-Generate event (E6)
+Generate event (E7)
 \end_layout
 
 \end_inset
@@ -1261,7 +1266,7 @@ Generate event (E6)
 \begin_inset Text
 
 \begin_layout Plain Layout
-E6: The driver (DR1) has been assigned to the action to transport the victim
+E7: The driver (DR1) has been assigned to the action to transport the victim
  
 \end_layout
 
@@ -1282,7 +1287,7 @@ Driver (DR1)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Consume event (E6)
+Consume event (E7)
 \end_layout
 
 \end_inset
@@ -1312,7 +1317,7 @@ Episode 2
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="13" columns="3">
+<lyxtabular version="3" rows="12" columns="3">
 <features booktabs="true" islongtable="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="1.2in">
 <column alignment="left" valignment="top" width="1.2in">
@@ -1357,7 +1362,7 @@ Description
 \begin_inset Text
 
 \begin_layout Plain Layout
-Operator at the decontamination station (DS1)
+Operator at the decontamination station
 \end_layout
 
 \end_inset
@@ -1383,7 +1388,7 @@ E1: The quantity of available rinse tanks in the station (DS1) is running
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1417,7 +1422,7 @@ Upon receiving E1, DM infers that the station (DS1) cannot work properly
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1443,8 +1448,8 @@ DM first needs to locate an inventory where the rinse tanks can be supplied.
 \end_layout
 
 \begin_layout Plain Layout
-After identification of the inventory (INV1) to the victim, the DM activates
- the goal to deliver the resource from the inventory to the station.
+After identification of the inventory (INV1), the DM activates the goal
+ to deliver the resource from the inventory to the station.
  
 \end_layout
 
@@ -1452,7 +1457,7 @@ After identification of the inventory (INV1) to the victim, the DM activates
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1482,7 +1487,7 @@ E2: A new goal to deliver the resource from (INV1) to the station (DS1)
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1504,14 +1509,14 @@ Consume event (E2)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Upon receiving E2, IM starts a new action to delever the resource.
+Upon receiving E2, IM starts a new action to deliver the resource.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1542,7 +1547,7 @@ IM first needs to prepare the resource for delivery.
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1571,7 +1576,7 @@ E3: A new goal to transport the resource to the station (DS1) is activated
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1600,7 +1605,7 @@ Upon receiving E3, TM starts a new action to transport the resource.
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1634,7 +1639,7 @@ Because the actual transportation action is out of the DM's responsibility,
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1664,7 +1669,7 @@ E4: The driver (DR2) has been assigned to the action to transport the victim
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1673,7 +1678,7 @@ Driver (DR2)
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1682,42 +1687,13 @@ Consume event (E4)
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Upon receiving E4, DR2 infers that the action to transport the victim to
  the station is within her responsibility and she is capable of performing
  it, so she starts to perform the action.
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -1799,14 +1775,14 @@ Generate event (E1)
 \begin_inset Text
 
 \begin_layout Plain Layout
-E1: The rescue vehicle with the driver (DR1) encouters a mechanical breakdown.
+E1: The rescue vehicle with the driver (DR1) encounters a mechanical breakdown.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1836,7 +1812,7 @@ Upon receiving E1, TM infers that because of the vehicle breakdown, the
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1870,7 +1846,7 @@ However, because all the drivers are currently in duty, the TM cannot find
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1900,7 +1876,7 @@ E2: The action to transport the victim has to be delayed because of the
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1930,7 +1906,7 @@ Upon receiving E2, DM infers that because of the delay to transport the
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1960,7 +1936,7 @@ E3: The action to decontaminate the victim will be delayed because of the
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -1990,7 +1966,7 @@ Upon receiving E3, VM infers that because of the delay to transport the
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2020,7 +1996,7 @@ E4: The action to rescue the victim is delayed because of the delay of the
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2043,7 +2019,7 @@ Consume event (E4)
 
 \begin_layout Plain Layout
 Upon receiving E4, the fireman infers that although delivery of the victim
- is not in the scope of her responsibility, however she can help the resuce
+ is not in the scope of her responsibility, however she can help the rescue
  action by sending the victim to the decontamination station (DS1).
  
 \end_layout
@@ -2052,7 +2028,7 @@ Upon receiving E4, the fireman infers that although delivery of the victim
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2075,7 +2051,7 @@ Generate event (E5)
 
 \begin_layout Plain Layout
 E5: The fireman activates the goal to send the victim to the decontamination
- staton (DS1).
+ station (DS1).
  
 \end_layout
 
@@ -2107,7 +2083,7 @@ Consume event (E5)
 \begin_layout Plain Layout
 Upon receiving E5, TM infers that because of the new action of the fireman,
  the responsibility of transporting the victim is now transferred from her
- to the firemn.
+ to the fireman.
 \end_layout
 
 \end_inset
@@ -2189,7 +2165,7 @@ Generate event (E1)
 \begin_inset Text
 
 \begin_layout Plain Layout
-E1: The physicla injury of the victim becomes severe and prevents the fireman
+E1: The physical injury of the victim becomes severe and prevents the fireman
  from moving the victim into the vehicle.
 \end_layout
 
@@ -2197,7 +2173,7 @@ E1: The physicla injury of the victim becomes severe and prevents the fireman
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2219,9 +2195,9 @@ Consume event (E1)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Upon receiving E1, VM evaluates the situation of the vitim and decides that
- because of the serious injury, the original plan to rescue the victim is
- no longer appropriate.
+Upon receiving E1, VM evaluates the situation of the victim and decides
+ that because of the serious injury, the original plan to rescue the victim
+ is no longer appropriate.
  A new plan needs to be adopted: a special team needs to be dispatched to
  the victim's location to decontaminate and treat the victim on spot, and
  then the victim is directly sent to the hospital for further treatment.
@@ -2231,7 +2207,7 @@ Upon receiving E1, VM evaluates the situation of the vitim and decides that
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2276,7 +2252,7 @@ E6: A new goal to send the victim to the hospital is activated
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2306,7 +2282,7 @@ Upon receiving E2, DM removes the action to decontaminate the victim from
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2328,7 +2304,7 @@ Consume event (E5)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Upon receiving E5, DM infers that in order to perfrom the action to dispatch
+Upon receiving E5, DM infers that in order to perform the action to dispatch
  a special team to the victim, a decontamination operator needs to be assigned
  to the team sent to the victim.
  
@@ -2338,7 +2314,7 @@ Upon receiving E5, DM infers that in order to perfrom the action to dispatch
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2368,7 +2344,7 @@ By reviewing the available operators, DM decides on the operator that will
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2398,7 +2374,7 @@ The decontamination operator has been assigned to the special team to the
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2428,7 +2404,7 @@ Upon receiving E3, MM removes the action to treat the victim from her current
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2450,9 +2426,9 @@ Consume event (E5)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Upon receiving E5, DM infers that in order to perfrom the action to dispatch
- a special team to the victim, a medical professional needs to be assigned
- to the team sent to the victim.
+Upon receiving E5, DM infers that in order to perform the action to dispatch
+ a special team to the victim, a paramedic needs to be assigned to the team
+ sent to the victim.
  
 \end_layout
 
@@ -2460,7 +2436,7 @@ Upon receiving E5, DM infers that in order to perfrom the action to dispatch
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2482,15 +2458,15 @@ Perform action
 \begin_inset Text
 
 \begin_layout Plain Layout
-By reviewing the available actors, DM decides on the medical professional
- that will be sent to the victim
+By reviewing the available actors, DM decides on the paramedic that will
+ be sent to the victim
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2512,14 +2488,14 @@ Generate event (E8)
 \begin_inset Text
 
 \begin_layout Plain Layout
-The medical professional has been assigned to the special team to the victim.
+The paramedic has been assigned to the special team to the victim.
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2549,7 +2525,7 @@ Upon receiving E4, TM removes the action to evacuate the victim from her
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2571,7 +2547,7 @@ Consume event (E5)
 \begin_inset Text
 
 \begin_layout Plain Layout
-Upon receiving E5, TM infers that in order to perfrom the action to dispatch
+Upon receiving E5, TM infers that in order to perform the action to dispatch
  a special team to the victim,  the action to transport the team to the
  victim needs to be activated.
  
@@ -2581,7 +2557,7 @@ Upon receiving E5, TM infers that in order to perfrom the action to dispatch
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2613,7 +2589,7 @@ TM first needs to assign a driver with a rescue vehicle to the action.
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2643,7 +2619,7 @@ E9: The driver (DR2) has been assigned to the action to transport the special
 </cell>
 </row>
 <row>
-<cell alignment="center" valignment="top" topline="true" usebox="none">
+<cell multirow="4" alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -2702,6 +2678,259 @@ Consume event (E9)
 \begin_layout Plain Layout
 Upon receiving E9, DR2 starts to perform the action to transport the special
  team to the victim.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Event distribution in Episode 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="3">
+<features booktabs="true" islongtable="true" longtabularalignment="center">
+<column alignment="center" valignment="top" width="0pt">
+<column alignment="left" valignment="top" width="2in">
+<column alignment="left" valignment="top" width="2.5in">
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Event
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Reciever
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Subscription
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Victim manager (VM)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+VM needs to subscribe to all the 
+\emph on
+`new victim'
+\emph default
+ events
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Decontamination manager (DM)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DM needs to subscribe to the 
+\emph on
+`goal activation'
+\emph default
+ events with the condition that the goal is to decontaminate a victim
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Medical manager (MM)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+MM needs to subscribe to the 
+\emph on
+`goal activation'
+\emph default
+ events with the condition that the goal is to treat an injured victim
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transportation manager (TM)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TM needs to subscribe to the 
+\emph on
+`goal activation'
+\emph default
+ events with the condition that the goal is to evacuate a victim
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E6
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Transportation manager (TM)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TM needs to subscribe to the 
+\emph on
+`goal activation'
+\emph default
+ events with the condition that the goal is to transport a victim to a station
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+E7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Driver (DR1)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+DR1 needs to subscribe to the 
+\emph on
+`resource assignment' 
+\emph default
+events with her vehicle as the assigned resource
+\emph on
+.
 \end_layout
 
 \end_inset

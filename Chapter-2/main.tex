@@ -203,6 +203,29 @@ Dependencies have been studied by many researchers with aspect to coordination, 
 	\item \emph{Goal dependencies.} Goal dependencies involves the subsidiary goals that might be interdependent across various actors or their tasks \cite{sikora1998a}. A goal-related dependency reflects the fact that the depender depends on the dependee to bring about a certain state in the world. Unlike the temporal or resource-related dependencies in which the depender knows what tasks are involved in these relationships, the depender in a goal-related dependency does not care how the dependee goes about achieving the goal, i.e. the dependee is free to, and is expected to, make whatever decisions are necessary to achieve the goal \cite{yu1993actor}. A goal-related dependency is usually characterized by the structural relationship resulting from goal decomposition of the whole shared goal, i.e. task A depends on the other task B because B is a means to achieve a subsidiary goal that must be satisfied in order to perform A.
 \end{enumerate}
 
+\subsection{Characteristics of the field of work} % (fold)
+\label{sub:characteristics_of_the_field_of_work}
+1. Partiality of local scopes
+One of the central concepts in our approach is the local scopes of different actors in a collaborative activity. Comparing with the filed of work representing the overall collaborative activity, the local scope of an actor represents the part of the field of work that the actor is participated in. 
+
+the local scopes are partial representations of the whole field of work.  This is the foundation of group work. If no difference, then why do we need to cooperate?
+
+2. Connectivity of local scopes
+
+One of the basic assumptions behind our event propagation mechanism is that the different actors' local scopes in a collaborative activity are compatible with each other. 
+
+1). Overlaps, boundary objects
+
+Although the different actors are interested in and capable of performing different actions in the collaborative activity, there are always some actions sitting in between different actors' local scopes as boundary objects. It is these boundary objects that provide the bridges for event propagation. As an event interpreted by one actor is associated with a boundary object, it becomes relevant to the other actor whose local scope also covers this boundary object. 
+
+2). Dependencies
+The phenomena of overlapping local scopes can be explained by the dependencies existing between different actors' actions. When the action $act_1$ of an actor($ar_1$) depends on another actor $ar_2$'s action $act_2$, $ar_1$ will also be interested in knowing the information related to $act_2$, such as the fact that $act_2$ has been completed or it has problem to be performed. In this way, the $act_2$ can be considered as a boundary object that overlapping the two actors' local scopes. 
+
+3. Dynamics of the field of work
+
+
+% subsection characteristics_of_the_field_of_work (end)
+
 Figure \ref{fig:field_of_work_example} illustrates how the different activities are distributed into different local scopes of work (represented as dotted circles) and how they are connected by the various dependency relationships in the motivating scenario. As we can see from the example, the different actors in the scenario, the victim manager, the decontamination manager, and the transportation manager, have very different roles to play, and therefore their local scopes vary significantly. However, due to the dependencies among their activities (For example, the decontamination manager relies on the transportation manager to deliver the victim to the decontamination station; the victim manager relies on the decontamination manager to perform decontamination on the victim), their local scopes are overlapped with each other.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
