@@ -1,0 +1,337 @@
+\section{The Design Framework} % (fold)
+\label{sec:the_design_space}
+By conceptualizing the awareness phenomena in distributed, complex collaboration as a continuous development of awareness knowledge (i.e. the knowledge about the environment, activities, and their dependencies) through a variety of cognitive and social processes, the design issues for awareness support can be organized at two levels: the \emph{individual} level and the \emph{team} level. The former focuses on supporting the cognitive processes of individual team members to develop their own awareness, while the latter provides support for the social processes in which team members interact with each other to achieve awareness at the team level. 
+
+
+\subsection{Designing for individual processes} % (fold)
+\label{sub:designing_for_individuals}
+At the individual level, the role of computer support can be understood in term of designing `cognitive artifact' \cite{Norman1992}, which is defined as an artificial device designed to maintain, display, or operate upon information in order to aid cognition. Norman argues that an important design consideration for cognitive artifacts is the human action cycle that emphasizes the two sides of human action \cite{Norman1992}. One side is the `evaluation' side of action by perceiving, interpreting and evaluating the state of the environment. The other is the `execution' side that of acting upon the environment. Norman's human action cycle matches well with the major steps of awareness development at the individual level, where the `evaluation' side refers to the \emph{perception}, \emph{comprehension}, and \emph{projection}, and the `execution' side includes the \emph{decision making} and \emph{action execution}.
+
+\subsubsection*{Perception} % (fold)
+\label{ssub:perception}
+
+The achievement of individual awareness starts with the ability of individuals to perceive key features in the environment. The primary goal of awareness support in the perception process is to ensure that the awareness information is perceivable to the users. This goal can be achieved from two aspects: \emph{selection} and \emph{presentation} \cite{Berlage1999}. The former focuses on filtering out the information so that only the relevant information is perceived by the users, while the latter involves strengthening the stimulus to ensure that information is perceivable.
+
+\begin{enumerate}
+   \item Support for \emph{selection} is based on the assumption that perception is a selective process that depends on the requirements of the current working situation and the tasks at hand \cite{Endsley1995}. Not all information is of relevance to a user, hence the pool of all awareness information has to be processed to filter the relevant information \cite{Berlage1999}. Support for selection is to delegate the effort of filtering out irrelevant information to computer systems, so that human actors can focus on processing only the relevant set of information to avoid information overload.
+   \item Support for \emph{presentation} is to strengthen the stimulus in the user interface to ensure important awareness information is perceivable. Existing studies in cognition have shown that the salience of elements in the environment will have a large impact on which portions of the environment are initially attended to, and these elements will form the basis for perception \cite{Hegarty2011}. As a result, the way in which information is presented via the interface will largely influence the perception process by determining which part of the environment will draw the user's attention.
+\end{enumerate}
+
+% subsubsection perception (end)
+
+\subsubsection*{Comprehension} % (fold)
+\label{ssub:comprehension}
+Comprehension is to understand the meaning of perceived awareness information within the context of a user's current goals and activities \cite{oulasvirta2007a}. In the comprehension process, new information must be combined with existing knowledge to develop a composite picture of the situation \cite{Endsley1995}. Hence, the computer support for comprehension is to help the users establish the connection between new awareness information and existing knowledge that forms the inferential framework \cite{carroll2003a}. In general, there are several ways that the comprehension can be supported by computer systems: 
+
+\begin{enumerate}
+   \item \emph{Representation}. First, the computer system can support human comprehension by providing external representations of the existing knowledge. Instead of merely relying on the internal representations of human users, the external representation can serve as the information store, so that the internal representation at a given time can be quite sparse, perhaps containing only detailed information about their current focus \cite{Hegarty2011}, or pointers to locations of other important information in the external representation \cite{M.1996}. In this way, the limited working memory resources of human users are freed up for other aspects of cognition \cite{M.1996}.
+   \item \emph{Linking}. Second, the computer system can directly aid the linking between new awareness information and existing knowledge by presenting the awareness information along with the contextual information that is potentially relevant to understand its meaning \cite{Tomaszewski2010}. Supporting comprehension by linking has its basis on the design principle of offloading cognitive processes onto perceptual processes \cite{M.1996}. By explicitly linking the awareness information to contextual information for interpretation, some complex cognitive processes, such as searching for and activating the relevant portion of existing knowledge, can be replaced by simple pattern recognition processes \cite{Hegarty2011}. 
+\end{enumerate}
+% subsubsection comprehension (end)
+
+\subsubsection*{Projection} % (fold)
+\label{ssub:projection}
+Projection is the process that the individual predicts the future states of other activities based on the comprehension of awareness information. As argued by Endsley \cite{Endsley1995}, this is the most difficult and taxing parts of situation awareness because it requires a fairly well developed mental model of the activities and relationships among them, and the capabilities to perform reasoning. System-generated support for projecting future events and states of the system can then target on supporting the development of the mental model by representing the activities and relationships, or supporting the reasoning processes. 
+
+\begin{enumerate}
+   \item \emph{Representation}. Similar to the comprehension process, the projection process can be supported by providing external representations of the existing knowledge to enhance human cognition. However, unlike the representational support for comprehension that focuses on individual activity elements, the knowledge representation for projection emphasizes the various relationships and dependencies among the activity elements, so that the users can infer how the state on one activity can lead to possible changes on other activities' states.
+   \item \emph{Reasoning}. The analytical reasoning is central to the projection process, through which users identify possible alternative future scenarios and the signs that one or another of these scenarios is coming to pass \cite{Thomas2006}. As a result, one of the critical requirements for supporting projection is to provide the analytics tools and techniques that allow the users to synthesize information and derive insight from it.
+\end{enumerate}
+
+% subsubsection projection (end)
+% subsection designing_for_individuals (end)
+
+\subsection{Designing for team processes} % (fold)
+\label{sub:designing_for_the_team}
+At the team level, the roles of computer in awareness support can be characterized by supporting the three basic types of team processes to propagate awareness information as described in Section \ref{ssub:team_processes}: \emph{feedthrough}, \emph{communication}, and \emph{manifestation}.
+
+\subsubsection*{Feedthrough} % (fold)
+\label{ssub:feedthrough}
+The process of feedthrough is to make consequences of individual activities apparent to other participants \cite{dourish1992awareness}. In co-located collaborative environments, this usually can be achieved without computer intervention, as collaborators can readily see each other's activities and artifacts they are working on \cite{schmidt2002a}. However, in distributed collaboration, computer support becomes inevitable to enable the process of feedthrough. The role of computer to support feedthrough is to \emph{broadcast} the effects of individual actions and make them visible to each other.
+% subsubsection feedthrough (end)
+\subsubsection*{Communication} % (fold)
+\label{ssub:communication}
+Communication is the prevalent form to propagate awareness information, in which people explicitly talk about awareness elements with their collaborators \cite{Gutwin2002}. Computer mediated communication has been an important component in almost every distributed collaborative system, by providing team members a \emph{medium} to communicate with each other remotely.
+
+Although we consider communication as an important process for the team members to propagate awareness information, it is usually supported separately from the awareness systems as a standalone feature in collaborative applications. As a result, we do not put much emphasis on supporting communication in the following discussion.
+
+% subsubsection communication (end)
+
+\subsubsection*{Manifestation} % (fold)
+\label{ssub:manifestation}
+Manifestation refers to a more subtle means to propagate awareness information among team members. Instead of directly performing actions to impact each other via feedthrough, or explicitly communicating with each other, the team members can make some aspects of their individual awareness visible to others, so that anyone who is interested in these aspects, or who is monitoring the field, can perceive the information. The aspects of individual awareness that can be made visible in the manifestation process can be the raw awareness information perceived by a team member, or his/her interpretation of the awareness information during comprehension/projection, or the results of decision-making. To support the manifestation process, the computer system needs to provide the following functions:
+
+\begin{enumerate}
+   \item \emph{Externalization}. The computer system needs to provide the tools to allow the users to externalize aspects of their individual awareness and make them visible to other users.
+   \item \emph{Visibility}. The computer system should allow the users to control the visibility of their manifested information. They can specify who can see what piece of the information they make visible.
+\end{enumerate}
+% subsubsection manifestation (end)
+% subsection designing_for_the_team (end)
+
+
+
+% section the_design_space (end)
+
+
+\chapter{Overview of Our Approach} % (fold)
+\label{cha:our_approach_overview}
+
+
+This chapter provides an overview of our approach. The general design principle of our approach is to emphasize the active role of computer system to not merely support, but rather promote awareness in complex collaborative activities. In the following, we first describe the design concept of awareness promotion, and then describe the major components of our awareness promotion framework.
+
+
+
+Table \ref{tab:awareness_support_vs_promotion} illustrates the major differences between the traditional awareness support paradigm and awareness promotion in addressing the different awareness processes. From the table, we can clearly see some of the distinguishing characteristics of awareness promotion. 
+
+\begin{enumerate}
+   \item First, the awareness promotion approach emphasizes the computer's knowledge representation of the field of work, and its relationship to awareness information. One one hand, the awareness information is used to update the computer's knowledge representation so that it matches the current state of the field of work. On the other hand, the knowledge representation is used by the computer in almost every awareness process to perform a variety of reasoning tasks to support awareness.
+   \item Second, comparing with the traditional awareness support, the awareness promotion approach shows much more frequent interactions between the computer and the human users. Each awareness process involves both the computer's reasoning and the human's cognition, as well as the interaction to combine them together. 
+\end{enumerate} 
+
+{\footnotesize
+\begin{longtable}{>{\raggedright}p{1.1in}>{\raggedright}p{2.2in}>{\raggedright}p{2.2in}}
+\toprule 
+\textbf{Awareness processes} & \textbf{Awareness support} & \textbf{Awareness promotion}\tabularnewline
+\midrule 
+Percepetion & \emph{Space-based} models: 
+\begin{itemize}[nosep]
+\item the \emph{computer} shares information in a common space
+\item the \emph{human} monitors the shared space to perceive information
+\end{itemize}
+\emph{Event-based} models: 
+\begin{itemize}[nosep]
+\item the \emph{human} subscribes to events based on interests
+\item the \emph{computer} filters out events based on human subscription \end{itemize}
+ & \begin{itemize}[nosep]
+\item the \emph{computer} uses the information to update its knowlege representation
+\item the \emph{computer} uses its knowledge representation to infer who
+the information is relevant to, and present it only to the relevant
+actors
+\item the \emph{user} can modify the computer's knowledge representation \end{itemize}
+\tabularnewline
+\midrule 
+Comprehension & \emph{Space-based} and \emph{event-based} models:
+\begin{itemize}[nosep]
+\item the \emph{computer} links the awareness information to the context
+of its origin
+\item the \emph{human} infers the connection between the context of origin
+and his/her work context\end{itemize}
+ & \begin{itemize}[nosep]
+\item the \emph{computer} connects the awareness information to the human's
+work context 
+\item the \emph{human} interprets the information, and sends the result
+to the computer
+\item the \emph{computer} updates its knowledge representaton based on human
+interpretation\end{itemize}
+\tabularnewline
+\midrule 
+Projection & \emph{Space-based} and \emph{event-based} models:
+\begin{itemize}[nosep]
+\item the \emph{human} performs the projection on the own\end{itemize}
+ & \begin{itemize}[nosep]
+\item the \emph{computer} performs the projection based on its knowledge
+representation
+\item the \emph{computer} presents the projection results to the human
+\item the \emph{human} reviews and modifies the computer's reasoning
+\item the \emph{computer} updates its knowledge representation based on
+human modification\end{itemize}
+\tabularnewline
+\midrule 
+Feedthrough & \emph{Space-based} models:
+\begin{itemize}[nosep]
+\item the \emph{computer} broadcasts the effect to everyone
+\end{itemize}
+\emph{Event-based} models:
+\begin{itemize}[nosep]
+\item the \emph{computer} notified the effect to all subscribers\end{itemize}
+ & \begin{itemize}[nosep]
+\item the \emph{computer} uses the effect to update its knowlege representation
+\item the \emph{computer} uses its knowledge representation to decide on
+who should receive the effect and notify them
+\item the \emph{human} can control who can see the effects of his/her activities\end{itemize}
+\tabularnewline
+\midrule 
+Manifestation & \emph{Space-based} models: 
+\begin{itemize}[nosep]
+\item the \emph{human} creates an annotation 
+\item the \emph{computer} makes it visible to everyone
+\end{itemize}
+\emph{Event-based} models:
+\begin{itemize}[nosep]
+\item the \emph{human} indicates his/her intention as an event
+\item the \emph{computer} notified the event to all subscribers\end{itemize}
+ & \begin{itemize}[nosep]
+\item the \emph{human} generates awareness information indicating some aspects
+of his/her individual awareness
+\item the \emph{human} can control who can see the generated awareness information
+\item the \emph{computer} uses the generated awareness information to update
+its knowlege representation
+\item the \emph{computer} uses its knowledge representation to decide on
+who should receive the information and notify them\end{itemize}
+\tabularnewline
+\bottomrule
+\caption{Awareness support v.s. awareness promotion}
+\label{tab:awareness_support_vs_promotion}
+\end{longtable}
+}
+
+
+\subsection{Awareness processes in space-based models} % (fold)
+\label{sub:awareness_processes_in_space_based_models}
+\subsubsection{Support for perception} % (fold)
+\label{ssub:support_for_perception}
+
+\paragraph*{Selection} % (fold)
+\label{par:selection}
+The first step to support perception regards the selection of the awareness information for a particular user, i.e. what awareness information should be presented? 
+
+
+% paragraph selection (end)
+
+\paragraph*{Presentation} % (fold)
+\label{par:presentation}
+Presenting the awareness information to the user in space-based systems can be achieved in two ways: presenting the information in place of its origin, or presenting in dedicated awareness widgets \cite{Roseman1996}.
+
+As the awareness information is implicitly embedded as properties of objects in the shared spaces, it is natural to present the awareness information directly in place of the associated object in the general presentation of the field of work. For example, in the DIVA shared workspace \cite{Berlage1999}, the color of document icons indicates the document status (e.g. green means `modified by others'). As argued by Dourish and Bellotti \cite{dourish1992awareness}, presenting awareness information in place prevents users from having to switch their attention focus between different information sources. However, this approach relies on the user's capability to perceive and retrieve information from the shared space, which cannot always be guaranteed \cite{Berlage1999}. 
+
+On the other hand, 
+% paragraph presentation (end)
+% subsubsection support_for_perception (end)
+
+\subsubsection{Support for comprehension} % (fold)
+\label{ssub:support_for_comprehension}
+
+% subsubsection support_for_comprehension (end)
+\subsubsection{Support for projection} % (fold)
+\label{ssub:support_for_projection}
+% subsubsection support_for_projection (end)
+
+\subsubsection{Support for feedthrough} % (fold)
+\label{ssub:support_for_feedthrough}
+% subsubsection support_for_feedthrough (end)
+
+\subsubsection{Support for manifestation} % (fold)
+\label{ssub:support_for_manifestation}
+
+Another more sophisticated way to support manifestation has been integrated in the MoMA system in the term of add-on awareness \cite{simone2002a}. The system allows the user to specify field parameters in rule premises to construct add-on awareness promotion. For example, the user can define awareness behavior of the kind: if I receive specific pieces of awareness information, then I will trigger certain interpretation on it, and make the interpretation visible to other actors. The supported manifestation in this way is a reactive process, i.e. actors react to certain changes in the space, however they cannot actively initiate the manifestation process.
+
+% subsubsection support_for_manifestation (end)
+% subsection awareness_processes_in_space_based_models (end)
+
+\subsection{Awareness processes in event-based models} % (fold)
+\label{sub:awareness_processes_in_event_based_models}
+\subsubsection{Support for perception} % (fold)
+\label{ssub:support_for_perception}
+
+\paragraph*{Selection} % (fold)
+\label{par:selection}
+
+% paragraph selection (end)
+
+\paragraph*{Presentation} % (fold)
+\label{par:presentation}
+Unlike the \emph{space-based} that relies on the users to monitor the shared space and perceive the presented awareness information, event-based systems make the awareness cues more perceivable for the users than other elements in the environment through different kinds of notification mechanisms \cite{McCrickard2003}. The notification can be done in different ways. In GroupDesk \cite{Fuchs1995} and POLIAwaC \cite{sohlenkamp2000po}, different urgency levels are defined to determine the form of presentation of event information at the user interface. A high urgency would typically lead to a disruptive notification, such as popping up a message window, whereas a low urgency could reflect the information by a change of color of the object's icon and leave the details of information to explicit user request. In NESSIE, the presentation of awareness information is performed by configurable indicators, including simple windows for the listing of event information, different background images, or sounds. Tools are offered that allow the users to easily map awareness events to suitable indicators \cite{prinz1999a}.
+% paragraph presentation (end)
+% subsubsection support_for_perception (end)
+
+\subsubsection{Support for comprehension} % (fold)
+\label{ssub:support_for_comprehension}
+% subsubsection support_for_comprehension (end)
+\subsubsection{Support for projection} % (fold)
+\label{ssub:support_for_projection}
+
+% subsubsection support_for_projection (end)
+
+\subsubsection{Support for feedthrough} % (fold)
+\label{ssub:support_for_feedthrough}
+
+
+% subsubsection support_for_feedthrough (end)
+
+\subsubsection{Support for manifestation} % (fold)
+\label{ssub:support_for_manifestation}
+
+% subsubsection support_for_manifestation (end)
+% subsection awareness_processes_in_event_based_models (end)
+
+
+Space-based models have the advantage that the awareness information is presented in the context of its origin, i.e. the associated object in the shared space, and therefore ease the comprehension process. 
+
+On the other hand, event-based models provides a more lightweight way to present awareness information, as only the aspects of awareness information that is of relevance are presented. Furthermore, the event-based presentation is pushed to the users by making the events more perceivable to the users. In this way, the users do not need to switch their attentions to other’s activities until the event notification happens. However, awareness information in the form of events is usually presented separately from the inferential framework to comprehend it, which leads to extra effort in the comprehension process.
+
+The major purpose of reviewing existing awareness systems in Section \ref{sec:the_state_of_art} is not to provide an exhaustive evaluation on existing studies. Instead, we use the review to explore design challenges in supporting awareness in complex, distributed geo-collaborative activities that will motivate our approach in the following section. 
+
+In general, we can identify two major design challenges based on the analysis in Section \ref{sec:the_state_of_art}.
+
+\textbf{1. The challenge of scaling up.}
+
+Existing systems to support awareness processes are usually designed to support collaborative activities at relatively small and medium scales, it becomes a much more difficult task to support awareness in complex real time activities as we are interested in this study. As we described in Chapter 1, the collaborative activities we consider in this paper are a subset of these complex collaborative setting with two major characteristics: (1) \emph{high level of complexity}: a large number of team workers are geographically distributed in different locations, yet engaged in interdependent activities that require effective coordination. (2) \emph{high level of dynamics}: the actors work in dynamic settings that entail rapid changes in environment and activity, and as a result their specific awareness needs keep changing as the activities are developed.
+
+The two awareness models (\emph{space-based} and \emph{event-based} models) have their own strengths and drawbacks when the collaborative activities scale up. 
+
+On the one hand, \emph{space-based} models manage the awareness through the interaction of collaborators and rely on the users to monitor the field of work and perceive the awareness information. This provides more flexibility to handle increased level of dynamics. As the whole field of work as a shared space is explicitly visible to each user, they can pick up the awareness information relevant to them even when their own interests have been changed. However, space-based models become much more problematic when the level of complexity in the field of work increases. When the number of objects, actors and their activities is significantly increased, the whole field of work will becomes extremely large. Representing the whole field of work and relying on the users to monitor and retrieve awareness information from it becomes a challenging task, as it requires a lot of extra attentions and efforts from the users. 
+ 
+On the other hand, \emph{event-based models} provides a more lightweight way to present awareness information, as only the aspects of awareness information that is of relevance are presented. Furthermore, the event-based presentation is pushed to the users by making the events more perceivable to the users. In this way, the users do not need to switch their attentions to other's activities until the event notification happens. As a result, event-based models can handle more complex situations than space-based models. However, the effectiveness of event-based models largely depends on the quality of event subscriptions, which often requires that considerable domain knowledge be explicitly embedded. As argued by Fuchs et al. \cite{fuchs1999a}, event-based systems seem to work satisfactorily for situations where workflow can be clearly defined in advance or if the application is known from the beginning. When the level of dynamics increases in collaborative activities, such condition can no loner hold. The user's awareness needs are often in the flux of changes, as their activities evolve. Hence, the event-based models becomes less effective in high level of dynamics.
+
+The above analysis clearly shows that neither space-based nor event-based models in existing studies can effectively support awareness processes in collaborative activities when both the complexity and dynamics scale up. Therefore, a new awareness model that can leverage the strengths of both space-based and event-based models becomes extremely important.
+
+\textbf{2. The challenge of integrated support.}
+
+As we conceptualize the awareness phenomena in complex, distributed collaborative activities as a continuous development of awareness knowledge through a variety of integrated cognitive and social processes, it is very important that all the individual and team processes are well supported. However, the review of existing awareness systems shows that some awareness processes have very limited support in existing studies.
+
+ 
+
+
+As a result, the second design challenge in supporting awareness in complex collaborative activities is to consider the awareness support from a collective perspective and provide integrated support for the whole awareness development cycle.
+
+\section{From Awareness Support to Awareness Promotion} % (fold)
+\label{sec:from_support_to_promotion}
+
+\begin{enumerate}
+   \item As neither space-based nor event-based models in existing studies can effectively support awareness processes in collaborative activities when both the complexity and dynamics scale up, a new awareness model that can leverage the strengths of both space-based and event-based models becomes extremely important.
+   \item By conceptualizing the awareness phenomena in complex, distributed collaborative activities as a continuous development of awareness knowledge through a variety of integrated cognitive and social processes, it is very important to consider the awareness support from a collective perspective and provide integrated support for the whole awareness development cycl
+
+
+Our awareness promotion approach has its basis in two basic parent disciplines:  artificial intelligence (AI) and human-computer interaction (HCI). 
+\begin{enumerate}
+   \item From AI, we consider the computer as \emph{an active agent} \cite{Brown99activeuser}, situated within the collaborative environment that adaptively sense, acts, and reacts within this environment over time, to pursue its goal of promoting awareness.
+   \item From HCI, we act on the premise that computers and humans have fundamentally asymmetric abilities \cite{Dalal1994}; therefore, we focus on developing divisions of responsibility that exploit the strengths and overcome the weaknesses of both, and utilizing interaction techniques to facilitate effective \emph{human-computer collaboration} \cite{Terveen1995}.
+\end{enumerate}
+
+
+\subsection{Human computer collaboration} % (fold)
+\label{sub:human_computer_collaboration}
+While considering the computer as an active actor to support awareness, it does not mean we can delegate all the tasks to the computer and build a completely automatic system. Existing studies in HCI and cognitive science have suggested that the relationship between human users and artificial intelligence should be treated as joint cognitive systems \cite{Dalal1994} or human-computer collaboration systems \cite{Terveen1995}, emphasizing the appropriate partition of responsibility between human actors and computer systems. This perspective of human computer interaction is based on two premises.
+
+\begin{enumerate}
+   \item It begins with the premise that computers and humans have fundamentally asymmetric abilities. The computer's strength lies in its ability to store more information than can be stored in the human's short-term memory, to perform faster data retrieval and processing, and to conduct more reliable low-level routine inferences \cite{Brown99activeuser}. On the other hand, the human's strength lies in the ability to integrate information from multiple sources to provide insight necessary to draw complex, higher level inferences, and the capability to handle unexpected situations with the help of long-term memory, experiences, and even intuition. As a result, the goal of computer support is actually to investigate the relationship between the cognitive characteristics of the human and the cognitive characteristics of the computer, and get the computer to complement the human \cite{Dalal1994}.
+   \item It assumes that the human and the computer be cooperative to each other in the interaction. It means not only the computer will keep track of the human's activities and adapt its behaviors to support human performance, but also the human is willing to exposing his/her goals and activities to the computer, helping system maintain the knowledge representation, giving away control to the computer, and modifying the computer's behaviors when necessary \cite{Terveen1995}. The goal is not to shield users from the complexities of interaction, but rather to focus on the use of interaction techniques to facilitate effective human-computer collaboration.
+\end{enumerate}
+
+In our approach, we also base on these two premises to propose supporting the awareness development in distributed, complex collaboration as a human computer collaborative system. While human actors still need to undergo the cognitive processes to develop individual awareness, and use it to make decision and perform activities in their own local scopes; the computer system take the responsibility to maintain a collective picture of the whole field of work, and utilize this knowledge to facilitate the various cognitive and social awareness processes among human actors.
+
+In sum, we use the term `awareness promotion' to define the paradigm of awareness support that follow these two design principles: (1) the computer plays the role as an `actor' actively engaged in the collaborative activities along with human actors, maintains a collective knowledge representation of the whole field of work, and uses it to adapt behaviors to support the various awareness processes; (2) the computer provides adequate interaction techniques to allow the human actors to collaborate with it to develop awareness at both the individual and team level. 
+
+
+
+
+\section{The Awareness Promotion Framework} % (fold)
+\label{sec:awareness_promotion_framework}
+
+Following our conceptualization of the awareness phenomena in Section \ref{sec:integrated_conceptual_model_of_awareness}, our approach is built on top of two major knowledge components: a computational representation of the field of work based on the SharedPlan theory, and an event-driven model of the awareness processes. Then the computer system's behaviors to promote awareness are embedded in the interaction between these two components. On one hand is how the computer constructs and develops the knowledge representation of the field of work within the event-driven processes, and on the other hand is how the knowledge representation is used to promote these event-driven awareness processes.
+
+This section provides an overview of the awareness promotion framework and discusses the major design choices, but leave the details to the next few chapters.
+
+\subsection{Computational representation of the field of work} % (fold)
+\label{sub:computational_representation_of_the_field_of_work}
+
+% subsection computational_representation_of_the_field_of_work (end)
+
+
+
+\subsection{The framework} % (fold)
+\label{sub:the_awareness_promotion_framework}
+
+% subsection the_awareness_promotion_framework (end)
+% section awareness_promotion_framework (end)   
+% chapter our_approach_overview (end)

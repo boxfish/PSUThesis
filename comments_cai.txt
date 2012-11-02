@@ -1,0 +1,41 @@
+Make sure you rewrite your abstract to reflect the four aspects: the problem, method, findings/contributions, and implication.
+
+Chapter 2, I would like to see a clear definition of awareness from the perspective of this study (I.e. your definition), and tie into what we know already in the literature (social awareness, individual/collaborative awareness, situation awareness).    Specifically, it should be clear of two states: partial awareness and full awareness.     Then, the next question would be: how awareness develops from partial to full.    Your review of literature is more of separate pieces of work, without being messed well to help understand your specific awareness problem.    Besides, the discuss doesn't reveal what we do not understand, or do not have a good conceptual constructs to describe.    
+
+Chapter 3, it would be nice if you can include a system of formal notations to describe the conceptual constructs mentioned.   At this moment, it is all natural language, which is hard to refer to in later chapters.  
+Page 35, "Goal decomposition" should be replaced by "Goal elaboration" to be consistent with the developmental  view.
+
+Section 3.2.1 should be titled as "Partiality of individual awareness"
+
+Section 3.2.2 is more about messing of individual awareness into group awareness.   Compatibility is not an accurate term.
+
+Page 39, section 3.2.3, it is not clear to be what exactly the content and use of "awareness requirement."
+
+Page 40, the statement "The major difference in our model from the original perceptual cycle model is that the individual awareness processes is controlled by the the actor's local scope
+of work" seems to be flawed.   What about dependencies to other local scopes?    Where is the reflection of replanning under adverse events?
+
+Page 42, "The actors can only monitor the external aspects of other actors' actions" is problematic.  Internal aspects can also be exposed and be made external.   This is not the limitation of monitoring, but a problem of visibility and externalization.
+Here, you should point out the opportunities for awareness promotion and refer to your related work in later chapters.   
+
+Page 44 (middle), "explicitly states the results of his/her individual awareness processes" is too vague!   Does it mean every results?    It should involve the belief that the result is relevant to another actor due to dependency relationships.  Same page, to the bottom, "intentional aspects of the awareness" is vague!
+
+Chapter 3 seems to have no discussion on how events come into awareness system.
+
+
+Chapter 4.   The whole idea of awareness promotion needs to be made concrete in all phases of awareness cycle.
+
+Section 4.3.1 and 4.3.2 are truly optional, and in a sense, fat!
+
+Chapter 4
+
+(1) It is not clear what is the difference between "awareness support" and "awareness promotion."   Without a clear distinction, the rest of the discussion seems hard to understand.  
+
+(2)  Before you talk about awareness promotion, it is necessary to make a clear argument on the opportunities for promotion and and benefit of each promotion strategy.    Also, you should make the set of awareness promotion tricks as a package that has more power than its components.
+
+Overall, chapter 4 needs lots of work, but I assume you will fix some in the next version.
+
+
+other todo:
+1. section title little case
+2. screenshots
+3. citations

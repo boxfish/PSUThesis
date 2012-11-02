@@ -132,15 +132,11 @@ the
 \emph on
 computer
 \emph default
- shares information in a common space
-\end_layout
-
-\begin_layout Itemize
-the 
+ shares information in a common space, and relyies on the 
 \emph on
 human
 \emph default
- monitors the shared space to perceive information
+ to monitor the shared space to perceive information
 \end_layout
 
 \begin_layout Plain Layout
@@ -156,11 +152,7 @@ the
 \emph on
 human
 \emph default
- subscribes to events based on interests
-\end_layout
-
-\begin_layout Itemize
-the 
+ subscribes to events based on interests, and the 
 \emph on
 computer
 \emph default
@@ -177,24 +169,8 @@ the
 \emph on
 computer
 \emph default
- uses the information to update its knowlege representation
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-computer
-\emph default
- uses its knowledge representation to infer who the information is relevant
- to, and present it only to the relevant actors
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-user
-\emph default
- can modify the computer's knowledge representation 
+ infer who the information is relevant to, and present only the relevant
+ information
 \end_layout
 
 \end_inset
@@ -213,16 +189,12 @@ Comprehension
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
-
+\begin_layout Itemize
+the 
 \emph on
-Space-based
+computer
 \emph default
- and 
-\emph on
-event-based
-\emph default
- models:
+ provides the representation of the whole shared space
 \end_layout
 
 \begin_layout Itemize
@@ -230,11 +202,7 @@ the
 \emph on
 computer
 \emph default
- links the awareness information to the context of its origin
-\end_layout
-
-\begin_layout Itemize
-the 
+ links the awareness information to the context of its origin, and the 
 \emph on
 human
 \emph default
@@ -251,15 +219,8 @@ the
 \emph on
 computer
 \emph default
- connects the awareness information to the human's work context 
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-human
-\emph default
- interprets the information, and sends the result to the computer
+ only represents the aspects of the collaborative activity that is relevant
+ to the human
 \end_layout
 
 \begin_layout Itemize
@@ -267,7 +228,8 @@ the
 \emph on
 computer
 \emph default
- updates its knowledge representaton based on human interpretation
+ can infer the connection between the awareness information and the human's
+ work context 
 \end_layout
 
 \end_inset
@@ -286,24 +248,12 @@ Projection
 <cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
-
-\emph on
-Space-based
-\emph default
- and 
-\emph on
-event-based
-\emph default
- models:
-\end_layout
-
 \begin_layout Itemize
 the 
 \emph on
 human
 \emph default
- performs the projection on the own
+ performs the projection as their own cogntive process
 \end_layout
 
 \end_inset
@@ -316,7 +266,8 @@ the
 \emph on
 computer
 \emph default
- performs the projection based on its knowledge representation
+ represents the aspects of collaborative activity that are useful for projection
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -324,23 +275,8 @@ the
 \emph on
 computer
 \emph default
- presents the projection results to the human
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-human
-\emph default
- reviews and modifies the computer's reasoning
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-computer
-\emph default
- updates its knowledge representation based on human modification
+ can performs routine inferences and presents the reasoning results to aid
+ the human
 \end_layout
 
 \end_inset
@@ -351,7 +287,7 @@ computer
 \begin_inset Text
 
 \begin_layout Plain Layout
-Feedthrough
+Transactive knowledge
 \end_layout
 
 \end_inset
@@ -359,36 +295,12 @@ Feedthrough
 <cell alignment="center" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
-\begin_layout Plain Layout
-
-\emph on
-Space-based
-\emph default
- models:
-\end_layout
-
 \begin_layout Itemize
 the 
 \emph on
-computer
+human has to
 \emph default
- broadcasts the effect to everyone
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-Event-based
-\emph default
- models:
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-computer
-\emph default
- notified the effect to all subscribers
+ maintain their individual transactive knowledge in mind
 \end_layout
 
 \end_inset
@@ -401,7 +313,7 @@ the
 \emph on
 computer
 \emph default
- uses the effect to update its knowlege representation
+ maintains the transactive knowledge at the team level.
 \end_layout
 
 \begin_layout Itemize
@@ -409,16 +321,7 @@ the
 \emph on
 computer
 \emph default
- uses its knowledge representation to decide on who should receive the effect
- and notify them
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-human
-\emph default
- can control who can see the effects of his/her activities
+ makes direct use of the knowledge to conduct awareness transactions.
 \end_layout
 
 \end_inset
@@ -429,60 +332,7 @@ human
 \begin_inset Text
 
 \begin_layout Plain Layout
-Manifestation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\emph on
-Space-based
-\emph default
- models: 
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-human
-\emph default
- creates an annotation 
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-computer
-\emph default
- makes it visible to everyone
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-Event-based
-\emph default
- models:
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-human
-\emph default
- indicates his/her intention as an event
-\end_layout
-
-\begin_layout Itemize
-the 
-\emph on
-computer
-\emph default
- notified the event to all subscribers
+Team processes
 \end_layout
 
 \end_inset
@@ -493,35 +343,26 @@ computer
 \begin_layout Itemize
 the 
 \emph on
-human
+computer 
 \emph default
- generates awareness information indicating some aspects of his/her individual
- awareness
-\end_layout
-
-\begin_layout Itemize
-the 
+provides the tools and relies on
 \emph on
-human
+ the human
 \emph default
- can control who can see the generated awareness information
+ to decide on the .
 \end_layout
 
-\begin_layout Itemize
-the 
-\emph on
-computer
-\emph default
- uses the generated awareness information to update its knowlege representation
-\end_layout
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
 
-\begin_layout Itemize
+\begin_layout Plain Layout
 the 
 \emph on
 computer
 \emph default
- uses its knowledge representation to decide on who should receive the informati
-on and notify them
+ makes direct use of the transactive knowledge to conduct awareness transactions.
 \end_layout
 
 \end_inset

@@ -11,7 +11,7 @@ Each component is designed to follow the two design principles outlined in Chapt
 	\item We attempt to strike a balance between the system's computational and reasoning capabilities to reduce human effort and providing interactive support to keep human actors in the loop and retaining control.
 \end{enumerate}
 
-\section{Event Notification Mechanism} % (fold)
+\section{Event notification mechanism} % (fold)
 \label{sec:event_notification_mechanism}
 As we discussed in Section \ref{sub:awareness_processes_in_event_based_models}, the event perception is usually supported by event notification mechanisms \cite{McCrickard2003}. In this study, we distinguish \emph{events} from \emph{event notifications} as follow: while an event represents the information about a real-world occurrence or some aspect of actor's interpretations necessary to provide awareness, multiple notifications about that event can be directed to multiple receivers if it is relevant to them. Each event notification includes not only the content of the corresponding event, but also the actor who will be informed, as well as the notification style, i.e. the appropriate way to present the notification.
 
@@ -115,7 +115,7 @@ To support the management of subscriptions within the local scope, the computer 
 
 % section event_notification_mechanism (end)
 
-\section{Supporting Event Interpretation} % (fold)
+\section{Supporting event interpretation} % (fold)
 \label{sec:supporting_event_interpretation}
 In our approach, we use the term `event interpretation' to include both the process of \emph{comprehension}, i.e. understanding the meaning of perceived event within the context of a user's current goals and activities, and the process of \emph{projection}, i.e. predicting the future states based on the comprehension. Although these two awareness processes have different characteristics at the conceptual level, they are usually inseparable from the user's perspective. The user can switch back and forth between comprehension and projection upon perceiving an event without realizing the difference between them. Hence, we design for supporting event interpretation as an integrated cognitive process that covers both comprehension and projection.
 
@@ -208,7 +208,7 @@ The context view is a container for interactive information visualization tools 
 % subsection context_view (end)
 % section supporting_event_interpretation (end)
 
-\section{Mediating Event Propagation} % (fold)
+\section{Mediating event propagation} % (fold)
 \label{sec:mediating_event_propagation}
 Event propagation refers to the social process to establish compatible awareness across multiple actors. As we argue in Section \ref{sec:integrated_conceptual_model_of_awareness}, an essential aspect of the awareness phenomena in distributed, complex collaboration is that the development of awareness should be considered as a social process that can involve a series of interactions among multiple actors. With aspect to the event-driven awareness process, that is to say the awareness process triggered by one event can be developed by multiple actors. The actor who receives the initial event generates his/her own interpretation of the event, and then externalize the interpretation as a new event, which is then received by the second actor. The second actor's interpretation is built on top of the first actor's, and may generate new events that are received by other actors. In this way, as the initial event is propagated to multiple actors, the team awareness is developed.
 

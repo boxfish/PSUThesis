@@ -25,7 +25,7 @@ To respond to client requests, the EDAP server provides several components in th
 The communication between modules in the EDAP server is achieved through a limited form of the publish/subscribe interaction. Each module can publish important messages during its performance, and the other modules who need to respond to these messages need to subscribe to them. In this way, the interaction between modules can be asynchronous so that they do not block each other while waiting for others to finish their task. In addition, it provides a distributed interaction style that allows the different modules to be deployed across multiple machines. 
 % section architecture_of_edap (end)
 
-\section{Implementation of EDAP Server} % (fold)
+\section{Implementation of EDAP server} % (fold)
 \label{sec:implementation_of_edap_server}
 The functional modules EDAP server is implemented using the Python programing language, and the web services are developed in the Django framework. The three data repositories, i.e. event, subscription and visibility repositories, as well as the knowledge base, are implemented as PostgreSQl databases. In the following, we describe the implementation details on major modules and the repositories are discussed within the respective modules that can manipulate them. 
 
@@ -145,30 +145,99 @@ Once an event notification is generated, the \emph{Notification Module} publishe
 % subsection the_notification_module (end)
 % section implementation_of_edap_server (end)
 
-\section{Implementation of EDAP Client} % (fold)
+\section{Implementation of EDAP client} % (fold)
 \label{sec:implementation_of_edap_client}
-The EDAP client is a Web-based client provides the user with the lightweight HTML + JavaScript user interface to the awareness system. The EDAP client is implemented by using several Open Source JavaScript libraries: JQuery framework for the interface layout, the OpenLayers mapping library to provide the geographic context view, and the d3 library to generate the event view and activity view. The thin client design allows the user to easily access the system without installing any software or plug-ins. 
+The EDAP client is a Web-based client provides the user with the lightweight HTML + JavaScript user interface to the awareness system. The EDAP client is implemented by using several Open Source JavaScript libraries: JQuery \footnote{http://jquery.com} framework for the interface layout, the OpenLayers \footnote{http://openlayers.org} mapping library to provide the geographic context view, and the d3 \footnote{http://d3js.org} library to generate the event view and activity view. The thin client design allows the user to easily access the system without installing any software or plug-ins. 
 
-The EDAP client is developed for supporting awareness in the motivating scenario of emergency response described in Section \ref{sub:geo_collaboration}. Within this scenario, the awareness process can involve multiple actors. Imagine the occurrence of an unexpected event indicating a traffic jam that blocks the route for delivering a victim to a decontamination station. This event is first perceived by the transportation manager, who interprets the event as the cause of a delay for a vehicle that is used to deliver a victim to the decontamination station as scheduled. As a result, the decontamination manager’s intention to have the victim delivered at the decontamination station on time becomes problematic, which is further interpreted as a cause for delay on the decontamination operation. Furthermore, the delay on decontamination could impact the victim manager due to the temporal dependency between decontamination and medical treatment. The victim manager may have to re-schedule the victim so that the medical resource could be assigned to another victim.
+To demonstrate the functionalities of the EDAP client, we discuss a concrete use case in the motivating scenario of emergency response. A more detailed description of the scenario will be given in the case study (Section \ref{sec:an_emergency_response_scenario}). In this concrete use case, we consider the user as the victim manager ($VM$) who is in charge of managing all the victims that need to be rescued. In the normal work flow, $VM$ needs to monitor the status of all the victims. Whenever a new victim is reported by the first responders, $VM$ needs to evaluate the status and decide on whether the victim needs to be decontaminated or treated. For the current victims, $VM$ also needs to make sure the operations on them can be conducted in a timely way. Figure \ref{fig:vm_interface_initial} shows the main interface for $VM$ during the normal work flow. The interface includes several views to support $VM$'s work. 
 
-Figure \ref{fig:main_interface} shows the main interface of the EDAP client from the victim manager’s perspective. We provide three inter-linked visual representations. 
+\begin{enumerate}
+	\item The \emph{victims} view on the left consists of a set of interactive data visualization tools to explore the victims. For $VM$, the interface allows him/her to monitor the status of every victim that has been reported. A dynamic query interface is used for filtering the victims based on attributes, time, and geographical locations.
+	\item The \emph{victim detail} view shows the detailed information for a selected victim. We provide several context views for the $VM$ to evaluate each victim's information, including the text-based information about the victim, a spatio-temporal trajectory showing the movement of the victim, and a status transition view showing the history of the status change on the victim.
+	\item The \emph{activity} view shows the current activity structure of the rescue action related to the victim, where $VM$ can interpret the events and externalize the interpretations through direct manipulation.
+	\item The \emph{events list} view provides a list of current events notified to $VM$. $VM$ can click on each event to activate the event view to show more detail about the event.
+\end{enumerate}
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
-	\includegraphics[width=5.5in]{main_interface.jpg} 
-	\caption{The main interface of the EDAP client}
-	\label{fig:main_interface}
+	\includegraphics[width=5.8in]{vm_interface_initial_marked.jpg} 
+	\caption{The main interface of EDAP for the victim manager \newline (1)\emph{victims} view, (2)\emph{victim detail} view, (3)\emph{activity} view, (4)\emph{events list} view}
+	\label{fig:vm_interface_initial}
 \end{figure}
 
+Within this use case, we consider the awareness process that is conducted by $VM$ upon receiving an event and discuss the different functionalities provided by the EDAP client to support it. 
 
-\begin{enumerate}
-	\item The \emph{event view} provides a list of current events notified to the victim manager. The victim manager can click on each event to activate the event propagation tree to backtrack the event development.
-	\item The \emph{activity view} shows the goals, activities, resources assigned to the current victim, which forms the local scope of the victim manager, where he/she can interpret the event and project state changes based on established understanding of the situation.
-	\item The \emph{context view} consists of interactive data visualization tools to explore the contextual information. For the victim manager, the interface allows him/her to monitor the status of every victim that has been reported. A dynamic query interface is used for filtering the victims based on attributes, time, and geographical locations.
-\end{enumerate}
+\paragraph*{Event notification} % (fold)
+\label{par:event_notification}
+The awareness process starts with $VM$ receiving an event notification in the interface. The event $E4$ indicates that the decontamination action on a victim ($Victim\textrm{-}16$) is delayed. Because the decontamination action is within $VM$'s local scope of work, the EDAP server generates an event notification and pushes the notification to $VM$. As the \emph{Event Notifier} module of the EDAP client receives the notification, it render the notification in the client based on the associated notification style that is defined by $VM$ in the subscriptions. In EDAP client, we support three notification styles with different obtrusiveness levels. At the most obtrusive level, we use an \emph{alert} that is a modal dialog on the interface, blocking everything in the client. The user has to confirm the reception of the notification before resuming the previous state. Then it could be a \emph{banner} that presents each incoming event notification at a dedicated corner for a period of time and then disappears. At the least obtrusive level, it can be a \emph{badge} that displays the total number of events attached with each victim in the victim list. The user can click the badge to open the event list to review the event notifications. The three notification styles correspond to the importance levels when the user manage subscriptions. The events with high importance level will be presented as alerts. Medium importance level corresponds to banners, and low importance level maps to badges. Figure \ref{fig:vm_interface_notifications} shows an example of the three notification styles, and $E4$ in this case is presented to $VM$ as an \emph{alert}.
 
-\fxwarning{use the scenario to run through the whole process to demonstrate the functionalities: from notification, to event view, to activity view, to the generate new events, to manage subscription, to manage visibility. }
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.5in]{vm_interface_notifications_marked.jpg} 
+	\caption{Event notification styles in EDAP client}
+	\label{fig:vm_interface_notifications}
+\end{figure}
+% paragraph event_notification (end)
+
+\paragraph*{Event interpretation} % (fold)
+\label{par:event_interpretation}
+Upon receiving the notification in the interface, $VM$ can click on the confirmation button in the alert to bring up the event view to perceive more detail about the event. The event view follows the general design principles described in Section \ref{sub:event_view}. The event $E4$ has been attached with an event propagation tree as it has been developed by several other actors. Hence, the client visualizes the event propagation tree along with the event, so that $DM$ can navigate through event propagation tree to understand the developmental history of the event. 
+
+Figure \ref{fig:vm_interface_event} shows the active event propagation chain attached with $E4$, which clearly shows the actors that are involved in developing $E4$. $DM$ can switch to the event propagation tree view by clicking the button at the toolbar. With in the event chain, $VM$ can mouse over each node to see detailed information about the event, such as the event type, occurrence time, payroll attributes, the actor who creates the event, and the author's free text notes. When clicking on the event node, the activity view will be adjusted so that the action/resource node associated with the event will be centered and highlighted. By browsing through the event propagation chain, $VM$ understands that the delay of the decontamination action is because of the delay of the transportation action to send the victim to the decontamination station, which is furthered caused by the mechanical problem with the driver's vehicle. In this way, $VM$ can back track to understand the origin of the event.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=3.6in]{vm_interface_event.jpg} 
+	\caption{Event view in EDAP client}
+	\label{fig:vm_interface_event}
+\end{figure}
+
+After understanding the event with the context of origin, $VM$ also evaluates how the event will impact her other actions in the projection process. This is supported by the activity view that is linked with the event view. The activity view provides the activity-related inferential frame for the $VM$ to predict the impacts of the event. Figure \ref{fig:vm_interface_externalization} shows the activity view for $VM$, which allows $VM$ to navigate through the different entities in the activity structure, check the detail on each entity, and recognize different relations between them. The activity view treats the entities inside and outside $VM$'s local scope differently so that the user always know what part of the collaborative activity he/she needs to focus on, and it also allows the client to provide more detail information for the entities within the local scope. By navigating through the activity view, $VM$ infers that because of the delay of the decontamination action, the rescue action that depends on it will also be delayed. 
+% paragraph event_interpretation (end)
+
+\paragraph*{Event externalization} % (fold)
+\label{par:event_externalization}
+The result of $VM$'s interpretation leads to the further development of the event, as $VM$ believes that the rescue action will be delayed due to the dependency between decontamination and rescue action. To externalize this belief about the execution state change on the rescue action, $VM$ can click on the node in the activity view representing the rescue action and choose the option to change the execution state. The client shows up an pop-up window that allows the $VM$ to externalize the results of her interpretation, which is directly associated with the rescue action. Figure \ref{fig:vm_interface_externalization} shows the externalization interface where $VM$ can select the expected state for the action, and provides the confidence level and explanation on the interpretation. Whenever $VM$ presses the `Change State' button, a new internal event representing the $VM$'s belief about the execution state on the rescue action will be sent to the server, with reference to the event under interpretation ($E4$).
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=3.3in]{vm_interface_externalization.jpg} 
+	\caption{Event externalization in the activity view}
+	\label{fig:vm_interface_externalization}
+\end{figure}
+% paragraph event_externalization (end)
+
+\paragraph*{Event subscription/visibility} % (fold)
+\label{par:event_subscription}
+Besides the support for event notification, interpretation, and externalization, the EDAP client also provides two supplementary interfaces to support the management of subscriptions and visibilities. The interface to control event visibility is very similar to the event subscription interface, as a result we focus on the event subscription in the following.
+
+Figure \ref{fig:vm_interface_subscription} shows $VM$'s interface to manage subscriptions. On the left is the visualization of the dependency networks along with the different actors' local scopes color-coded. The visualization is presented to the user gradually. In the beginning, only the entities within $VM$'s local scope of work is visible, so that $VM$ can focus on manage the subscriptions with in the local scope. Whenever $VM$ clicks on a node that has dependency relation with other entities outside the local scope, the dependency network is expanded to show the related entities as well, and $VM$ can subscribe to events associated with these entities as well. The expansion of the dependency network can be performed iteratively as $VM$ browses through the entities in a chain of dependencies. In this way, the system provides the initial control to limit subscriptions within the local scope, but at the same time allows the user to override the limitation and subscribe to events that are outside the local scope of work.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{vm_interface_subscription.jpg} 
+	\caption{Event subscription in EDAP client}
+	\label{fig:vm_interface_subscription}
+\end{figure}
+
+To make a particular subscription, $VM$ clicks on a node in the dependency network, and all the visible events on the node is listed on the right of the interface. $VM$ can subscribe to any of the visible events directly or add extra filters on refine the subscriptions. In the EDAP client, we support all the three types of filters we discussed in Section \ref{sub:event_filtering_algorithm}, i.e. filters based on event type, content, and local scope. Besides the filters, $VM$ can also assign an important level to the subscription, which will be used to determine the notification styles as we mentioned in the event notification step.
+% paragraph event_subscription (end)
 % section implementation_of_edap_client (end)
+\section{Discussion} % (fold)
+\label{sec:discussion}
+A prototype system EDAP (Event-driven awareness promotion) is implemented in this study to demonstrate the feasibility of our computational awareness promotion framework. The EDAP platform includes two components: (1) the EDAP server provides a generic event-driven infrastructure for awareness promotion that can be applied in different application domain. (2) the EDAP client is a standalone Web-based interactive awareness system that is used to demonstrate the functionalities of our approach.
+
+The EDAP server has a modular architecture. Its core module, the \emph{Knowledge Updating Module}, incorporates the PlanGraph model to maintain dynamic knowledge about the collaborative activities and perform automatic reasoning to interpret the events. The implementation of the PlanGraph model and the various reasoning algorithms for knowledge construction and updating shows the feasibility of the knowledge representation and updating component in our approach as we proposed in Chapter \ref{cha:knowledge_reprsentation_and_updating}. The implementation of the EDAP server also provides us the computational platform to test the validity of the knowledge representation and updating algorithms. We describe such an effort through a simulation experiment in the case study (Section \ref{sec:simulating_the_knowledge_updating}).
+
+The EDAP client demonstrates the functionalities of the approach in supporting different awareness processes. 
+\begin{enumerate}
+	\item The client supports the event notifications based on the local scopes, and manages  multiple notification styles in event subscriptions.
+	\item It supports the backward tracking to understand the origin of an event by visualizing the event propagation tree in the event view.
+	\item It supports the forward tracking to evaluate the potential impact of an event by providing an adaptive visualization of the collaborative activity. The visualization in adaptive in the sense that it provides more detail for the entities within the actor's local scope of work and is dynamically changed as the model of the collaborative activity is changed.
+	\item It allows the users to directly externalize their interpretations in the activity view, which provides an efficient way to create new events that are associated with internal aspects of the actions and linked to other events in the developmental trajectory.
+	\item Lastly, it provides the functionalities to manage event subscriptions and visibilities, which allows the users to retain controls in the awareness processes and customize the computer system's behaviors.
+\end{enumerate}
+% section discussion (end)
 % chapter system_implementation (end)
 
 

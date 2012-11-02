@@ -700,7 +700,7 @@ Approved: \= \rule{2.75in}{0.5pt} \quad Date: \= \rule{1.5in}{0.5pt} \\[-3pt]
     }
     \thispagestyle{empty}
     \vspace*{-0.5in}
-    \noindent {\normalsize The thesis of \psu@author\ was reviewed and approved$^{*}$ by the following:}\\[3\baselineskip]
+    \noindent {\normalsize The dissertation of \psu@author\ was reviewed and approved$^{*}$ by the following:}\\[3\baselineskip]
 \mbox{}\hfill
 \parbox{\textwidth - 0.5in}{
          \psu@advisor\\[\psu@sigoptionskip]
