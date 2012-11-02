@@ -168,6 +168,7 @@
 \ExecuteOptions{phd} % the default option is <phd>
 \ProcessOptions
 \LoadClass[openany,oneside]{book}
+%\LoadClass[openrany,twoside]{book}
 \RequirePackage{calc}
 \RequirePackage{setspace}
 % If you are using the subfigure package, load the tocloft package with

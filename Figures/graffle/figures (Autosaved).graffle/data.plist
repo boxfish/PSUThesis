@@ -44,7 +44,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2012-11-02 01:12:12 +0000</string>
+	<string>2012-11-02 08:32:02 +0000</string>
 	<key>Modifier</key>
 	<string>Bo Yu</string>
 	<key>NotesVisible</key>
@@ -56176,7 +56176,7 @@ the current event}</string>
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{167.43842, 282.85974}, {112, 28}}</string>
+					<string>{{144.43842, 282.85974}, {135, 28}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -56217,7 +56217,7 @@ the current event}</string>
 {\colortbl;\red255\green255\blue255;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\qr
 
-\f0\fs24 \cf0 The field of work and \
+\f0\fs24 \cf0 The activity structure and \
 the local scope}</string>
 						<key>VerticalPad</key>
 						<integer>0</integer>
@@ -150809,7 +150809,7 @@ Condition}</string>
 	<key>WindowInfo</key>
 	<dict>
 		<key>CurrentSheet</key>
-		<integer>37</integer>
+		<integer>31</integer>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
