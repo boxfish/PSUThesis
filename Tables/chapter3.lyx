@@ -69,10 +69,11 @@ Design Space for Awareness Support
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="2">
+<lyxtabular version="3" rows="6" columns="3">
 <features booktabs="true" islongtable="true" longtabularalignment="center">
 <column alignment="left" valignment="middle" width="1.2in">
-<column alignment="left" valignment="top" width="4in">
+<column alignment="left" valignment="top" width="2.2in">
+<column alignment="left" valignment="top" width="2.2in">
 <row>
 <cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
@@ -85,213 +86,35 @@ Awareness Process
 
 \end_inset
 </cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Challenges for human actors
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="left" valignment="top" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
-Supporting Aspects
+Design aspects for computer support
 \end_layout
 
 \end_inset
 </cell>
 </row>
 <row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-Perception
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\emph on
-1.
- Presentation
-\emph default
-: strengthen the stimulus in the user interface to ensure awareness information
- is perceivable
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-2.
- Selection
-\emph default
-: filtering out the information so that only the relevant information is
- perceived by the users
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Comprehension
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\emph on
-1.
- Representation
-\emph default
-: providing external representations of the existing knowledge to support
- human comprehension
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-2.
- Contextualization
-\emph default
-: presenting the awareness information along with the contextual information
- that is potentially relevant to understand its meaning
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-3.
- Externalization
-\emph default
-: helping the users express and store the results of their interpretations
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Projection
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\emph on
-1.
- Representation
-\emph default
-: providing external representations of activities and their relationships
- 
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-2.
- Reasoning
-\emph default
-: provide analytics tools and techniques to help users perform reasoning
-\end_layout
-
-\begin_layout Plain Layout
-
-\emph on
-3.
- Externalization
-\emph default
-.
- helping the users express and store the results of projection
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Feedthrough
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\emph on
-1.
- 
-\shape italic
-\emph default
-Broadcasting
-\shape default
-: making consequences of individual activities apparent to other participants
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Communication
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\shape italic
-1.
- Medium
-\shape default
-: providing team members a medium to communicate with each other remotely
-\end_layout
-
-\begin_layout Plain Layout
-
-\shape italic
-2.
- Recipients
-\shape default
-: helping the users to identify who the potential recipients of the communicated
- information will be 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Manifestation
+Development of individual awareness
 \end_layout
 
 \end_inset
@@ -301,22 +124,219 @@ Manifestation
 
 \begin_layout Plain Layout
 
-\shape italic
+\emph on
+Percpetion
+\emph default
+: they have to filter out a large number of irrelevant information, consuming
+ their attention resources
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
 1.
- Authoring
-\shape default
-: providing tools for the users to specify what aspects of individual awareness
- they want to make visible
+
+\emph default
+ 
+\emph on
+Filtering
+\emph default
+: the computer predicts the awareness needs and filters out irrelevant informati
+on for human actors.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Comprehension
+\emph default
+: they have to maintain a large volume of knowledge about the collaborative
+ activities in their minds
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+1.
+ Representation
+\emph default
+: the computer provides external representations of the existing knowledge
+ to free up human working memory resources.
 \end_layout
 
 \begin_layout Plain Layout
 
-\shape italic
+\emph on
 2.
- Visibility
-\shape default
-: controlling the visibility of manifested information, i.e.
- who can see what piece of the information
+ Linking
+\emph default
+: the computer presents the awareness information along with the contextual
+ information that is potentially relevant to understand its meaning.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Projection
+\emph default
+: they have to maintain the large volume of existing and derived knowledge
+ during the reasoning process 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+1.
+ Representation
+\emph default
+: the computer provides external representations and analytic tools to allow
+ the human actors to synthesize information and derive insight.
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+2.
+ Reasoning
+\emph default
+: the computer performs the reasoning tasks and presents the reasoning results
+ to human actors.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Development of collaborative awareness
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Transactive knowledge
+\emph default
+: they need to maintain transactive knowledge that increases their cognitive
+ overhead significantly
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+1.
+ Representation
+\emph default
+: the computer provides external representations of the transactive knowledge.
+\end_layout
+
+\begin_layout Plain Layout
+
+\emph on
+2.
+ Reasoning
+\emph default
+: the computer makes use of the knowledge on behalf of human actors and
+ performs reasoning to facilitate awareness transactions.
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="middle" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+Team processes
+\emph default
+: they need to spare additional effort to conduct team processes, but are
+ often not the actors who will directly benefit from them.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+1.
+ Tools
+\emph default
+: the computer needs to provide the tools that simplify the effort to perform
+ team processes.
 \end_layout
 
 \end_inset
@@ -335,7 +355,7 @@ Awareness Models
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="7" columns="3">
+<lyxtabular version="3" rows="8" columns="3">
 <features booktabs="true" islongtable="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="1.1in">
 <column alignment="left" valignment="top" width="2.2in">
@@ -378,7 +398,7 @@ Event-based models
 \begin_inset Text
 
 \begin_layout Plain Layout
-Field of work
+Representation of the collaborative work
 \end_layout
 
 \end_inset
@@ -387,7 +407,8 @@ Field of work
 \begin_inset Text
 
 \begin_layout Plain Layout
-explicitly represented as a `shared space', 
+explicitly represented as a `shared space' inhabited by objects representing
+ actors, information, resources, or other computer artifacts 
 \end_layout
 
 \end_inset
@@ -396,7 +417,7 @@ explicitly represented as a `shared space',
 \begin_inset Text
 
 \begin_layout Plain Layout
-implementation-dependent representations, 
+implementation-dependent internal representations
 \end_layout
 
 \end_inset
@@ -432,7 +453,7 @@ invisible to users
 </cell>
 </row>
 <row>
-<cell multirow="3" alignment="left" valignment="middle" topline="true" leftline="true" usebox="none">
+<cell multirow="3" alignment="left" valignment="middle" topline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
@@ -455,6 +476,35 @@ embedded as perceivable properties of objects in the space
 
 \begin_layout Plain Layout
 explicitly represented as discrete events
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+limited to external aspects of shared objects 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+can refer to both external and internal aspects
 \end_layout
 
 \end_inset
@@ -594,7 +644,7 @@ Existing Studies
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="3">
+<lyxtabular version="3" rows="7" columns="3">
 <features booktabs="true" islongtable="true" longtabularalignment="center">
 <column alignment="left" valignment="top" width="1.1in">
 <column alignment="left" valignment="top" width="2.2in">
@@ -639,7 +689,7 @@ Event-based models
 \begin_inset Text
 
 \begin_layout Plain Layout
-Percepetion - Selection
+Percepetion
 \end_layout
 
 \end_inset
@@ -648,17 +698,8 @@ Percepetion - Selection
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.
- intersections of focus and nimbus that are defined in various forms 
-\backslash
-cite{Rodden1996,Sandor1997,Benford1993}
-\end_layout
-
-\begin_layout Plain Layout
-2.
- comparison of field values agaist sensitivity functions 
-\backslash
-cite{simone2002a}
+Make the shared space explicitly visible to each user, and rely on human
+ actors to pick up the relevant awareness information 
 \end_layout
 
 \end_inset
@@ -667,73 +708,8 @@ cite{simone2002a}
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.
- type-based filtering 
-\backslash
-cite{Fuchs1995}
-\end_layout
-
-\begin_layout Plain Layout
-2.
- content-based filtering 
-\backslash
-cite{Fitzpatrick2002}
-\end_layout
-
-\begin_layout Plain Layout
-3.
- context-based filtering 
-\backslash
-cite{Gross2004}
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Perception - Presentation
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.
- in-place presentation 
-\backslash
-cite{Berlage1999}
-\end_layout
-
-\begin_layout Plain Layout
-2.
- awareness widgets 
-\backslash
-cite{Gutwin1996,Erickson1999}
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="left" valignment="top" topline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.
- urgency-based notifiactions 
-\backslash
-cite{Fuchs1995,sohlenkamp2000po}
-\end_layout
-
-\begin_layout Plain Layout
-2.
- configurable indicators 
-\backslash
-cite{prinz1999a}
+Filter information based events subscriptions that are generated by human
+ actors to describe their awareness interests
 \end_layout
 
 \end_inset
@@ -791,7 +767,7 @@ Projection
 \begin_inset Text
 
 \begin_layout Plain Layout
-rarely supported
+Visualization of shared spaces
 \end_layout
 
 \end_inset
@@ -811,7 +787,7 @@ rarely supported
 \begin_inset Text
 
 \begin_layout Plain Layout
-Feedthrough
+Mutual monitoring
 \end_layout
 
 \end_inset
@@ -828,7 +804,7 @@ cite{Dourish1992}
 
 \begin_layout Plain Layout
 2.
- artifacts mediated 
+ artifacts mediated feedthrough 
 \backslash
 cite{Tee2009}
 \end_layout
@@ -839,7 +815,7 @@ cite{Tee2009}
 \begin_inset Text
 
 \begin_layout Plain Layout
-Activity event generation and distribution 
+System generated events about actions 
 \backslash
 cite{Fuchs1995}
 \end_layout
@@ -881,7 +857,7 @@ separately supported
 \begin_inset Text
 
 \begin_layout Plain Layout
-Manifestation
+Externalization
 \end_layout
 
 \end_inset
@@ -890,17 +866,9 @@ Manifestation
 \begin_inset Text
 
 \begin_layout Plain Layout
-1.
- annotations 
+annotations 
 \backslash
 cite{Zheng2006,Weng2004}
-\end_layout
-
-\begin_layout Plain Layout
-2.
- add-on awareness 
-\backslash
-cite{simone2002a}
 \end_layout
 
 \end_inset
@@ -909,7 +877,7 @@ cite{simone2002a}
 \begin_inset Text
 
 \begin_layout Plain Layout
-intention-enriched awareness 
+intention-enriched awareness events 
 \backslash
 cite{Rittenbruch2007}
 \end_layout

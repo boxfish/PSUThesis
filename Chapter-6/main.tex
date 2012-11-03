@@ -9,9 +9,9 @@ In this chapter, we discuss our approach to promoting event-driven awareness pro
 \label{sec:event_notification_mechanism}
 Event notification mechanisms have been widely used in event-based awareness systems to support event perception \cite{McCrickard2003}. In this study, we distinguish \emph{events} from \emph{event notifications} as follow: while an event represents the information about a real-world occurrence or some aspect of human actors' interpretations necessary to provide awareness, multiple notifications about the same event can be directed to multiple receivers if it is relevant to them. Each event notification includes not only the content of the corresponding event, but also the actor who will be notified, as well as the notification style, i.e. the appropriate way to present the notification.
 
-Event notifications are generated through event subscription and filtering mechanism. A subscription describes a set of notifications a user is interested in. The user registers the interest in receiving certain kinds of notifications by submitting subscriptions to the awareness system. The system filters incoming events based on the subscriptions and delivers those notifications that match the user’s subscriptions. 
+Event notifications are generated through event subscription and filtering mechanism. A subscription describes a set of notifications a user is interested in. The user registers the interest in receiving certain kinds of notifications by submitting subscriptions to the awareness system. The system filters incoming events based on the subscriptions and delivers those notifications that match the user's subscriptions. 
 
-As we discussed in Section \ref{ssub:support_for_perception}, several ways to specify interests and filter out events have been used in existing awareness systems, which offer different degrees of expressiveness and overhead on the users. Topic-based or type-based mechanisms are rather static and primitive, but can be implemented very efficiently and requires less effort for the user to manage subscriptions. On the other hand, content-based mechanisms are highly expressive, but requires sophisticated protocols that have higher overhead to manage the subscriptions. This section provides the design of event notification mechanism in our approach. The major difference of our approach from existing studies is that we leverage the system's knowledge about each actor's local scope to provide a two-tier notification mechanism that can combine the benefits of both topic-based and content-based mechanisms. 
+As we discussed in Section \ref{ssub:support_for_perception}, several ways to specify interests and filter out events have been used in existing awareness systems, which offer different degrees of expressiveness and overhead on the users. Topic-based or type-based mechanisms are rather static and primitive, but can be implemented very efficiently and requires less effort for the user to manage subscriptions. On the other hand, content-based mechanisms are highly expressive, but require sophisticated protocols that have higher overhead to manage the subscriptions. This section provides the design of event notification mechanism in our approach. The major difference of our approach from existing studies is that we leverage the system's knowledge about each actor's local scope to provide a two-tier notification mechanism that can combine the benefits of both topic-based and content-based mechanisms. 
 
 Our design of local scope-based event notification mechanism is based on the assumption that human actors in a collaborative activity are only interested in events that have impact on their individual working context, i.e. defined as their local scopes. Following this, our event notification mechanism is performed in two steps (Figure \ref{fig:event_filtering}):
 \begin{enumerate}
@@ -87,10 +87,10 @@ Each subscription in the local scopes is defined as the pair of an event pattern
 
 The event type and content filters can use the same syntax as existing content-based filter expression languages, but the local scope filter expression is unique in our approach and provides an additional level of expressiveness than merely content-based subscriptions. It allows the human actors to describe event patterns based on the relations between the actor and the entities in the local scope, instead of the attributes of an event directly. It is quite common that the actor wants to treat events related to all the actions he/she has certain level of intention in the same way, but cannot specify what exactly these actions are as their local scopes are changing.
 
-Along with each event pattern, the user needs to assign a notification style for it. It has to be considered that there is a multitude of different notification styles with different trade-off between its potential to attract attention and its obtrusiveness level \cite{Rauschenbach1996}. Generally, we can defined five notification styles. 
+Along with each event pattern, the user needs to assign a notification style for it. It has to be considered that there is a multitude of different notification styles with different trade-off between its potential to attract attention and its obtrusiveness level \cite{Rauschenbach1996}. Generally, we can define five notification styles. 
 \begin{enumerate}
 	\item The first style is actually not to present the notification at all. This provides another level of control for the users to filter out some events even when they fall into their local scopes.
-	\item The object-coupled notification presents some of the event attributes (e.g., time stamp or type) as graphical attributes of the icon representing the entity which is affected by the event. This provides less obtrusiveness to the user but is not perceivable unless the entity is within the user's view port.
+	\item The object-coupled notification presents some of the event attributes (e.g., time stamp or type) as graphical attributes of the icon representing the entity that is affected by the event. This provides less obtrusiveness to the user but is not perceivable unless the entity is within the user's view port.
 	\item The standalone event window presents a dedicated window to display all the event notifications. It allows the user to keep track of different incoming events at the same place, but loses the visual connections between the events and their references.
 	\item Non-modal global notification presents each incoming event at a dedicated corner for a period of time and then disappears. It is more perceivable to the users, but requires the user to respond in a limited time.
 	\item Modal global notification uses a modal dialogue box to present a detailed description of an event, and the user has to take an active action to confirm the reception of the event (e.g. click the `close' button) before going back to previous view. 
@@ -118,7 +118,7 @@ Generally, we consider the event interpretation process as an analytical reasoni
 
 In our approach, this analytical reasoning process can be supported from two aspects:
 
-One one hand, the system can perform the reasoning tasks for the user. Actually, as we can see in Section \ref{sec:knowledge_updating_process}, some of these reasoning tasks have already been performed by the system during the knowledge updating process. During the \emph{association} step, the system attempts to identify the objects or relations that are mentioned in the event. In the \emph{assessment} step, the system evaluates the consequences of the event on all the entities in the collaborative activity. In the \emph{propagation} step, the system predicts the future states on other activities. Hence, the system can support the user by simply present these reasoning results. In this way, some of the high level cognitive tasks are transformed into low level perceptual tasks for the user.
+On one hand, the system can perform the reasoning tasks for the user. Actually, as we can see in Section \ref{sec:knowledge_updating_process}, some of these reasoning tasks have already been performed by the system during the knowledge updating process. During the \emph{association} step, the system attempts to identify the objects or relations that are mentioned in the event. In the \emph{assessment} step, the system evaluates the consequences of the event on all the entities in the collaborative activity. In the \emph{propagation} step, the system predicts the future states on other activities. Hence, the system can support the user by simply present these reasoning results. In this way, some of the high level cognitive tasks are transformed into low level perceptual tasks for the user.
 
 On the other hand, the system can provide external representations of the contextual information to help the users to perform these reasoning tasks. As these reasoning tasks are always performed within certain contexts, such as the context of an event's origin, the user's current work context, or the dependencies among activities, the visualization of the contextual information serves as an important cognitive resource for the users.
 
@@ -139,7 +139,7 @@ From the above discussion, we present an information visualization framework for
 
 \subsection{Event view} % (fold)
 \label{sub:event_view}
-The event view is used to present the information about the event that needs to be interpreted. This includes not only the event that is notified to user, but also the whole event chain that the current event is situated in. As we defined in Section \ref{sec:knowledge_updating_process}, an event chain records the development of an event in the knowledge updating process. In the assessment step, the system may generate derived events indicating the system's belief on how the collaborative activity has been changed due to the original event. In the propagation step, the system predicates the future state changes, and add them as anticipatory events into the chain. In this way, the event chain actually represents the results of the system's reasoning on it. 
+The event view is used to present the information about the event that needs to be interpreted. This includes not only the event that is notified to user, but also the whole event chain that the current event is situated in. As we defined in Section \ref{sec:knowledge_updating_process}, an event chain records the development of an event in the knowledge updating process. In the assessment step, the system may generate derived events indicating the system's belief on how the collaborative activity has been changed due to the original event. In the propagation step, the system predicates the future state changes, and adds them as anticipatory events into the chain. In this way, the event chain actually represents the results of the system's reasoning on it. 
 
 Therefore, the event view is a diagrammatic representation including an ordered list of nodes (Figure \ref{fig:event_chain}). Each node represents an event in the corresponding event chain. The nodes are arranged in the developmental order of the events they represent. In a horizontal layout, the node at the most left represents the original event, and then is connected to the set of nodes representing the derived events, followed by the nodes for anticipatory events. The design detail about the event view is summarized as follow:
 
@@ -193,7 +193,7 @@ The distinction between the entities inside and outside the local scope in the a
 
 \subsection{Context view} % (fold)
 \label{sub:context_view}
-The context view is a container for interactive information visualization tools to understand the different contexts of the event, including the the context of an event's origin, or the user's current work context. The contexts emerge from a complex mix of entities in the collaborative activity, including the objects that the user is working on, the collaborating actors, resources, and informational objects that are necessary to understand the situation. In relative simple collaborative environments, such as the collaborative editors, the context can be represented as one single shared workspace. But in complex, real-world collaboration, the contextual information is usually in diverse forms and should be understood from different perspectives. As a result, the context view is usually a set of coordinated and multiple views to represent different perspectives of the context. The set of views and interactive tools that are needed usually depends on the application domain and each actor's task in the domain. Figure \ref{fig:vm_interface_initial} in Section \ref{sec:implementation_of_edap_client} shows an example of the context view of an victim manager in the emergency response scenario, which includes a bar char to show the victims in different processing stages, a cartographic map to display the distribution of victims, and a data table to list all the victims. 
+The context view is a container for interactive information visualization tools to understand the different contexts of the event, including the context of an event's origin, or the user's current work context. The contexts emerge from a complex mix of entities in the collaborative activity, including the objects that the user is working on, the collaborating actors, resources, and informational objects that are necessary to understand the situation. In relative simple collaborative environments, such as the collaborative editors, the context can be represented as one single shared workspace. But in complex, real-world collaboration, the contextual information is usually in diverse forms and should be understood from different perspectives. As a result, the context view is usually a set of coordinated and multiple views to represent different perspectives of the context. The set of views and interactive tools that are needed usually depends on the application domain and each actor's task in the domain. Figure \ref{fig:vm_interface_initial} in Section \ref{sec:implementation_of_edap_client} shows an example of the context view of an victim manager in the emergency response scenario, which includes a bar char to show the victims in different processing stages, a cartographic map to display the distribution of victims, and a data table to list all the victims. 
 % subsection context_view (end)
 % section supporting_event_interpretation (end)
 
@@ -210,7 +210,7 @@ Unlike the event notification and event interpretation that are operated on each
 	\label{fig:event_propagation}
 \end{figure}
 
-From the example, we can clearly see that the event propagation is achieved by the joint effort of the human actors and the computer system. One one hand, it relies on the human actors to interpret the events built on top of each other's interpretation, and externalize their own interpretations as new events. On the other hand, the system should be able to disseminate these new events to the actors who are interested in further developing them.
+From the example, we can clearly see that the event propagation is achieved by the joint effort of the human actors and the computer system. On one hand, it relies on the human actors to interpret the events built on top of each other's interpretation, and externalize their own interpretations as new events. On the other hand, the system should be able to disseminate these new events to the actors who are interested in further developing them.
 
 The capability of system to disseminate these derived events to relevant actors is enabled by the local scope-based event notification mechanism as we described in Section \ref{sec:event_notification_mechanism}. Because the relevance of events to the actors are judged by whether they are associated with the entities in the actors' local scopes, the actors do not need to subscribe to them in advance. As long as the new events generated by other actors fall into my local scope, I will get notified.  
 
@@ -245,7 +245,7 @@ Similar to the \emph{event chain}, the structure of an \emph{event propagation t
 \begin{enumerate}
  	\item A text string (\emph{label}) indicates the functional role of the event in the event chain, i.e. whether the event is an \emph{original} event, a \emph{derived} event, or an \emph{anticipatory} event.
  	\item An event reference (\emph{parentEvent}) points to the parent event where the current event is derived from. 
- 	\item A list of event references (\emph{childrenEvents}) points to all the event that are derived from the current event.
+ 	\item A list of event references (\emph{childrenEvents}) points to all the events that are derived from the current event.
  \end{enumerate} 
 
 In addition, the \emph{event source} attribute in the \emph{header} section indicates the producer of each event, which can be the computer system or one of the human actors.
@@ -272,7 +272,7 @@ To understand the social context of the event propagation, it is important to se
 
 \subsection{Supporting externalization} % (fold)
 \label{sub:supporting_externalization}
-Externalization is the process that the human actors express the results of their interpretation of an event as internal events and send them to the computer system for further processing. An important characteristics of these internal events is that they are always associated with certain entities or relations in the PlanGraph model, as they reflect the changes of human actors' internal mental states in the collaborative activity. As a result, we support the externalization by allowing human actors to directly manipulate the nodes in the activity view where they can create internal events expressing their intentions or beliefs on corresponding entities.
+Externalization is the process that the human actors express the results of their interpretation of an event as internal events and send them to the computer system for further processing. An important property of these internal events is that they are always associated with certain entities or relations in the PlanGraph model, as they reflect the changes of human actors' internal mental states in the collaborative activity. As a result, we support the externalization by allowing human actors to directly manipulate the nodes in the activity view where they can create internal events expressing their intentions or beliefs on corresponding entities.
 
 Whenever the human actor selects a node in the activity view, the option to create new events will become available in the interface (e.g. in the context menu or toolbar). The types of events that a human actor can generate on each node depends on the type of the corresponding entity in the PlanGraph, i.e. whether it is an action, a parameter, or a condition, and whether it is inside the human actor's local scope or not. 
 
@@ -359,6 +359,7 @@ To control the visibility as defined in visibility policies, the event notificat
 \end{enumerate}
 
 The $APPLY\textrm{-}VIS$ process can be described as follow:
+
 {\footnotesize
 \begin{algorithm}
 \begin{algorithmic}[1]
@@ -391,20 +392,25 @@ The $APPLY\textrm{-}VIS$ process can be described as follow:
 }
 % subsection controlling_visibility (end)
 % section mediating_event_propagation (end)
+
+\clearpage
 \section{Discussion} % (fold)
 \label{sec:discussion}
 In this chapter, we describe our approach to promoting the event-driven awareness in the whole awareness development cycle:
 
 \begin{enumerate}
 	\item The local space-based event notification mechanism is used to support the event perception by filtering out the irrelevant events and deciding on the notification styles based on the knowledge about the local scope and event subscriptions.
-	\item The event comprehension and projection are supported by the visualization framework for supporting event interpretation that we define as an integrated, analytical reasoning process that include both comprehension and projection.
+	\item The event comprehension and projection are supported by the visualization framework for supporting event interpretation that we define as an integrated, analytical reasoning process that includes both comprehension and projection.
 	\item The social process to establish compatible awareness across multiple actors is mediated by a set of computational and interactive tools to support event propagation.
 \end{enumerate}
 
 The design of these components follows the design principle of awareness promotion (Section \ref{sec:awareness_promotion_approach}) to address the challenge when both the complexity and dynamics scale up in collaborative activities. As a summary, Table \ref{tab:summary_awareness_promotion} shows how these awareness promotion components in our approach work, and how the problem of scaling up is addressed.
 
-{\footnotesize
-\begin{longtable}{>{\raggedright}p{0.8in}>{\raggedright}p{1.5in}>{\raggedright}p{1.5in}>{\raggedright}p{1.7in}}
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{>{\raggedright}p{0.8in}>{\raggedright}p{1.5in}>{\raggedright}p{1.5in}>{\raggedright}p{1.7in}}
+
 \toprule 
 \textbf{Aspects} & \textbf{Event notification} & \textbf{Event interpretation} & \textbf{Event propagation}\tabularnewline
 \midrule 
@@ -424,7 +430,7 @@ chain
 
 2. Visualize the field of work and the local scope
 
-3. Provide external representations of the contexual information & 1. Keep track of the event propagation tree, and present it to the
+3. Provide external representations of the contextual information & 1. Keep track of the event propagation tree, and present it to the
 users
 
 2. Provide the interface for the user to externalize the results of
@@ -436,23 +442,18 @@ Human actor's responsibility & 1. Specify the event interests as subscriptions
 
 2. Modify the local scope & 1. Navigate through the event view to review the system's reasoning
 
-2. Interpret the event within the activity view and context view & 1. Contribut to the event propagation by externalization
+2. Interpret the event within the activity view and context view & 1. Contribute to the event propagation by externalization
 
 2. Control the visibility by specifying visibility policies\tabularnewline
 \midrule 
 Reduce complexity & The number of subscriptions that the human actor needs to managed
-is limited in the local scope & 1. The system performs the reasoning tasks so that some of the high
-level cognitive tasks are transformed into low level perceptual tasks
-for the user.
+is limited in the local scope & 1. The system performs the reasoning tasks for the user.
 
 2. The activity view shows more details for the entities in the local
-scope, but reduce details for outsider. & 1. The event propagation tree is automatically recorded by the system,
+scope, but reduce details for outsider. & 1. The event propagation tree is recorded by the system,
 so the human actor does not need to maintain it in the mind.
 
-2. The externalization can be performed directly on the node
-
-3. The visibility control is specified in relation to local scopes,
-instead of on each event.\tabularnewline
+2. The externalization are directly linked to related nodes.\tabularnewline
 \midrule 
 Handle dynamics & The filtering is built on top of the local scope that is dynamically
 constructed & 1. Each event is consumed by the system to update the PlanGraph model
@@ -463,11 +464,14 @@ of an event.
 2. The visibility is built on top of the local scope that is dynamically
 constructed\tabularnewline
 \bottomrule
+
+
+\end{tabular}	
 \caption{Summary of the event-driven awareness promotion}
 \label{tab:summary_awareness_promotion}
+\end{table}
 
-\end{longtable}
-}
+
 
 % section discussion (end)
 % chapter mediate_individual_awareness_processes (end)

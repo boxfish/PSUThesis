@@ -898,7 +898,9 @@ cite{Zheng2006,Weng2004}
 
 \begin_layout Plain Layout
 2.
- add-on awareness
+ add-on awareness 
+\backslash
+cite{simone2002a}
 \end_layout
 
 \end_inset

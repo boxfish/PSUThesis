@@ -3,8 +3,9 @@
 
 \chapter{Case Study: Promoting Awareness in Emergency Response} % (fold)
 \label{cha:case_studies}
+This chapter demonstrates the utility of the event-driven awareness promotion approach through a case study in the context of the emergency response \footnote{Partially result of this case study has been reported in a recent paper in ISCRAM 2012 conference \cite{Yu2012}.}. This case study aims to demonstrate the value of the event-driven awareness promotion approach in facilitating the emergency response operations by improved team awareness. 
 
-This chapter shows the feasibility and utility of the event-driven awareness promotion approach through a case study in the context of the emergency response. This case study aims to demonstrate the value of the event-driven awareness promotion approach in facilitating the emergency response operations by improved team awareness. The analysis of the case study consists in five steps:
+The analysis of the case study consists in five steps:
 
 \begin{enumerate}
 	\item The first step of the case study is to gather knowledge about the current status of awareness support in emergency response operations.
@@ -14,7 +15,7 @@ This chapter shows the feasibility and utility of the event-driven awareness pro
 	\item Last, we apply the awareness promotion approach in the context of the scenario to analyze the utility of our approach to support the awareness processes in the four episodes. We demonstrate the key strengths of our approach in several concrete use cases, as it would be if EDAP platform was used to promote awareness in the scenario.
 \end{enumerate}
 
-The analysis of the case study includes several design evaluation methods as summarized in \cite{Hevner2004}. The \emph{analytical} method is used to analyze the use of the conceptual model to understand different characteristics of the awareness phenomena (Section \ref{sec:understanding_the_awareness_phenomena_in_the_scenario}). The \emph{experimental} method is used to simulate the knowledge updating processes in the four episodes (Section \ref{sec:simulating_the_knowledge_updating}). The \emph{descriptive} method is used to demonstrate the utility of our awareness approach approach in detailed use cases (Section \ref{sec:promoting_awareness_in_the_scenario}). 
+The analysis of the case study includes several design evaluation methods as summarized in \cite{Hevner2004}. The \emph{analytical} method is used to analyze the use of the conceptual model to understand different characteristics of the awareness phenomena (Section \ref{sec:understanding_the_awareness_phenomena_in_the_scenario}). The \emph{experimental} method is used to simulate the knowledge updating processes in the four episodes (Section \ref{sec:simulating_the_knowledge_updating}). The \emph{descriptive} method is used to demonstrate the strength of our awareness approach in detailed use cases (Section \ref{sec:promoting_awareness_in_the_scenario}). 
 
 \section{Awareness support in emergency response} % (fold)
 \label{sec:awareness_support_in_emergency_response}
@@ -50,7 +51,7 @@ For this case study, we consider a nuclear crisis scenario in which a large quan
 
 This scenario is based on the document analysis from several government websites, including the National Response Framework \footnote{http://www.fema.gov/national-response-framework}, the Nuclear/Radiological Incident Annex to NRF \footnote{http://www.fema.gov/pdf/emergency/nrf/nrf\_nuclearradiologicalincidentannex.pdf}, NRC Incident Response Plan \footnote{http://www.nrc.gov/about-nrc/regulatory/incident-response.pdf}, as well as a collection of FEMA after action reports related to specific emergency exercise \footnote{http://www.nrc.gov/about-nrc/emerg-preparedness/related-information/fema-after-action-reports.html}. To simplify the analysis, however, we reduce the complexity of the emergency response operations significantly in this scenario, comparing with the real world situations as described in these documents.
 
-In the following of this section, we first provides an overview of the scenario, with the major elements in the collaborative activity, i.e. the actors, resources, and actions, as well as the external events. Then we describe four concrete episodes in the scenario, reflecting the different developmental trajectories of the collaborative activity.
+In the following of this section, we first provide an overview of the scenario, with the major elements in the collaborative activity, i.e. the actors, resources, and actions, as well as the external events. Then we describe four concrete episodes in the scenario, reflecting the different developmental trajectories of the collaborative activity.
 
 \subsection{Overview of the scenario} % (fold)
 \label{sub:overview_of_the_scenario}
@@ -80,7 +81,7 @@ Here we highlight several types of resources that are frequently in the four det
 \begin{enumerate}
 	\item The victims are the people in the impacted area that have be contaminated by the nuclear radiation and/or physically injured.
 	\item In order to perform decontamination operations on the victims, several mobile decontamination stations have been set up, and are managed by a decontamination manager in the EOC. Each station includes several decontamination operators to monitor the resources (e.g. the rinse tanks) and perform the decontamination operations.
-	\item Similarly, several mobile medical stations are also set up to perform medical treatment on the injured victims. The medical stations are managed by a medical manager in the EOC, and includes several paramedics.
+	\item Similarly, several mobile medical stations are also set up to perform medical treatment on the injured victims. The medical stations are managed by a medical manager in the EOC, and each of them includes several paramedics.
 	\item Multiple rescue vehicles are available to provide prompt delivery of victims, equipment, and rescue personnel. Each vehicle is associated with a dedicated driver, and is managed by the transportation manager.
 \end{enumerate}
 % paragraph resources (end)
@@ -97,10 +98,13 @@ The emergency response in the scenario is consisted of a large number of actions
 
 Table \ref{tab:actions_in_scenario} shows a summary of the higher level structure of the actions. For each of these actions, subsidiary actions can be identified. These subsidiary actions can be further decomposed into more detailed actions. It is possible that each action can be decomposed in several ways following different plans. For example, the medical treatment on a victim can be performed by sending the victim to one of the medical stations and then treat the victim at the station, or if the victim is in an urgent situation, a rescue team needs to be sent to the victim for immediate treatment.
 
-{\footnotesize
-	\begin{longtable}{>{\raggedright}p{0.8in}>{\raggedright}p{1.7in}>{\raggedright}p{2in}>{\raggedright}p{1in}}
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{>{\raggedright}p{0.8in}>{\raggedright}p{1.7in}>{\raggedright}p{2in}>{\raggedright}p{1in}}
+
 \toprule 
-\textbf{Type} & \textbf{Action} & \textbf{Subsidiary actions} & \textbf{Invovled actors}\tabularnewline
+\textbf{Type} & \textbf{Action} & \textbf{Subsidiary actions} & \textbf{Involved actors}\tabularnewline
 \midrule 
 Decisional & To plan and control the operational and support processes & 1. To assign actors and relief resources
 
@@ -132,7 +136,7 @@ Medical team,
 
 Transportation team\tabularnewline
 \midrule 
-Support & To support all reponse operations & 1. To deliver victims
+Support & To support all response operations & 1. To deliver victims
 
 2. To find and deliver equipment
 
@@ -146,10 +150,12 @@ Support & To assess situation & 1. To measure radioactivity
 
 3. To provide situational reports continuously & Scientific team\tabularnewline
 \bottomrule
+
+\end{tabular}	
 \caption{Actions in the nuclear emergency response scenario}
 \label{tab:actions_in_scenario}
-\end{longtable}
-}
+\end{table}
+
 % paragraph actions (end)
 
 \paragraph*{Events} % (fold)
@@ -157,7 +163,7 @@ Support & To assess situation & 1. To measure radioactivity
 The development of the collaborative activity in the scenario can be driven by multiple external events. Based on the sources where they come from, they can be clarified into five categories:
 
 \begin{enumerate}
- 	\item \emph{``Incident''} events represent actual or possible changes of the emergency incident. This type of events are generated by the scientific team during the action of assessing the emergency incident. Examples of these events include the changes to the measurements taken from the field, such as the change to the level of radiations, wind velocity and direction, as well as the results of analysis based on these measurements, such as the increased impacted area of the incident. 
+ 	\item \emph{``Incident''} events represent actual or possible changes of the emergency incident. Events of this type are generated by the scientific team during the action of assessing the emergency incident. Examples of these events include the changes to the measurements taken from the field, such as the change to the level of radiations, wind velocity and direction, as well as the results of analysis based on these measurements, such as the increased impacted area of the incident. 
  	\item \emph{``Risk''} events refer to the noticeable environmental changes that lead to (or potentially lead to) one or several risks on the emergency response operations. It may be linked to transportation risks as an accident or a traffic jam occurs. Or It may be the change of weather situations (e.g. raining) or fire/explosions risks that can complicate the response operations. 
  	\item \emph{``Resource''} events refer to the changes of resources, i.e. change of their availability in time and space, change of attribute values (e.g. quantity), or assignment to actions.
  	\item \emph{``Actor''} events refer to the changes of actors, such as the change of their locations, roles, or capabilities.
@@ -166,28 +172,33 @@ The development of the collaborative activity in the scenario can be driven by m
 
 Table \ref{tab:events_in_scenario} lists some examples of the events in the scenario with relation to associated event types and possible event sources that produce them.
 
-{\footnotesize
-\begin{longtable}{>{\raggedright}p{1.8in}>{\raggedright}p{1.8in}>{\raggedright}p{1.8in}}
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{>{\raggedright}p{1.8in}>{\raggedright}p{1.8in}>{\raggedright}p{1.8in}}
+
 \toprule 
 \textbf{Example Events} & \textbf{Event Type} & \textbf{Event Producer}\tabularnewline
 \midrule 
 \emph{Incident event}: Radioactivity level within 5 mile of the plant
-exceeded 50 mSv/h & Vale comparison & Scientific team to measure radioativity\tabularnewline
+exceeded 50 mSv/h & Vale comparison & Scientific team to measure radioactivity\tabularnewline
 \midrule 
 \emph{Risk event}: A traffic jam occurs on the road between A and
 B  & Existential change over time & Transportation team to deliver victims\tabularnewline
 \midrule 
 \emph{Actor event}: The army is called to perform the iodine distribution & Conceptual relation & Officials to plan and control the operational actions\tabularnewline
 \midrule 
-\emph{Resources event}: Electricity generators will arrive at the station in 1 hours... & Spatio-temporal relation & Transportation team to deliver the equipment\tabularnewline
+\emph{Resources event}: Electricity generators will arrive at the station in 1 hour... & Spatio-temporal relation & Transportation team to deliver the equipment\tabularnewline
 \midrule 
 Action event: New road signs have been placed to support the evacuation
 plan & State change & Police to control traffic\tabularnewline
 \bottomrule
+
+\end{tabular}	
 \caption{Events in the nuclear emergency response scenario}
 \label{tab:events_in_scenario}
-\end{longtable}
-}
+\end{table}
+
 % subsection overview_of_the_scenario (end)
 
 \subsection{Development of the collaborative activity} % (fold)
@@ -196,8 +207,11 @@ An important characteristic of the large-scale collaboration as this emergency r
 
 Table \ref{tab:development_trajectories} lists the four developmental trajectories that may happen in the collaborative activity, and in the following of this section we describe the corresponding episodes in the process of rescuing a victim. 
 
-{\footnotesize
-	\begin{longtable}{>{\raggedright}p{1.4in}>{\raggedright}p{2.5in}>{\raggedright}p{1in}}
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{>{\raggedright}p{1.4in}>{\raggedright}p{2.5in}>{\raggedright}p{1in}}
+
 \toprule 
 \textbf{Trajectory Type} & \textbf{Description} & \textbf{Episode}\tabularnewline
 \midrule 
@@ -213,10 +227,11 @@ Role transfer & An event leads to a breakdown in performing an action. To fix th
 Opportunistic re-planning & An event leads to the decision that the current plan of an action
 has to be abandoned and a new plan is developed. & Episode 4\tabularnewline
 \bottomrule
+
+\end{tabular}	
 \caption{Developmental trajectories in the scenario}
 \label{tab:development_trajectories}
-\end{longtable}
-}
+\end{table}
 
 \paragraph*{Episode 1: Goal activation} % (fold)
 \label{par:episode_1_goal_activation}
@@ -224,7 +239,7 @@ The first episode represents the initial development of the rescue action trigge
 
 \begin{scenario}
 \footnotesize
-\emph{Episode 1} The fireman arrives at the impacted area and searches for victims. When the fireman finds a victim, she reports the discovery of the new victim as a new event. The event about the new victim is received by the victim manager ($VM$) and $VM$ activates the goal that the victim needs to be rescued. In order to rescue the victim, the $VM$ first needs to evaluate the status of the victim, and then decides on the future actions on the victim. Based on the evaluation of the victim's status, the $VM$ finds that the radiation level of the victim exceeds the threshold, as the result the victim needs to be first decontaminated. Because the victim is also physically injured, the victim needs to be treated at a medical station after decontamination. After the treatment, the victim also needs to be evacuated to a shelter for recovery. $VM$ exchanges the goal to decontaminate the victim with the decontamination manager $DM$. Upon receiving the information from $VM$, $DM$ infers that the action to decontaminate is within her responsibility and she is capable of performing it, so she is committed to performing the action. To perform decontamination, $DM$ first needs to assign a decontamination station to the victim. After the assignment of station ($DS1$) to the victim, $DM$ activates the goal to transport the victim to $DS1$, so that the decontamination can be performed. $DM$ exchanges the goal to transport the victim to the station to the transportation manager $TM$, who then infers that the action to transport the victim to the station is within her responsibility and she is capable of performing it, so she is committed to performing the action, and further decompose the action. $TM$ first assigns a driver ($DR1$) with a rescue vehicle to the action, and exchange the assignment to the driver ($DR1$). As the driver $DR1$ receives the assignment, $DR1$ starts to perform the action. Besides, the medical manager $MM$ receives the information from the $VM$ to activate the goal to treat the victim. However, because this action depends on the action to decontaminate the victim to be completed first, she has to wait for it.
+\textbf{Episode 1} The fireman arrives at the impacted area and searches for victims. When the fireman finds a victim, she reports the discovery of the new victim as a new event. The event about the new victim is received by the victim manager ($VM$) and $VM$ activates the goal that the victim needs to be rescued. In order to rescue the victim, the $VM$ first needs to evaluate the status of the victim, and then decides on the future actions on the victim. Based on the evaluation of the victim's status, the $VM$ finds that the radiation level of the victim exceeds the threshold, as the result the victim needs to be first decontaminated. Because the victim is also physically injured, the victim needs to be treated at a medical station after decontamination. After the treatment, the victim also needs to be evacuated to a shelter for recovery. $VM$ exchanges the goal to decontaminate the victim with the decontamination manager $DM$. Upon receiving the information from $VM$, $DM$ infers that the action to decontaminate is within her responsibility and she is capable of performing it, so she is committed to performing the action. To perform decontamination, $DM$ first needs to assign a decontamination station to the victim. After the assignment of station ($DS1$) to the victim, $DM$ activates the goal to transport the victim to $DS1$, so that the decontamination can be performed. $DM$ exchanges the goal to transport the victim to the station to the transportation manager $TM$, who then infers that the action to transport the victim to the station is within her responsibility and she is capable of performing it, so she is committed to performing the action, and further decompose the action. $TM$ first assigns a driver ($DR1$) with a rescue vehicle to the action, and exchange the assignment to the driver ($DR1$). As the driver $DR1$ receives the assignment, $DR1$ starts to perform the action. Besides, the medical manager $MM$ receives the information from the $VM$ to activate the goal to treat the victim. However, because this action depends on the action to decontaminate the victim to be completed first, she has to wait for it.
 \end{scenario}
 % paragraph episode_1_goal_activation (end)
 
@@ -234,7 +249,7 @@ Episode 2 is built on top of Episode 1, showing how the current plan of the resc
 
 \begin{scenario}
 \footnotesize
-\emph{Episode 2} The operator at $DS1$, where the decontamination of the victim will be performed, is monitoring the resources in the station and prepared for the arrival of the victim. However, the operator finds that the quantity of an important resource, i.e. the available rinse tanks at $DS1$ is running low. This resource shortage is then reported to $DM$, who then infers that the $DS1$ cannot work properly to decontaminate the victim if this resource shortage is not resolved. As a result, a new action to resolve the resource shortage is added to the current plan of rescuing the victim. To achieve the goal to resolve the resource shortage, $DM$ first needs to locate an inventory where the rinse tanks can be supplied. After identification of the inventory, $DM$ activates the goal to deliver the resource from the inventory to the $DS1$. The goal to deliver the resource is exchanged to the inventory manager $IM$. Because the goal falls into $IM$'s responsibility, $IM$ starts a new action to deliver the resource. $IM$ first needs to prepare the resource for delivery. Once the resource is ready, she activates the goal to transport the resource to the station $DS1$, and exchange the goal with $TM$. Upon receiving the information from $IM$, $TM$ starts a new action to transport the resource. $TM$ first needs to assign a driver $DR2$ with a rescue vehicle to the action, and exchange the assignment to $DR2$ who starts to perform the transportation action.
+\textbf{Episode 2} The operator at $DS1$, where the decontamination of the victim will be performed, is monitoring the resources in the station and prepared for the arrival of the victim. However, the operator finds that the quantity of an important resource, i.e. the available rinse tanks at $DS1$ is running low. This resource shortage is then reported to $DM$, who then infers that the $DS1$ cannot work properly to decontaminate the victim if this resource shortage is not resolved. As a result, a new action to resolve the resource shortage is added to the current plan of rescuing the victim. To achieve the goal to resolve the resource shortage, $DM$ first needs to locate an inventory where the rinse tanks can be supplied. After identification of the inventory, $DM$ activates the goal to deliver the resource from the inventory to the $DS1$. The goal to deliver the resource is exchanged to the inventory manager $IM$. Because the goal falls into $IM$'s responsibility, $IM$ starts a new action to deliver the resource. $IM$ first needs to prepare the resource for delivery. Once the resource is ready, she activates the goal to transport the resource to the station $DS1$, and exchange the goal with $TM$. Upon receiving the information from $IM$, $TM$ starts a new action to transport the resource. $TM$ first needs to assign a driver $DR2$ with a rescue vehicle to the action, and exchange the assignment to $DR2$ who starts to perform the transportation action.
 \end{scenario}
 % paragraph episode_2_plan_development (end)
 
@@ -244,7 +259,7 @@ Episode 3 starts with an event leading to a breakdown in performing a subsidiary
 
 \begin{scenario}
 \footnotesize
-\emph{Episode 3} On the way to pick up the victim and then send the victim to $DS1$, the driver $DR1$'s vehicle encounters a mechanical breakdown. The driver reports the problem to $TM$. When $TM$ receives the information, $TM$ infers that because of the vehicle breakdown, $DR1$’s action to transport the victim cannot be achieved. To solve the problem, $TM$ attempts to assign another available driver with rescue vehicle to perform the action. However, because all the drivers are currently in duty, $TM$ cannot find one to perform the action until a later time. As a result, $TM$ believes that the action to transport the victim has to be delayed. $TM$ exchanges the information with $DM$, who further infers that because of the delay to transport the victim, the action to decontaminate the victim will also be delayed. $DM$ exchanges the information with $VM$, and $VM$ further infers that because of the delay to decontaminate the victim, the action to rescue the victim is delayed. $VM$ exchanges the information with the fireman who is with the victim in the field. The fireman infers that the reason for the delay to rescue the victim is because of the original problem to delivery the victim. As a result, the fireman believes that even though the delivery of the victim is not usually in the scope of her responsibility, she can help the who team by sending the victim directly to $DS1$. As a result, the fireman activates the goal to send the victim to $DS1$, and exchanges the goal with the team. Upon receiving the information from the fireman, $TM$ infers that because of the new action of the fireman, the responsibility of transporting the victim is now transferred from her to the fireman. 
+\textbf{Episode 3} On the way to pick up the victim and then send the victim to $DS1$, the driver $DR1$'s vehicle encounters a mechanical breakdown. The driver reports the problem to $TM$. When $TM$ receives the information, $TM$ infers that because of the vehicle breakdown, $DR1$'s action to transport the victim cannot be achieved. To solve the problem, $TM$ attempts to assign another available driver with rescue vehicle to perform the action. However, because all the drivers are currently in duty, $TM$ cannot find one to perform the action until a later time. As a result, $TM$ believes that the action to transport the victim has to be delayed. $TM$ exchanges the information with $DM$, who further infers that because of the delay to transport the victim, the action to decontaminate the victim will also be delayed. $DM$ exchanges the information with $VM$, and $VM$ further infers that because of the delay to decontaminate the victim, the action to rescue the victim is delayed. $VM$ exchanges the information with the fireman who is with the victim in the field. The fireman infers that the reason for the delay to rescue the victim is because of the original problem to delivery the victim. As a result, the fireman believes that even though the delivery of the victim is not usually in the scope of her responsibility, she can help the who team by sending the victim directly to $DS1$. As a result, the fireman activates the goal to send the victim to $DS1$, and exchanges the goal with the team. Upon receiving the information from the fireman, $TM$ infers that because of the new action of the fireman, the responsibility of transporting the victim is now transferred from her to the fireman. 
 \end{scenario}
 % paragraph episode_3_role_transfer (end)
 
@@ -254,7 +269,7 @@ The last episode shows the most significant change to the existing plan to rescu
 
 \begin{scenario}
 \footnotesize
-\emph{Episode 4} As the fireman decides to directly send the victim to $DS$, she finds that the physical injury of the victim becomes severe and prevents the fireman from moving the victim into the vehicle. The fireman has to report the status change of the victim, which is received by $VM$. $VM$ evaluates the situation of the victim and decides that because of the serious injury, the original plan to rescue the victim is no longer appropriate. A new plan needs to be adopted: a special rescue team needs to be formed and dispatched to the victim’s location so as to decontaminate and treat the victim on spot, and then the victim is directly sent to the hospital for further treatment. The changes to the plan are exchanged to relevant actors. Upon receiving the information from the $VM$, $DM$ first drops the current action to decontaminate the victim from her responsibility. Then $DM$ infers that in order to perform the action to dispatch a special team to the victim, a decontamination operator needs to be assigned to the team. By reviewing the available operators, DM decides on the operator who will be sent to the victim, and exchange the assignment of the operator to the team. Similar to $DM$, $MM$ first removes the action to treat the victim from her current responsibility, and decides on the paramedic that will be assigned to the rescue team. Then the $TM$ infers that in order to perform the action to dispatch a rescue team to the victim, the goal to transport the team to the victim needs to be activated. $TM$ needs to assign a driver with a rescue vehicle to the action. Because the deactivation of the original decontamination action, $DR2$ who was assigned for delivering the equipment during the decontamination action is now freed up and is available for this action. As a result, $TM$ exchange the new assignment with $DR2$ and starts to perform the action.
+\textbf{Episode 4} As the fireman decides to directly send the victim to $DS$, she finds that the physical injury of the victim becomes severe and prevents the fireman from moving the victim into the vehicle. The fireman has to report the status change of the victim, which is received by $VM$. $VM$ evaluates the situation of the victim and decides that because of the serious injury, the original plan to rescue the victim is no longer appropriate. A new plan needs to be adopted: a special rescue team needs to be formed and dispatched to the victim's location so as to decontaminate and treat the victim on spot, and then the victim is directly sent to the hospital for further treatment. The changes to the plan are exchanged to relevant actors. Upon receiving the information from the $VM$, $DM$ first drops the current action to decontaminate the victim from her responsibility. Then $DM$ infers that in order to perform the action to dispatch a special team to the victim, a decontamination operator needs to be assigned to the team. By reviewing the available operators, DM decides on the operator who will be sent to the victim, and exchange the assignment of the operator to the team. Similar to $DM$, $MM$ first removes the action to treat the victim from her current responsibility, and decides on the paramedic that will be assigned to the rescue team. Then the $TM$ infers that in order to perform the action to dispatch a rescue team to the victim, the goal to transport the team to the victim needs to be activated. $TM$ needs to assign a driver with a rescue vehicle to the action. Because the deactivation of the original decontamination action, $DR2$ who was assigned for delivering the equipment during the decontamination action is now freed up and is available for this action. As a result, $TM$ exchanges the new assignment with $DR2$ and starts to perform the action.
 \end{scenario}
 % paragraph episode_4_opportunistic_re_planning (end)
 % subsection event_driven_activity_development (end)
@@ -299,9 +314,9 @@ We use these constructed local scopes and dependency networks to analyze the thr
 
 \subsubsection{Partiality of individual awareness} % (fold)
 \label{ssub:partiality_of_awareness}
-The first characteristics of awareness in our conceptual model is the \emph{partiality} of individual awareness. The idea is that, since each actor only engages in a small set of actions in a large-scale collaborative environment, the actor does not need to fully understand the whole situation. Instead, the information that an actor should be aware of is only partial as it is related to the actions within the actor’s local scope of work.
+The first characteristic of awareness in our conceptual model is the \emph{partiality} of individual awareness. The idea is that, since each actor only engages in a small set of actions in a large-scale collaborative environment, the actor does not need to fully understand the whole situation. Instead, the information that an actor should be aware of is only partial as it is related to the actions within the actor's local scope of work.
 
-To understand the partiality of individual awareness, we compare the magnitudes of the whole collaborative activity with the local scopes of the victim manager $VM$, the decontamination manager $DM$, the transportation manager $TM$, and the medical manager $MM$. We choose the four actors because they are involved in all the four episodes. The magnitude is defined as the total number of entities (i.e. actions, resource, and actors) in the local scope or the whole collaborative activity. The chart in Figure \ref{fig:partiality_of_local_scopes} shows the counting results. As we can see from the chart, the total number of entities in the collaborative activity (with an average of 20) is much greater than the number of entities in any of the actors' local scopes (the average is 5.5 for $VM$, 6.25 for $DM$, 3.5 for $MM$, and 6.75 for $TM$). From Episode 1 to Episode 2, we can see the whole activity can grow significantly in a collaborative activity, but each actor's local scope is relatively small, and hence much more manageable for the actor.
+To understand the partiality of individual awareness, we compare the magnitudes of the whole collaborative activity with the local scopes of the victim manager $VM$, the decontamination manager $DM$, the transportation manager $TM$, and the medical manager $MM$. We choose the four actors because they are involved in all the four episodes. The magnitude is defined as the total number of entities (i.e. actions, resource, and actors) in the local scope or the whole collaborative activity. The chart in Figure \ref{fig:partiality_of_awareness_case} shows the counting results. As we can see from the chart, the total number of entities in the collaborative activity (with an average of 20) is much greater than the number of entities in any of the actors' local scopes (the average is 5.5 for $VM$, 6.25 for $DM$, 3.5 for $MM$, and 6.75 for $TM$). From Episode 1 to Episode 2, we can see the whole activity can grow significantly in a collaborative activity, but each actor's local scope is relatively small, and hence much more manageable for the actor.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
@@ -313,7 +328,7 @@ To understand the partiality of individual awareness, we compare the magnitudes 
 
 \subsubsection{Compatibility of awareness} % (fold)
 \label{ssub:compatibility_of_awareness}
-The second characteristics of awareness is that the actors’ individual awareness needs to be coordinated so as to achieve the compatibility that is collectively needed for the overall team to perform the collaborative task successfully. The requirement for compatible awareness among multiple actors can be accounted for by two characteristics of the collaborative activity: the overlaps between local scopes of work, and the dependencies across local scopes.
+The second characteristic of awareness is that the actors' individual awareness needs to be coordinated so as to achieve the compatibility that is collectively needed for the overall team to perform the collaborative task successfully. The requirement for compatible awareness among multiple actors can be accounted for by two characteristics of the collaborative activity: the overlaps between local scopes of work, and the dependencies across local scopes.
 
 To examine the compatibility of awareness, we construct the dependency network from the PlanGraph after Episode 2, and map the different entities in the dependency network into the corresponding actor's local scopes. Figure \ref{fig:dependencies_ep2} shows the visualization of the mapping result. The arrows in the figure indicate the dependency relations between entities, and the shapes in dotted lines with different colors show the local scopes of different actors. The similar mapping results can be generated for the other three episodes, however here we only focus on the Episode 2 as the activity after Episode 2 is the one with the highest level of complexity.
 
@@ -351,13 +366,13 @@ Figure \ref{fig:dynamics_of_dependencies} shows the changing size of the depende
 
 \subsection{Analyzing the development of awareness} % (fold)
 \label{sub:analyzing_the_development_of_awareness_}
-In our conceptual model, we argue that the development of awareness at the team level usually entails multiple transactions through which actors’ individual awareness processes are connected as developmental trajectories. To understand the development of awareness in the scenario, we perform a detailed interaction analysis in each episode. The interaction analysis focuses on identifying how the awareness information is passed through the actors in each episode. This section reports the results of the interaction analysis.
+In our conceptual model, we argue that the development of awareness at the team level usually entails multiple transactions through which actors' individual awareness processes are connected as developmental trajectories. To understand the development of awareness in the scenario, we perform a detailed interaction analysis in each episode. The interaction analysis focuses on identifying how the awareness information is passed through the actors in each episode. This section reports the results of the interaction analysis.
 
 \subsubsection{Episode 1: Goal activation} % (fold)
 \label{ssub:episode_1_goal_activation}
  Episode 1 shows an example of how an initial event can trigger the actor to activate the goal to perform an action, and lead to top-down decomposition of the action. During the development of the action, more awareness information is generated and more actors are participated into the action. Figure \ref{fig:episode_1_interaction} shows the developmental trajectory of awareness in Episode 1.
 
-The trajectory starts with the fireman's report on the discovery of the new victim. This initial event is then received by the victim manager $VM$ in an awareness transaction, which triggers $VM$'s individual awareness process. During the individual awareness process, $VM$ activates the goal that the victim needs to be rescued, which leads to the decision to decomposes the action to rescue the victim into sub-actions, and performance of the action to evaluates the status of the victim, which further leads to $VM$'s adoption of the goals to decontaminate, treat, and evacuate the victim. $VM$ then passes the adoption of the goals to the corresponding actors $DM$, $MM$, and $TM$ respectively through awareness transactions. Upon Upon receiving the event to activate decontamination, $DM$ starts the individual awareness process that leads to her commitment to performing the action, and further elaborate the action. The results of $DM$'s individual awareness processes generate a new awareness information about the activation of the goal to transport the victim, which is then passed to $TM$. In a similar way, $TM$ triggers the individual awareness process and pass the activation of the goal to perform transportation task to the driver $DR1$.
+The trajectory starts with the fireman's report on the discovery of the new victim. This initial event is then received by the victim manager $VM$ in an awareness transaction, which triggers $VM$'s individual awareness process. During the individual awareness process, $VM$ activates the goal that the victim needs to be rescued, which leads to the decision to decomposes the action to rescue the victim into sub-actions, and performance of the action to evaluates the status of the victim, which further leads to $VM$'s adoption of the goals to decontaminate, treat, and evacuate the victim. $VM$ then passes the adoption of the goals to the corresponding actors $DM$, $MM$, and $TM$ respectively through awareness transactions. Upon Upon receiving the event to activate decontamination, $DM$ starts the individual awareness process that leads to her commitment to performing the action, and further elaborates the action. The results of $DM$'s individual awareness processes generate new awareness information about the activation of the goal to transport the victim, which is then passed to $TM$. In a similar way, $TM$ triggers the individual awareness process and passes the activation of the goal to perform transportation task to the driver $DR1$.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -383,7 +398,7 @@ Episode 2 shows an example of the opportunistic plan development during the acti
 \label{ssub:episode_3_responsibility_transfer}
 Unlike the first two episodes, Episode 3 demonstrates the developmental trajectory of the awareness as how the effect of one action can cascade to the other actions because of the dependencies among them (Figure \ref{fig:episode_3_interaction}). 
 
-Episode 3 starts with the event indicating the rescue vehicle with the driver $DR1$ encounters a mechanical breakdown, as the driver is on the way to pick up the victim. The driver reports the problem as the initial event and passes it to $TM$. During the individual awareness process, $TM$ first infers that because of the vehicle breakdown, and the fact that all the drivers are currently in duty, the action to transport the victim has to be delayed. $TM$ express this interpretation as a new piece of awareness information. Because the $DM$'s action to decontaminate the victim depends on the transportation action, the awareness information generated by $TM$ is passed to $DM$ through an awareness transaction. In the similar way, $DM$'s interpretation on the delay of decontamination action is passed to $VM$ due to the dependency between the rescue action and the decontamination action. 
+Episode 3 starts with the event indicating the rescue vehicle with the driver $DR1$ encounters a mechanical breakdown, as the driver is on the way to pick up the victim. The driver reports the problem as the initial event and passes it to $TM$. During the individual awareness process, $TM$ first infers that because of the vehicle breakdown, and the fact that all the drivers are currently in duty, the action to transport the victim has to be delayed. $TM$ expresses this interpretation as a new piece of awareness information. Because the $DM$'s action to decontaminate the victim depends on the transportation action, the awareness information generated by $TM$ is passed to $DM$ through an awareness transaction. In the similar way, $DM$'s interpretation on the delay of decontamination action is passed to $VM$ due to the dependency between the rescue action and the decontamination action. 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -409,8 +424,8 @@ Episode 4 shows how one action can be performed using different plans in differe
 The interaction analysis of the four episodes demonstrates the characteristics of the development of collaborative awareness in our conceptual model:
 
 \begin{enumerate}
-	\item The developmental trajectories of awareness in these episodes clearly shows how the awareness knowledge is socially constructed across multiple actors. As the initial event is sent to the team, it is interpreted by an actor who then expresses his/her interpretation of the event as new awareness information and pass it to other actors through awareness transactions. In this way, the awareness knowledge is undergoing continuous construction as the initial awareness information is interpreted and enriched by multiple actors.
-	\item These episodes show good examples of how the development of awareness is coupled with the development of the collaborative activity. On one hand is the initial events triggering the development of the collaborative activity, and on the other hand is the changes to the collaborative activity by the actors generate new awareness information. It is within this recursive cycle between the development of awareness and the collaborative activity that the situation is built up.
+	\item The developmental trajectories of awareness in these episodes clearly show how the awareness knowledge is socially constructed across multiple actors. As the initial event is sent to the team, it is interpreted by an actor who then expresses his/her interpretation of the event as new awareness information and pass it to other actors through awareness transactions. In this way, the awareness knowledge is undergoing continuous construction as the initial awareness information is interpreted and enriched by multiple actors.
+	\item These episodes show good examples of how the development of awareness is coupled with the development of the collaborative activity. On one hand are the initial events triggering the development of the collaborative activity, and on the other hand are the changes to the collaborative activity by the actors generate new awareness information. It is within this recursive cycle between the development of awareness and the collaborative activity that the situation is built up.
 \end{enumerate}
 % subsubsection discussion (end)
 % subsection analyzing_the_development_of_awareness_ (end)
@@ -423,7 +438,7 @@ The goal of this section is to validate the knowledge updating process within th
 In general, the simulation is conducted in three steps:
 
 \begin{enumerate}
-	\item First, we engineer the knowledge base to model knowledge about all the actions, recipes, and actors that are described in the four episodes. For example, Figure \ref{fig:example_recipes_in_scenario} shows the two recipes associated with the action to rescue the victim that have been described in Episode 4.
+	\item First, we engineer the knowledge base to model knowledge about all the actions, recipes, and actors that are described in the four episodes. For example, Figure \ref{fig:example_recipes_in_scenario} shows the two recipes associated with the action to rescue the victim.
 	\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    		\centering
    		\includegraphics[width=5.8in]{example_recipes_in_scenario.pdf} 
@@ -445,7 +460,7 @@ In response to this event, the \emph{Knowledge Updating Module} performs the fou
 \begin{enumerate}
 	\item First, the system attempts to associate with any existing entities in the PlanGraph model. Because this is the start of the activity, the PlanGraph is empty at the moment and no association can be found.
 	\item Second, the system checks whether the event can lead to changes towards the action performance or trigger new action in the assessment step. In our knowledge base, we store an association rule that indicates that every \emph{`NewVictim'} will activate the action to rescue it. Following this activation rule, a new action node \emph{`rescue victim'} is added to the PlanGraph as the root node representing this new action to rescue the victim.
-	\item After the assessment, the system finds that a new action has been added to the PlanGraph, which triggers the elaboration process. The system searches the knowledge base to find a recipe for the \emph{`rescue victim'} action. In our knowledge base, we have two recipes that are associated with the \emph{`rescue victim'} action and the system chooses the first one that represents the normal work flow to construct the default plan of the action. During the elaboration process, the \emph{`victim'} parameter is assigned with the value stored in the event. The \emph{`evacuate status'} action is added to the plan. Because the rest of the subsidiary actions (\emph{`decontaminate'}, \emph{`treat'}, \emph{`evacuate'}) are optional, i.e. whether they should be added to the plan depends on the result of \emph{`evacuate status'} action, the recipe selection stops. In addition to the recipe selection and parameter binding, the elaboration step also involves searching for the actors who might be potentially intended to or capable of performing the action. By retrieving this knowledge from the knowledge base, the system believes that the victim manager $VM$ is potentially intended to perform the action and have the capability to perform the \emph{`evacuate status'} action. This is used to update the corresponding \emph{`Intentions'} and \emph{`Capabilities'} attributes attached with the PlanGraph nodes.
+	\item After the assessment, the system finds that a new action has been added to the PlanGraph, which triggers the elaboration process. The system searches the knowledge base to find a recipe for the \emph{`rescue victim'} action. In our knowledge base, we have two recipes that are associated with the \emph{`rescue victim'} action and the system chooses the first one that represents the normal workflow to construct the default plan of the action. During the elaboration process, the \emph{`victim'} parameter is assigned with the value stored in the event. The \emph{`evacuate status'} action is added to the plan. Because the rest of the subsidiary actions (\emph{`decontaminate'}, \emph{`treat'}, \emph{`evacuate'}) are optional, i.e. whether they should be added to the plan depends on the result of \emph{`evacuate status'} action, the recipe selection stops. In addition to the recipe selection and parameter binding, the elaboration step also involves searching for the actors who might be potentially intended to or capable of performing the action. By retrieving this knowledge from the knowledge base, the system believes that the victim manager $VM$ is potentially intended to perform the action and have the capability to perform the \emph{`evacuate status'} action. This is used to update the corresponding \emph{`Intentions'} and \emph{`Capabilities'} attributes attached with the PlanGraph nodes.
 	\item Because the event does not indicate any state change on current actions, the propagation step is skipped.
 \end{enumerate}
 
@@ -458,10 +473,10 @@ Figure \ref{fig:plangraph_ep1_e1} shows the PlanGraph after the knowledge updati
 	\label{fig:plangraph_ep1_e1}
 \end{figure}
 
-The second event ($E2$) in Episode 1 is an internal event generated by the victim manager $VM$ to indicate the intention that ($int.th$) the \emph{`decontaminate'} action is performed, based on the result of the \emph{`evacuate status'} action. This intention event has several key attributes, including the actor’s id ($VM$), the action he intends to perform (\emph{`decontaminate'}), and the intention type ($int.th$).
+The second event ($E2$) in Episode 1 is an internal event generated by the victim manager $VM$ to indicate the intention that ($int.th$) the \emph{`decontaminate'} action is performed, based on the result of the \emph{`evacuate status'} action. This intention event has several key attributes, including the actor's id ($VM$), the action he intends to perform (\emph{`decontaminate'}), and the intention type ($int.th$).
 
 \begin{enumerate}
-	\item As the system receives this event $E2$, the system first attempts to associate it with any existing entities in the PlanGraph model. Because this is an intention event, the system traverses through the PlanGraph to search for any match between the \emph{`decontaminate'} action mentioned in the event and the action nodes in the PlanGraph. When the system is able to find such a match, the system uses the information in the event to update $VM$’s intention level on it.
+	\item As the system receives this event $E2$, the system first attempts to associate it with any existing entities in the PlanGraph model. Because this is an intention event, the system traverses through the PlanGraph to search for any match between the \emph{`decontaminate'} action mentioned in the event and the action nodes in the PlanGraph. When the system is able to find such a match, the system uses the information in the event to update $VM$'s intention level on it.
 	\item During the assessment step, the system could not find any applicable association rules.
 	\item Because the \emph{`decontaminate'} action is now added to the PlanGraph as a new action, the system searches the knowledge base to find a recipe for the \emph{`decontaminate'} action, and use it to elaborate the PlanGraph. Because the system does not have knowledge about how to identify the parameter \emph{`decontamination station'} of the \emph{`decontaminate'} action, the PlanGraph cannot be further elaborated. Besides, the system believes that the decontamination manager $DM$ has potentially intention to perform the \emph{`decontaminate'} action and knows how to perform the action. This is used to update the corresponding \emph{`Inentions'} and \emph{`Capabilities'} attributes attached with the PlanGraph nodes.
 	\item Because the event does not indicate any state change on current actions, the propagation step is skipped.
@@ -513,7 +528,7 @@ Figure \ref{fig:plangraph_ep2_e1} shows the PlanGraph after the knowledge updati
 	\label{fig:eventchain_ep2_e1}
 \end{figure}
 
-The following steps in Episode 2 are developed in the same way as the goal activation process in Episode 1. The decontamination manager $DM$ identifies the \emph{`inventory'} parameter, and then activates the goal to deliver the resource from the inventory to the station $DS1$. The inventory manager then works on the \emph{`deliver resource'} action by preparing the resource and activates the goal to transport the resource to the station. The transportation manager then further elaborate the transportation action. Figure \ref{fig:plangraph_ep2} shows the PlanGraph after all the events in Episode 2 are processed.
+The following steps in Episode 2 are developed in the same way as the goal activation process in Episode 1. The decontamination manager $DM$ identifies the \emph{`inventory'} parameter, and then activates the goal to deliver the resource from the inventory to the station $DS1$. The inventory manager then works on the \emph{`deliver resource'} action by preparing the resource and activates the goal to transport the resource to the station. The transportation manager then further elaborates the transportation action. Figure \ref{fig:plangraph_ep2} shows the PlanGraph after all the events in Episode 2 are processed.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
@@ -566,9 +581,9 @@ The last event $E5$ in Episode 3 indicates the fireman's reaction to the situati
 
 \subsection{Episode 4} % (fold)
 \label{sub:episode_4}
-Episode 4 starts with an event $E1$ that indicates the attribute change of a victim, i.e. the injury information is changed. The system associates this event with the \emph{`victim'} parameter under the \emph{`rescue'} action, and update the attribute storing the injury information. However, such descriptive information cannot be directly interpreted by the system, all the following three steps of the knowledge updating process is skipped. 
+Episode 4 starts with an event $E1$ that indicates the attribute change of a victim, i.e. the injury information is changed. The system associates this event with the \emph{`victim'} parameter under the \emph{`rescue'} action, and updates the attribute storing the injury information. However, such descriptive information cannot be directly interpreted by the system, all the following three steps of the knowledge updating process is skipped. 
 
-The event $E1$ is then interpreted by the victim manager $VM$, who evaluates the changing situation of the victim and decides that because of the serious injury, the original plan to rescue the victim has to be replaced with a new plan. A series of events ($E2$, $E3$, $E4$, $E5$, and $E6$) are then generated by the $VM$ to indicate the change of plan. The system updates the knowledge by removing and adding corresponding actions from the PlanGraph in the association step. During the elaboration step, the system retrieves recipes for the newly added actions and apply default knowledge about intentions and capabilities from the knowledge base. Figure \ref{fig:plangraph_ep4_e6} shows the PlanGraph after the planning events generated by the $VM$ have been processed.
+The event $E1$ is then interpreted by the victim manager $VM$, who evaluates the changing situation of the victim and decides that because of the serious injury, the original plan to rescue the victim has to be replaced with a new plan. A series of events ($E2$, $E3$, $E4$, $E5$, and $E6$) are then generated by the $VM$ to indicate the change of plan. The system updates the knowledge by removing and adding corresponding actions from the PlanGraph in the association step. During the elaboration step, the system retrieves recipes for the newly added actions and applies default knowledge about intentions and capabilities from the knowledge base. Figure \ref{fig:plangraph_ep4_e6} shows the PlanGraph after the planning events generated by the $VM$ have been processed.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
@@ -593,7 +608,7 @@ After these events are distributed to the corresponding actors ($E2$ and $E5$ fo
 The four episodes described in Section \ref{sub:event_driven_activity_development} demonstrate the best practices in which the events drive the development of the field of work smoothly in the scenario. However, these best practices are achievable only if the actors in the scenario could successfully develop their awareness in the process. More specifically, these episodes can only happen if the following conditions were satisfied:
 
 \begin{enumerate}
-	\item First, the events must be distributed to the right actors at the right time . For example, Episode 1 can only happen if the $VM$ first receives the event $E1$ indicating the discovery of a new victim, and then $E2$, $E3$, and $E4$ are consumed by the $DM$, $MM$, and $TM$ respectively (\emph{Event notification}).
+	\item First, the events must be distributed to the right actors at the right time. For example, Episode 1 can only happen if the $VM$ first receives the event $E1$ indicating the discovery of a new victim, and then $E2$, $E3$, and $E4$ are consumed by the $DM$, $MM$, and $TM$ respectively (\emph{Event notification}).
 	\item Second, the events must be successfully interpreted by the receivers and hence they are able to make right decisions based on the interpretation (\emph{Event interpretation}). 
 	\item Last, the actors must be able to propagate the effect of an event by generating follow-up events that are later consumed by other actors, e.g. Episode 1 works only if $VM$ can propagate the effect of $E1$ by deriving $E2$, $E3$, and $E4$ from it (\emph{Event propagation}).
 \end{enumerate}
@@ -604,10 +619,13 @@ To satisfy these conditions, awareness support mechanisms become very important.
 \label{sub:supporting_event_notification}
 To enable that the events are distributed to the right actors at the right time, event notification mechanisms can be applied. As we described in Section \ref{sec:the_state_of_art}  , existing notification mechanisms rely on event subscriptions that are managed by the human actors. The human actors register the interests in receiving certain kinds of events as subscriptions. The system filters incoming events based on the subscriptions and delivers those matched events to the actors. The event distribution in Episode 1, for example, can be achieved by a set of subscriptions that are managed by different actors. In order to receive $E1$, $VM$ needs to subscribe to all the \emph{`new victim'} events. In order to receive $E2$, $DM$ needs to subscribe to the \emph{`goal activation'} events with the condition that the goal is to decontaminate a victim. Similarly, $MM$ needs to subscribe to the \emph{`goal activation'} events with the condition that the goal is to treat an injured victim to receive $E3$, and $TM$ needs to subscribe to the \emph{`goal activation'} events with the condition that the goal is to evacuate a victim. Table \ref{tab:episode_1_subscriptions} shows the set of subscriptions that need to be managed by the actors to support the event distribution in Episode 1.
 
-{\footnotesize
-	\begin{longtable}{c>{\raggedright}p{2in}>{\raggedright}p{2.5in}}
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{c>{\raggedright}p{2in}>{\raggedright}p{2.5in}}
+
 \toprule 
-\textbf{Event} & \textbf{Reciever} & \textbf{Subscription}\tabularnewline
+\textbf{Event} & \textbf{Receiver} & \textbf{Subscription}\tabularnewline
 \midrule 
 E1  & Victim manager (VM) & VM needs to subscribe to all the \emph{`new victim'} events\tabularnewline
 \midrule 
@@ -626,16 +644,16 @@ the condition that the goal is to transport a victim to a station\tabularnewline
 E7 & Driver (DR1) & DR1 needs to subscribe to the \emph{`resource assignment' }events
 with her vehicle as the assigned resource\emph{.}\tabularnewline
 \bottomrule
+
+\end{tabular}	
 \caption{Subscription-based event distribution in Episode 1}
 \label{tab:episode_1_subscriptions}
-
-\end{longtable}
-}
+\end{table}
 
 Alternatively, the local scope-based event notification mechanism as we propose in Section \ref{sec:event_notification_mechanism} provides an approach to distributing the events without explicit event subscriptions by the actors. In our local scope-based approach, the events are distributed to an actor if they are within the actor's local scope. For instance, the event distribution in Episode 1 can be achieved by our approach in the following way:
 
 \begin{enumerate}
-	\item Upon receiving $E1$, the system triggers the knowledge updating process in which the system activates the goal to rescue the victim, elaborates the plan to achieve it, associates $E1$ to the \emph{`victim'} parameter, and applies the $VM$'s potential intention to the \emph{`resuce'} action. The detailed explanation of this knowledge updating process can be found at Section \ref{ssub:episode_1}. Then during the notification process, the system finds that $E1$ is associated with the \emph{`victim'} parameter that falls into $VM$'s local scope. As a result, the system believes that $E1$ is relevant and should be notified to the $VM$.
+	\item Upon receiving $E1$, the system triggers the knowledge updating process in which the system activates the goal to rescue the victim, elaborates the plan to achieve it, associates $E1$ to the \emph{`victim'} parameter, and applies the $VM$'s potential intention to the \emph{`rescue'} action. The detailed explanation of this knowledge updating process can be found at Section \ref{sub:episode_1}. Then during the notification process, the system finds that $E1$ is associated with the \emph{`victim'} parameter that falls into $VM$'s local scope. As a result, the system believes that $E1$ is relevant and should be notified to the $VM$.
 	\item Upon receiving $E2$, the system associates the event with the \emph{`decontaminate'} action, and applies the $DM$'s potential intention to it. During the notification process, the system finds that $E2$ is associated with the \emph{`decontaminate'} action that is within the $DM$'s local scope, and therefore should be distributed to $DM$.
 	\item The similar analysis can be performed on the rest of the events in Episode 1, and the system achieves the same effect of distributing these events to the corresponding actors as the subscription-based approach.
 \end{enumerate}
@@ -669,9 +687,9 @@ In the subscription-based approaches, this means that the $DM$ has to subscribe 
 In our approach, on the other hand, the system performs the reasoning on $E1$ during the knowledge updating process, which allows the system to generate an anticipatory event $E2$ to indicate the potential failing on the \emph{`delivery resource'} action, and attach $E2$ to the event chain along with $E1$. During the local scope-based notification process, because $E2$ falls into $DM$'s local scope, the event chain is then distributed to the $DM$. In this way, the $DM$ only needs to manage the subscriptions within the local scope, e.g. to specify the notification style of the state change on the \emph{`delivery resource'} action, but leaves the task to distribute events outside the local scope to the system.
 % paragraph case_1_reducing_the_effort_to_manage_subscriptions (end)
 
-\paragraph*{Case 2: handling the dynamics of the field of work} % (fold)
+\paragraph*{Case 2: handling the dynamics of awareness need} % (fold)
 \label{par:case_2_handling_the_dynamics_of_the_field_of_work}
-In the second case, we consider the changing awareness need of the decontamination manager $DM$ in the scenario. As we have shown earlier in Section \ref{ssub:dynamics_of_the_field_of_work}, the actors' local scopes change a lot in the development of the collaborative activity. Figure \ref{fig:case_2_dm} shows the changing local scope of $DM$ throughout the four episodes. From Episode 1 to Episode 2, more entities are added to the $DM$'s local scope, and from Episode 3 to Episode 4, the $DM$'s local scope is significantly simplified due to the re-planning on the \emph{`rescue'} action.
+In the second case, we consider the changing awareness need of the decontamination manager $DM$ in the scenario. As we have shown earlier in Section \ref{ssub:dynamics_of_awareness}, the actors' local scopes change a lot in the development of the collaborative activity. Figure \ref{fig:case_2_dm} shows the changing local scope of $DM$ throughout the four episodes. From Episode 1 to Episode 2, more entities are added to the $DM$'s local scope, and from Episode 3 to Episode 4, the $DM$'s local scope is significantly simplified due to the re-planning on the \emph{`rescue'} action.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
@@ -690,7 +708,7 @@ Instead, Our local scope-based notification mechanism provides a better solution
 % subsection supporting_event_notification (end)
 \subsection{Supporting event interpretation} % (fold)
 \label{sub:supporting_event_interpretation}
-The event interpretation process plays an important role in the development of collaborative activity throughout the four episodes. On one hand, it allows the actor to consume the perceived events by understanding their meanings within the actor’s local scope. Meanwhile, by predicting the future states of entities in the field of work, the actor can generate new events that drive the development of the collaborative activity. 
+The event interpretation process plays an important role in the development of collaborative activity throughout the four episodes. On one hand, it allows the actor to consume the perceived events by understanding their meanings within the actor's local scope. Meanwhile, by predicting the future states of entities in the field of work, the actor can generate new events that drive the development of the collaborative activity. 
 
 In the scenario, two types of reasoning tasks can be identified in the event interpretation process:
 
@@ -715,7 +733,7 @@ The capability of the system to support backward tracking is based on the event 
 
 \paragraph*{Supporting forward tracking} % (fold)
 \label{par:supporting_forward_tracking}
-The forward tracking is supported by the system's capability to perform the reasoning tasks for the human actors. During the knowledge updating process, the system evaluates the consequences of the event and predicts the future states on other activities in the propagation step, and generates the event chain. As we described in Section \ref{ssub:episode_2}, upon receiving $E1$ in Episode 2, the system evaluates the conditions associated with the parameter, and finds that the condition that the quantity of the rinse tanks should be above 5 can no longer be satisfied because of this event. As a result, a new derived event is generated by the system to indicate the state change of this condition (from \emph{`holding'} to \emph{`open'}). Then the system performs the Bayesian network-based reasoning in the propagation step and finds that the state change of this condition (from \emph{`holding'} to \emph{`open'}) will lead to the failing of the \emph{`decon station'} parameter, which may be further propagated to the upper-level \emph{`decontaminate'} action. In this way, the event chain is formed that allows the actors to navigate through the event view forward to predict future states. Figure \ref{fig:forward_chain} shows the sequence of the events that the decontamination manager needs to look into during the interpretation of $E1$ in Episode 2.
+The forward tracking is supported by the system's capability to perform the reasoning tasks for the human actors. During the knowledge updating process, the system evaluates the consequences of the event and predicts the future states on other activities in the propagation step, and generates the event chain. As we described in Section \ref{sub:episode_2}, upon receiving $E1$ in Episode 2, the system evaluates the conditions associated with the parameter, and finds that the condition that the quantity of the rinse tanks should be above 5 can no longer be satisfied because of this event. As a result, a new derived event is generated by the system to indicate the state change of this condition (from \emph{`holding'} to \emph{`open'}). Then the system performs the Bayesian network-based reasoning in the propagation step and finds that the state change of this condition (from \emph{`holding'} to \emph{`open'}) will lead to the failing of the \emph{`decon station'} parameter, which may be further propagated to the upper-level \emph{`decontaminate'} action. In this way, the event chain is formed that allows the actors to navigate through the event view forward to predict future states. Figure \ref{fig:forward_chain} shows the sequence of the events that the decontamination manager needs to look into during the interpretation of $E1$ in Episode 2.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
@@ -728,15 +746,15 @@ The forward tracking is supported by the system's capability to perform the reas
 
 \subsection{Supporting event propagation} % (fold)
 \label{sub:supporting_event_propagation}
-The social process of event propagation, i.e. the development of awareness involving a series of interactions among multiple actors, can be observed in all the four episodes. The actor who receives the initial event generates his/her own interpretation of the event, which may lead to new goal activated (Episode 1\&2), execution state of existing actions changed (Episode 3), or new plan generated (Episode 4). T actor externalizes the interpretation as new events, which are then received by other actors. These actors build their interpretation on top of the first actor’s, and may generate new events that are received by other actors. In this way, as the initial event is propagated to multiple actors, the team awareness is developed.
+The social process of event propagation, i.e. the development of awareness involving a series of interactions among multiple actors, can be observed in all the four episodes. The actor who receives the initial event generates his/her own interpretation of the event, which may lead to new goal activated (Episode 1\&2), execution state of existing actions changed (Episode 3), or new plan generated (Episode 4). The actor externalizes the interpretation as new events, which are then received by other actors. These actors build their interpretation on top of the first actor's, and may generate new events that are received by other actors. In this way, as the initial event is propagated to multiple actors, the team awareness is developed.
 
-As we discussed in Section \ref{sec:mediating_event_propagation}, our approach to support event propagation can be analyzed from both the human and the computer's perspectives. From the human perspective, it includes the functionalities to assist human actors to interpret the events built on top of each other’s and externalize their own interpretations as new events. From the system's perspective, it focuses on disseminating these events to the actors who are interested in further developing them.
+As we discussed in Section \ref{sec:mediating_event_propagation}, our approach to support event propagation can be analyzed from both the human and the computer's perspectives. From the human perspective, it includes the functionalities to assist human actors to interpret the events built on top of each other's and externalize their own interpretations as new events. From the system's perspective, it focuses on disseminating these events to the actors who are interested in further developing them.
 
 Supporting the human effort in the event propagation process is achieved by the following functionalities provided by our approach:
 
 \begin{enumerate}
 	\item First, the system keeps track of the event propagation process and stores the social development history of each event in the corresponding event propagation tree. The visualization of the event propagation tree and active event propagation chain in the event view allows the actors to understand who else have contributed to its development, and whose work can be impacted by the event. Figure \ref{fig:event_chains_in_eps} shows the active event propagation chains that are generated by the system at the end of each episode.
-	\item The capability of the human actors to externalize the results of their interpretation as new events is supported by directly manipulating the nodes in the activity view. The EDAP client described in Section \ref{sec:implementation_of_edap_client} demonstrates the functionality to support the externalization. In addition, the interface for the actors to to control the visibility of their newly generated events is also supported in the client.
+	\item The capability of the human actors to externalize the results of their interpretation as new events is supported by directly manipulating the nodes in the activity view. The EDAP client described in Section \ref{sec:implementation_of_edap_client} demonstrates the functionality to support the externalization. In addition, the interface for the actors to control the visibility of their newly generated events is also supported in the client.
 \end{enumerate}
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -746,7 +764,7 @@ Supporting the human effort in the event propagation process is achieved by the 
 	\label{fig:event_chains_in_eps}
 \end{figure}
 
-On the other hand, the capability of system to disseminate these derived events to relevant actors is enabled by the connectivity of local scopes and the local scope-based event notification mechanism. The analysis in \ref{ssub:connectivity_of_local_scopes} clearly shows that the entities from different actors' local scopes can be connected with each other, either through the boundary objects in overlapping local scopes or through the dependency relations. The connectivity of local scopes allows the system to propagate the events using the local scope-based event notification mechanism. As long as the new events generated by an actor are associated with the entities that are shared with another actor, or are the dependee of another actor's actions, these events will be propagated to the other actor. 
+On the other hand, the capability of system to disseminate these derived events to relevant actors is enabled by the connectivity of local scopes and the local scope-based event notification mechanism. The analysis in Section \ref{sub:compatibility_of_awareness} clearly shows that the entities from different actors' local scopes can be connected with each other, either through the boundary objects in overlapping local scopes or through the dependency relations. The connectivity of local scopes allows the system to propagate the events using the local scope-based event notification mechanism. As long as the new events generated by an actor are associated with the entities that are shared with another actor, or are the dependee of another actor's actions, these events will be propagated to the other actor. 
 
 In the scenario, event propagation through both shard boundary objects and the dependency relations are evident. Figure \ref{fig:two_cases_in_event_proagation} illustrates the two cases of event propagation in the scenario.
 
@@ -773,12 +791,12 @@ Section \ref{sec:an_emergency_response_scenario} shows a concrete scenario of th
 
 Following the problem scenario, we conduct an analysis of the awareness phenomena in the scenario based on our conceptual model in Chapter \ref{cha:the_conceptual_framework}. The analysis includes a cognitive task analysis and an interaction analysis of the four episodes in the scenario. The former shows the capability of using the conceptual model to understand the major characteristics of collaborative awareness in the scenario, and the latter demonstrates the different developmental trajectories of awareness in the episodes.
 
-To evaluate the expressiveness of the PlanGraph model to represent the field of work, and the validity of the knowledge updating processes, we use the EDAP platform to simulate the event-driven development in the four episodes (Section \ref{sec:simulating_knowledge_updating}). The development of the PlanGraph model in the four episodes shows the capability of the system to handle the four typical developmental trajectories of collaborative activities as represented by the four episodes respectively. 
+To evaluate the expressiveness of the PlanGraph model to represent collaborative activities, and the validity of the knowledge updating processes, we use the EDAP platform to simulate the event-driven development in the four episodes (Section \ref{sec:simulating_the_knowledge_updating}). The development of the PlanGraph model in the four episodes shows the capability of the system to handle the four typical developmental trajectories of collaborative activities as represented by the four episodes respectively. 
 
 In Section \ref{sec:promoting_awareness_in_the_scenario}, we apply the awareness promotion approach in the context of the scenario to analyze the utility of our approach to support the awareness processes in the four episodes. 
 \begin{enumerate}
-	\item The local scope-based event notification mechanism shows two advantages in supporting event presentation in the scenario: (1) the leverage of system knowledge to limit the human actor’s effort to manage subscriptions within local scopes, (2) and the capability to handle dynamics. Because of the partiality of local scopes, our approach reduces the complexity of the event notification problem since the human actors only need to manage subscriptions within their local scopes. On the other hand, the capability of our approach to model dynamics in the field of work provides a more adaptive way to judge the relevance of the events. Instead of relying on pre-defined subscriptions, the relevance of an event is evaluated based on the relation to the up-to-date local scopes in the changing field of work.
-	\item Our visualization framework for event interpretation supports two types of reasoning tasks that can be identified in the scenario: (1) backward tracking to understand the origin of an event, and (2) forward tracking to evaluate the potential impact of an event. The former is supported by the capability of the system to keep track of the event development in the knowledge updating process, so that the system can provide the event view to visualize the historical development of an event. The forwarding tracking is supported by the system’s capability to perform the reasoning tasks for the human actors. The system's evaluation of an event's consequences and prediction of future states provide suggestions for the human actors to interpret the event. 
+	\item The local scope-based event notification mechanism shows two advantages in supporting event presentation in the scenario: (1) the leverage of system knowledge to limit the human actor's effort to manage subscriptions within local scopes, (2) and the capability to handle dynamics. Because of the partiality of local scopes, our approach reduces the complexity of the event notification problem since the human actors only need to manage subscriptions within their local scopes. On the other hand, the capability of our approach to model dynamics in the field of work provides a more adaptive way to judge the relevance of the events. Instead of relying on pre-defined subscriptions, the relevance of an event is evaluated based on the relation to the up-to-date local scopes in the changing field of work.
+	\item Our visualization framework for event interpretation supports two types of reasoning tasks that can be identified in the scenario: (1) backward tracking to understand the origin of an event, and (2) forward tracking to evaluate the potential impact of an event. The former is supported by the capability of the system to keep track of the event development in the knowledge updating process, so that the system can provide the event view to visualize the historical development of an event. The forwarding tracking is supported by the system's capability to perform the reasoning tasks for the human actors. The system's evaluation of an event's consequences and prediction of future states provide suggestions for the human actors to interpret the event. 
 	\item Our approach to supporting event propagation includes (1) the functionalities to assist human actors to interpret the events built on top of each others and externalize their own interpretations as new events, and (2) the dissemination of events to relevant actors. The former emphasizes the social aspect of the event propagation process, as how the events are collectively generated and interpreted by multiple actors. The latter is enabled by the connectivity of local scopes in the field of work. The shared boundary objects within the overlapping local scopes and the dependency relations between entities in different actors' local scopes provide the basis for the system to propagate events using the local scope-based event notification mechanism.
 \end{enumerate}
 
