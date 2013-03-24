@@ -3,7 +3,7 @@
 
 \chapter{An Integrated Conceptual Model of Awareness} % (fold)
 \label{cha:the_conceptual_framework}
-In this chapter, we propose an integrated conceptual model of awareness in large-scale distributed collaborative activities that can satisfy the general requirements identified in Section \ref{sec:discussion}:
+In this chapter, we propose an integrated conceptual model of awareness in complex, distributed collaborative activities that can satisfy the general requirements identified in Section \ref{sec:discussion}:
 
 \begin{enumerate}
 	\item The conceptual model should be able to account for awareness at both the individual and the team levels (\emph{REQ1}).
@@ -13,11 +13,11 @@ In this chapter, we propose an integrated conceptual model of awareness in large
 
 To satisfy \emph{REQ3}, we build the model of awareness on top of an underlying model of collaborative activities. The activity model plays two important roles to understand the awareness phenomena. First, the three constructs of the activity model, i.e. activity, local scope, and dependency, provide the basis to explain the distributed and dynamic nature of the awareness phenomena (\emph{REQ2}). Second, the activity model is used to understand the development of awareness at both the individual and team levels (\emph{REQ1}). At the individual level, it is used to explain the various cognitive processes that are associated with an individual to achieve and develop individual awareness. At the collaborative level, it accounts for the team processes through which team members interact with each other and mesh their individual awareness together to achieve collaborative awareness. 
 
-In the following of this chapter, we provide the details of our conceptual model in three steps: we first describe the underlying model of collaborative activities in Section \ref{sec:a_model_of_collaborative_activities}; then we use the activity model to characterize the awareness phenomena in large-scale distributed collaborative activities (Section \ref{sec:awareness_requirements}); last we describe the awareness processes through which the collaborative awareness is developed (Section \ref{sec:awareness_processes}).
+In the following of this chapter, we provide the details of our conceptual model in three steps: we first describe the underlying model of collaborative activities in Section \ref{sec:a_model_of_collaborative_activities}; then we use the activity model to characterize the awareness phenomena in complex, distributed collaborative activities (Section \ref{sec:awareness_requirements}); last we describe the awareness processes through which the collaborative awareness is developed (Section \ref{sec:awareness_processes}).
 
 \section{A model of collaborative activities} % (fold)
 \label{sec:a_model_of_collaborative_activities}
-Our model of large-scale distributed collaborative activities is built on top of three interrelated constructs (Figure \ref{fig:model_of_collaborative_activity}):
+Our model of complex, distributed collaborative activities is built on top of three interrelated constructs (Figure \ref{fig:model_of_collaborative_activity}):
 
 \begin{enumerate}
 	\item We appropriate the concept of \emph{activity} from Activity Theory \cite{nardi1996context} to structure the collaborative work.
@@ -93,12 +93,12 @@ The relations between an action and a resource can be identified depending on th
 
 \subsection{Local scope of work} % (fold)
 \label{sub:local_scope_of_work}
-Within a large-scale collaborative environment, a good number of actions can be identified. However, Each actor usually only engages in a small set of them. In fact, one of the fundamental goals for collaboration is to divide the labor so that a complex problem can be decoupled into a set of smaller ones that are much easier to manage and tackle by individuals \cite{schmidt1992taking}. One result of the division of labor is that the collaborative work of is distributed in the sense that each actor only needs to work on a small set of actions that are suitable for their roles, skills, and experience. To characterize the distributed nature of collaborative activities, we define the \textbf{local scope of work} for each actor as the set of actions that the actor participates in.
+Within a complex, collaborative environment, a good number of entities and relations can be identified. However, each actor usually only engages in a small set of them. In fact, one of the fundamental goals for collaboration is to divide the labor so that a complex problem can be decoupled into a set of smaller ones that are much easier to manage and tackle by individuals \cite{schmidt1992taking}. One result of the division of labor is that the collaborative work is distributed in the sense that each actor only engages in a small set of them. To characterize the distributed nature of collaborative activities, \textbf{we define the \emph{local scope of work} for each actor as a subset of actions in the collaborative activity that the actor activity participates in, the resources and actors related to these actions, as well as the spatial-temporal context around them}.
 
-Because the participation of an actor in an action can be defined using the \emph{intention} and \emph{capability} relations (Section \ref{ssub:relations}), the local scope of work for an actor can be identified as follow. 
+From this definition, we can clearly see that the local scope of work of an actor is determined by the set of actions that the actor participates in. Because the participation of an actor in an action can be defined using the \emph{intention} and \emph{capability} relations (Section \ref{ssub:relations}), the local scope of work for an actor can be identified as follow. 
 
 \begin{enumerate}
-	\item The \emph{intention} relations are used to define the set of actions that an actor has intention towards their performance. This set of actions form the sub-space of the collaborative activity that the actor is willing to work on, we call it \emph{local scope of intention}. Formally, the \emph{local scope of intention} for an actor $LSI(ar)$ is defined as a set of tuples, and each tuple includes three elements: the actor, the action, and the intention relation between them:
+	\item The \emph{intention} relations are used to define the set of actions that an actor has intention towards their performance. This set of actions can be used to define the sub-space of the collaborative activity that the actor is willing to work on, we call it \emph{local scope of intention}. Formally, the \emph{local scope of intention} for an actor $LSI(ar)$ is defined as a set of tuples, and each tuple includes three elements: the actor, the action, and the intention relation between them:
 		\begin{align*} 
 			LSI(ar) = \{<ar, act, rel(ar, act)>\}
 		\end{align*}
@@ -125,6 +125,8 @@ The whole \emph{local scope of work} for an actor is then defined as the union o
 The actions within an actor's $LS$ can have different implications on the actor. The actions within the intersect of these two sub-spaces (e.g. $Act1,Act2,Act3$ in Figure \ref{fig:local_scope}) are these that the actor actively participates in because the actor both has certain level of intention and capability towards their performance. The actions within $LSI$, but outside $LSC$ (e.g. $Act5,Act7,Act8$) are these that the actor may need help from other actors as the actor intends that they should be performed, but does not have the necessary capability to do it. The actions outside $LSI$, but inside $LSC$ (e.g. $Act4$) are where the actor can offer help to other actors, even though the action is not initially intended by the actor.
 
 An important property of the \emph{local scope of work} is that local scopes of different actors can overlap with each other. It is common that one action falls into local scopes of multiple actors, even though it may have different implications on these actors. Multiple actors may intend to perform the same action together as a subgroup. The action that is initially intended by one actor may actually be performed by another actor. The different actors may contribute to the same action differently, as one actor contributes the knowledge about how to decompose it in to sub-actions, and the other actor then performs these sub-actions. In all these situations, there are some actions reside in multiple actors' local scopes of work. Actually, these shared actions across overlapping local scopes of work play an important role in understanding the compatibility of awareness that we will discuss in next section.
+
+An actor's local scope of work regulates the acquisition and development of awareness at the individual level. On one hand, the actions that the actor engages in determines the relevance of awareness information to the actor, i.e. whether a piece of awareness information is relevant to the actor depends on whether it is directly or indirectly related to the actions within the actor's local scope of work. On the other hand, the spatial and temporal context of these actions constrains what situational awareness information is available to the actor, as each actor can only perceive the awareness information in its local environment.
 % subsection local_scope_of_work (end)
 
 \subsection{Dependency} % (fold)
@@ -133,11 +135,17 @@ Although actions are largely distributed and belong to local scopes of different
 
 In general, a dependency is defined as a meta-predicate ($DEP$) on two actions ($act_1$, $act_2$) and a proposition $p$, where the performance of $act_1$ depends on the performance of $act_2$ because of some proposition $p$, and is denoted by $DEP(act_1, act_2, p)$. We follow the terms used in \cite{yu1993actor} to call the depending entity $act_1$ the \emph{depender}, and the entity that is depended upon $act_2$ the \emph{dependee}, and the proposition representing the dependency relation \emph{dependum}.
 
-Based on the various types of relations between actions and resources, we can model three types of dependencies that have been recognized in the literature: temporal dependencies, resource dependencies, and goal dependencies.
+Based on the various types of relations between actions and resources, we can model three types of dependencies that have been recognized in the literature: spatial and temporal dependencies, resource dependencies, and goal dependencies.
 
-\paragraph*{Temporal dependencies} % (fold)
+\paragraph*{Spatial and temporal dependencies} % (fold)
 \label{par:temporal_dependencies}
-Different actions in a collaborative activity might be interdependent due to the constraint of ordering them in a certain order \cite{sikora1998a}. The predicate $Precedes$ can be used to define the temporal dependency between actions, i.e. the performance of $act_2$ as \emph{depender} depends on the performance of $act_1$ as \emph{dependee}, because $act_1$ is a pre-requisite action that must have been completed at the time when $a_2$ is performed. $Precedes(act_1, act_2)$ is the \emph{dependum} in this case.
+Spatial dependencies show how different types of spatial relations can provides the constraint that must be satisfied between multiple actions. For example, two actions must be performed at the same location. Spatial dependencies take the general form of 
+\begin{align*} 
+	DEP(act_2, act_1, SRel(act_1, act_2))
+\end{align*}
+where the performance of $act_2$ as \emph{depender} depends on the performance of $act_1$ as \emph{dependee}, because of a spatial relations denoted by $SRel$.
+
+Temporal dependencies are dependencies that exist between different actions in a collaborative activity that might be interdependent due to the constraint of ordering them in a certain order \cite{sikora1998a}. The predicate $Precedes$ can be used to define the temporal dependency between actions, i.e. the performance of $act_2$ as \emph{depender} depends on the performance of $act_1$ as \emph{dependee}, because $act_1$ is a pre-requisite action that must have been completed at the time when $a_2$ is performed. $Precedes(act_1, act_2)$ is the \emph{dependum} in this case.
 \begin{align*} 
 	 DEP(act_2, act_1, Precede(act_1, act_2))
 \end{align*}
@@ -185,7 +193,7 @@ The predicate $Sub.Act$ can be used to define the goal decomposition dependency 
 
 \subsection{Development of a collaborative activity} % (fold)
 \label{sub:development_of_a_collaborative_activity}
-As argued in Activity Theory \cite{nardi1996context}, the collaborative activities are not static or rigid, but rather they and their elements are under continuous change and development. This becomes even more significant in large-scale distributed collaborative activities where the actors work in dynamic settings that entail frequent changes in the environment. As argued by Carroll et al. \cite{carroll2006a}, in these open-ended collaborative activities, the `normal' plans of shared activities cannot be precisely specified in advance, and actions and roles cannot be rigidly a priori. As a result, the model of collaborative activities should incorporates several important developmental trajectories:
+As argued in Activity Theory \cite{nardi1996context}, the collaborative activities are not static or rigid, but rather they and their elements are under continuous change and development. This becomes even more significant in complex, distributed collaborative activities where the actors work in dynamic settings that entail frequent changes in the environment. As argued by Carroll et al. \cite{carroll2006a}, in these open-ended collaborative activities, the `normal' plans of shared activities cannot be precisely specified in advance, and actions and roles cannot be rigidly a priori. As a result, the model of collaborative activities should incorporates several important developmental trajectories:
 
 \begin{enumerate}
  	\item Goal elaboration \cite{Grosz2006}. The development of a collaborative activity usually involves the top-down goal decomposition in which the shared activity is elaborated into multiple actions to complete it. 
@@ -204,11 +212,11 @@ Because of these developmental trajectories that may occur in a collaborative ac
 
 \section{Characteristics of awareness} % (fold)
 \label{sec:awareness_requirements}
-The purpose of modeling collaborative activities in previous section is to structure the awareness phenomena on top of it, based on the assumption that any need for the actors to acquire and maintain awareness in a collaborative activity arises out of their need to perform actions \cite{schmidt2002a}. That is to say, what actors are supposedly aware of depends on how they are acting in the collaborative activity. The alignment of awareness phenomena and the underlying activity model allows us to identify three important characteristics of awareness in large-scale distributed collaboration.
+The purpose of modeling collaborative activities in previous section is to structure the awareness phenomena on top of it, based on the assumption that any need for the actors to acquire and maintain awareness in a collaborative activity arises out of their need to perform actions \cite{schmidt2002a}. That is to say, what actors are supposedly aware of depends on how they are acting in the collaborative activity. The alignment of awareness phenomena and the underlying activity model allows us to identify three important characteristics of awareness in complex, distributed collaboration.
 
 \subsection{Partiality of individual awareness} % (fold)
 \label{sub:partiality_of_awareness}
-The first characteristic of awareness is based on the concept of local scope of work. The idea is that, since each actor only engages in a small set of actions in a large-scale collaborative environment, the actor does not need to fully understand every detail of the whole situation. Instead, the information that an actor should be aware of is only partial, depending on whether it is related to the actions within the actor's local scope of work. An actor would be aware of the information that ascertains or changes the state, progress, direction of one's own work; of the occurrences that makes one's own work more urgent or less; of things that necessitate changes to the intended course of actions to mesh with the unfolding work of others, etc \cite{schmidt2002a}. All of these awareness requirements are motivated and constrained by the actor's local scope of work.
+The first characteristic of awareness is based on the concept of local scope of work. The idea is that, since each actor only engages in a small set of actions in a complex, collaborative environment, the actor does not need to fully understand every detail of the whole situation. Instead, the information that an actor should be aware of is only partial, depending on whether it is related to the actions within the actor's local scope of work. An actor would be aware of the information that ascertains or changes the state, progress, direction of one's own work; of the occurrences that makes one's own work more urgent or less; of things that necessitate changes to the intended course of actions to mesh with the unfolding work of others, etc \cite{schmidt2002a}. All of these awareness requirements are motivated and constrained by the actor's local scope of work.
 
 Figure \ref{fig:partiality_of_awareness} illustrates the idea of partiality of individual awareness in a collaborative activity, where each actor only needs to take heed of a partial set of awareness elements that arise out of the actor's corresponding local scope of work. Even though one action can belong to multiple actors' local scopes, the actors may be interested in different aspects of the same action and hence each actor's individual awareness is unique and used for their own work.
 
@@ -224,7 +232,7 @@ The partiality of individual awareness is related to existing theories about loc
 
 \subsection{Compatibility of awareness} % (fold)
 \label{sub:compatibility_of_awareness}
-However, because of the relations among different actors' local scopes of work, the awareness phenomena in large-scale distributed collaboration is not simply equivalent to the partition of the collaborative awareness space into separate individual awareness spaces. Rather, the actors' individual awareness needs to be coordinated so as to achieve the \emph{compatibility} that is collectively needed for the overall team to perform the collaborative task successfully. The requirement for compatible awareness among multiple actors can be accounted for by two typical patterns in the activity model: the overlaps between local scopes of work, and the dependencies across local scopes (Figure \ref{fig:compatibility_of_awareness}).
+However, because of the relations among different actors' local scopes of work, the awareness phenomena in complex, distributed collaboration is not simply equivalent to the partition of the collaborative awareness space into separate individual awareness spaces. Rather, the actors' individual awareness needs to be coordinated so as to achieve the \emph{compatibility} that is collectively needed for the overall team to perform the collaborative task successfully. The requirement for compatible awareness among multiple actors can be accounted for by two typical patterns in the activity model: the overlaps between local scopes of work, and the dependencies across local scopes (Figure \ref{fig:compatibility_of_awareness}).
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -248,7 +256,7 @@ The compatibility of awareness between actors is achieved by awareness \emph{tra
 
 \subsection{Dynamics of awareness} % (fold)
 \label{sub:dynamics_of_awareness}
-As we pointed out in Section \ref{sub:development_of_a_collaborative_activity}, the elements and relations, local scopes of work, and dependencies are all under continuous change and development in large-scale distributed collaborative activities. As a result, we can postulate that an actor's awareness requirement, i.e. the information an actor need to be aware of, also entails frequent changes. The awareness elements that were relevant to the actor may later become irrelevant, as they are related to the action that is no longer part of the actor's local scope of work. New awareness elements may have to be added to the actor's awareness requirement as the local scope expands or new dependency is activated. Figure \ref{fig:dynamics_of_awareness} shows an example of the dynamic of awareness as an actor's local scope of work is changed due to plan development.
+As we pointed out in Section \ref{sub:development_of_a_collaborative_activity}, the elements and relations, local scopes of work, and dependencies are all under continuous change and development in complex, distributed collaborative activities. As a result, we can postulate that an actor's awareness requirement, i.e. the information an actor need to be aware of, also entails frequent changes. The awareness elements that were relevant to the actor may later become irrelevant, as they are related to the action that is no longer part of the actor's local scope of work. New awareness elements may have to be added to the actor's awareness requirement as the local scope expands or new dependency is activated. Figure \ref{fig:dynamics_of_awareness} shows an example of the dynamic of awareness as an actor's local scope of work is changed due to plan development.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -263,7 +271,7 @@ The dynamics of awareness is coupled with the development of the collaborative a
 
 \section{Awareness processes} % (fold)
 \label{sec:awareness_processes}
-Because of the partiality and compatibility of awareness in large-scale distributed collaboration, we believe that awareness is developed at both the individual and team levels. At the individual level, each actor develops his/her own partial awareness through a set of cognitive processes. At the team level, the actors engage in team processes to perform transactions in order to achieve compatible awareness. 
+Because of the partiality and compatibility of awareness in complex, distributed collaboration, we believe that awareness is developed at both the individual and team levels. At the individual level, each actor develops his/her own partial awareness through a set of cognitive processes. At the team level, the actors engage in team processes to perform transactions in order to achieve compatible awareness. 
 
 \subsection{Development of individual awareness} % (fold)
 \label{sub:development_of_individual_awareness}
@@ -313,18 +321,18 @@ Awareness transactions via mutual monitoring primarily rely on the receivers to 
 \end{enumerate}
 % paragraph monitoring (end)
 
-\paragraph*{Communication} % (fold)
+\paragraph*{Direct communication} % (fold)
 \label{par:communication}
 Alternatively, awareness transactions can be conducted via intentional communications, in which actors explicitly exchange awareness information with their collaborators through direct communications. As shown in Figure \ref{fig:trans_communication}, the first actor ($Actor1$) can explicitly state the result of his/her individual awareness processes, and convey it to the other actor ($Actor2$) who might be interested in knowing it. Upon receiving the communicated information, $Actor2$ starts the individual awareness process to consume it. 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics{trans_communication.pdf} 
-   \caption{Awareness transaction via communication}
+   \caption{Awareness transaction via direct communication}
    \label{fig:trans_communication}
 \end{figure}
 
-Unlike awareness transactions via mutual monitoring, the transaction cost in the communication process is largely posed on the actor who initiates it. The initiator needs to first create the message that he/she wants to communicate, identifies the collaborators who might be interested in knowing it, and starts the communication. Besides, the communication may be too obtrusive that it causes interruptions on the receivers, as they have to switch their focus from the current line of work in order to consume the information.
+Unlike awareness transactions via mutual monitoring, the transaction cost in the direct communication process is largely posed on the actor who initiates it. The initiator needs to first create the message that he/she wants to communicate, identifies the collaborators who might be interested in knowing it, and starts the communication. Besides, the communication may be too obtrusive that it causes interruptions on the receivers, as they have to switch their focus from the current line of work in order to consume the information.
 % paragraph communication (end)
 
 \paragraph*{Externalization} % (fold)
@@ -368,9 +376,9 @@ Conceptualizing the development of awareness at the team level as developmental 
 
 \section{Discussion} % (fold)
 \label{sec:discussion}
-In this chapter, we present our conceptual model of awareness in large-scale distributed collaboration. Our conceptual model is based on the understanding of collaborative activities, from which we identify the major characteristics of the awareness phenomena and elaborate on the awareness processes through which the awareness is developed at both the individual level and the team level.
+In this chapter, we present our conceptual model of awareness in complex, distributed collaboration. Our conceptual model is based on the understanding of collaborative activities, from which we identify the major characteristics of the awareness phenomena and elaborate on the awareness processes through which the awareness is developed at both the individual level and the team level.
 
-In Section \ref{sec:understanding_the_awareness_phenomena_in_the_scenario}, we apply the conceptual model in an emergency response scenario to understand the major characteristics and developmental trajectories of the awareness phenomena in large-scale distributed collaborative activities. 
+In Section \ref{sec:understanding_the_awareness_phenomena_in_the_scenario}, we apply the conceptual model in an emergency response scenario to understand the major characteristics and developmental trajectories of the awareness phenomena in complex, distributed collaborative activities. 
 
 The proposed conceptual framework shows the capabilities to satisfy the three requirements we presented in the beginning of this section.
 \begin{enumerate}
