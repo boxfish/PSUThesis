@@ -3,7 +3,7 @@
 
 \chapter{Awareness Promotion} % (fold)
 \label{cha:awareness_promotion}
-The conceptual model of awareness presented in the previous chapter clearly shows the increased complexity of the awareness phenomena in large-scale distributed collaborative activities:
+The conceptual model of awareness presented in the previous chapter clearly shows the increased complexity of the awareness phenomena in complex, distributed collaborative activities:
 
 \begin{enumerate}
    \item First, due to the highly distributed nature of the collaborative activities, team members play specialized roles and are engaged in different actions. As a result, each actor has distinct awareness requirement, related to the goals and actions that they are working towards.
@@ -11,7 +11,7 @@ The conceptual model of awareness presented in the previous chapter clearly show
    \item Last, because of the continuous development of the collaborative activities, the actors' awareness requirements are quite fleeting.
 \end{enumerate}
 
-As a result, awareness can no longer be achieved effortlessly by the actors themselves, and computer support can play an important role to augment and complement human capability. This chapter provides the overview of our computational approach to supporting awareness in large-scale distributed collaborative activities. The general design principle of our approach is to emphasize the active role of computer system to not merely support, but rather promote awareness in collaborative activities.
+As a result, awareness can no longer be achieved effortlessly by the actors themselves, and computer support can play an important role to augment and complement human capability. This chapter provides the overview of our computational approach to supporting awareness in complex, distributed collaborative activities. The general design principle of our approach is to emphasize the active role of computer system to not merely support, but rather promote awareness in collaborative activities.
 
 In this chapter, we first identify the major challenges for human actors to achieve and develop awareness in distributed, complex collaborative activities, which highlight the design aspects in which computer systems can provide support. Then we discuss how these design aspects have been addressed (or partially addressed) in existing awareness supporting systems. Last, we present our computational awareness promotion framework that has the potential to better address these challenges.
 
@@ -32,7 +32,7 @@ The computer can support the human actors in this process by reducing the number
 \label{par:comprehension}
 Comprehension is to understand the meaning of perceived awareness information within the context of an actor's current actions \cite{oulasvirta2007a}. In the comprehension process, new awareness information must be combined with existing knowledge about the current collaborative activity, which provides the inferential framework \cite{carroll2003a} for the actor to evaluate which part of the collaborative activity will be impacted by the perceived awareness information. 
 
-Without computer support, human actors have to maintain existing knowledge about the collaborative activities in their minds. However, in large-scale collaborative activities where the magnitude of the collaborative work can grow significantly as hundreds or thousands of actors engaged in myriads of interdependent actions, it becomes a challenging task for human actors to maintain such an inferential framework in the mind. Alternatively, there are two ways that the comprehension can be supported by computer systems: 
+Without computer support, human actors have to maintain existing knowledge about the collaborative activities in their minds. However, in complex, collaborative activities where the magnitude of the collaborative work can grow significantly as hundreds or thousands of actors engaged in myriads of interdependent actions, it becomes a challenging task for human actors to maintain such an inferential framework in the mind. Alternatively, there are two ways that the comprehension can be supported by computer systems: 
 
 \begin{enumerate}
    \item First, the computer system can support human comprehension by providing external representations of the existing knowledge. Instead of merely relying on the internal representations of human users, the external representation can serve as the information store, so that the internal representation at a given time can be quite sparse, perhaps containing only detailed information about their current focus \cite{Hegarty2011}, or pointers to locations of other important information in the external representation \cite{M.1996}. In this way, the limited working memory resource of human users is freed up for other aspects of cognition \cite{M.1996}.
@@ -172,10 +172,8 @@ Table \ref{tab:awareness_models} shows a summary of the major distinguishing fea
 \toprule 
  & \textbf{Space-based models} & \textbf{Event-based models}\tabularnewline
 \midrule 
-\multirow{2}{1.1in}{Representation of the collaborative work} & explicitly represented as a `shared space' inhabited by objects representing
+Representation of the collaborative work & explicitly represented as a `shared space' inhabited by objects representing
 actors, information, resources, or other computer artifacts  & implementation-dependent internal representations\tabularnewline
-\cmidrule{2-3} 
- & visible to users & invisible to users\tabularnewline
 \midrule 
 \multirow{4}{1.1in}{Awareness information} & embedded as perceivable properties of objects in the space & explicitly represented as discrete events\tabularnewline
 \cmidrule{2-3} 
@@ -315,7 +313,7 @@ Table \ref{tab:existing_studies} shows a comparison of how the major design aspe
 \textbf{Awareness Processes} & \textbf{Space-based models} & \textbf{Event-based models}\tabularnewline
 \midrule 
 Percepetion & Make the shared space explicitly visible to each user, and rely on
-human actors to pick up the relevant awareness information  & Filter information based events subscriptions that are generated by
+human actors to pick up the relevant awareness information  & Filter information based on events subscriptions that are generated by
 human actors to describe their awareness interests\tabularnewline
 \midrule 
 Comprehension & 1. visualization of shared spaces
@@ -339,7 +337,7 @@ Externalization & annotations \cite{Zheng2006,Weng2004} & intention-enriched awa
 \label{tab:existing_studies}
 \end{table}
 
-From the review of existing systems, we can see that these two types of awareness models both have some limitations to support the awareness in large-scale distributed collaborative activities. 
+From the review of existing systems, we can see that these two types of awareness models both have some limitations to support the awareness in complex, distributed collaborative activities. 
 
 \paragraph*{Supporting distributed awareness} % (fold)
 \label{par:supporting_distributed_awareness}
@@ -365,16 +363,10 @@ At the team level, existing awareness systems have focused on either supporting 
 
 \section{The awareness promotion approach} % (fold)
 \label{sec:awareness_promotion_approach}
-Our approach to supporting awareness in large scale distributed collaborative activities aims to address these limitations in existing awareness supporting systems. We argue that the computer system needs to play a more active role to promote awareness among collaborators. In this section, we first present the rationale for awareness promotion, and then overview the computational awareness promotion framework.
+Our approach to supporting awareness in large scale distributed collaborative activities aims to address these limitations in existing awareness supporting systems. We argue that the computer system needs to play a more active role to promote awareness among collaborators. In this section, we first present our definition of awareness promotion, and then overview the computational awareness promotion framework.
 
-\subsection{From awareness support to awareness promotion} % (fold)
-\label{sub:from_awareness_support_to_awareness_promotion}
-In existing awareness systems, the role of computer can be described in the metaphor of `tool' that emphasizes the human achieves his/her goal through the computer application \cite{Bodker1997}. In term of supporting awareness, it means the human actors use the computer to achieve awareness. The tool perspective emphasizes the control on the human user's side, i.e. how the computer is used to achieve awareness depends on the human user's own knowledge. For example, in space-based systems, the system relies on the user to monitor the shared space to perceive awareness information; in event-based systems, the user needs to explicitly express his/her interests so that the computer can filter out events. 
-
-However, when collaborative activities become more and more distributed and complicated, more is demanded of the human actors to control the computer. As we conceptualize the awareness phenomena as a distributed cognitive system (Chapter \ref{cha:the_conceptual_framework}), each human actor usually only has partial knowledge about the whole collaborative situation, and it is unlikely that the actor knows what exactly should be done in order to achieve awareness at the team level. With only local knowledge, the actor may have no idea what background information should be attended to in order to interpret a piece of awareness information that is out of his/her local scope of work. Or he/she cannot decide on who should be notified when his/her actions are changed. As a result, the user either uses the local knowledge to develop awareness that is often incomplete, incompatible, or even incorrect; or has to maintain more global knowledge beyond his/her local scope of work, which inevitably increases the user's cognitive load. 
-
-As a result, we believe that merely relying on the user to control the computer to achieve awareness in distributed, complex collaboration is ineffective. Alternatively, a better approach is to allow the computer to take some control away from the user and actively perform some tasks to help the user to achieve awareness. Instead of relying on the user's internal, partial knowledge to control the awareness development, the computer can maintain a much more complete knowledge representation of the whole field of work at the systematic level, and make use of this knowledge to infer the user's awareness requirements in various awareness processes so as to provide adaptive support. In this way, the computer can be considered as a `mediator' actively engaged in the collaborative activities along with human actors, but with its own goal (i.e. to assist human actors to achieve awareness), its own mental model (i.e. the knowledge representation of the whole collaborative activity), and its own behaviors (i.e. the capabilities to reason about the user's awareness needs in the various awareness processes and adapt interaction and information presentation techniques to support them).
-
+\subsection{Awareness promotion} % (fold)
+\label{sub:awareness_promotion}
 In general, we use the term `awareness promotion' to define the paradigm of awareness support where the computer plays an active role to mediate the awareness processes. While human actors still need to undergo the cognitive processes to develop individual awareness, and use it to make decision and perform actions in their own local scopes of work; the computer system takes the responsibility to maintain a collective picture of the whole collaborative activity, and utilizes this knowledge to mediate the various cognitive and social awareness processes among human actors.
 
 Table \ref{tab:awareness_support_vs_promotion} illustrates the major distinctions between the existing awareness support method and the awareness promotion approach.
@@ -448,10 +440,7 @@ The promotion of awareness transactions focuses on maintaining the transactive k
    \item Moreover, the computer system can make use of the knowledge on behalf of human actors and perform reasoning to promote the awareness transactions. If the computer system knows whose actions to monitor, the system can monitor them for the actors. If the computer knows who needs to be notified by a piece of awareness information, it can deliver it to the relevant actors without human intervention. In this way, the human actors can only focus on externalizing the aspects of their individual awareness, and leave the effort of monitoring and disseminating information to the computer system.
 \end{enumerate}
 % paragraph promoting_awareness_transactions (end)
-
-
-
-% subsection from_awareness_support_to_awareness_promotion (end)
+% subsection awareness_promotion (end)
 
 \subsection{The computational awareness promotion framework} % (fold)
 \label{sub:the_awareness_promotion_framework}
@@ -499,17 +488,6 @@ In our approach, we adopt the general event-driven interaction paradigm \cite{Et
    \item As awareness information is explicitly represented as first-class objects in event-driven approaches, this allows for representing any aspects of the collaborative activities, not only the external aspects, but also the internal aspects reflecting intentions and beliefs of the actors.
 \end{enumerate}
 
-Our event-driven model of awareness processes shares some commonality with existing event-based models, as both use the concept of event as the basic unit to organize and present awareness information. However, they also differ in several important ways:
-
-\begin{enumerate}
-   \item In existing event-based models, the computer primarily plays the role to distribute events. It detects events from sensors in the environment or feedbacks of human actions, filters them out based on user subscriptions, and present them to the users. However, in our approach, the computer also consumes the events. As to maintain the knowledge representation of the collaborative activities, the computer needs to take the events as input of its reasoning process, and use them to make inference and update its knowledge representation. 
-   \item The concept of events in our approach has a much richer meaning than existing event-based models. It is not only used to describe the occurrences in the environment and in human activities, but also the psychological experience of these occurrences as human actors perceive and interpret them. We make a clear distinction between real world occurrence, event, and awareness in Section \ref{ssub:the_concept_of_events}.
-   \item Existing event-based models focus on the generation and presentation of events to the users, but our approach emphasizes the whole process of awareness development driven by events. This means we are not only concerned about how to select and present events to the users, but also how to support the interpretation of these events, and how new events are generated based upon existing ones.
-   \item Existing event-based models treat events as discrete from each other. The system processes one individual event each time. After the event is disseminated to the corresponding actors, the processing on the event is done. However, as we conceptualize the awareness as undergoing continuous development, the events need to be considered as connected, and how they are built on top of each other needs to be tracked by the system.
-\end{enumerate}
-
-In sum, we consider the event not only as a way to represent awareness information, but also an effective interaction mode to drive the awareness development. In the following, we first clarify our concept of event, and then describe the event-driven awareness processes. 
-
 \subsubsection{The concept of event} % (fold)
 \label{ssub:the_concept_of_events}
 Before going further we should clarify what we mean by an event. The concept of `event' has been used in the literature from different perspectives:
@@ -539,7 +517,7 @@ Along with the distinction between the concepts of \emph{`occurrence'}, \emph{`a
    \label{fig:occurrence_event_awareness}
 \end{figure}
 
-The direct transformation between \emph{occurrence} and \emph{awareness} corresponds to the individual awareness development cycle that has been described in Section \ref{sub:awareness_as_process}. A real world \emph{occurrence} is transformed into \emph{awareness} through an actor's individual awareness processes, i.e. \emph{perception}, \emph{comprehension}, and \emph{projection}. Then, the achieved \emph{awareness} guides the actor's \emph{action} that may generate further \emph{occurrences} in the real world. 
+The direct transformation between \emph{occurrence} and \emph{awareness} corresponds to the individual awareness development cycle that has been described in Section \ref{sec:development_of_awareness}. A real world \emph{occurrence} is transformed into \emph{awareness} through an actor's individual awareness processes, i.e. \emph{perception}, \emph{comprehension}, and \emph{projection}. Then, the achieved \emph{awareness} guides the actor's \emph{action} that may generate further \emph{occurrences} in the real world. 
 
 The thing becomes more interesting when the computer support is involved and the transformations are driven by \emph{events}. On one hand is a real world \emph{occurrence} can be captured and represented as an \emph{event} by the computer system, and presented to a human actor. Instead of perceiving the \emph{occurrence} directly, the actor perceives the corresponding \emph{event} in the computer interface, and develops the \emph{awareness} upon it through the actor's individual awareness processes, i.e. \emph{perception}, \emph{comprehension}, and \emph{projection}. On the other hand is some aspect of the actor's \emph{awareness} can be externalized as a new \emph{event}, which refers to some current \emph{occurrence} or predicts future \emph{occurrence} in the real world.
 
@@ -564,7 +542,7 @@ In this chapter, we first identify the major challenges for human actors to achi
 The analysis of the design aspects provides us the basis to review existing awareness support systems. The purpose of the review, however, is not to provide an exhaustive evaluation on existing studies. Instead, we use the review to understand how the design aspects have been addressed or partially addressed in existing awareness support systems, and identify the major limitations:
 
 \begin{enumerate}
-   \item Existing systems to support awareness processes are usually designed to support collaborative activities at relatively small and medium scales, it becomes a much more difficult task to support awareness in large-scale distributed activities as we are interested in this study. On one hand, space-based models rely on the users to monitor the shared spaces and perceive the awareness information. This provides more flexibility to handle increased level of dynamics, but at the same time it becomes  problematic when the collaborative is scaled up with higher level of complexity and actions of users are highly distributed. On the other hand, event-based systems are more efficient to handle higher-level of complexity as the users can decide on what aspects of awareness information that should be presented, and they do not need to switch their attentions to other's actions until the event notification happens. However, event-based systems become less effective in high level of dynamics as the user's awareness needs are often in the flux of changes.
+   \item Existing systems to support awareness processes are usually designed to support collaborative activities at relatively small and medium scales, it becomes a much more difficult task to support awareness in complex, distributed activities as we are interested in this study. On one hand, space-based models rely on the users to monitor the shared spaces and perceive the awareness information. This provides more flexibility to handle increased level of dynamics, but at the same time it becomes  problematic when the collaborative is scaled up with higher level of complexity and actions of users are highly distributed. On the other hand, event-based systems are more efficient to handle higher-level of complexity as the users can decide on what aspects of awareness information that should be presented, and they do not need to switch their attentions to other's actions until the event notification happens. However, event-based systems become less effective in high level of dynamics as the user's awareness needs are often in the flux of changes.
    \item The support for various awareness processes at both the individual and collaborative levels is limited. At the individual level, existing awareness systems have focused on supporting perception, the higher level of awareness processes are relatively less supported. At the team level, existing awareness systems have focused on either supporting the explicit communication among human collaborators, or different approaches to providing `shared spaces' so that the actions of each other become visible to each other. However, less discussion has been given to support explicit representation of transactive knowledge, or the externalization process.
 \end{enumerate}
 

@@ -5,17 +5,13 @@
 \label{cha:case_studies}
 This chapter demonstrates the utility of the event-driven awareness promotion approach through a case study in the context of the emergency response \footnote{Partially result of this case study has been reported in a recent paper in ISCRAM 2012 conference \cite{Yu2012}.}. This case study aims to demonstrate the value of the event-driven awareness promotion approach in facilitating the emergency response operations by improved team awareness. 
 
-The analysis of the case study consists in five steps:
-
+The analysis of the case study includes two evaluation methods that are commonly used in design-science research \cite{Hevner2004}:
 \begin{enumerate}
-	\item The first step of the case study is to gather knowledge about the current status of awareness support in emergency response operations.
-	\item The second step includes the development of a concrete scenario, with the activities and external events involved in the process. We develop four episodes in the scenario to demonstrate the typical development trajectories that may happen in collaborative activities. This `problem scenario' \cite{rosson2001usability} describes the current practices in the emergency response operations and sets up the grounded unit of analysis for our computational approach.
-	\item The third step consists of an analysis of the awareness phenomena in the scenario based on our conceptual model in Chapter \ref{cha:the_conceptual_framework}. The analysis shows the capability of using the conceptual model to understand the major characteristics and developmental trajectories of collaborative awareness in the scenario.
-	\item Next, we conduct a computational simulation of the four episodes in our prototype system, the EDAP platform to examine the expressiveness of the PlanGraph model in our approach to represent the collaborative activity and validate the knowledge updating process.
-	\item Last, we apply the awareness promotion approach in the context of the scenario to analyze the utility of our approach to support the awareness processes in the four episodes. We demonstrate the key strengths of our approach in several concrete use cases, as it would be if EDAP platform was used to promote awareness in the scenario.
+	\item The \emph{scenario-based analysis} is used to understand different characteristics of the awareness phenomena, and then to demonstrate the strength of our awareness approach in detailed use cases (Section \ref{sec:promoting_awareness_in_the_scenario}). As argued in \cite{Hevner2004}, the scenario-based evaluation method is appropriate for innovative artifacts for which other forms of empirical evaluation may not be feasible. 
+	\item The \emph{computational simulation} is conducted to simulate the knowledge updating processes in the scenario (Section \ref{sec:simulating_the_knowledge_updating}) by using the prototype system described in Chapter \ref{cha:system_implementation}. The results of the simulation validate the computational knowledge updating process, and show the expressiveness of the PlanGraph model in our approach to represent the three characteristics of awareness phenomena in our conceptual model.
 \end{enumerate}
 
-The analysis of the case study includes several design evaluation methods as summarized in \cite{Hevner2004}. The \emph{analytical} method is used to analyze the use of the conceptual model to understand different characteristics of the awareness phenomena (Section \ref{sec:understanding_the_awareness_phenomena_in_the_scenario}). The \emph{experimental} method is used to simulate the knowledge updating processes in the four episodes (Section \ref{sec:simulating_the_knowledge_updating}). The \emph{descriptive} method is used to demonstrate the strength of our awareness approach in detailed use cases (Section \ref{sec:promoting_awareness_in_the_scenario}). 
+This chapter is structured as follow: we first present the current status of awareness support in emergency response operations, and then include the development of a concrete scenario that consists of four episodes to demonstrate the typical development trajectories that may happen in collaborative activities. This `problem scenario' \cite{rosson2001usability} describes the current practices in the emergency response operations and sets up the grounded unit of analysis for our computational approach. Next, we conduct a computational simulation of the four episodes in our prototype system, the EDAP platform. The analysis of the results shows the capability of using the PlanGraph model to understand the major characteristics of collaborative awareness as described in our conceptual model (Chapter \ref{cha:the_conceptual_framework}). Last, we demonstrate the key strengths of our approach to promoting the awareness processes in several concrete use cases, as it would be if EDAP platform was used to promote awareness in the scenario.
 
 \section{Awareness support in emergency response} % (fold)
 \label{sec:awareness_support_in_emergency_response}
@@ -203,7 +199,7 @@ plan & State change & Police to control traffic\tabularnewline
 
 \subsection{Development of the collaborative activity} % (fold)
 \label{sub:event_driven_activity_development}
-An important characteristic of the large-scale collaboration as this emergency response scenario demonstrates is the higher level of dynamics, i.e. the actors work in dynamic setting that entails rapid and frequent changes in environment and activities. As a result, plans of the collaborative activities are under continuous development and the tasks and roles of team members cannot be precisely specified in advance. With the various entities in the collaborative activity and the large number of events that can occur in the scenario, the possible developmental trajectories in an emergency response can be infinite. To simplify the analysis of the scenario, we focus on the development of a sub-process of the scenario, i.e. the action to rescue victims from the impacted area. This sub-process itself is developed over time and we consider several consecutive episodes in the sub-process of rescuing a victim. Each of the episodes represents an example of a typical developmental trajectory of the collaborative activity that serves as the basic unit of analysis in this case study.
+An important characteristic of the complex, collaboration as this emergency response scenario demonstrates is the higher level of dynamics, i.e. the actors work in dynamic setting that entails rapid and frequent changes in environment and activities. As a result, plans of the collaborative activities are under continuous development and the tasks and roles of team members cannot be precisely specified in advance. With the various entities in the collaborative activity and the large number of events that can occur in the scenario, the possible developmental trajectories in an emergency response can be infinite. To simplify the analysis of the scenario, we focus on the development of a sub-process of the scenario, i.e. the action to rescue victims from the impacted area. This sub-process itself is developed over time and we consider several consecutive episodes in the sub-process of rescuing a victim. Each of the episodes represents an example of a typical developmental trajectory of the collaborative activity that serves as the basic unit of analysis in this case study.
 
 Table \ref{tab:development_trajectories} lists the four developmental trajectories that may happen in the collaborative activity, and in the following of this section we describe the corresponding episodes in the process of rescuing a victim. 
 
@@ -275,13 +271,13 @@ The last episode shows the most significant change to the existing plan to rescu
 % subsection event_driven_activity_development (end)
 % section an_emergency_response_scenario (end)
 
-\section{Understanding the awareness phenomena in the scenario} % (fold)
+\section{Analysis of the scenario} % (fold)
 \label{sec:understanding_the_awareness_phenomena_in_the_scenario}
-In this section, we use the four episodes as described in the problem scenario to understand the awareness phenomena based on our conceptual model. The analysis includes two parts: (1) a goal-directed task analysis to identify the major entities, local scopes, and dependencies in the collaborative activity, which provides the basis for to understand the characteristics of awareness in the scenario; (2) an interaction analysis to identify the awareness transactions in each episode, which shows the idea of how collaborative awareness is socially constructed through multiple awareness transactions. 
+In this section, we apply the conceptual model in Chapter \ref{cha:the_conceptual_framework} to analyze the scenario. The analysis includes two parts: (1) a goal-directed task analysis to identify the major entities, local scopes, and dependencies in the collaborative activity, which provides the basis to understand the characteristics of awareness in the scenario; (2) an interaction analysis to identify the awareness transactions in each episode, which shows the idea of how collaborative awareness is socially constructed through multiple awareness transactions. 
 
-\subsection{Analyzing the characteristics of awareness} % (fold)
+\subsection{Modeling the collaborative activity} % (fold)
 \label{sub:analyzing_the_characteristics_of_awareness}
-To identify the major entities local scopes, and dependencies in the collaborative activity, we conduct a goal-direct task analysis following the principles described in \cite{endsley2000direct} for each episode. However, unlike the original approach that only focuses on the decomposition of the goals into sub-goals, we are also interested in identifying the local scopes and dependencies between actions. As a result, the cognitive task analysis performed in our study includes several steps:
+To identify the major entities local scopes, and dependencies in the scenario, we conduct a goal-direct task analysis following the principles described in \cite{endsley2000direct} for each episode. However, unlike the original approach that only focuses on the decomposition of the goals into sub-goals, we are also interested in identifying the local scopes and dependencies between actions. As a result, the task analysis performed in our study includes several steps:
 
 \begin{enumerate}
 	\item For each episode, we first identify the major entities, i.e. the actors, resources, and actions.
@@ -290,7 +286,7 @@ To identify the major entities local scopes, and dependencies in the collaborati
 	\item Last, we look into the relations between actions and relations between actions and resources to identify all the temporal, resource-related, and goal-related dependencies among the actions.
 \end{enumerate}
 
-By performing the cognitive task analysis, we are able to construct the local scopes and dependency networks at the end of each episode. 
+By performing the task analysis, we are able to construct the local scopes and dependency networks at the end of each episode. 
 
 Figure \ref{fig:local_scopes_dm} shows the local scopes of the decontamination manager $DM$ in the four episodes. From Episode 1 to Episode 2, $DM$'s local scope has been expanded as the action to resolve the shortage has been added and elaborated. From Episode 3 to Episode 4, however, the actions in the $DM$'s local scope are totally different due to the re-planning of the rescue action in Episode 4.
 
@@ -309,59 +305,6 @@ Figure \ref{fig:dependencies_ep1} shows the dependency network between actions i
 	\caption{The dependency network after Episode 1}
 	\label{fig:dependencies_ep1}
 \end{figure}
-
-We use these constructed local scopes and dependency networks to analyze the three essential characteristics of the awareness as we described in our conceptual framework (Section \ref{sec:awareness_requirements}).  
-
-\subsubsection{Partiality of individual awareness} % (fold)
-\label{ssub:partiality_of_awareness}
-The first characteristic of awareness in our conceptual model is the \emph{partiality} of individual awareness. The idea is that, since each actor only engages in a small set of actions in a large-scale collaborative environment, the actor does not need to fully understand the whole situation. Instead, the information that an actor should be aware of is only partial as it is related to the actions within the actor's local scope of work.
-
-To understand the partiality of individual awareness, we compare the magnitudes of the whole collaborative activity with the local scopes of the victim manager $VM$, the decontamination manager $DM$, the transportation manager $TM$, and the medical manager $MM$. We choose the four actors because they are involved in all the four episodes. The magnitude is defined as the total number of entities (i.e. actions, resource, and actors) in the local scope or the whole collaborative activity. The chart in Figure \ref{fig:partiality_of_awareness_case} shows the counting results. As we can see from the chart, the total number of entities in the collaborative activity (with an average of 20) is much greater than the number of entities in any of the actors' local scopes (the average is 5.5 for $VM$, 6.25 for $DM$, 3.5 for $MM$, and 6.75 for $TM$). From Episode 1 to Episode 2, we can see the whole activity can grow significantly in a collaborative activity, but each actor's local scope is relatively small, and hence much more manageable for the actor.
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics[width=5.8in]{partiality_of_awareness_case.jpg} 
-	\caption{Numbers of entities in local scopes}
-	\label{fig:partiality_of_awareness_case}
-\end{figure}
-% subsubsection partiality_of_awareness (end)
-
-\subsubsection{Compatibility of awareness} % (fold)
-\label{ssub:compatibility_of_awareness}
-The second characteristic of awareness is that the actors' individual awareness needs to be coordinated so as to achieve the compatibility that is collectively needed for the overall team to perform the collaborative task successfully. The requirement for compatible awareness among multiple actors can be accounted for by two characteristics of the collaborative activity: the overlaps between local scopes of work, and the dependencies across local scopes.
-
-To examine the compatibility of awareness, we construct the dependency network from the PlanGraph after Episode 2, and map the different entities in the dependency network into the corresponding actor's local scopes. Figure \ref{fig:dependencies_ep2} shows the visualization of the mapping result. The arrows in the figure indicate the dependency relations between entities, and the shapes in dotted lines with different colors show the local scopes of different actors. The similar mapping results can be generated for the other three episodes, however here we only focus on the Episode 2 as the activity after Episode 2 is the one with the highest level of complexity.
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics[width=5.8in]{dependencies_ep2.pdf} 
-	\caption{Dependency network in Episode 2 with local scopes}
-	\label{fig:dependencies_ep2}
-\end{figure}
-
-From this figure, we can clearly see both the overlaps between local scopes of work, and the dependencies across local scopes. 
-
-\begin{enumerate}
-	\item The entities with the red stroke are the boundary objects that are shared by two overlapping local scopes. For example, the \emph{`delivery resource'} action is a shared object between the decontamination manager $DM$ and the inventory manager $IM$. On one hand, the $DM$ has the intention that the \emph{`delivery resource'} action is performed as it is a subsidiary action for the \emph{`resolve shortage'} action. On the other hand, the $IM$ intends to perform the \emph{`delivery resource'} action because the action is within her responsibility. 
-	\item The arrows in red highlight the dependency relations that cross the boundary of two local scopes, i.e. the entity as the depender and the entity as the dependee belong to different actors' local scopes. The temporal dependency relation between the \emph{`decontaminate'} and the \emph{`treat'} action is such an example, as these two actions belong to the decontamination manager and the medical manager respectively. Although the two actors' local scopes do not overlap with each other, the execution state of the \emph{`decontaminate'} action can still have impact on the medical manager, because the \emph{`treat'} action can only be performed after the \emph{`decontaminate'} action is done.
-\end{enumerate} 
-% subsubsection compatibility_of_awareness (end)
-
-\subsubsection{Dynamics of awareness} % (fold)
-\label{ssub:dynamics_of_awareness}
-Because the local scopes of work, and dependencies are all under continuous change and development in the large-scale distributed collaborative activities, the actors' awareness requirement, i.e. the information an actor is aware of, also entails frequent changes. By comparing the local scopes and dependency networks in each step, we can see that how the local scopes and dependency relations are changing as the collaborative activity is developed.
-
-Figure \ref{fig:partiality_of_awareness_case} shows the changing numbers of entities in the local scope for each actor. From the chart, we can see the different actors' local scopes have quite different growing curves as the collaborative activity is developed. 
-
-Figure \ref{fig:dynamics_of_dependencies} shows the changing size of the dependency networks through the four episodes. For each dependency network, we measure the \emph{size} of the network, i.e. total number of edges in a graph; and the \emph{order} of the network, i.e. total number of vertices in a graph. The chart in the figure shows how the size of the dependency networks is changed from Episode 1 to Episode 4.
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics[width=5.8in]{dynamics_of_dependencies.jpg} 
-	\caption{Changing dependency networks in the scenario}
-	\label{fig:dynamics_of_dependencies}
-\end{figure}
-% subsubsection dynamics_of_awareness (end)
 % subsection analyzing_the_characteristics_of_awareness (end)
 
 \subsection{Analyzing the development of awareness} % (fold)
@@ -431,9 +374,9 @@ The interaction analysis of the four episodes demonstrates the characteristics o
 % subsection analyzing_the_development_of_awareness_ (end)
 % section understanding_the_awareness_phenomena_in_the_scenario (end)
 
-\section{Simulating the knowledge updating} % (fold)
+\section{Simulation of the knowledge updating process} % (fold)
 \label{sec:simulating_the_knowledge_updating}
-The goal of this section is to validate the knowledge updating process within the context of the scenario. To achieve this goal, we simulate the development of the four episodes described in previous section in our prototype system, the EDAP platform, i.e. how the PlanGraph is updated by the \emph{Knowledge Updating Module}, driven by the set of events occur in the episodes. 
+The goal of this section is to validate the knowledge updating process within the context of the scenario. To achieve this goal, we simulate the development of the four episodes described in previous section in our prototype system, the EDAP platform, i.e. how the PlanGraph is updated by the \emph{Knowledge Updating Module}, driven by the set of events occur in the episodes. The results of the simulation can then be used to analyze the expressiveness of the PlanGraph model to characterize the awareness phenomena in collaborative activities. 
 
 In general, the simulation is conducted in three steps:
 
@@ -449,10 +392,12 @@ In general, the simulation is conducted in three steps:
 	\item As we described in Section \ref{sub:service_oriented_modules}, each of the events received by the \emph{Event Publishing Service} is then passed to the \emph{Knowledge Updating Module} to update the PlanGraph model. We persist the PlanGraph during each step in the database for analysis.
 \end{enumerate}
 
-In the following of this section, we report the simulation results of the development of the PlanGraph model in the four episodes, which shows the capability of the system to keep track of the event-driven development of the collaborative activity in the scenario.
+\subsection{The simulation process} % (fold)
+\label{sub:the_simulation_process}
+Here we report the simulation results of the development of the PlanGraph model in the four episodes, which shows the capability of the system to keep track of the event-driven development of the collaborative activity in the scenario.
 
-\subsection{Episode 1} % (fold)
-\label{sub:episode_1}
+\subsubsection{Episode 1} % (fold)
+\label{ssub:episode_1}
 In Episode 1, the first event sent to the system is an event reporting that a new victim has been found by the fireman ($E1$). The event has an event type \emph{`NewVictim'} and has several key attributes (e.g. id, detection time, name, location, radiation level, injury information, etc.). 
 
 In response to this event, the \emph{Knowledge Updating Module} performs the four-step knowledge updating process.
@@ -499,10 +444,10 @@ Events $E5$, $E6$ are generated by the decontamination manager $DM$ in the proce
 	\caption{PlanGraph after Episode 1}
 	\label{fig:plangraph_ep1_e7}
 \end{figure}
-% subsection episode_1 (end)
+% subsubsection episode_1 (end)
 
-\subsection{Episode 2} % (fold)
-\label{sub:episode_2}
+\subsubsection{Episode 2} % (fold)
+\label{ssub:episode_2}
 In Episode 2, the first event sent to the system ($E1$) is a resource event reported by an operator at $DS1$, where the decontamination of the victim will be performed. The event shows that the quantity of available rinse tanks in DS1 is running low. The four-step knowledge updating process that is triggered by this event is summarized as follow:
 
 \begin{enumerate}
@@ -536,10 +481,10 @@ The following steps in Episode 2 are developed in the same way as the goal activ
 	\caption{PlanGraph after Episode 2}
 	\label{fig:plangraph_ep2}
 \end{figure}
-% subsection episode_2 (end)
+% subsubsection episode_2 (end)
 
-\subsection{Episode 3} % (fold)
-\label{sub:episode_3}
+\subsubsection{Episode 3} % (fold)
+\label{ssub:episode_3}
 Episode 3 happens after driver $dr_1$ starts the action \emph{`transport victim'} and is on the way to pick up the victim. It is an external event indicating a status change of the rescue vehicle with driver $dr_1$, i.e. it encounters a mechanical breakdown. The event has an event type \emph{`ResourceStatusChange'} and carries information about the driver, the vehicle, and the current status of the vehicle. The knowledge updating process performed on this event by the system is described as follow.
 
 \begin{enumerate}
@@ -577,10 +522,10 @@ The last event $E5$ in Episode 3 indicates the fireman's reaction to the situati
 	\caption{PlanGraph after Episode 3}
 	\label{fig:plangraph_ep3}
 \end{figure}
-% subsection episode_3 (end)
+% subsubsection episode_3 (end)
 
-\subsection{Episode 4} % (fold)
-\label{sub:episode_4}
+\subsubsection{Episode 4} % (fold)
+\label{ssub:episode_4}
 Episode 4 starts with an event $E1$ that indicates the attribute change of a victim, i.e. the injury information is changed. The system associates this event with the \emph{`victim'} parameter under the \emph{`rescue'} action, and updates the attribute storing the injury information. However, such descriptive information cannot be directly interpreted by the system, all the following three steps of the knowledge updating process is skipped. 
 
 The event $E1$ is then interpreted by the victim manager $VM$, who evaluates the changing situation of the victim and decides that because of the serious injury, the original plan to rescue the victim has to be replaced with a new plan. A series of events ($E2$, $E3$, $E4$, $E5$, and $E6$) are then generated by the $VM$ to indicate the change of plan. The system updates the knowledge by removing and adding corresponding actions from the PlanGraph in the association step. During the elaboration step, the system retrieves recipes for the newly added actions and applies default knowledge about intentions and capabilities from the knowledge base. Figure \ref{fig:plangraph_ep4_e6} shows the PlanGraph after the planning events generated by the $VM$ have been processed.
@@ -601,6 +546,63 @@ After these events are distributed to the corresponding actors ($E2$ and $E5$ fo
 	\label{fig:plangraph_ep4}
 \end{figure}
 % subsection episode_4 (end)
+% subsection the_simulation_process (end)
+
+\subsection{Analyzing the awareness phenomena} % (fold)
+\label{sub:analyzing_the_awareness_phenomena}
+We use the local scopes and dependency networks generated in the simulation process to analyze the three essential characteristics of the awareness as we described in our conceptual framework (Section \ref{sec:awareness_requirements}).  
+
+\subsubsection{Partiality of individual awareness} % (fold)
+\label{ssub:partiality_of_awareness}
+The first characteristic of awareness in our conceptual model is the \emph{partiality} of individual awareness. The idea is that, since each actor only engages in a small set of actions in a complex, collaborative environment, the actor does not need to fully understand the whole situation. Instead, the information that an actor should be aware of is only partial as it is related to the actions within the actor's local scope of work.
+
+To analyze the partiality of individual awareness in the simulation, we compare the magnitudes of the whole collaborative activity with the local scopes of the victim manager $VM$, the decontamination manager $DM$, the transportation manager $TM$, and the medical manager $MM$. We choose the four actors because they are involved in all the four episodes. The magnitude is defined as the total number of entities (i.e. actions, resource, and actors) in the local scope or the whole collaborative activity. The chart in Figure \ref{fig:partiality_of_awareness_case} shows the counting results. As we can see from the chart, the total number of entities in the collaborative activity (with an average of 20) is much greater than the number of entities in any of the actors' local scopes (the average is 5.5 for $VM$, 6.25 for $DM$, 3.5 for $MM$, and 6.75 for $TM$). From Episode 1 to Episode 2, we can see the whole activity can grow significantly in a collaborative activity, but each actor's local scope is relatively small, and hence much more manageable for the actor.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{partiality_of_awareness_case.jpg} 
+	\caption{Numbers of entities in local scopes}
+	\label{fig:partiality_of_awareness_case}
+\end{figure}
+% subsubsection partiality_of_awareness (end)
+
+\subsubsection{Compatibility of awareness} % (fold)
+\label{ssub:compatibility_of_awareness}
+The second characteristic of awareness is that the actors' individual awareness needs to be coordinated so as to achieve the compatibility that is collectively needed for the overall team to perform the collaborative task successfully. The requirement for compatible awareness among multiple actors can be accounted for by two characteristics of the collaborative activity: the overlaps between local scopes of work, and the dependencies across local scopes.
+
+To examine the compatibility of awareness, we construct the dependency network from the PlanGraph after Episode 2, and map the different entities in the dependency network into the corresponding actor's local scopes. Figure \ref{fig:dependencies_ep2} shows the visualization of the mapping result. The arrows in the figure indicate the dependency relations between entities, and the shapes in dotted lines with different colors show the local scopes of different actors. The similar mapping results can be generated for the other three episodes, however here we only focus on the Episode 2 as the activity after Episode 2 is the one with the highest level of complexity.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{dependencies_ep2.pdf} 
+	\caption{Dependency network in Episode 2 with local scopes}
+	\label{fig:dependencies_ep2}
+\end{figure}
+
+From this figure, we can clearly see both the overlaps between local scopes of work, and the dependencies across local scopes. 
+
+\begin{enumerate}
+	\item The entities with the red stroke are the boundary objects that are shared by two overlapping local scopes. For example, the \emph{`delivery resource'} action is a shared object between the decontamination manager $DM$ and the inventory manager $IM$. On one hand, the $DM$ has the intention that the \emph{`delivery resource'} action is performed as it is a subsidiary action for the \emph{`resolve shortage'} action. On the other hand, the $IM$ intends to perform the \emph{`delivery resource'} action because the action is within her responsibility. 
+	\item The arrows in red highlight the dependency relations that cross the boundary of two local scopes, i.e. the entity as the depender and the entity as the dependee belong to different actors' local scopes. The temporal dependency relation between the \emph{`decontaminate'} and the \emph{`treat'} action is such an example, as these two actions belong to the decontamination manager and the medical manager respectively. Although the two actors' local scopes do not overlap with each other, the execution state of the \emph{`decontaminate'} action can still have impact on the medical manager, because the \emph{`treat'} action can only be performed after the \emph{`decontaminate'} action is done.
+\end{enumerate} 
+% subsubsection compatibility_of_awareness (end)
+
+\subsubsection{Dynamics of awareness} % (fold)
+\label{ssub:dynamics_of_awareness}
+Because the local scopes of work, and dependencies are all under continuous change and development in the complex, distributed collaborative activities, the actors' awareness requirement, i.e. the information an actor is aware of, also entails frequent changes. By comparing the local scopes and dependency networks in each step, we can see that how the local scopes and dependency relations are changing as the collaborative activity is developed.
+
+Figure \ref{fig:partiality_of_awareness_case} shows the changing numbers of entities in the local scope for each actor. From the chart, we can see the different actors' local scopes have quite different growing curves as the collaborative activity is developed. 
+
+Figure \ref{fig:dynamics_of_dependencies} shows the changing size of the dependency networks through the four episodes. For each dependency network, we measure the \emph{size} of the network, i.e. total number of edges in a graph; and the \emph{order} of the network, i.e. total number of vertices in a graph. The chart in the figure shows how the size of the dependency networks is changed from Episode 1 to Episode 4.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics[width=5.8in]{dynamics_of_dependencies.jpg} 
+	\caption{Changing dependency networks in the scenario}
+	\label{fig:dynamics_of_dependencies}
+\end{figure}
+% subsubsection dynamics_of_awareness (end)
+% subsection analyzing_the_awareness_phenomena (end)
 % section simulating_the_knowledge_updating (end)
 
 \section{Promoting awareness in the scenario} % (fold)
@@ -653,7 +655,7 @@ with her vehicle as the assigned resource\emph{.}\tabularnewline
 Alternatively, the local scope-based event notification mechanism as we propose in Section \ref{sec:event_notification_mechanism} provides an approach to distributing the events without explicit event subscriptions by the actors. In our local scope-based approach, the events are distributed to an actor if they are within the actor's local scope. For instance, the event distribution in Episode 1 can be achieved by our approach in the following way:
 
 \begin{enumerate}
-	\item Upon receiving $E1$, the system triggers the knowledge updating process in which the system activates the goal to rescue the victim, elaborates the plan to achieve it, associates $E1$ to the \emph{`victim'} parameter, and applies the $VM$'s potential intention to the \emph{`rescue'} action. The detailed explanation of this knowledge updating process can be found at Section \ref{sub:episode_1}. Then during the notification process, the system finds that $E1$ is associated with the \emph{`victim'} parameter that falls into $VM$'s local scope. As a result, the system believes that $E1$ is relevant and should be notified to the $VM$.
+	\item Upon receiving $E1$, the system triggers the knowledge updating process in which the system activates the goal to rescue the victim, elaborates the plan to achieve it, associates $E1$ to the \emph{`victim'} parameter, and applies the $VM$'s potential intention to the \emph{`rescue'} action. The detailed explanation of this knowledge updating process can be found at Section \ref{ssub:episode_1}. Then during the notification process, the system finds that $E1$ is associated with the \emph{`victim'} parameter that falls into $VM$'s local scope. As a result, the system believes that $E1$ is relevant and should be notified to the $VM$.
 	\item Upon receiving $E2$, the system associates the event with the \emph{`decontaminate'} action, and applies the $DM$'s potential intention to it. During the notification process, the system finds that $E2$ is associated with the \emph{`decontaminate'} action that is within the $DM$'s local scope, and therefore should be distributed to $DM$.
 	\item The similar analysis can be performed on the rest of the events in Episode 1, and the system achieves the same effect of distributing these events to the corresponding actors as the subscription-based approach.
 \end{enumerate}
@@ -733,7 +735,7 @@ The capability of the system to support backward tracking is based on the event 
 
 \paragraph*{Supporting forward tracking} % (fold)
 \label{par:supporting_forward_tracking}
-The forward tracking is supported by the system's capability to perform the reasoning tasks for the human actors. During the knowledge updating process, the system evaluates the consequences of the event and predicts the future states on other activities in the propagation step, and generates the event chain. As we described in Section \ref{sub:episode_2}, upon receiving $E1$ in Episode 2, the system evaluates the conditions associated with the parameter, and finds that the condition that the quantity of the rinse tanks should be above 5 can no longer be satisfied because of this event. As a result, a new derived event is generated by the system to indicate the state change of this condition (from \emph{`holding'} to \emph{`open'}). Then the system performs the Bayesian network-based reasoning in the propagation step and finds that the state change of this condition (from \emph{`holding'} to \emph{`open'}) will lead to the failing of the \emph{`decon station'} parameter, which may be further propagated to the upper-level \emph{`decontaminate'} action. In this way, the event chain is formed that allows the actors to navigate through the event view forward to predict future states. Figure \ref{fig:forward_chain} shows the sequence of the events that the decontamination manager needs to look into during the interpretation of $E1$ in Episode 2.
+The forward tracking is supported by the system's capability to perform the reasoning tasks for the human actors. During the knowledge updating process, the system evaluates the consequences of the event and predicts the future states on other activities in the propagation step, and generates the event chain. As we described in Section \ref{ssub:episode_2}, upon receiving $E1$ in Episode 2, the system evaluates the conditions associated with the parameter, and finds that the condition that the quantity of the rinse tanks should be above 5 can no longer be satisfied because of this event. As a result, a new derived event is generated by the system to indicate the state change of this condition (from \emph{`holding'} to \emph{`open'}). Then the system performs the Bayesian network-based reasoning in the propagation step and finds that the state change of this condition (from \emph{`holding'} to \emph{`open'}) will lead to the failing of the \emph{`decon station'} parameter, which may be further propagated to the upper-level \emph{`decontaminate'} action. In this way, the event chain is formed that allows the actors to navigate through the event view forward to predict future states. Figure \ref{fig:forward_chain} shows the sequence of the events that the decontamination manager needs to look into during the interpretation of $E1$ in Episode 2.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
@@ -787,7 +789,7 @@ This chapter describes a case study in the domain of emergency response to justi
 
 In Section \ref{sec:awareness_support_in_emergency_response}, we first describe the characteristics of the emergency response operations and the current status of awareness support in the domain. With the high level complexity and contingency, emergency response fits well into the scope of collaborative activities discussed in this study. The domain of emergency response has foundations in event driven task accomplishment that makes the event-driven awareness support more appropriate. The limitations of existing event-based models as we discussed in previous chapters also exist in the emergency response domain, which motivates our approach.
 
-Section \ref{sec:an_emergency_response_scenario} shows a concrete scenario of the large-scale distributed collaborative activity in emergency response. The collaborative activity in this study includes a large number of team workers that engage in a variety of distributed, yet interdependent actions. The four episodes then demonstrate the different types of dynamics that may occur in the scenario, and how the collaborative activity is under continuous development in order to handle the dynamics.
+Section \ref{sec:an_emergency_response_scenario} shows a concrete scenario of the complex, distributed collaborative activity in emergency response. The collaborative activity in this study includes a large number of team workers that engage in a variety of distributed, yet interdependent actions. The four episodes then demonstrate the different types of dynamics that may occur in the scenario, and how the collaborative activity is under continuous development in order to handle the dynamics.
 
 Following the problem scenario, we conduct an analysis of the awareness phenomena in the scenario based on our conceptual model in Chapter \ref{cha:the_conceptual_framework}. The analysis includes a cognitive task analysis and an interaction analysis of the four episodes in the scenario. The former shows the capability of using the conceptual model to understand the major characteristics of collaborative awareness in the scenario, and the latter demonstrates the different developmental trajectories of awareness in the episodes.
 
