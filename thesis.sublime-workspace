@@ -87,27 +87,8 @@
 			"file": "BoYu-Dissertation.tex",
 			"settings":
 			{
-				"buffer_size": 17568,
+				"buffer_size": 17529,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "comments_cai.txt",
-			"settings":
-			{
-				"buffer_size": 3396,
-				"line_ending": "Unix",
-				"name": "Make sure you rewrite your abstract to reflect the"
-			}
-		},
-		{
-			"contents": "Searching 221 files for \"goal decomposition\"\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-2/main.tex:\n   87     \\midrule \n   88     Collaborative awareness as shared activities & the shared context surrounding a collabortive activity, e.g. the shared\n   89:    goals and status, the top-down goal decomposition, the depdencies\n   90     within the actions, etc. & the joint construction of common ground, shared practices, social\n   91     capital, and human development\\tabularnewline\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-3/main.tex:\n  179  A goal dependency reflects the fact that one action depends on the other action to bring about a certain state in the world. Goal dependency is usually characterized by the decomposition relation between two actions, i.e. action $A$ depends on the other action $B$ because $B$ is a means to achieve a subsidiary goal that must be satisfied in order to perform $A$.\n  180  \n  181: The predicate $Sub.Act$ can be used to define the goal decomposition dependency between two actions. It indicates that action $act_2$ depends on action $act_1$ because $act_1$ is a subsidiary action that must have been completed to achieve $act_2$ in current collaborative activity, i.e. $Sub.Act(act_1, act_2)$\n  182  \\begin{align*} \n  183  	 DEP(act_2, act_1, Sub.Act(act_1, act_2))\n  ...\n  191  \n  192  \\begin{enumerate}\n  193:  	\\item Goal decomposition \\cite{Grosz2006}. The development of a collaborative activity usually involves the top-down goal decomposition in which the shared activity is decomposed into multiple actions to complete it. \n  194   	\\item Opportunistic plan revisions \\cite{suchman1987plans}. Even after the plan of the shared activity has been identified, some part of the plan may have to be revisited and revised because of the changes in the environment.\n  195   	\\item Role transfer \\cite{Turoff2004}. In some dynamic situations, it is impossible to predict who will undertake what specific role and the specific actions an actor will perform will change as the role of an actor is changed. \n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-5/old.tex:\n  142  \\paragraph*{Goal dependency} % (fold)\n  143  \\label{par:goal_dependency}\n  144: The predicate $Sub.Act$ can be used to define the goal decomposition dependency between two actions. It indicates that action $act_2$ depends on action $act_1$ because $act_1$ is a subsidiary action that must have been completed to achieve $act_2$ in current collaborative plan, i.e. $Sub.Act(act_1, act_2)$\n  145  \\begin{align*} \n  146  	 DEP(act_2, act_1, Sub.Act(act_1, act_2))\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/comments_cai.txt:\n    4  \n    5  Chapter 3, it would be nice if you can include a system of formal notations to describe the conceptual constructs mentioned.   At this moment, it is all natural language, which is hard to refer to in later chapters.  \n    6: Page 35, \"Goal decomposition\" should be replaced by \"Goal elaboration\" to be consistent with the developmental  view.\n    7  \n    8  Section 3.2.1 should be titled as \"Partiality of individual awareness\"\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Figures/graffle/figures (Autosaved).graffle/data.plist:\n 110891  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 110892  \n 110893: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 110894  					</dict>\n 110895  					<key>Wrap</key>\n .....\n 110951  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 110952  \n 110953: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 110954  					</dict>\n 110955  					<key>Wrap</key>\n .....\n 111011  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111012  \n 111013: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111014  					</dict>\n 111015  					<key>Wrap</key>\n .....\n 111071  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111072  \n 111073: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111074  					</dict>\n 111075  					<key>Wrap</key>\n .....\n 111251  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111252  \n 111253: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111254  					</dict>\n 111255  					<key>Wrap</key>\n .....\n 111311  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111312  \n 111313: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111314  					</dict>\n 111315  					<key>Wrap</key>\n .....\n 111371  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111372  \n 111373: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111374  					</dict>\n 111375  					<key>Wrap</key>\n .....\n 111431  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111432  \n 111433: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111434  					</dict>\n 111435  					<key>Wrap</key>\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter2.lyx:\n  150  \\begin_layout Plain Layout\n  151  the shared context surrounding a collabortive activity, e.g.\n  152:  the shared goals and status, the top-down goal decomposition, the depdencies\n  153   within the actions, etc.\n  154  \\end_layout\n\n15 matches across 6 files\n\n\nSearching 221 files for \"goal decomposition\"\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-2/main.tex:\n   87     \\midrule \n   88     Collaborative awareness as shared activities & the shared context surrounding a collaborative activity, e.g. the shared\n   89:    goals and status, the top-down goal decomposition, the dependencies\n   90     within the actions, etc. & the joint construction of common ground, shared practices, social\n   91     capital, and human development\\tabularnewline\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-3/main.tex:\n  179  A goal dependency reflects the fact that one action depends on the other action to bring about a certain state in the world. Goal dependency is usually characterized by the decomposition relation between two actions, i.e. action $A$ depends on the other action $B$ because $B$ is a means to achieve a subsidiary goal that must be satisfied in order to perform $A$.\n  180  \n  181: The predicate $Sub.Act$ can be used to define the goal decomposition dependency between two actions. It indicates that action $act_2$ depends on action $act_1$ because $act_1$ is a subsidiary action that must have been completed to achieve $act_2$ in current collaborative activity, i.e. $Sub.Act(act_1, act_2)$\n  182  \\begin{align*} \n  183  	 DEP(act_2, act_1, Sub.Act(act_1, act_2))\n  ...\n  191  \n  192  \\begin{enumerate}\n  193:  	\\item Goal decomposition \\cite{Grosz2006}. The development of a collaborative activity usually involves the top-down goal decomposition in which the shared activity is decomposed into multiple actions to complete it. \n  194   	\\item Opportunistic plan revisions \\cite{suchman1987plans}. Even after the plan of the shared activity has been identified, some part of the plan may have to be revisited and revised because of the changes in the environment.\n  195   	\\item Role transfer \\cite{Turoff2004}. In some dynamic situations, it is impossible to predict who will undertake what specific role and the specific actions an actor will perform will change as the role of an actor is changed. \n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-5/old.tex:\n  142  \\paragraph*{Goal dependency} % (fold)\n  143  \\label{par:goal_dependency}\n  144: The predicate $Sub.Act$ can be used to define the goal decomposition dependency between two actions. It indicates that action $act_2$ depends on action $act_1$ because $act_1$ is a subsidiary action that must have been completed to achieve $act_2$ in current collaborative plan, i.e. $Sub.Act(act_1, act_2)$\n  145  \\begin{align*} \n  146  	 DEP(act_2, act_1, Sub.Act(act_1, act_2))\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/comments_cai.txt:\n    4  \n    5  Chapter 3, it would be nice if you can include a system of formal notations to describe the conceptual constructs mentioned.   At this moment, it is all natural language, which is hard to refer to in later chapters.  \n    6: Page 35, \"Goal decomposition\" should be replaced by \"Goal elaboration\" to be consistent with the developmental  view.\n    7  \n    8  Section 3.2.1 should be titled as \"Partiality of individual awareness\"\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Figures/graffle/figures (Autosaved).graffle/data.plist:\n 110891  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 110892  \n 110893: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 110894  					</dict>\n 110895  					<key>Wrap</key>\n .....\n 110951  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 110952  \n 110953: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 110954  					</dict>\n 110955  					<key>Wrap</key>\n .....\n 111011  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111012  \n 111013: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111014  					</dict>\n 111015  					<key>Wrap</key>\n .....\n 111071  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111072  \n 111073: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111074  					</dict>\n 111075  					<key>Wrap</key>\n .....\n 111251  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111252  \n 111253: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111254  					</dict>\n 111255  					<key>Wrap</key>\n .....\n 111311  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111312  \n 111313: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111314  					</dict>\n 111315  					<key>Wrap</key>\n .....\n 111371  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111372  \n 111373: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111374  					</dict>\n 111375  					<key>Wrap</key>\n .....\n 111431  \\pard\\tx560\\tx1120\\tx1680\\tx2240\\tx2800\\tx3360\\tx3920\\tx4480\\tx5040\\tx5600\\tx6160\\tx6720\\pardirnatural\\qc\n 111432  \n 111433: \\f0\\fs24 \\cf0 goal decomposition}</string>\n 111434  					</dict>\n 111435  					<key>Wrap</key>\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter2.lyx:\n  150  \\begin_layout Plain Layout\n  151  the shared context surrounding a collabortive activity, e.g.\n  152:  the shared goals and status, the top-down goal decomposition, the depdencies\n  153   within the actions, etc.\n  154  \\end_layout\n\n15 matches across 6 files\n\n\nSearching 221 files for \"partiality of awareness\"\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/BoYu-Dissertation.lof:\n   12  \\contentsline {figure}{\\numberline {3.2}{\\ignorespaces Local scope of work}}{32}{figure..3.2}\n   13  \\contentsline {figure}{\\numberline {3.3}{\\ignorespaces Types of resource dependencies \\cite {malone1994interdisciplinary}}}{34}{figure..3.3}\n   14: \\contentsline {figure}{\\numberline {3.4}{\\ignorespaces Partiality of awareness}}{38}{figure..3.4}\n   15  \\contentsline {figure}{\\numberline {3.5}{\\ignorespaces Compatibility of awareness}}{39}{figure..3.5}\n   16  \\contentsline {figure}{\\numberline {3.6}{\\ignorespaces Dynamics of awareness}}{40}{figure..3.6}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/BoYu-Dissertation.out:\n   25  \\BOOKMARK [2][-]{subsection..3.1.4}{Development of a collaborative activity}{section..3.1}% 25\n   26  \\BOOKMARK [1][-]{section..3.2}{Characteristics of Awareness}{chapter..3}% 26\n   27: \\BOOKMARK [2][-]{subsection..3.2.1}{Partiality of awareness}{section..3.2}% 27\n   28  \\BOOKMARK [2][-]{subsection..3.2.2}{Compatibility of awareness}{section..3.2}% 28\n   29  \\BOOKMARK [2][-]{subsection..3.2.3}{Dynamics of awareness}{section..3.2}% 29\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/BoYu-Dissertation.toc:\n   25  \\contentsline {subsection}{\\numberline {3.1.4}Development of a collaborative activity}{36}{subsection..3.1.4}\n   26  \\contentsline {section}{\\numberline {3.2}Characteristics of Awareness}{37}{section..3.2}\n   27: \\contentsline {subsection}{\\numberline {3.2.1}Partiality of awareness}{37}{subsection..3.2.1}\n   28  \\contentsline {subsection}{\\numberline {3.2.2}Compatibility of awareness}{38}{subsection..3.2.2}\n   29  \\contentsline {subsection}{\\numberline {3.2.3}Dynamics of awareness}{40}{subsection..3.2.3}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-3/main.aux:\n   56  \\@writefile{toc}{\\contentsline {section}{\\numberline {3.2}Characteristics of Awareness}{37}{section..3.2}}\n   57  \\newlabel{sec:awareness_requirements}{{3.2}{37}{Characteristics of Awareness\\relax }{section..3.2}{}}\n   58: \\@writefile{toc}{\\contentsline {subsection}{\\numberline {3.2.1}Partiality of awareness}{37}{subsection..3.2.1}}\n   59: \\newlabel{sub:partiality_of_awareness}{{3.2.1}{37}{Partiality of awareness\\relax }{subsection..3.2.1}{}}\n   60: \\@writefile{lof}{\\contentsline {figure}{\\numberline {3.4}{\\ignorespaces Partiality of awareness}}{38}{figure..3.4}}\n   61: \\newlabel{fig:partiality_of_awareness}{{3.4}{38}{Partiality of awareness\\relax }{figure..3.4}{}}\n   62  \\@writefile{toc}{\\contentsline {subsection}{\\numberline {3.2.2}Compatibility of awareness}{38}{subsection..3.2.2}}\n   63  \\newlabel{sub:compatibility_of_awareness}{{3.2.2}{38}{Compatibility of awareness\\relax }{subsection..3.2.2}{}}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-3/main.tex:\n  213  The first characteristics of awareness is based on the concept of local scope of work. The idea is that, since each actor only engages in a small set of actions in a large-scale collaborative environment, the actor does not need to fully understand the whole situation. Instead, the information that an actor should be aware of is only partial as it is related to the actions within the actor's local scope of work. An actor would be aware of the information that ascertains or changes the state, progress, direction of one's own work; of the occurrences that makes one's own work more urgent or less; of things that necessitate changes to the intended course of actions to mesh with the unfolding work of others, etc \\cite{schmidt2002a}. All of these awareness requirements are motivated and constrained by the actor's local scope of work.\n  214  \n  215: Figure \\ref{fig:partiality_of_awareness} illustrates the idea of partiality of awareness in a collaborative activity, where each actor only needs to take heed of a partial set of awareness elements that arise out of the actor's corresponding local scope of work. Even though one action can belong to multiple actors' local scopes, the actors may be interested in different aspects of the same action and hence each actor's individual awareness is unique and used for their own work.\n  216  \n  217  \\begin{figure}[htbp] %  figure placement: here, top, bottom, or page\n  218     \\centering\n  219     \\includegraphics{partiality_of_awareness.pdf} \n  220:    \\caption{Partiality of awareness}\n  221     \\label{fig:partiality_of_awareness}\n  222  \\end{figure}\n  223  \n  224: The partiality of awareness is related to existing theories about local reasoning \\cite{Benerecetti2000,ghidini2001local}, which argue that a human actor's reasoning is often based on `local' facts that form the individual’s cognitive context \\cite{Benerecetti2000}. Such a context is local because it usually only includes information that is potentially relevant to the individual’s tasks at hand. Hence, a significant advantage of partitioning the awareness space based on the local scopes of work is that it makes each actor's reasoning simpler by reducing the number of potential knowledge elements that need to be taken into account \\cite{ghidini2001local}.  \n  225  % subsection partiality_of_awareness (end)\n  226  \n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-4/main.tex:\n   24  \\paragraph*{Perception} % (fold)\n   25  \\label{par:perception}\n   26: The achievement of individual awareness starts with the ability of individuals to perceive key awareness elements in the environment. As the complexity of the collaborative activities scales up, there are potentially a very large number of awareness elements that are available at any given time. However, due to the partiality of awareness, each actor is only interested in a small set of them that are relevant to his/her own task. As a result, human actors have to focus on filtering out a large number of irrelevant information, which may consume too much of the actor's attention resources. \n   27  \n   28  The computer can support the human actors in this process by reducing the number of awareness elements presented to the actors. If the system can predict the awareness needs of the actors, the effort of filtering out irrelevant information can be transferred to the computer systems, so that human actors can focus on processing only the relevant set of information to avoid information overload.\n\n11 matches across 6 files\n\n\nSearching 269 files for \"tabular\"\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Appendix-A/Appendix-A.log:\n  188  ! Misplaced alignment tab character &.\n  189  l.9 \\textbf{Actor} &\n  190:                      \\textbf{Type} & \\textbf{Description}\\tabularnewline\n  191  I can't figure out why you would want to use a tab mark\n  192  here. If you just want an ampersand, the remedy is\n  ...\n  198  ! Misplaced alignment tab character &.\n  199  l.9 \\textbf{Actor} & \\textbf{Type} &\n  200:                                      \\textbf{Description}\\tabularnewline\n  201  I can't figure out why you would want to use a tab mark\n  202  here. If you just want an ampersand, the remedy is\n  ...\n 1137                                                    \n 1138  l.33 E\n 1139:       4: A new goal to evacuate the victim is activated\\tabularnewline\n 1140  You're in trouble here.  Try typing  <return>  to proceed.\n 1141  If that doesn't work, type  X <return>  to quit.\n ....\n 3396  ! Misplaced alignment tab character &.\n 3397  l.93 \\textbf{Actor} &\n 3398:                       \\textbf{Type} & \\textbf{Description}\\tabularnewline\n 3399  I can't figure out why you would want to use a tab mark\n 3400  here. If you just want an ampersand, the remedy is\n ....\n 3406  ! Misplaced alignment tab character &.\n 3407  l.93 \\textbf{Actor} & \\textbf{Type} &\n 3408:                                       \\textbf{Description}\\tabularnewline\n 3409  I can't figure out why you would want to use a tab mark\n 3410  here. If you just want an ampersand, the remedy is\n ....\n 5537  ! Misplaced alignment tab character &.\n 5538  l.147 \\textbf{Actor} &\n 5539:                        \\textbf{Type} & \\textbf{Description}\\tabularnewline\n 5540  I can't figure out why you would want to use a tab mark\n 5541  here. If you just want an ampersand, the remedy is\n ....\n 5547  ! Misplaced alignment tab character &.\n 5548  l.147 \\textbf{Actor} & \\textbf{Type} &\n 5549:                                        \\textbf{Description}\\tabularnewline\n 5550  I can't figure out why you would want to use a tab mark\n 5551  here. If you just want an ampersand, the remedy is\n ....\n 7671  ! Misplaced alignment tab character &.\n 7672  l.200 \\textbf{Actor} &\n 7673:                        \\textbf{Type} & \\textbf{Description}\\tabularnewline\n 7674  I can't figure out why you would want to use a tab mark\n 7675  here. If you just want an ampersand, the remedy is\n ....\n 7681  ! Misplaced alignment tab character &.\n 7682  l.200 \\textbf{Actor} & \\textbf{Type} &\n 7683:                                        \\textbf{Description}\\tabularnewline\n 7684  I can't figure out why you would want to use a tab mark\n 7685  here. If you just want an ampersand, the remedy is\n ....\n 8601                                                    \n 8602  l.220 E\n 8603:        6: A new goal to send the victim to the hospital is activated\\tabular...\n 8604  \n 8605  You're in trouble here.  Try typing  <return>  to proceed.\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Appendix-A/Appendix-A.tex:\n    7  	\\begin{longtable}{>{\\raggedright}p{1.2in}>{\\raggedright}p{1.2in}>{\\raggedright}p{3in}}\n    8  \\toprule \n    9: \\textbf{Actor} & \\textbf{Type} & \\textbf{Description}\\tabularnewline\n   10  \\midrule \n   11  Fireman & Generate event (E1) & E1: A new victim has been found at a given location within the impacted\n   12: area\\tabularnewline\n   13  \\midrule \n   14  \\multirow{3}{1.2in}{Victim manager (VM)} & Consume event (E1) & Upon receiving E1, VM activate the goal that the victim needs to be\n   15: rescued, and decomposes the action to rescue the victim into sub-actions.\\tabularnewline\n   16  \\cmidrule{2-3} \n   17   & Perform action & In order to rescue the victim, VM first evaluates the status of the\n   ..\n   25  \n   26  After the treatment, the victim needs to be evacuated to a shelter\n   27: for recovery.\\tabularnewline\n   28  \\cmidrule{2-3} \n   29   & Generate events (E2, E3, E4) & E2: A new goal to decontaminate the victim is activated\n   ..\n   31  E3: A new goal to treat the victim is activated\n   32  \n   33: E4: A new goal to evacuate the victim is activated\\tabularnewline\n   34  \\midrule \n   35  \\multirow{3}{1.2in}{Decontamination manager (DM)} & Consume event (E2) & Upon receiving E2, DM infers that the action to decontaminate is within\n   36  her responsibility and she is capable of performing it, so she is\n   37: committed to performing the action, decompose the action into sub-actions.\\tabularnewline\n   38  \\cmidrule{2-3} \n   39   & Perform action & To perform decontamination, DM first needs to assign a decontamination\n   ..\n   41  \n   42  After the assignment of station (DS1) to the victim, the DM activates\n   43: the goal to transport the victim to the station. \\tabularnewline\n   44  \\cmidrule{2-3} \n   45   & Generate event (E5, E6) & E5: The station (DS1) has been assigned to the decontamination action\n   ..\n   47  \n   48  E6: A new goal to transport the victim to the assigned decontamination\n   49: station is activated\\tabularnewline\n   50  \\midrule \n   51  Medical manager (MM) & Consume event (E3) & Upon receiving E3, MM infers that the action to treat the victim is\n   52  within her responsibility. However, because the action depends on\n   53  the action to decontaminate the victim to be completed first, she\n   54: has to wait for now.\\tabularnewline\n   55  \\midrule \n   56  \\multirow{4}{1.2in}{Transportation manager (TM)} & Consume event (E4) & Upon receiving E4, TM infers that the action to evacuate the victim\n   ..\n   58  \n   59  However, because the action depends on the action to treat the victim\n   60: to be completed first, she has to wait for that first.\\tabularnewline\n   61  \\cmidrule{2-3} \n   62   & Consume event (E6) & Upon receiving E5, TM infers that the action to transport the victim\n   63  to the station is within her responsibility and she is capable of\n   64  performing it, so she is committed to performing the action, and further\n   65: decompose the action.\\tabularnewline\n   66  \\cmidrule{2-3} \n   67   & Perform action & TM first needs to assign a driver (DR1) with a rescue vehicle to the\n   ..\n   69  \n   70  Because the actual transportation action is out of the DM's responsibility,\n   71: she is waiting for the driver to perform it.\\tabularnewline\n   72  \\cmidrule{2-3} \n   73   & Generate event (E7) & E7: The driver (DR1) has been assigned to the action to transport\n   74: the victim \\tabularnewline\n   75  \\midrule \n   76  Driver (DR1) & Consume event (E7) & Upon receiving E6, DR1 infers that the action to transport the victim\n   77  to the station is within her responsibility and she is capable of\n   78: performing it, so she starts to perform the action.\\tabularnewline\n   79  \\bottomrule\n   80  \\caption{Episode 1 in the emergency response scenario}\n   ..\n   91  	\\begin{longtable}{>{\\raggedright}p{1.2in}>{\\raggedright}p{1.2in}>{\\raggedright}p{3in}}\n   92  \\toprule \n   93: \\textbf{Actor} & \\textbf{Type} & \\textbf{Description}\\tabularnewline\n   94  \\midrule \n   95  Operator at the decontamination station & Generate event (E1) & E1: The quantity of available rinse tanks in the station (DS1) is\n   96: running low.\\tabularnewline\n   97  \\midrule \n   98  \\multirow{3}{1.2in}{Decontamination manager (DM)} & Consume event (E1) & Upon receiving E1, DM infers that the station (DS1) cannot work properly\n   99  due to this resource shortage. In order to ensure the victim is successfully\n  100  decontaminated, a new action to resolve the resource shortage is added\n  101: to the current plan to rescue the victim. \\tabularnewline\n  102  \\cmidrule{2-3} \n  103   & Perform action & DM first needs to locate an inventory where the rinse tanks can be\n  ...\n  105  \n  106  After identification of the inventory (INV1), the DM activates the\n  107: goal to deliver the resource from the inventory to the station. \\tabularnewline\n  108  \\cmidrule{2-3} \n  109   & Generate event (E2) & E2: A new goal to deliver the resource from (INV1) to the station\n  110: (DS1) is activated.\\tabularnewline\n  111  \\midrule \n  112: \\multirow{3}{1.2in}{Inventory manager (IM)} & Consume event (E2) & Upon receiving E2, IM starts a new action to deliver the resource.\\tabularnewline\n  113  \\cmidrule{2-3} \n  114   & Perform action & IM first needs to prepare the resource for delivery. Once the resource\n  115  is ready, she activates the goal to transport the resource to the\n  116: station (DS1)\\tabularnewline\n  117  \\cmidrule{2-3} \n  118:  & Generate event (E3) & E3: A new goal to transport the resource to the station (DS1) is activated\\tabularnewline\n  119  \\midrule \n  120: \\multirow{3}{1.2in}{Transportation manager (TM)} & Consume event (E3) & Upon receiving E3, TM starts a new action to transport the resource.\\tabularnewline\n  121  \\cmidrule{2-3} \n  122   & Perform action & TM first needs to assign a driver (DR2) with a rescue vehicle to the\n  ...\n  124  \n  125  Because the actual transportation action is out of the DM's responsibility,\n  126: she is waiting for the driver to perform it.\\tabularnewline\n  127  \\cmidrule{2-3} \n  128   & Generate event (E4) & E4: The driver (DR2) has been assigned to the action to transport\n  129: the victim \\tabularnewline\n  130  \\midrule \n  131  Driver (DR2) & Consume event (E4) & Upon receiving E4, DR2 infers that the action to transport the victim\n  132  to the station is within her responsibility and she is capable of\n  133: performing it, so she starts to perform the action.\\tabularnewline\n  134  \\bottomrule\n  135  \\caption{Episode 2 in the emergency response scenario}\n  ...\n  145  \\begin{longtable}{>{\\raggedright}p{1.2in}>{\\raggedright}p{1.2in}>{\\raggedright}p{3in}}\n  146  \\toprule \n  147: \\textbf{Actor} & \\textbf{Type} & \\textbf{Description}\\tabularnewline\n  148  \\midrule \n  149  Driver (DR1) & Generate event (E1) & E1: The rescue vehicle with the driver (DR1) encounters a mechanical\n  150: breakdown.\\tabularnewline\n  151  \\midrule \n  152  \\multirow{3}{1.2in}{Transportation manager (TM)} & Consume event (E1) & Upon receiving E1, TM infers that because of the vehicle breakdown,\n  153: the DR1's action to transport the victim cannot be achieved.\\tabularnewline\n  154  \\cmidrule{2-3} \n  155   & Perform action & To solve the problem, TM attempts to assign another driver to the\n  ...\n  157  \n  158  However, because all the drivers are currently in duty, the TM cannot\n  159: find a driver to perform the action until a later time.\\tabularnewline\n  160  \\cmidrule{2-3} \n  161   & Generate event (E2) & E2: The action to transport the victim has to be delayed because of\n  162: the unavailability of drivers.\\tabularnewline\n  163  \\midrule \n  164  \\multirow{2}{1.2in}{Decontamination manager (DM)} & Consume event (E2) & Upon receiving E2, DM infers that because of the delay to transport\n  165: the victim, the action to decontaminate the victim is also delayed.\\tabularnewline\n  166  \\cmidrule{2-3} \n  167   & Generate event (E3) & E3: The action to decontaminate the victim will be delayed because\n  168: of the delay of the transportation task.\\tabularnewline\n  169  \\midrule \n  170  \\multirow{2}{1.2in}{Victim manager (VM)} & Consume event (E3) & Upon receiving E3, VM infers that because of the delay to transport\n  171: the victim, the action to rescue the victim is delayed.\\tabularnewline\n  172  \\cmidrule{2-3} \n  173   & Generate event (E4) & E4: The action to rescue the victim is delayed because of the delay\n  174: of the transportation task.\\tabularnewline\n  175  \\midrule \n  176  \\multirow{2}{1.2in}{Fireman} & Consume event (E4) & Upon receiving E4, the fireman infers that although delivery of the\n  177  victim is not in the scope of her responsibility, however she can\n  178  help the rescue action by sending the victim to the decontamination\n  179: station (DS1). \\tabularnewline\n  180  \\cmidrule{2-3} \n  181   & Generate event (E5) & E5: The fireman activates the goal to send the victim to the decontamination\n  182: station (DS1). \\tabularnewline\n  183  \\midrule \n  184  Transportation manager (TM) & Consume event (E5) & Upon receiving E5, TM infers that because of the new action of the\n  185  fireman, the responsibility of transporting the victim is now transferred\n  186: from her to the fireman.\\tabularnewline\n  187  \\bottomrule\n  188  \\caption{Episode 3 in the emergency response scenario}\n  ...\n  198  	\\begin{longtable}{>{\\raggedright}p{1.2in}>{\\raggedright}p{1.2in}>{\\raggedright}p{3in}}\n  199  \\toprule \n  200: \\textbf{Actor} & \\textbf{Type} & \\textbf{Description}\\tabularnewline\n  201  \\midrule \n  202  Fireman & Generate event (E1) & E1: The physical injury of the victim becomes severe and prevents\n  203: the fireman from moving the victim into the vehicle.\\tabularnewline\n  204  \\midrule \n  205  \\multirow{2}{1.2in}{Victim manager (VM)} & Consume event (E1) & Upon receiving E1, VM evaluates the situation of the victim and decides\n  ...\n  208  special team needs to be dispatched to the victim's location to decontaminate\n  209  and treat the victim on spot, and then the victim is directly sent\n  210: to the hospital for further treatment.\\tabularnewline\n  211  \\cmidrule{2-3} \n  212   & Generate events (E2, E3, E4, E5, E6) & E2: The current goal to decontaminate the victim is deactivated\n  ...\n  218  E5: A new goal to dispatch a special team to the victim is activated\n  219  \n  220: E6: A new goal to send the victim to the hospital is activated\\tabularnewline\n  221  \\midrule \n  222  \\multirow{4}{1.2in}{Decontamination manager (DM)} & Consume event (E2) & Upon receiving E2, DM removes the action to decontaminate the victim\n  223: from her current responsibility.\\tabularnewline\n  224  \\cmidrule{2-3} \n  225   & Consume event (E5) & Upon receiving E5, DM infers that in order to perform the action to\n  226  dispatch a special team to the victim, a decontamination operator\n  227: needs to be assigned to the team sent to the victim. \\tabularnewline\n  228  \\cmidrule{2-3} \n  229   & Perform action & By reviewing the available operators, DM decides on the operator that\n  230: will be sent to the victim\\tabularnewline\n  231  \\cmidrule{2-3} \n  232   & Generate event (E7) & The decontamination operator has been assigned to the special team\n  233: to the victim.\\tabularnewline\n  234  \\midrule \n  235  \\multirow{4}{1.2in}{Medical manager (MM)} & Consume event (E3) & Upon receiving E3, MM removes the action to treat the victim from\n  236: her current responsibility.\\tabularnewline\n  237  \\cmidrule{2-3} \n  238   & Consume event (E5) & Upon receiving E5, DM infers that in order to perform the action to\n  239  dispatch a special team to the victim, a paramedic needs to be assigned\n  240: to the team sent to the victim. \\tabularnewline\n  241  \\cmidrule{2-3} \n  242   & Perform action & By reviewing the available actors, DM decides on the paramedic that\n  243: will be sent to the victim\\tabularnewline\n  244  \\cmidrule{2-3} \n  245:  & Generate event (E8) & The paramedic has been assigned to the special team to the victim.\\tabularnewline\n  246  \\midrule \n  247  \\multirow{5}{1.2in}{Transportation Manager} & Consume event (E4) & Upon receiving E4, TM removes the action to evacuate the victim from\n  248: her current responsibility.\\tabularnewline\n  249  \\cmidrule{2-3} \n  250   & Consume event (E5) & Upon receiving E5, TM infers that in order to perform the action to\n  251  dispatch a special team to the victim,  the action to transport the\n  252: team to the victim needs to be activated. \\tabularnewline\n  253  \\cmidrule{2-3} \n  254   & Perform action & TM first needs to assign a driver with a rescue vehicle to the action.\n  255  Because the deactivation of the original decontamination action, the\n  256  driver (DR2) who was assigned for delivering the equipment is now\n  257: available for this action.\\tabularnewline\n  258  \\cmidrule{2-3} \n  259   & Generate event (E9) & E9: The driver (DR2) has been assigned to the action to transport\n  260: the special team to the victim \\tabularnewline\n  261  \\cmidrule{2-3} \n  262   & Consume event (E6) & Upon receiving E6, TM infers that the action to send the victim to\n  ...\n  264  \n  265  However, because the action depends on other actions to be completed\n  266: first, she has to wait for those first.\\tabularnewline\n  267  \\midrule \n  268  Driver (DR2) & Consume event (E9) & Upon receiving E9, DR2 starts to perform the action to transport the\n  269: special team to the victim.\\tabularnewline\n  270  \\bottomrule\n  271  	\\caption{Episode 4 in the emergency response scenario}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/BoYu-Dissertation.log:\n  214  \n  215  (/usr/local/texlive/2012/texmf-dist/tex/latex/tools/array.sty\n  216: Package: array 2008/09/09 v2.4c Tabular extension package (FMi)\n  217  \\col@sep=\\dimen115\n  218  \\extrarowheight=\\dimen116\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-2/main.tex:\n   80     \\begin{longtable}{>{\\raggedright}p{1.1in}>{\\raggedright}p{2.2in}>{\\raggedright}p{2.2in}}\n   81     \\toprule \n   82:     & \\textbf{The `product' of awareness} & \\textbf{The `process' of awareness}\\tabularnewline\n   83     \\midrule \n   84     Collaborative awareness as shared knowledge & individual team member\\textquoteright{}s awareness and the shared\n   85     awareness knowledge with other team members & effective team processes for sharing relevant information, such as\n   86:    communication and mutual monitoring\\tabularnewline\n   87     \\midrule \n   88     Collaborative awareness as shared activities & the shared context surrounding a collaborative activity, e.g. the shared\n   89     goals and status, the top-down goal decomposition, the dependencies\n   90     within the actions, etc. & the joint construction of common ground, shared practices, social\n   91:    capital, and human development\\tabularnewline\n   92     \\midrule \n   93     Collaborative awareness as distributed cognition & distributed individual awareness that is overlapping, and complementary\n   94:    with each other & transactions representing the exchanging of awareness between actors\\tabularnewline\n   95     \\bottomrule\n   96     \\caption{Conceptualizations of collaborative awareness}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-4/main.tex:\n   83  \\begin{longtable}{>{\\raggedright}p{1.2in}>{\\raggedright}p{2.2in}>{\\raggedright}p{2.2in}}\n   84  \\toprule \n   85: \\textbf{Awareness Process} & \\textbf{Challenges for human actors} & \\textbf{Design aspects for computer support}\\tabularnewline\n   86  \\midrule \n   87  \\multirow{3}{1.2in}{Development of individual awareness} & \\emph{Perception}: they have to filter out a large number of irrelevant\n   88  information, consuming their attention resources & \\emph{1.} \\emph{Filtering}: the computer predicts the awareness needs\n   89: and filters out irrelevant information for human actors.\\tabularnewline\n   90  \\cmidrule{2-3} \n   91   & \\emph{Comprehension}: they have to maintain a large volume of knowledge\n   ..\n   95  \\emph{2. Linking}: the computer presents the awareness information\n   96  along with the contextual information that is potentially relevant\n   97: to understand its meaning.\\tabularnewline\n   98  \\cmidrule{2-3} \n   99   & \\emph{Projection}: they have to maintain the large volume of existing\n  ...\n  103  \n  104  \\emph{2. Reasoning}: the computer performs the reasoning tasks and\n  105: presents the reasoning results to human actors.\\tabularnewline\n  106  \\midrule \n  107  \\multirow{3}{1.2in}{Development of collaborative awareness} & \\emph{Transactive knowledge}: they need to maintain transactive knowledge\n  ...\n  110  \n  111  \\emph{2. Reasoning}: the computer makes use of the knowledge on behalf\n  112: of human actors and performs reasoning to facilitate awareness transactions.\\tabularnewline\n  113  \\cmidrule{2-3} \n  114   & \\emph{Team processes}: they need to spare additional effort to conduct\n  115  team processes, but are often not the actors who will directly benefit\n  116  from them. & \\emph{1. Tools}: the computer needs to provide the tools that simplify\n  117: the effort to perform team processes.\\tabularnewline\n  118  \\bottomrule\n  119  \\caption{Design aspects for awareness support}\n  ...\n  165  \\begin{longtable}{>{\\raggedright}p{1.1in}>{\\raggedright}p{2.2in}>{\\raggedright}p{2.2in}}\n  166  \\toprule \n  167:  & \\textbf{Space-based models} & \\textbf{Event-based models}\\tabularnewline\n  168  \\midrule \n  169  \\multirow{2}{1.1in}{Representation of the collaborative work} & explicitly represented as a `shared space' inhabited by objects representing\n  170: actors, information, resources, or other computer artifacts  & implementation-dependent internal representations\\tabularnewline\n  171  \\cmidrule{2-3} \n  172:  & visible to users & invisible to users\\tabularnewline\n  173  \\midrule \n  174: \\multirow{4}{1.1in}{Awareness information} & embedded as perceivable properties of objects in the space & explicitly represented as discrete events\\tabularnewline\n  175  \\cmidrule{2-3} \n  176:  & limited to external aspects of shared objects  & can refer to both external and internal aspects\\tabularnewline\n  177  \\cmidrule{2-3} \n  178:  & presented in the context of its origin & can be outside the user's current viewport\\tabularnewline\n  179  \\cmidrule{2-3} \n  180:  & users need to pull the awareness information from the field of work & awareness informaion is pushed to the users\\tabularnewline\n  181  \\midrule \n  182  Example Implementations & 1. physical spaces (e.g. Portholes \\cite{Dourish1992})\n  ...\n  187  3. workspaces (e.g. ShrEdit \\cite{dourish1992awareness},\n  188  GroupKit \\cite{Roseman1996}) & GroupDesk \\cite{Fuchs1995}, POLIAwaC \\cite{sohlenkamp2000po},\n  189: NESSIE \\cite{prinz1999a}, Elvin \\cite{Fitzpatrick2002}\\tabularnewline\n  190  \\bottomrule\n  191  \n  ...\n  306  \\begin{longtable}{>{\\raggedright}p{1.1in}>{\\raggedright}p{2.2in}>{\\raggedright}p{2.2in}}\n  307  \\toprule \n  308: \\textbf{Awareness Processes} & \\textbf{Space-based models} & \\textbf{Event-based models}\\tabularnewline\n  309  \\midrule \n  310  Percepetion & Make the shared space explicitly visible to each user, and rely on\n  311  human actors to pick up the relevant awareness information  & Filter information based events subscriptions that are generated by\n  312: human actors to describe their awareness interests\\tabularnewline\n  313  \\midrule \n  314  Comprehension & 1. visualization of shared spaces\n  315  \n  316  2. direct linking of awaress information to the context of its origin & Collocation event notifications into the display and control of work\n  317: objects \\cite{prinz1999a,carroll2003a}.\\tabularnewline\n  318  \\midrule \n  319: Projection & Visualization of shared spaces & rarely supported\\tabularnewline\n  320  \\midrule \n  321  Mutual monitoring & 1. video-audio links \\cite{Dourish1992}\n  322  \n  323: 2. artifacts mediated feedthrough \\cite{Tee2009} & System generated events about actions \\cite{Fuchs1995}\\tabularnewline\n  324  \\midrule \n  325: Communication & separately supported & separately supported\\tabularnewline\n  326  \\midrule \n  327: Externalization & annotations \\cite{Zheng2006,Weng2004} & intention-enriched awareness events \\cite{Rittenbruch2007}\\tabularnewline\n  328  \\bottomrule\n  329  \\caption{Existing Studies in Awareness Support}\n  ...\n  398     \\begin{longtable}{>{\\raggedright}p{1.1in}>{\\raggedright}p{2.2in}>{\\raggedright}p{2.2in}}\n  399  \\toprule \n  400: \\textbf{Awareness processes} & \\textbf{Awareness support} & \\textbf{Awareness promotion}\\tabularnewline\n  401  \\midrule \n  402  Perception & 1. the \\emph{computer} shares information in a common space, and relies\n  ...\n  407  \\emph{computer} filters out events based on human subscription\\emph{\n  408  (event-based} models)  & the \\emph{computer} infer who the information is relevant to, and\n  409: present only the relevant information\\tabularnewline\n  410  \\midrule \n  411  Comprehension & 1. the \\emph{computer} provides the representation of the whole shared\n  ...\n  418  \n  419  2. the \\emph{computer} can infer the connection between the awareness\n  420: information and the human's work context\\tabularnewline\n  421  \\midrule \n  422  Projection & the \\emph{human} performs the projection as their own cognitive process & 1. the \\emph{computer} represents the aspects of collaborative activity\n  ...\n  424  \n  425  2. the \\emph{computer} can performs routine inferences and presents\n  426: the reasoning results to aid the human\\tabularnewline\n  427  \\midrule \n  428  Transactive knowledge & the \\emph{human has to} maintain their individual transactive knowledge\n  429  in mind & the \\emph{computer} maintains the transactive knowledge at the team\n  430: level.\\tabularnewline\n  431  \\midrule \n  432  Team processes & the \\emph{computer }provides the tools and relies on\\emph{ the human}\n  433  to decide on what to monitor (as receivers), or who should be communicated\n  434  (as initiators). & the \\emph{computer} makes direct use of the transactive knowledge\n  435: to decide on who should be notified by what awareness information.\\tabularnewline\n  436  \\bottomrule\n  437  \\caption{Awareness support vs. awareness promotion}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-4/old.tex:\n   92  \\begin{longtable}{>{\\raggedright}p{1.1in}>{\\raggedright}p{2.2in}>{\\raggedright}p{2.2in}}\n   93  \\toprule \n   94: \\textbf{Awareness processes} & \\textbf{Awareness support} & \\textbf{Awareness promotion}\\tabularnewline\n   95  \\midrule \n   96  Percepetion & \\emph{Space-based} models: \n   ..\n  109  actors\n  110  \\item the \\emph{user} can modify the computer's knowledge representation \\end{itemize}\n  111: \\tabularnewline\n  112  \\midrule \n  113  Comprehension & \\emph{Space-based} and \\emph{event-based} models:\n  ...\n  124  \\item the \\emph{computer} updates its knowledge representaton based on human\n  125  interpretation\\end{itemize}\n  126: \\tabularnewline\n  127  \\midrule \n  128  Projection & \\emph{Space-based} and \\emph{event-based} models:\n  ...\n  136  \\item the \\emph{computer} updates its knowledge representation based on\n  137  human modification\\end{itemize}\n  138: \\tabularnewline\n  139  \\midrule \n  140  Feedthrough & \\emph{Space-based} models:\n  ...\n  150  who should receive the effect and notify them\n  151  \\item the \\emph{human} can control who can see the effects of his/her activities\\end{itemize}\n  152: \\tabularnewline\n  153  \\midrule \n  154  Manifestation & \\emph{Space-based} models: \n  ...\n  169  \\item the \\emph{computer} uses its knowledge representation to decide on\n  170  who should receive the information and notify them\\end{itemize}\n  171: \\tabularnewline\n  172  \\bottomrule\n  173  \\caption{Awareness support v.s. awareness promotion}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-5/main.tex:\n   84  \\begin{longtable}{>{\\raggedright}p{1.5in}>{\\raggedright}p{4in}}\n   85  \\toprule \n   86: Relation & Structure in PlanGraph\\tabularnewline\n   87  \\midrule \n   88  $Pot.Int(ar,act)$ \\par $Int.Th(ar,act)$ \\par $Int.to(ar,act)$ \\par $Perform(ar,act)$ & search the \\emph{Intentions} slot attached to each action node: \n   89: \\par \\includegraphics{intentions.pdf}\\tabularnewline\n   90  \\midrule \n   91  $Knows(ar,act)$ \\par $Able(ar,act)$ \\par $Workable(ar,act)$ & search the \\emph{Capability} slot attached to each action node: \n   92: \\par \\includegraphics{capabilities.pdf}\\tabularnewline\n   93  \\midrule \n   94  $Sub.Act(act_1, act_2)$ &  $act_1$ is a subsidiary action node under $act_2$: \n   95: \\par \\includegraphics{sub_act.pdf} \\tabularnewline\n   96  \\midrule \n   97  $Precedes(act_1, act_2)$ &  $act_1$ and $act_2$ as ordered siblings: \n   98: \\par \\includegraphics{precedes.pdf}\\tabularnewline\n   99  \\midrule \n  100  $Consume(act, res)$ & a parameter node representing a resource $res$ and  a action node $act$ as siblings: \n  101: \\par \\includegraphics{consumes.pdf}\\tabularnewline\n  102  \\midrule \n  103  $Produces(act, res)$ &  $act$ is a subsidiary action node under the parameter node representing a resource $res$: \n  104: \\par \\includegraphics{produces.pdf}\\tabularnewline\n  105  \\bottomrule\n  106  \\caption{Representing basic relations in PlanGraph}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-6/main.tex:\n  298  \\centering\n  299  \\footnotesize\n  300: \\begin{tabular}{>{\\raggedright}p{1.5in}>{\\raggedright}p{2.6in}}\n  301  \\toprule \n  302: \\textbf{Node type} & \\textbf{Available event types for externalization}\\tabularnewline\n  303  \\midrule \n  304  Action node inside the local scope & 1. Intention events\n  ...\n  308  3. Belief events about the execution states\n  309  \n  310: 4. Belief events about the plan\\tabularnewline\n  311  \\midrule \n  312  Prameter node inside the local scope & 1. Belief events about the execution states\n  ...\n  314  2. Belief events about the plan\n  315  \n  316: 3. Belief events about value assignment\\tabularnewline\n  317  \\midrule \n  318  Condition node inside the local scope & 1. Belief events about the execution states\n  ...\n  320  2. Belief events about the plan\n  321  \n  322: 3. Belief events about variable modification\\tabularnewline\n  323  \\midrule \n  324  Action node outside the local scope & 1. Intention events\n  325  \n  326: 2. Belief events about the capability\\tabularnewline\n  327  \\bottomrule\n  328: \\end{tabular}	\n  329  \\caption{Different event types for externalization}\n  330  \\label{tab:event_types_for_externalization}\n  ...\n  411  \\begin{longtable}{>{\\raggedright}p{0.8in}>{\\raggedright}p{1.5in}>{\\raggedright}p{1.5in}>{\\raggedright}p{1.7in}}\n  412  \\toprule \n  413: \\textbf{Aspects} & \\textbf{Event notification} & \\textbf{Event interpretation} & \\textbf{Event propagation}\\tabularnewline\n  414  \\midrule \n  415  Use of knowledge representation & The local scopes are used to filter events  & 1. The event chain is used to visualize the event view\n  ...\n  420  2. The PlanGraph is used to support externalization\n  421  \n  422: 3. The local scope is used to manage visibility\\tabularnewline\n  423  \\midrule \n  424  Computer's responsibility & 1. Perform the filtering based on local scopes and subscriptions\n  ...\n  435  interpretation.\n  436  \n  437: 3. Apply the visibility policies for notification\\tabularnewline\n  438  \\midrule \n  439  Human actor's responsibility & 1. Specify the event interests as subscriptions \n  ...\n  443  2. Interpret the event within the activity view and context view & 1. Contribut to the event propagation by externalization\n  444  \n  445: 2. Control the visibility by specifying visibility policies\\tabularnewline\n  446  \\midrule \n  447  Reduce complexity & The number of subscriptions that the human actor needs to managed\n  ...\n  452  so the human actor does not need to maintain it in the mind.\n  453  \n  454: 2. The externalization are directly linked to related nodes.\\tabularnewline\n  455  \\midrule \n  456  Handle dynamics & The filtering is built on top of the local scope that is dynamically\n  ...\n  461  \n  462  2. The visibility is built on top of the local scope that is dynamically\n  463: constructed\\tabularnewline\n  464  \\bottomrule\n  465  \\caption{Summary of the event-driven awareness promotion}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-8/main.tex:\n  103  	\\begin{longtable}{>{\\raggedright}p{0.8in}>{\\raggedright}p{1.7in}>{\\raggedright}p{2in}>{\\raggedright}p{1in}}\n  104  \\toprule \n  105: \\textbf{Type} & \\textbf{Action} & \\textbf{Subsidiary actions} & \\textbf{Invovled actors}\\tabularnewline\n  106  \\midrule \n  107  Decisional & To plan and control the operational and support processes & 1. To assign actors and relief resources\n  ...\n  113  Local officials,\n  114  \n  115: Delegates from different departments\\tabularnewline\n  116  \\midrule \n  117  Operational & To protect population & 1. To alert/communicate\n  ...\n  121  3. To distribute iodine capsules\n  122  \n  123: 4. To evacuate population & Firemen, Police, Transportation team\\tabularnewline\n  124  \\midrule \n  125  Operational & To rescue victims & 1. To search for victims\n  ...\n  133  Medical team,\n  134  \n  135: Transportation team\\tabularnewline\n  136  \\midrule \n  137  Support & To support all reponse operations & 1. To deliver victims\n  ...\n  141  3. To control traffic & Transportation team, \n  142  \n  143: Police\\tabularnewline\n  144  \\midrule \n  145  Support & To assess situation & 1. To measure radioactivity\n  ...\n  147  2. To measure weather characteristics\n  148  \n  149: 3. To provide situational reports continuously & Scientific team\\tabularnewline\n  150  \\bottomrule\n  151  \\caption{Actions in the nuclear emergency response scenario}\n  ...\n  172  \\begin{longtable}{>{\\raggedright}p{1.8in}>{\\raggedright}p{1.8in}>{\\raggedright}p{1.8in}}\n  173  \\toprule \n  174: \\textbf{Example Events} & \\textbf{Event Type} & \\textbf{Event Producer}\\tabularnewline\n  175  \\midrule \n  176  \\emph{Incident event}: Radioactivity level within 5 mile of the plant\n  177: exceeded 50 mSv/h & Vale comparison & Scientific team to measure radioactivity\\tabularnewline\n  178  \\midrule \n  179  \\emph{Risk event}: A traffic jam occurs on the road between A and\n  180: B  & Existential change over time & Transportation team to deliver victims\\tabularnewline\n  181  \\midrule \n  182: \\emph{Actor event}: The army is called to perform the iodine distribution & Conceptual relation & Officials to plan and control the operational actions\\tabularnewline\n  183  \\midrule \n  184: \\emph{Resources event}: Electricity generators will arrive at the station in 1 hour... & Spatio-temporal relation & Transportation team to deliver the equipment\\tabularnewline\n  185  \\midrule \n  186  Action event: New road signs have been placed to support the evacuation\n  187: plan & State change & Police to control traffic\\tabularnewline\n  188  \\bottomrule\n  189  \\caption{Events in the nuclear emergency response scenario}\n  ...\n  202  	\\begin{longtable}{>{\\raggedright}p{1.4in}>{\\raggedright}p{2.5in}>{\\raggedright}p{1in}}\n  203  \\toprule \n  204: \\textbf{Trajectory Type} & \\textbf{Description} & \\textbf{Episode}\\tabularnewline\n  205  \\midrule \n  206  Goal activation & A goal is activated by some triggering event, and then the action\n  207: to achieve the goal is developed through top-down decomposition & Episode 1\\tabularnewline\n  208  \\midrule \n  209  Plan development & An event causes a new problem that is not addressed by the current\n  210  plan of an action. In order to the fix the problem the plan has to\n  211: be further developed. & Episode 2\\tabularnewline\n  212  \\midrule \n  213: Role transfer & An event leads to a breakdown in performing an action. To fix the problem, some actor has to perform an action that is out of the pre-defined role responsibility. & Episode 3\\tabularnewline\n  214  \\midrule \n  215  Opportunistic re-planning & An event leads to the decision that the current plan of an action\n  216: has to be abandoned and a new plan is developed. & Episode 4\\tabularnewline\n  217  \\bottomrule\n  218  \\caption{Developmental trajectories in the scenario}\n  ...\n  615  	\\begin{longtable}{c>{\\raggedright}p{2in}>{\\raggedright}p{2.5in}}\n  616  \\toprule \n  617: \\textbf{Event} & \\textbf{Receiver} & \\textbf{Subscription}\\tabularnewline\n  618  \\midrule \n  619: E1  & Victim manager (VM) & VM needs to subscribe to all the \\emph{`new victim'} events\\tabularnewline\n  620  \\midrule \n  621  E2 & Decontamination manager (DM) & DM needs to subscribe to the \\emph{`goal activation'} events with\n  622: the condition that the goal is to decontaminate a victim\\tabularnewline\n  623  \\midrule \n  624  E3 & Medical manager (MM) & MM needs to subscribe to the \\emph{`goal activation'} events with\n  625: the condition that the goal is to treat an injured victim\\tabularnewline\n  626  \\midrule \n  627  E4 & Transportation manager (TM) & TM needs to subscribe to the \\emph{`goal activation'} events with\n  628: the condition that the goal is to evacuate a victim\\tabularnewline\n  629  \\midrule \n  630  E6 & Transportation manager (TM) & TM needs to subscribe to the \\emph{`goal activation'} events with\n  631: the condition that the goal is to transport a victim to a station\\tabularnewline\n  632  \\midrule \n  633  E7 & Driver (DR1) & DR1 needs to subscribe to the \\emph{`resource assignment' }events\n  634: with her vehicle as the assigned resource\\emph{.}\\tabularnewline\n  635  \\bottomrule\n  636  \\caption{Subscription-based event distribution in Episode 1}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/library.bib:\n 1087  editor = {Dodge, M. and McDerby, M. and Turner, M.},\n 1088  file = {:Users/byu/Work/Research/Literatures/files/2008/Roberts/Roberts - 2008.pdf:pdf},\n 1089: keywords = {coordinated multiple view techniques (CMV),exploratory geovisualization and CMV techniques,geospatial database and data preparation,geovisualization tool developers,informative visualizations,interactive filtering and interactively adapting m,knowledge discovery (KD) and data mining (DM) meth,tabular and matrix layouts,virtual reality - view on a bat or worlds in minia},\n 1090  title = {{Coordinated Multiple Views for Exploratory GeoVisualization}},\n 1091  year = {2008}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/standalone.css:\n   48  span.thank-mark{ vertical-align: super }\n   49  span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }\n   50: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }\n   51: table.tabular td p{margin-top:0em;}\n   52: table.tabular {margin-left: auto; margin-right: auto;}\n   53  td p:first-child{ margin-top:0em; }\n   54  td p:last-child{ margin-bottom:0em; }\n   ..\n  133  table.gather {width:100%;}\n  134  div.gather-star {text-align:center;}\n  135: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }\n  136: table.tabular td p{margin-top:0em;}\n  137: table.tabular {margin-left: auto; margin-right: auto;}\n  138  td p:first-child{ margin-top:0em; }\n  139  td p:last-child{ margin-bottom:0em; }\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/standalone.lg:\n   55  Css: span.thank-mark{ vertical-align: super }\n   56  Css: span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }\n   57: Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }\n   58: Css: table.tabular td p{margin-top:0em;}\n   59: Css: table.tabular {margin-left: auto; margin-right: auto;}\n   60  Css: td p:first-child{ margin-top:0em; }\n   61  Css: td p:last-child{ margin-bottom:0em; }\n   ..\n  141  Css: table.gather {width:100%;}\n  142  Css: div.gather-star {text-align:center;}\n  143: Css: div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }\n  144: Css: table.tabular td p{margin-top:0em;}\n  145: Css: table.tabular {margin-left: auto; margin-right: auto;}\n  146  Css: td p:first-child{ margin-top:0em; }\n  147  Css: td p:last-child{ margin-bottom:0em; }\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/standalone.log:\n  220  \n  221  (/usr/local/texlive/2012/texmf-dist/tex/latex/tools/array.sty\n  222: Package: array 2008/09/09 v2.4c Tabular extension package (FMi)\n  223  \\col@sep=\\dimen115\n  224  \\extrarowheight=\\dimen116\n  ...\n 1096  --------------------------------------\n 1097  --------------------------------------\n 1098: --- Note --- for pictorial tabular, use the command line option `pic-tabular'\n 1099  --------------------------------------\n 1100  --------------------------------------\n ....\n 1113  --------------------------------------\n 1114  --------------------------------------\n 1115: --- Note --- for width specifications of tabular p entries, use the `p-width' c\n 1116  ommand line option or a configuration similar to \\Configure{HColWidth}{\\HCode{ \n 1117  style=\"width:\\HColWidth\"}}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/#chapter3.lyx#:\n   69  \n   70  \\begin_layout Standard\n   71: \\begin_inset Tabular\n   72: <lyxtabular version=\"3\" rows=\"6\" columns=\"3\">\n   73: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   74  <column alignment=\"left\" valignment=\"middle\" width=\"1.2in\">\n   75  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n   ..\n  343  </cell>\n  344  </row>\n  345: </lyxtabular>\n  346  \n  347  \\end_inset\n  ...\n  355  \n  356  \\begin_layout Standard\n  357: \\begin_inset Tabular\n  358: <lyxtabular version=\"3\" rows=\"8\" columns=\"3\">\n  359: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  360  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n  361  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n  ...\n  632  </cell>\n  633  </row>\n  634: </lyxtabular>\n  635  \n  636  \\end_inset\n  ...\n  644  \n  645  \\begin_layout Standard\n  646: \\begin_inset Tabular\n  647: <lyxtabular version=\"3\" rows=\"7\" columns=\"3\">\n  648: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  649  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n  650  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n  ...\n  886  </cell>\n  887  </row>\n  888: </lyxtabular>\n  889  \n  890  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/#chapter4.lyx#:\n   66  \n   67  \\begin_layout Standard\n   68: \\begin_inset Tabular\n   69: <lyxtabular version=\"3\" rows=\"6\" columns=\"3\">\n   70: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   71  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n   72  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n   ..\n  363  </cell>\n  364  </row>\n  365: </lyxtabular>\n  366  \n  367  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter2.lyx:\n   65  \n   66  \\begin_layout Standard\n   67: \\begin_inset Tabular\n   68: <lyxtabular version=\"3\" rows=\"4\" columns=\"3\">\n   69: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   70  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n   71  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n   ..\n  197  </cell>\n  198  </row>\n  199: </lyxtabular>\n  200  \n  201  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter2.lyx~:\n   65  \n   66  \\begin_layout Standard\n   67: \\begin_inset Tabular\n   68: <lyxtabular version=\"3\" rows=\"4\" columns=\"3\">\n   69: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   70  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n   71  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n   ..\n  193  </cell>\n  194  </row>\n  195: </lyxtabular>\n  196  \n  197  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter3.lyx:\n   69  \n   70  \\begin_layout Standard\n   71: \\begin_inset Tabular\n   72: <lyxtabular version=\"3\" rows=\"7\" columns=\"2\">\n   73: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   74  <column alignment=\"left\" valignment=\"middle\" width=\"1.2in\">\n   75  <column alignment=\"left\" valignment=\"top\" width=\"4in\">\n   ..\n  323  </cell>\n  324  </row>\n  325: </lyxtabular>\n  326  \n  327  \\end_inset\n  ...\n  335  \n  336  \\begin_layout Standard\n  337: \\begin_inset Tabular\n  338: <lyxtabular version=\"3\" rows=\"7\" columns=\"3\">\n  339: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  340  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n  341  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n  ...\n  582  </cell>\n  583  </row>\n  584: </lyxtabular>\n  585  \n  586  \\end_inset\n  ...\n  594  \n  595  \\begin_layout Standard\n  596: \\begin_inset Tabular\n  597: <lyxtabular version=\"3\" rows=\"8\" columns=\"3\">\n  598: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  599  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n  600  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n  ...\n  918  </cell>\n  919  </row>\n  920: </lyxtabular>\n  921  \n  922  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter3.lyx~:\n   69  \n   70  \\begin_layout Standard\n   71: \\begin_inset Tabular\n   72: <lyxtabular version=\"3\" rows=\"7\" columns=\"2\">\n   73: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   74  <column alignment=\"left\" valignment=\"middle\" width=\"1.2in\">\n   75  <column alignment=\"left\" valignment=\"top\" width=\"4in\">\n   ..\n  323  </cell>\n  324  </row>\n  325: </lyxtabular>\n  326  \n  327  \\end_inset\n  ...\n  335  \n  336  \\begin_layout Standard\n  337: \\begin_inset Tabular\n  338: <lyxtabular version=\"3\" rows=\"7\" columns=\"3\">\n  339: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  340  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n  341  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n  ...\n  582  </cell>\n  583  </row>\n  584: </lyxtabular>\n  585  \n  586  \\end_inset\n  ...\n  594  \n  595  \\begin_layout Standard\n  596: \\begin_inset Tabular\n  597: <lyxtabular version=\"3\" rows=\"8\" columns=\"3\">\n  598: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  599  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n  600  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n  ...\n  916  </cell>\n  917  </row>\n  918: </lyxtabular>\n  919  \n  920  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter3.tex:\n   11  \n   12  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.\n   13: %% Because html converters don't know tabularnewline\n   14: \\providecommand{\\tabularnewline}{\\\\}\n   15  \n   16  \\makeatother\n   ..\n   22  \\begin{longtable}{>{\\raggedright}m{1.2in}>{\\raggedright}p{4in}}\n   23  \\toprule \n   24: Awareness Processes & {\\small Design Issues}\\tabularnewline\n   25  \\midrule \n   26  {\\small Perception} & \\begin{itemize}\n   ..\n   31  \\item \\emph{\\small Delivery}{\\small : when should the awareness information\n   32  be delivered to the users?}\\end{itemize}\n   33: \\tabularnewline\n   34  \\midrule \n   35  {\\small Comprehension} & \\begin{itemize}\n   ..\n   41  \\item \\emph{\\small Externalization}{\\small . How can the system store the\n   42  results of comprehension? }\\end{itemize}\n   43: \\tabularnewline\n   44  \\midrule \n   45  {\\small Projection} & \\begin{itemize}\n   ..\n   50  \\item \\emph{\\small Externalization}{\\small . How can the system store the\n   51  results of projection? }\\end{itemize}\n   52: \\tabularnewline\n   53  \\midrule \n   54  {\\small Feedthrough} & \\begin{itemize}\n   55  \\item {\\small Coupling.}{\\small \\par}\n   56  \\item {\\small Level of Details.}\\end{itemize}\n   57: \\tabularnewline\n   58  \\midrule \n   59  {\\small Manifestation} & \\begin{itemize}\n   ..\n   62  \\item {\\small Visibilit. How can the user to control who and what should\n   63  be visible?}\\end{itemize}\n   64: \\tabularnewline\n   65  \\midrule \n   66  {\\small Communication} & \\begin{itemize}\n   ..\n   68  \\item {\\small Reference. What the user refers to?}{\\small \\par}\n   69  \\item {\\small Modality. }\\end{itemize}\n   70: \\tabularnewline\n   71  \\bottomrule\n   72  \\end{longtable}\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter4.lyx:\n   66  \n   67  \\begin_layout Standard\n   68: \\begin_inset Tabular\n   69: <lyxtabular version=\"3\" rows=\"6\" columns=\"3\">\n   70: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   71  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n   72  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n   ..\n  369  </cell>\n  370  </row>\n  371: </lyxtabular>\n  372  \n  373  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter4.lyx~:\n   66  \n   67  \\begin_layout Standard\n   68: \\begin_inset Tabular\n   69: <lyxtabular version=\"3\" rows=\"6\" columns=\"3\">\n   70: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   71  <column alignment=\"left\" valignment=\"top\" width=\"1.1in\">\n   72  <column alignment=\"left\" valignment=\"top\" width=\"2.2in\">\n   ..\n  462  </cell>\n  463  </row>\n  464: </lyxtabular>\n  465  \n  466  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter8.lyx:\n   61  \n   62  \\begin_layout Standard\n   63: \\begin_inset Tabular\n   64: <lyxtabular version=\"3\" rows=\"6\" columns=\"4\">\n   65: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   66  <column alignment=\"left\" valignment=\"top\" width=\"0.8in\">\n   67  <column alignment=\"left\" valignment=\"top\" width=\"1.7in\">\n   ..\n  389  </cell>\n  390  </row>\n  391: </lyxtabular>\n  392  \n  393  \\end_inset\n  ...\n  401  \n  402  \\begin_layout Standard\n  403: \\begin_inset Tabular\n  404: <lyxtabular version=\"3\" rows=\"7\" columns=\"3\">\n  405: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  406  <column alignment=\"left\" valignment=\"top\" width=\"1.8in\">\n  407  <column alignment=\"left\" valignment=\"top\" width=\"1.8in\">\n  ...\n  640  </cell>\n  641  </row>\n  642: </lyxtabular>\n  643  \n  644  \\end_inset\n  ...\n  652  \n  653  \\begin_layout Standard\n  654: \\begin_inset Tabular\n  655: <lyxtabular version=\"3\" rows=\"5\" columns=\"3\">\n  656: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  657  <column alignment=\"left\" valignment=\"top\" width=\"1.4in\">\n  658  <column alignment=\"left\" valignment=\"top\" width=\"2.5in\">\n  ...\n  815  </cell>\n  816  </row>\n  817: </lyxtabular>\n  818  \n  819  \\end_inset\n  ...\n  827  \n  828  \\begin_layout Standard\n  829: \\begin_inset Tabular\n  830: <lyxtabular version=\"3\" rows=\"14\" columns=\"3\">\n  831: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  832  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n  833  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n  ...\n 1305  </cell>\n 1306  </row>\n 1307: </lyxtabular>\n 1308  \n 1309  \\end_inset\n ....\n 1317  \n 1318  \\begin_layout Standard\n 1319: \\begin_inset Tabular\n 1320: <lyxtabular version=\"3\" rows=\"12\" columns=\"3\">\n 1321: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n 1322  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n 1323  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n ....\n 1700  </cell>\n 1701  </row>\n 1702: </lyxtabular>\n 1703  \n 1704  \\end_inset\n ....\n 1712  \n 1713  \\begin_layout Standard\n 1714: \\begin_inset Tabular\n 1715: <lyxtabular version=\"3\" rows=\"12\" columns=\"3\">\n 1716: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n 1717  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n 1718  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n ....\n 2090  </cell>\n 2091  </row>\n 2092: </lyxtabular>\n 2093  \n 2094  \\end_inset\n ....\n 2102  \n 2103  \\begin_layout Standard\n 2104: \\begin_inset Tabular\n 2105: <lyxtabular version=\"3\" rows=\"18\" columns=\"3\">\n 2106: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n 2107  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n 2108  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n ....\n 2684  </cell>\n 2685  </row>\n 2686: </lyxtabular>\n 2687  \n 2688  \\end_inset\n ....\n 2696  \n 2697  \\begin_layout Standard\n 2698: \\begin_inset Tabular\n 2699: <lyxtabular version=\"3\" rows=\"7\" columns=\"3\">\n 2700: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n 2701  <column alignment=\"center\" valignment=\"top\" width=\"0pt\">\n 2702  <column alignment=\"left\" valignment=\"top\" width=\"2in\">\n ....\n 2937  </cell>\n 2938  </row>\n 2939: </lyxtabular>\n 2940  \n 2941  \\end_inset\n\n/Users/byu/Work/Research/Dissertation/PSUThesis/Tables/chapter8.lyx~:\n   61  \n   62  \\begin_layout Standard\n   63: \\begin_inset Tabular\n   64: <lyxtabular version=\"3\" rows=\"6\" columns=\"4\">\n   65: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n   66  <column alignment=\"left\" valignment=\"top\" width=\"0.8in\">\n   67  <column alignment=\"left\" valignment=\"top\" width=\"1.7in\">\n   ..\n  389  </cell>\n  390  </row>\n  391: </lyxtabular>\n  392  \n  393  \\end_inset\n  ...\n  401  \n  402  \\begin_layout Standard\n  403: \\begin_inset Tabular\n  404: <lyxtabular version=\"3\" rows=\"7\" columns=\"3\">\n  405: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  406  <column alignment=\"left\" valignment=\"top\" width=\"1.8in\">\n  407  <column alignment=\"left\" valignment=\"top\" width=\"1.8in\">\n  ...\n  640  </cell>\n  641  </row>\n  642: </lyxtabular>\n  643  \n  644  \\end_inset\n  ...\n  652  \n  653  \\begin_layout Standard\n  654: \\begin_inset Tabular\n  655: <lyxtabular version=\"3\" rows=\"5\" columns=\"3\">\n  656: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  657  <column alignment=\"left\" valignment=\"top\" width=\"1.4in\">\n  658  <column alignment=\"left\" valignment=\"top\" width=\"2.5in\">\n  ...\n  815  </cell>\n  816  </row>\n  817: </lyxtabular>\n  818  \n  819  \\end_inset\n  ...\n  827  \n  828  \\begin_layout Standard\n  829: \\begin_inset Tabular\n  830: <lyxtabular version=\"3\" rows=\"14\" columns=\"3\">\n  831: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n  832  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n  833  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n  ...\n 1305  </cell>\n 1306  </row>\n 1307: </lyxtabular>\n 1308  \n 1309  \\end_inset\n ....\n 1317  \n 1318  \\begin_layout Standard\n 1319: \\begin_inset Tabular\n 1320: <lyxtabular version=\"3\" rows=\"12\" columns=\"3\">\n 1321: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n 1322  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n 1323  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n ....\n 1700  </cell>\n 1701  </row>\n 1702: </lyxtabular>\n 1703  \n 1704  \\end_inset\n ....\n 1712  \n 1713  \\begin_layout Standard\n 1714: \\begin_inset Tabular\n 1715: <lyxtabular version=\"3\" rows=\"12\" columns=\"3\">\n 1716: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n 1717  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n 1718  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n ....\n 2090  </cell>\n 2091  </row>\n 2092: </lyxtabular>\n 2093  \n 2094  \\end_inset\n ....\n 2102  \n 2103  \\begin_layout Standard\n 2104: \\begin_inset Tabular\n 2105: <lyxtabular version=\"3\" rows=\"18\" columns=\"3\">\n 2106: <features booktabs=\"true\" islongtable=\"true\" longtabularalignment=\"center\">\n 2107  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n 2108  <column alignment=\"left\" valignment=\"top\" width=\"1.2in\">\n ....\n 2684  </cell>\n 2685  </row>\n 2686: </lyxtabular>\n 2687  \n 2688  \\end_inset\n\n294 matches across 24 files\n",
-			"settings":
-			{
-				"buffer_size": 71531,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
 			}
 		},
 		{
@@ -123,14 +104,6 @@
 			"settings":
 			{
 				"buffer_size": 644,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Chapter-2/main.tex",
-			"settings":
-			{
-				"buffer_size": 33618,
 				"line_ending": "Unix"
 			}
 		},
@@ -153,7 +126,7 @@
 			"file": "Chapter-3/main.tex",
 			"settings":
 			{
-				"buffer_size": 48949,
+				"buffer_size": 50408,
 				"line_ending": "Unix"
 			}
 		},
@@ -169,7 +142,7 @@
 			"file": "Chapter-1/main.tex",
 			"settings":
 			{
-				"buffer_size": 14601,
+				"buffer_size": 14851,
 				"line_ending": "Unix"
 			}
 		},
@@ -185,7 +158,7 @@
 			"file": "Chapter-4/main.tex",
 			"settings":
 			{
-				"buffer_size": 84500,
+				"buffer_size": 78997,
 				"line_ending": "Unix"
 			}
 		},
@@ -217,7 +190,7 @@
 			"file": "SupplementaryMaterial/Vita.tex",
 			"settings":
 			{
-				"buffer_size": 522,
+				"buffer_size": 2140,
 				"line_ending": "Unix"
 			}
 		},
@@ -225,7 +198,7 @@
 			"file": "SupplementaryMaterial/Abstract.tex",
 			"settings":
 			{
-				"buffer_size": 2936,
+				"buffer_size": 2943,
 				"line_ending": "Unix"
 			}
 		},
@@ -257,7 +230,7 @@
 			"file": "Chapter-8/main.tex",
 			"settings":
 			{
-				"buffer_size": 100486,
+				"buffer_size": 100684,
 				"line_ending": "Unix"
 			}
 		},
@@ -265,7 +238,7 @@
 			"file": "Chapter-10/main.tex",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 12688,
 				"line_ending": "Unix"
 			}
 		},
@@ -273,7 +246,7 @@
 			"file": "Chapter-9/main.tex",
 			"settings":
 			{
-				"buffer_size": 11601,
+				"buffer_size": 19818,
 				"line_ending": "Unix"
 			}
 		},
@@ -298,6 +271,14 @@
 			"settings":
 			{
 				"buffer_size": 17513,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SupplementaryMaterial/Acknowledgments.tex",
+			"settings":
+			{
+				"buffer_size": 1524,
 				"line_ending": "Unix"
 			}
 		}
@@ -530,6 +511,9 @@
 	},
 	"file_history":
 	[
+		"/Users/byu/Desktop/temp.bib",
+		"/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-2/main.tex",
+		"/Users/byu/Work/Research/Dissertation/PSUThesis/comments_cai.txt",
 		"/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-1/standalone.tex",
 		"/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-1/standalone",
 		"/Users/byu/Work/Sharma/DeFiApp/usernames",
@@ -556,7 +540,6 @@
 		"/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-5/main.tex",
 		"/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-4/main.tex",
 		"/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-3/main.tex",
-		"/Users/byu/Work/Research/Dissertation/PSUThesis/Chapter-2/main.tex",
 		"/Users/byu/Life/CauBuying/AudiFinancing",
 		"/Users/byu/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/Users/byu/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
@@ -603,7 +586,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 95.0,
 		"where_history":
 		[
 			"/Users/byu/Work/Research/Dissertation/PSUThesis"
@@ -614,6 +597,14 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"large-scale",
+			"this knowledge updating process can be found at",
+			"this knowledge updating process can be found at ",
+			"event driven awareness",
+			"large-scale",
+			"invisible",
+			"large-scale",
+			"large",
 			"developmental trajectories in",
 			"simulating_knowledge_updating",
 			"longtable",
@@ -733,15 +724,7 @@
 			"resizeDetailPane",
 			"showDetailPane",
 			"toggleEventsSpace",
-			"openDetailPane",
-			"closeListPane",
-			"openListPane",
-			"detailPanes",
-			"toggleVictimList",
-			"vList",
-			"onVTableItemClick",
-			"onVictimListItemClick",
-			"vehicleTable"
+			"openDetailPane"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -749,6 +732,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"complex,",
 			"'",
 			"}",
 			"{",
@@ -771,7 +755,7 @@
 	"groups":
 	[
 		{
-			"selected": 21,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -779,15 +763,15 @@
 					"file": "BoYu-Dissertation.tex",
 					"settings":
 					{
-						"buffer_size": 17568,
+						"buffer_size": 17529,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9582,
-								9667
+								11802,
+								11802
 							]
 						],
 						"settings":
@@ -797,1420 +781,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 4018.0,
+						"translation.y": 5459.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "comments_cai.txt",
-					"settings":
-					{
-						"buffer_size": 3396,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2762,
-								2762
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Make sure you rewrite your abstract to reflect the",
-							"is_xml": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 499.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"settings":
-					{
-						"buffer_size": 71531,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										304,
-										322
-									],
-									[
-										1004,
-										1022
-									],
-									[
-										1393,
-										1411
-									],
-									[
-										1504,
-										1522
-									],
-									[
-										2283,
-										2301
-									],
-									[
-										2931,
-										2949
-									],
-									[
-										3378,
-										3396
-									],
-									[
-										3614,
-										3632
-									],
-									[
-										3850,
-										3868
-									],
-									[
-										4086,
-										4104
-									],
-									[
-										4322,
-										4340
-									],
-									[
-										4558,
-										4576
-									],
-									[
-										4794,
-										4812
-									],
-									[
-										5030,
-										5048
-									],
-									[
-										5333,
-										5351
-									],
-									[
-										5754,
-										5772
-									],
-									[
-										6456,
-										6474
-									],
-									[
-										6845,
-										6863
-									],
-									[
-										6956,
-										6974
-									],
-									[
-										7735,
-										7753
-									],
-									[
-										8383,
-										8401
-									],
-									[
-										8830,
-										8848
-									],
-									[
-										9066,
-										9084
-									],
-									[
-										9302,
-										9320
-									],
-									[
-										9538,
-										9556
-									],
-									[
-										9774,
-										9792
-									],
-									[
-										10010,
-										10028
-									],
-									[
-										10246,
-										10264
-									],
-									[
-										10482,
-										10500
-									],
-									[
-										10785,
-										10803
-									],
-									[
-										11334,
-										11357
-									],
-									[
-										11889,
-										11912
-									],
-									[
-										12443,
-										12466
-									],
-									[
-										13056,
-										13079
-									],
-									[
-										13163,
-										13186
-									],
-									[
-										13296,
-										13319
-									],
-									[
-										13396,
-										13419
-									],
-									[
-										14681,
-										14704
-									],
-									[
-										15280,
-										15303
-									],
-									[
-										15390,
-										15413
-									],
-									[
-										16573,
-										16596
-									],
-									[
-										17543,
-										17550
-									],
-									[
-										17840,
-										17847
-									],
-									[
-										18117,
-										18124
-									],
-									[
-										18401,
-										18408
-									],
-									[
-										18700,
-										18707
-									],
-									[
-										18985,
-										18992
-									],
-									[
-										19286,
-										19293
-									],
-									[
-										19571,
-										19578
-									],
-									[
-										19872,
-										19879
-									],
-									[
-										20163,
-										20170
-									],
-									[
-										20497,
-										20504
-									],
-									[
-										20652,
-										20659
-									],
-									[
-										20904,
-										20911
-									],
-									[
-										21146,
-										21153
-									],
-									[
-										21408,
-										21415
-									],
-									[
-										21747,
-										21754
-									],
-									[
-										22031,
-										22038
-									],
-									[
-										22295,
-										22302
-									],
-									[
-										22620,
-										22627
-									],
-									[
-										22952,
-										22959
-									],
-									[
-										23272,
-										23279
-									],
-									[
-										23555,
-										23562
-									],
-									[
-										23710,
-										23717
-									],
-									[
-										23987,
-										23994
-									],
-									[
-										24262,
-										24269
-									],
-									[
-										24451,
-										24458
-									],
-									[
-										24848,
-										24855
-									],
-									[
-										25140,
-										25147
-									],
-									[
-										25303,
-										25310
-									],
-									[
-										25476,
-										25483
-									],
-									[
-										25706,
-										25713
-									],
-									[
-										25851,
-										25858
-									],
-									[
-										26031,
-										26038
-									],
-									[
-										26314,
-										26321
-									],
-									[
-										26469,
-										26476
-									],
-									[
-										26746,
-										26753
-									],
-									[
-										27020,
-										27027
-									],
-									[
-										27183,
-										27190
-									],
-									[
-										27430,
-										27437
-									],
-									[
-										27715,
-										27722
-									],
-									[
-										27891,
-										27898
-									],
-									[
-										28146,
-										28153
-									],
-									[
-										28331,
-										28338
-									],
-									[
-										28565,
-										28572
-									],
-									[
-										28738,
-										28745
-									],
-									[
-										29068,
-										29075
-									],
-									[
-										29238,
-										29245
-									],
-									[
-										29508,
-										29515
-									],
-									[
-										29783,
-										29790
-									],
-									[
-										29980,
-										29987
-									],
-									[
-										30366,
-										30373
-									],
-									[
-										30677,
-										30684
-									],
-									[
-										30898,
-										30905
-									],
-									[
-										31169,
-										31176
-									],
-									[
-										31338,
-										31345
-									],
-									[
-										31497,
-										31504
-									],
-									[
-										31702,
-										31709
-									],
-									[
-										31958,
-										31965
-									],
-									[
-										32125,
-										32132
-									],
-									[
-										32262,
-										32269
-									],
-									[
-										32472,
-										32479
-									],
-									[
-										32734,
-										32741
-									],
-									[
-										33053,
-										33060
-									],
-									[
-										33228,
-										33235
-									],
-									[
-										33501,
-										33508
-									],
-									[
-										33680,
-										33687
-									],
-									[
-										33965,
-										33972
-									],
-									[
-										34331,
-										34338
-									],
-									[
-										34657,
-										34664
-									],
-									[
-										35044,
-										35051
-									],
-									[
-										35309,
-										35316
-									],
-									[
-										35714,
-										35721
-									],
-									[
-										36076,
-										36083
-									],
-									[
-										36384,
-										36391
-									],
-									[
-										36645,
-										36652
-									],
-									[
-										36996,
-										37003
-									],
-									[
-										37329,
-										37336
-									],
-									[
-										37604,
-										37611
-									],
-									[
-										37904,
-										37911
-									],
-									[
-										37990,
-										37997
-									],
-									[
-										38177,
-										38184
-									],
-									[
-										38322,
-										38329
-									],
-									[
-										38454,
-										38461
-									],
-									[
-										38616,
-										38623
-									],
-									[
-										38968,
-										38975
-									],
-									[
-										39225,
-										39232
-									],
-									[
-										39540,
-										39547
-									],
-									[
-										39832,
-										39839
-									],
-									[
-										39934,
-										39941
-									],
-									[
-										40154,
-										40161
-									],
-									[
-										40253,
-										40260
-									],
-									[
-										40409,
-										40416
-									],
-									[
-										40716,
-										40723
-									],
-									[
-										41065,
-										41072
-									],
-									[
-										41330,
-										41337
-									],
-									[
-										41663,
-										41670
-									],
-									[
-										41897,
-										41904
-									],
-									[
-										42271,
-										42278
-									],
-									[
-										42641,
-										42648
-									],
-									[
-										42844,
-										42851
-									],
-									[
-										43082,
-										43089
-									],
-									[
-										43316,
-										43323
-									],
-									[
-										43564,
-										43571
-									],
-									[
-										43812,
-										43819
-									],
-									[
-										44104,
-										44111
-									],
-									[
-										44340,
-										44347
-									],
-									[
-										44553,
-										44560
-									],
-									[
-										44714,
-										44721
-									],
-									[
-										44866,
-										44873
-									],
-									[
-										45056,
-										45063
-									],
-									[
-										45253,
-										45260
-									],
-									[
-										45468,
-										45475
-									],
-									[
-										45621,
-										45628
-									],
-									[
-										45821,
-										45828
-									],
-									[
-										46043,
-										46050
-									],
-									[
-										46271,
-										46278
-									],
-									[
-										46421,
-										46428
-									],
-									[
-										46467,
-										46474
-									],
-									[
-										46844,
-										46851
-									],
-									[
-										47146,
-										47153
-									],
-									[
-										47372,
-										47379
-									],
-									[
-										47703,
-										47710
-									],
-									[
-										47978,
-										47985
-									],
-									[
-										48217,
-										48224
-									],
-									[
-										48614,
-										48621
-									],
-									[
-										48849,
-										48856
-									],
-									[
-										49076,
-										49083
-									],
-									[
-										49236,
-										49243
-									],
-									[
-										49424,
-										49431
-									],
-									[
-										49654,
-										49661
-									],
-									[
-										49954,
-										49961
-									],
-									[
-										50149,
-										50156
-									],
-									[
-										50336,
-										50343
-									],
-									[
-										50527,
-										50534
-									],
-									[
-										50727,
-										50734
-									],
-									[
-										50893,
-										50900
-									],
-									[
-										51186,
-										51193
-									],
-									[
-										51392,
-										51399
-									],
-									[
-										51632,
-										51639
-									],
-									[
-										51862,
-										51869
-									],
-									[
-										52063,
-										52070
-									],
-									[
-										52319,
-										52326
-									],
-									[
-										52446,
-										52453
-									],
-									[
-										52651,
-										52658
-									],
-									[
-										52849,
-										52856
-									],
-									[
-										53048,
-										53055
-									],
-									[
-										53261,
-										53268
-									],
-									[
-										53443,
-										53450
-									],
-									[
-										54076,
-										54083
-									],
-									[
-										54487,
-										54494
-									],
-									[
-										54511,
-										54518
-									],
-									[
-										54594,
-										54601
-									],
-									[
-										54637,
-										54644
-									],
-									[
-										54869,
-										54876
-									],
-									[
-										54893,
-										54900
-									],
-									[
-										54976,
-										54983
-									],
-									[
-										55019,
-										55026
-									],
-									[
-										55400,
-										55407
-									],
-									[
-										55424,
-										55431
-									],
-									[
-										55512,
-										55519
-									],
-									[
-										55560,
-										55567
-									],
-									[
-										55817,
-										55824
-									],
-									[
-										55841,
-										55848
-									],
-									[
-										55929,
-										55936
-									],
-									[
-										55977,
-										55984
-									],
-									[
-										56305,
-										56312
-									],
-									[
-										56528,
-										56535
-									],
-									[
-										56570,
-										56577
-									],
-									[
-										56817,
-										56824
-									],
-									[
-										57107,
-										57114
-									],
-									[
-										57126,
-										57133
-									],
-									[
-										57224,
-										57231
-									],
-									[
-										57429,
-										57436
-									],
-									[
-										57528,
-										57535
-									],
-									[
-										57547,
-										57554
-									],
-									[
-										57645,
-										57652
-									],
-									[
-										57847,
-										57854
-									],
-									[
-										57946,
-										57953
-									],
-									[
-										57965,
-										57972
-									],
-									[
-										58063,
-										58070
-									],
-									[
-										58265,
-										58272
-									],
-									[
-										58430,
-										58437
-									],
-									[
-										58449,
-										58456
-									],
-									[
-										58547,
-										58554
-									],
-									[
-										58749,
-										58756
-									],
-									[
-										58912,
-										58919
-									],
-									[
-										58931,
-										58938
-									],
-									[
-										59029,
-										59036
-									],
-									[
-										59231,
-										59238
-									],
-									[
-										59395,
-										59402
-									],
-									[
-										59414,
-										59421
-									],
-									[
-										59512,
-										59519
-									],
-									[
-										59714,
-										59721
-									],
-									[
-										59877,
-										59884
-									],
-									[
-										59896,
-										59903
-									],
-									[
-										59994,
-										60001
-									],
-									[
-										60197,
-										60204
-									],
-									[
-										60296,
-										60303
-									],
-									[
-										60315,
-										60322
-									],
-									[
-										60413,
-										60420
-									],
-									[
-										60615,
-										60622
-									],
-									[
-										60714,
-										60721
-									],
-									[
-										60733,
-										60740
-									],
-									[
-										60831,
-										60838
-									],
-									[
-										61033,
-										61040
-									],
-									[
-										61197,
-										61204
-									],
-									[
-										61216,
-										61223
-									],
-									[
-										61314,
-										61321
-									],
-									[
-										61517,
-										61524
-									],
-									[
-										61616,
-										61623
-									],
-									[
-										61635,
-										61642
-									],
-									[
-										61733,
-										61740
-									],
-									[
-										61935,
-										61942
-									],
-									[
-										62034,
-										62041
-									],
-									[
-										62053,
-										62060
-									],
-									[
-										62151,
-										62158
-									],
-									[
-										62353,
-										62360
-									],
-									[
-										62578,
-										62585
-									],
-									[
-										62617,
-										62624
-									],
-									[
-										62811,
-										62818
-									],
-									[
-										63033,
-										63040
-									],
-									[
-										63256,
-										63263
-									],
-									[
-										63473,
-										63480
-									],
-									[
-										63657,
-										63664
-									],
-									[
-										63864,
-										63871
-									],
-									[
-										64075,
-										64082
-									],
-									[
-										64260,
-										64267
-									],
-									[
-										64279,
-										64286
-									],
-									[
-										64377,
-										64384
-									],
-									[
-										64579,
-										64586
-									],
-									[
-										64743,
-										64750
-									],
-									[
-										64762,
-										64769
-									],
-									[
-										64860,
-										64867
-									],
-									[
-										65062,
-										65069
-									],
-									[
-										65225,
-										65232
-									],
-									[
-										65244,
-										65251
-									],
-									[
-										65342,
-										65349
-									],
-									[
-										65544,
-										65551
-									],
-									[
-										65643,
-										65650
-									],
-									[
-										65662,
-										65669
-									],
-									[
-										65760,
-										65767
-									],
-									[
-										65962,
-										65969
-									],
-									[
-										66061,
-										66068
-									],
-									[
-										66080,
-										66087
-									],
-									[
-										66178,
-										66185
-									],
-									[
-										66380,
-										66387
-									],
-									[
-										66479,
-										66486
-									],
-									[
-										66498,
-										66505
-									],
-									[
-										66597,
-										66604
-									],
-									[
-										66799,
-										66806
-									],
-									[
-										66898,
-										66905
-									],
-									[
-										66917,
-										66924
-									],
-									[
-										67016,
-										67023
-									],
-									[
-										67218,
-										67225
-									],
-									[
-										67317,
-										67324
-									],
-									[
-										67336,
-										67343
-									],
-									[
-										67435,
-										67442
-									],
-									[
-										67637,
-										67644
-									],
-									[
-										67736,
-										67743
-									],
-									[
-										67755,
-										67762
-									],
-									[
-										67854,
-										67861
-									],
-									[
-										68056,
-										68063
-									],
-									[
-										68155,
-										68162
-									],
-									[
-										68174,
-										68181
-									],
-									[
-										68272,
-										68279
-									],
-									[
-										68472,
-										68479
-									],
-									[
-										68636,
-										68643
-									],
-									[
-										68655,
-										68662
-									],
-									[
-										68753,
-										68760
-									],
-									[
-										68955,
-										68962
-									],
-									[
-										69054,
-										69061
-									],
-									[
-										69073,
-										69080
-									],
-									[
-										69171,
-										69178
-									],
-									[
-										69373,
-										69380
-									],
-									[
-										69472,
-										69479
-									],
-									[
-										69491,
-										69498
-									],
-									[
-										69589,
-										69596
-									],
-									[
-										69791,
-										69798
-									],
-									[
-										69890,
-										69897
-									],
-									[
-										69909,
-										69916
-									],
-									[
-										70008,
-										70015
-									],
-									[
-										70210,
-										70217
-									],
-									[
-										70309,
-										70316
-									],
-									[
-										70328,
-										70335
-									],
-									[
-										70427,
-										70434
-									],
-									[
-										70629,
-										70636
-									],
-									[
-										70728,
-										70735
-									],
-									[
-										70747,
-										70754
-									],
-									[
-										70846,
-										70853
-									],
-									[
-										71048,
-										71055
-									],
-									[
-										71147,
-										71154
-									],
-									[
-										71166,
-										71173
-									],
-									[
-										71265,
-										71272
-									],
-									[
-										71467,
-										71474
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								45473,
-								45473
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 4,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 16403.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "README.md",
 					"settings":
 					{
@@ -2237,7 +814,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 2,
 					"file": "SupplementaryMaterial/UserDefinedCommands.tex",
 					"settings":
 					{
@@ -2263,35 +840,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "Chapter-2/main.tex",
-					"settings":
-					{
-						"buffer_size": 33618,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								27214,
-								27214
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 3,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6535.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 3,
 					"settings":
 					{
 						"buffer_size": 0,
@@ -2316,7 +865,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 4,
 					"file": ".gitignore",
 					"settings":
 					{
@@ -2342,19 +891,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 5,
 					"file": "Chapter-3/main.tex",
 					"settings":
 					{
-						"buffer_size": 48949,
+						"buffer_size": 50408,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								27717,
-								27747
+								12294,
+								12294
 							]
 						],
 						"settings":
@@ -2363,13 +912,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7812.0,
+						"translation.y": 2917.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 6,
 					"file": "/Users/byu/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
@@ -2397,19 +946,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 7,
 					"file": "Chapter-1/main.tex",
 					"settings":
 					{
-						"buffer_size": 14601,
+						"buffer_size": 14851,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12849,
-								12849
+								2223,
+								2313
 							]
 						],
 						"settings":
@@ -2417,13 +966,13 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2888.0,
+						"translation.y": 2711.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 8,
 					"settings":
 					{
 						"buffer_size": 687,
@@ -2451,19 +1000,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 9,
 					"file": "Chapter-4/main.tex",
 					"settings":
 					{
-						"buffer_size": 84500,
+						"buffer_size": 78997,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								65079,
-								65121
+								46024,
+								46024
 							]
 						],
 						"settings":
@@ -2473,13 +1022,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 17899.0,
+						"translation.y": 11488.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 10,
 					"file": "Chapter-4/old.tex",
 					"settings":
 					{
@@ -2508,7 +1057,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 14,
+					"buffer": 11,
 					"file": "Chapter-5/main.tex",
 					"settings":
 					{
@@ -2519,8 +1068,8 @@
 						"selection":
 						[
 							[
-								76791,
-								76791
+								67569,
+								67569
 							]
 						],
 						"settings":
@@ -2528,13 +1077,13 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 21598.0,
+						"translation.y": 17680.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 15,
+					"buffer": 12,
 					"file": "/usr/local/texlive/2012/texmf-dist/tex/latex/float/float.sty",
 					"settings":
 					{
@@ -2562,19 +1111,45 @@
 					"type": "text"
 				},
 				{
-					"buffer": 16,
+					"buffer": 13,
 					"file": "SupplementaryMaterial/Vita.tex",
 					"settings":
 					{
-						"buffer_size": 522,
+						"buffer_size": 2140,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								522,
-								522
+								2079,
+								2079
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 248.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "SupplementaryMaterial/Abstract.tex",
+					"settings":
+					{
+						"buffer_size": 2943,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2878,
+								2878
 							]
 						],
 						"settings":
@@ -2588,33 +1163,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 17,
-					"file": "SupplementaryMaterial/Abstract.tex",
-					"settings":
-					{
-						"buffer_size": 2936,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								24,
-								2936
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 68.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 18,
+					"buffer": 15,
 					"file": "Chapter-6/main.tex",
 					"settings":
 					{
@@ -2625,35 +1174,8 @@
 						"selection":
 						[
 							[
-								49069,
-								49069
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 14121.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "Chapter-7/main.tex",
-					"settings":
-					{
-						"buffer_size": 35589,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								196,
-								196
+								127,
+								127
 							]
 						],
 						"settings":
@@ -2668,7 +1190,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 20,
+					"buffer": 16,
+					"file": "Chapter-7/main.tex",
+					"settings":
+					{
+						"buffer_size": 35589,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								123,
+								148
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
 					"settings":
 					{
 						"buffer_size": 791,
@@ -2695,19 +1244,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 21,
+					"buffer": 18,
 					"file": "Chapter-8/main.tex",
 					"settings":
 					{
-						"buffer_size": 100486,
+						"buffer_size": 100684,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23271,
-								23271
+								0,
+								37
 							]
 						],
 						"settings":
@@ -2716,51 +1265,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7047.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "Chapter-10/main.tex",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 23,
-					"file": "Chapter-9/main.tex",
+					"buffer": 19,
+					"file": "Chapter-10/main.tex",
 					"settings":
 					{
-						"buffer_size": 11601,
+						"buffer_size": 12688,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11493,
-								11493
+								9640,
+								9640
 							]
 						],
 						"settings":
@@ -2768,13 +1291,39 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2313.0,
+						"translation.y": 1747.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 24,
+					"buffer": 20,
+					"file": "Chapter-9/main.tex",
+					"settings":
+					{
+						"buffer_size": 19818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18055,
+								18055
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3951.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
 					"file": "Appendix-A/Appendix-A.tex",
 					"settings":
 					{
@@ -2801,7 +1350,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 25,
+					"buffer": 22,
 					"file": "psuthesis.cls",
 					"settings":
 					{
@@ -2827,7 +1376,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 26,
+					"buffer": 23,
 					"file": "standalone.tex",
 					"settings":
 					{
@@ -2853,12 +1402,33 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "SupplementaryMaterial/Acknowledgments.tex",
+					"settings":
+					{
+						"buffer_size": 1524,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								911,
+								911
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -2879,18 +1449,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.775161681488,
 			1.0
 		],
 		"rows":
@@ -2941,6 +1504,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 203.0,
+	"side_bar_width": 393.0,
 	"status_bar_visible": true
 }
