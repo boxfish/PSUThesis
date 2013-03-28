@@ -40,6 +40,68 @@ The awareness promotion approach has several advantages to handle the increased 
 % paragraph the_awareness_promotion_approach (end)
 % section contributions (end)
 
+\section{Comparison with existing studies} % (fold)
+\label{sec:comparison_with_existing_studies}
+Built on top of exiting theories and methods for awareness support, our approach share many commonalities with existing studies. However, it is important to distinguish our approach from several existing studies.
+
+\subsection{Comparison with workflow systems} % (fold)
+\label{sub:comparison_with_workflow_systems}
+Our approach makes use of the computational knowledge representation of collaborative activities to promote awareness, which suggests that it is related to the concept of workflow systems \cite{Jansen2010,attie1996scheduling}. A workflow system uses a pre-determined model of business processes to guide and monitor progress through an activity. It can be used to model the goals, the decomposition of actions into sub-actions, dependencies among these actions, and actor roles and assigned responsibilities. For highly scripted business processes, a workflow model can be quite effective in decomposing and tracking an extended activity. However, workflow systems tend to break down in just the situations where activity awareness is most important — when opportunistic planning leads to creation or modification of goals or subgoals \cite{carroll2003a}. As the knowledge representation in our approach is mainly used to promote activity awareness, the model differs from the workflow model in two important ways:
+
+\begin{enumerate}
+	\item The purpose of our knowledge representation is to provide a form of resource for the system to record knowledge about the current collaborative activity, rather than a symbolic model to regulate what the actors should do in the activity.
+	\item Following the SharedPlan theory, the construction of such a knowledge representation is a dynamic process. Unlike the workflow systems that use expert-derived models of existing business processes, the knowledge representation in our approach is dynamically developed as the actors interact with each other and with the system. In this way, the knowledge representation for each collaborative activity is unique and reflects the real situation in which the collaboration is embedded.
+\end{enumerate}
+% subsection comparison_with_workflow_systems (end)
+\subsection{Comparing with space-based awareness models} % (fold)
+\label{sub:comparing_with_space_based_awareness_models}
+In Chapter \ref{sec:the_state_of_art}, we make the clear distinction between space-based and event-based awareness models. While the space-based model emphasizes the importance of shared representations for providing awareness information, the event-based model explicitly represents the awareness information as discrete events. Although we adopt the event-based approach in our awareness promotion framework to model  awareness processes, we do not neglect the importance of space-based models in supporting awareness. Actually, the review of existing awareness systems in Chapter \ref{sec:the_state_of_art} shows that most of awareness systems integrate both the space-based model and event-based model in the design. On one hand, the shared space provides the context to interpret awareness events. On the other hand, events provide the lightweight information unit to allow users to maintain the awareness in a `push' way, i.e. the users are only notified when there are some noteworthy events happening, so that they can focus on their individual work when nothing needs to be aware of.
+
+In our event-driven awareness promotion framework, we also emphasize the visualization of shared representation to support awareness. However, beyond merely presenting the shared workspace that is visible to all team members, our approach makes use of the computational knowledge representation to provide shared representations at a more meaningful level:
+
+\begin{enumerate}
+	\item The activity view provides an overview of the activity structure. Such an external representation is very important for awareness development, as it provides an activity-related frame of reference for the users to interpret awareness events and evaluate impacts of these events.
+	\item The event view tracks the historical and social development of each event, which allow the actors to understand how the awareness knowledge is developed in a period of time, and who else have contributed to its development.
+\end{enumerate}
+% subsection comparing_with_space_based_awareness_models (end)
+\subsection{Comparing with event processing systems} % (fold)
+\label{sub:comparing_with_event_processing_systems}
+Our event-driven model of awareness processes shares some commonality with existing event processing systems, as both use the concept of event as the basic unit to organize and present awareness information. However, they also differ in several important ways:
+
+\begin{enumerate}
+   \item In existing event processing systems, the computer primarily plays the role to distribute events. It detects events from sensors in the environment or feedbacks of human actions, filters them out based on user subscriptions, and present them to the users. However, in our approach, the computer also consumes events. As to maintain the knowledge representation of collaborative activities, the computer needs to take events as input of its reasoning process, and use them to make inference and update its knowledge representation. 
+   \item The concept of events in our approach has a much richer meaning than existing event processing systems. It is not only used to describe the occurrences in the environment and in human activities, but also the psychological experience of these occurrences as human actors perceive and interpret them. We make a clear distinction between real world occurrence, event, and awareness in Section \ref{ssub:the_concept_of_events}.
+   \item Existing event-based models focus on the generation and presentation of events to the users, but our approach emphasizes the whole process of awareness development driven by events. This means we are not only concerned about how to select and present events to the users, but also how to support the interpretation of these events, and how new events are generated based upon existing ones.
+   \item Existing event-based models treat events as discrete from each other. The system processes one individual event each time. After the event is disseminated to the corresponding actors, the processing on the event is done. However, as we conceptualize the awareness as undergoing continuous development, the events need to be considered as connected, and how they are built on top of each other needs to be tracked by the system.
+\end{enumerate}
+% subsection comparing_with_event_processing_systems (end)
+% section comparison_with_existing_studies (end)
+\section{Limitations} % (fold)
+\label{sec:limitations_of_our_approach}
+To constrain the research to a manageable level, this study is built on top of several assumptions, which may not always be the case . As a result, these assumptions impose limitations on our approach when it is applied to real collaborative situations.
+
+\subsection{Disparity between work and benefit} % (fold)
+\label{sub:disparity_between_work_and_benefit}
+ Our human-computer collaboration approach is based on the assumption that all the team members are willing to contribute to the system, i.e. reporting new events, helping system interpret events, and modifying the computer's behaviors when necessary. However, such an assumption on the user's motivation can easily break down due to the disparity between work and benefit that is evidential in existing collaborative systems \cite{Grudin1994}. The system requires human users to do additional work to enter or process information so that the system can work properly. This kind of additional work is often performed by the user who cannot directly benefit from it. For instance, a user who reports a new event may finds it not directly relevant to his/her own work, rather can impact another user's work. Ideally, the awareness system is expected to provide a collective benefit, i.e. everyone can benefit from it. However, due to the different types of tasks, prior experience, roles, and assignments, some people may spend more effort doing this additional work, but receive less benefit from others. This will greatly undermine their motivation to contribute. 
+
+ The provision of higher-level activity awareness elements can address this problem to some extent. By showing collaborators with overall team goals, dependencies between different actors' actions, the system can make the collective benefit visible so that the actors can develop a better understanding how each other's work can indirectly benefit each other. Even my additional work may not immediately benefit my own goals, it can help others to finish their work, who could in turn help me with my work. In addition, the interface of the system needs to be carefully designed so as to minimize the additional work that needs to be performed by the user.    
+% subsection disparity_between_work_and_benefit (end)
+
+\subsection{Difficulty of externalization } % (fold)
+\label{sub:difficulty_of_externalization_}
+Along with the assumption on user's motivation to contribute, our system is built on top of another assumption that the users should be capable of doing it. However, many aspects of awareness events in our system are intentional in the sense that the information or events that collaborators need to become aware of are the results of other actors' interpretation, i.e. they often reflect the state of someone else's mind. As argued in \cite{carroll2003a}, it is often much more difficult for people to explicitly externalize and broadcast their goals and plans, and even when they do so, it is not always useful to or welcomed by their collaborators.
+
+One possible solution to tackle the difficulty of externalization, as suggested by Rittenbruch et al. \cite{Rittenbruch2007}, is to provide some predefined indicators that allow actors to externalize intentions by choosing the appropriate indicator. In this way, externalization can only involve a small number of interactions, like clicking a button or selecting a menu item. However, the set of intention indicators  need to account for a large variety of information that users need to express. They therefore need to be highly flexible and tailorable.
+% subsection difficulty_of_externalization_ (end)
+
+\subsection{Impact of communication structure} % (fold)
+\label{sub:impact_of_communication_structure}
+Our approach assumes that the communication structure among the collaborators should be flat. As argued by Powell \cite{powell2003neither}, in unstable or dynamic environments, flat, non-hierarchical structure is a more effective way of organizing because it allows workers to communicate based on the changing demands of the task. However, such an assumption becomes problematic in many organizations where the work structure is hierarchical \cite{hinds2006structures}. In flat communication structures, collaborators exchange their awareness knowledge merely based on the interdependencies between their tasks and overlaps of local scopes. However, when organizational hierarchy is introduced, it imposes constraints on how the awareness information flows among team members. They need to understand whether an awareness event should be reported, to whom the event should be propagated to, and how the event will impact people at different levels. 
+
+Our activity model has the potential to accommodate the hierarchical communication structure as it provides the hierarchical view of collaborative activities where different actors can be associated with different levels of goals and actions. However, some critical social factors, such as roles, policies, and conventions, are not modeled in the system. In order to apply the system in more complex organizational structures,  we need to avoid the common assumption of a flat work environment and work with representative users whenever possible to develop sophisticated understandings of the social, political, and motivational factors within organizations \cite{Grudin1994}.
+% subsection impact_of_communication_structure (end)
+% section limitations_of_our_approach (end)
+
 \section{Future directions} % (fold)
 \label{sec:future_directions}
 This study has taken a step towards addressing the challenges of supporting awareness in complex, distributed collaborative activities. However, due to the higher level of complexity and dynamics in these activities, awareness support becomes a much more difficult task and this study by no means can address all the issues. In the following of this section, we discuss the major limitations and future directions of this study. 

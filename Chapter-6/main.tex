@@ -1,480 +1,623 @@
 %!TEX root = ../BoYu-Dissertation.tex
 \graphicspath{{Figures/}}
 
-\chapter{Promoting Event-Driven Awareness} % (fold)
-\label{cha:promoting_event_driven_awareness}
-In this chapter, we discuss our approach to promoting event-driven awareness processes by making use of the knowledge representation of collaborative activities and events. More specifically, we address three major design components: (1) local space-based event notification mechanism, (2) a visualization framework for supporting event interpretation, and (3) interactive tools to support event propagation. The three components contribute to the different stages of the awareness development process. The event notification mechanism focuses on supporting awareness perception by filtering out the events and controlling the notification styles. The visualization framework for event interpretation aims to support the development of higher level awareness, including both comprehension and projection. Supporting event propagation relates to the social processes to establish compatible awareness across multiple actors. Each component is designed to emphasize how the computer's knowledge representation of collaborative activities and events can be utilized to reduce complexity and handle dynamics in the corresponding awareness processes.
+\chapter{Knowledge Representation and Updating} % (fold)
+\label{cha:knowledge_reprsentation_and_updating}
+In this chapter, we provide details about the first component of our computational framework for event-driven awareness promotion, i.e. how the computer constructs and develops the knowledge representation of collaborative activities within the event-driven processes. We first provide a computational representation of collaborative activities using the PlanGraph model. Then, we discuss the specification and typology of events in our approach. Based on these two knowledge components, we discuss the knowledge updating process, in which they are mutually developed. On one hand, the knowledge representation of a collaborative activity is updated by reacting to the various external and internal events, so that it always reflects the current state of the collaborative activity. On the other hand, during the updating process, the system's knowledge about the events is also enriched by interpreting their meanings in the context of the collaborative activity.
 
-\section{Event notification mechanism} % (fold)
-\label{sec:event_notification_mechanism}
-Event notification mechanisms have been widely used in event-based awareness systems to support event perception \cite{McCrickard2003}. In this study, we distinguish \emph{events} from \emph{event notifications} as follow: while an event represents the information about a real-world occurrence or some aspect of human actors' interpretations necessary to provide awareness, multiple notifications about the same event can be directed to multiple receivers if it is relevant to them. Each event notification includes not only the content of the corresponding event, but also the actor who will be notified, as well as the notification style, i.e. the appropriate way to present the notification.
+\section{Representing collaborative activities} % (fold)
+\label{sec:representing_the_field_of_work}
+In this section, we present the knowledge representation of collaborative activities based on PlanGraph model. By modeling an collaborative activity within a PlanGraph, the various entities and relations as we formalized in Section \ref{sub:structure_of_a_collaborative_activity} can be represented as different components of the PlanGraph. Then we show how the local scopes and dependency networks can be derived from the PlanGraph model, making use of the knowledge about these entities and relations.
 
-Event notifications are generated through event subscription and filtering mechanism. A subscription describes a set of notifications a user is interested in. The user registers the interest in receiving certain kinds of notifications by submitting subscriptions to the awareness system. The system filters incoming events based on the subscriptions and delivers those notifications that match the user's subscriptions. 
+\subsection{The PlanGraph model} % (fold)
+\label{sub:the_plangraph_model}
+The PlanGraph model with its basis in the SharedPlans theory is designed to represent the dynamic knowledge in the human-computer collaboration \cite{Cai2005}. In general, a PlanGraph represents the knowledge about a collaborative activity towards a shared goal in a hierarchical way (Figure \ref{fig:plangraph}). The root of a PlanGraph is the overall goal of the actors in a collaborative activity, which is decomposed recursively into actions through the adoption of recipes. The PlanGraph as a whole represents the shared plan corresponding to the top-level collaborative activity, while each sub-tree with an action as the root represents the shared plan for that action. A PlanGraph is composed of three types of nodes: (1) \emph{action} nodes represent all the actions and sub-actions in the collaborative activity; (2) \emph{parameter} nodes represent informational or physical objects that are used by actions; (3) \emph{condition} nodes represent states of affairs in the world that the actors would like to achieve.
 
-As we discussed in Section \ref{ssub:support_for_perception}, several ways to specify interests and filter out events have been used in existing awareness systems, which offer different degrees of expressiveness and overhead on the users. Topic-based or type-based mechanisms are rather static and primitive, but can be implemented very efficiently and requires less effort for the user to manage subscriptions. On the other hand, content-based mechanisms are highly expressive, but require sophisticated protocols that have higher overhead to manage the subscriptions. This section provides the design of event notification mechanism in our approach. The major difference of our approach from existing studies is that we leverage the system's knowledge about each actor's local scope to provide a two-tier notification mechanism that can combine the benefits of both topic-based and content-based mechanisms. 
-
-Our design of local scope-based event notification mechanism is based on the assumption that human actors in a collaborative activity are only interested in events that have impact on their individual working context, i.e. defined as their local scopes. Following this, our event notification mechanism is performed in two steps (Figure \ref{fig:event_filtering}):
+There are several ways that these three types of nodes can be connected in a PlanGraph:
 \begin{enumerate}
-  	\item Given an event instance and an actor, the event is first filtered based on whether it is associated with any entity in the actor's local scope of work. 
-  	\item If the event passes the first step, i.e. it is within the actor's local scope of work, the local scope-based subscriptions managed by the actor are applied to further filter the event and decide on the notification style for the event.
-  	\item If the event does not pass the first step, it is sent to a standard content-based notification module to further decide on its relevance to the actors.
-\end{enumerate}  
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics{event_filtering.pdf} 
-	\caption{Local scope-based event filtering}
-	\label{fig:event_filtering}
-\end{figure}
-
-The first step of filtering events based on an actor's local scope is very similar to the topic-based methods, as it introduces a programming abstraction to divide the event space into multiple sub-spaces. Then the filtering process is to determine whether the event falls into any of these sub-spaces. However, the major difference is that, while the concept of topic is usually static, the local scope is a dynamic concept. As we define the local scope as the actions that an actor imposes certain level of intention or capability, it is likely that it will be modified as the actor works on different actions. The knowledge updating process as we describe in Section \ref{sec:knowledge_updating_process} allows the system to ensure that its representation of actors' local scopes is always updated to current state. As a result, the events that pass the first step are always relevant to the actor's current working context. 
-
-The second step in our method allows the users to further specify how they want to be notified for these events within their local scopes. Because the events that are passed into this step are limited to those within each actor's corresponding local scope, the total number of events that each actor needs to manage is greatly reduced.
-
-Considering the knowledge updating process mentioned in Section \ref{sec:knowledge_updating_process}, not all the events can be successfully associated with entities in the PlanGraph model by the computer system. The system may not be able to recognize the relevance of some external events during the association and assessment steps at first, but rather depends on the human actors to interpret them and generate internal events that can be recognized by the system later. For these events, we should allow the users to subscribe to them using the content-based mechanisms. Because the events that need to be managed using the content-based mechanism are only a small subset that cannot be associated with the PlanGraph model, the overhead on the users to manage them is minimized.  
-
-In the following of this section, we provide more details on the local scope-based filtering and subscription mechanism. We first describe the algorithm to perform the local scope-based filtering, and then discuss the management of subscription within the local scopes. The content-based notification mechanisms have been well discussed in the literature on event-based computing \cite{eugster2003many}, and many existing event infrastructures provide support to it, so we do not provide detail here. Readers can refer to \cite{Mhl2010} for more discussion.
-
-\subsection{Filtering events by local scopes} % (fold)
-\label{sub:event_filtering_algorithm}
-To filter events based on local scopes, we need to make use of the system generated knowledge attached to each event during the knowledge updating process, i.e. before an event is sent to the notification component, it should have been processed to update the system knowledge following the steps described in Section \ref{sec:knowledge_updating_process}. As a result, every input event in the filtering operation is already transformed into an \emph{event chain} $EC=(e_0, e_1, e_2, ...)$ that includes at least one original event $e_0$, and possibly additional derived and anticipatory events. If any event in the event chain has references to entities in the PlanGraph model, such references should have been established during the knowledge updating process.
-
-Therefore, filtering the events by local scopes is the operation that takes an event chain $EC$ and an actor $ar$, and then finds whether any event instance in the event chain is relevant to the user based on $ar$'s local scope. The operation can be performed in the following steps:
-
-\begin{enumerate}
-	\item The local scopes of the actor $ar$ is constructed from the current PlanGraph $PG$, following the algorithm described in Section \ref{sub:representing_local_scopes}.
-	\item For each event instance in the event chain $EC$, we first iterate through its attributes to check whether it has references to entities in the PlanGraph model. If none is found, the event instance is skipped.
-	\item If the event instance is found to have references to entities in the PlanGraph model, we check whether any entity is inside the local scope of $ar$. If so, we can claim that the event instance passes the filter.
+	\item An action can be decomposed into several parameters, conditions, and sub-actions, where the parameters indicate all the informational or physical objects that will be used by the action. All these parameters need to satisfy their own constraints before the action can be performed, and they are accessible by all the subsidiary actions at the same level. The conditions under an action correspond to all the constraints that need to be satisfied before the action or any sub-actions can be performed.  
+	\item Each parameter can be decomposed into sub-actions and conditions. The sub-actions of a parameter are used to assign values for the parameter, i.e. they are used to satisfy the knowledge-precondition on the parameter. The conditions attached to a parameter are other preconditions that need to be satisfied before the parameter is ready to be used by upper action.
+	\item Each condition can only be decomposed into subsidiary actions that are used to ensure the condition is satisfied.
 \end{enumerate}
 
-The process can be described as a procedure $FILTER\textrm{-}LS$ as follow.
+The PlanGraph model also encodes the actors that are participated in each action. Because the relations between actors and actions can be many-to-many, i.e. an actor can work on multiple actions, and one action can involve multiple actors, we represent knowledge of actors within their relations towards each action. Each action node in a PlanGraph includes several attributes to store the relations with participating actors as defined in Section \ref{ssub:relations}: \emph{Intentions} record the different intention relations of each actor towards the action. \emph{Capabilities} indicate the level of capability of each actor to perform the action.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics{plangraph.pdf} 
+   \caption{Structure of a PlanGraph}
+   \label{fig:plangraph}
+\end{figure}
+
+The PlanGraph model has been used to model the human-computer collaboration as a collaborative activity in several applications, e.g. the natural conversational interface to geospatial databases \cite{Cai2005}, collaborative dialog-based system to communicate vague spatial concepts \cite{Cai2003}, and context-aware mobile mapping \cite{yu2010using}. However, in order to model the collaborative activities among human actors, several modifications to the original PlanGraph model have been made in this study:
+
+\begin{enumerate}
+ 	\item First, the parameter nodes in the original PlanGraph model are mainly used to represent knowledge preconditions, i.e. they represent the knowledge needed for the action to be performed. In this study, we extend the concept of parameter to represent both the physical and informational resources that are needed for the action.
+ 	\item We extend the original PlanGraph model to explicitly represent conditions as standalone nodes. This allows us to model the indirect dependency relations among actions between human actors. For instance, even though $act_1$ does not indicate a higher level goal of $act_2$, it can still depends on the $act_2$ because $act_2$ satisfies a condition that is required for performing $act_1$.
+ 	\item The original PlanGraph model for human-computer collaboration treats the computer system as an actor with its own intentions and beliefs. However, as we focus on tracking the states and relations among human actors' actions, we do not explicitly model the computer's beliefs and intentions.
+ \end{enumerate} 
+% subsection the_plangraph_model (end)
+
+\subsection{Representing elements and relations} % (fold)
+\label{sub:representing_activities}
+The PlanGraph model allows us to represent the basic entities and relations in a collaborative activity. The actions, actors, and resources are first-class objects in the PlanGraph model, and the multiple relations among then can be represented as structural relations in the PlanGraph model (Table \ref{tab:basic_rel_pg}). 
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\begin{tabular}{>{\raggedright}p{1.5in}>{\raggedright}p{4in}}
+
+\toprule 
+Relation & Structure in PlanGraph\tabularnewline
+\midrule 
+$Pot.Int(ar,act)$ \par $Int.Th(ar,act)$ \par $Int.to(ar,act)$ \par $Perform(ar,act)$ & search the \emph{Intentions} slot attached to each action node: 
+\par \includegraphics{intentions.pdf}\tabularnewline
+\midrule 
+$Knows(ar,act)$ \par $Able(ar,act)$ \par $Workable(ar,act)$ & search the \emph{Capability} slot attached to each action node: 
+\par \includegraphics{capabilities.pdf}\tabularnewline
+\midrule 
+$Sub.Act(act_1, act_2)$ &  $act_1$ is a subsidiary action node under $act_2$: 
+\par \includegraphics{sub_act.pdf} \tabularnewline
+\midrule 
+$Precedes(act_1, act_2)$ &  $act_1$ and $act_2$ as ordered siblings: 
+\par \includegraphics{precedes.pdf}\tabularnewline
+\midrule 
+$Consume(act, res)$ & a parameter node representing a resource $res$ and  a action node $act$ as siblings: 
+\par \includegraphics{consumes.pdf}\tabularnewline
+\midrule 
+$Produces(act, res)$ &  $act$ is a subsidiary action node under the parameter node representing a resource $res$: 
+\par \includegraphics{produces.pdf}\tabularnewline
+\bottomrule
+
+\end{tabular}	
+\caption{Representing basic relations in PlanGraph}
+\label{tab:basic_rel_pg}
+\end{table}
+
+\paragraph*{Actors} % (fold)
+\label{par:actors_in_plangraph}
+Each actor is represented as an object with a unique \emph{ID} in the PlanGraph model. Each actor object in the PlanGraph maintain the current state of the corresponding actor, such as the name, the location, the role of the actor, and the expertise he/she has. Each actor object also maintains a list of actions that the actor is currently participated in.
+% paragraph actors_in_plangraph (end)
+
+\paragraph*{Actions} % (fold)
+\label{par:actions_in_plangraph}
+Actions are directly modeled as a type of nodes in the hierarchical structure of the PlanGraph. Each action node has several important attributes:
+\begin{enumerate}
+	\item The \emph{goal} of the action is represented as an expression, indicating the expected effect of the action when it is successfully performed.
+	\item The \emph{execution state} of the action records the current state of the action towards its performance, e.g. whether it has been started, successfully performed, or in the progress.
+	\item The \emph{recipe} points to the current recipe to perform the action if the current recipe is selected from the knowledge base. Each recipe specifies a particular way to perform the action. In the case the recipe is identified by human actors on the fly, this could be empty.
+	\item The \emph{Intentions} and \emph{Capabilities} record the different relations between participating actor towards the action.
+	\item The \emph{Constraints} record the relations between sub-actions, such as temporal orders between them, or whether they can be optional.
+\end{enumerate}
+% paragraph actions_in_plangraph (end)
+
+\paragraph*{Resources} % (fold)
+\label{par:resources_in_plangraph}
+Resources are assigned to parameter nodes as values. Parameter nodes can be collective or individual. A collective parameter includes a collection of resources with the same type as its value, for instance, a parameter representing all the victims in the same rescue operation. All the resources assigned to the same parameter node need to satisfy conditions that are linked to the resource node.
+% paragraph resources_in_plangraph (end)
+
+\paragraph*{Relations between actors and their actions} % (fold)
+\label{par:relations_between_actors_and_their_actions}
+The relations between actors and their actions can be directly retrieved from the \emph{Intentions} and \emph{Capabilities} attributes attached to each action, recording the different relations between participating actors towards the action.
+% paragraph relations_between_actors_and_their_actions (end)
+
+\paragraph*{Relations between actions} % (fold)
+\label{par:relations_between_actions}
+The two major types of relations between actions are composition and precedence. The former is directly encoded in the hierarchical structure of a PlanGraph. Each action node has an list of its sub-actions under current plan. The precedence relation that reflects the temporal order of performing two actions is encoded in the \emph{constraints} attribute of their parent action node.
+% paragraph relations_between_actions (end)
+
+\paragraph*{Relations between resources and actions} % (fold)
+\label{par:relations_between_resources_and_actions}
+The relations between resources and actions can be inferred from the structural relations between action nodes and parameter nodes in a PlanGraph. The resources assigned to a parameter node underlying an action node can be consumed by the action and all its sub-actions. The actions that are used to assign values to a parameter or achieve preconditions of the parameter can manipulate all the resources attached to the parameter node.
+% paragraph relations_between_resources_and_actions (end)
+
+
+
+% subsubsection representing_relations (end)
+% subsection representing_activities (end)
+
+\subsection{Constructing local scopes} % (fold)
+\label{sub:representing_local_scopes}
+Based on the definition of local scopes in Section \ref{sub:local_scope_of_work}, the local scope of an actor can be dynamically constructed by depth-first traversal through the PlanGraph structure to search for all the actions that are related to the actor through intention or capability relations.
+
+We define a procedure $BUILD\textrm{-}LS$ that takes an actor object $ar$ and a PlanGraph $PG$ to construct both the local scope of intentions $LSI$ and local scope of capabilities $LSC$ for the actor. We define a sub-procedure $ADD\textrm{-}To\textrm{-}LS$ that takes an actor object $ar$ and an action node $act$ in the PlanGraph to add the action to the local scope $LSI$ or $LSC$ based on whether the corresponding intention or capability relation exists. The $ADD\textrm{-}TO\textrm{-}LS$ procedure then calls itself recursively on all the children nodes to traverse to the deeper levels in the PlanGraph. In this way, the process to construct the local scopes $BUILD\textrm{-}LS$ starts with the initialization of $LSI$ and $LSC$, and then recursively calls $ADD\textrm{-}TO\textrm{-}LS$ from the root node of the PlanGraph.
 
 {\footnotesize
 \begin{algorithm}
 \begin{algorithmic}[1]
-\Procedure{FILTER-LS}{$EC,ar$}
-	\State $LS = BUILD-LS(ar, PG)$\Comment{construct the local scope}
-
-	\ForAll{$e$ \textbf{in} $EC$}
-   		\ForAll{$attr$ \textbf{in} $e.payload$}
-   			\If{$typeOf(attr) == EntityReference$}
-   				\ForAll{$entity$ \textbf{in} $LS$}\Comment{each entity is a tuple of $\{ar, act, int\}$}
-   					\If{$entity[1] == attr$}\Comment{A match is found}
-   						\State \textbf{return} $\{e, ar\}$ 
-   					\EndIf
-				\EndFor
-
-   			\EndIf
-   		\EndFor
+\Procedure{BUILD-LS}{$ar,PG$}
+	\State $LSI\gets [\:], LSC\gets [\:]$
+	\State $root\gets PG.root$
+	\State $ADD\textrm{-}TO\textrm{-}LS(ar, root)$\Comment{start the recursion from $root$}
+\EndProcedure
+\Procedure{ADD-TO-LS}{$ar,act$}
+	\ForAll{$int$ \textbf{in} $act.intentions$}\Comment{check the current node}
+   		\If{$int.actor == ar$}
+   			\State $LSI.add(ar, act, int)$
+   		\EndIf
 	\EndFor
-	\State \textbf{return} $null$ 
+	\ForAll{$cap$ \textbf{in} $act.capabilities$}
+   		\If{$cap.actor == ar$}
+   			\State $LSC.add(ar, act, cap)$
+   		\EndIf
+	\EndFor
+	\ForAll{$par$ \textbf{in} $act.parameters$}\Comment{recursion on parameters}
+   		\ForAll{$subact$ \textbf{in} $par.subacts$}
+   			\State $ADD\textrm{-}TO\textrm{-}LS(ar, subact)$
+		\EndFor
+	\EndFor
+	\ForAll{$cond$ \textbf{in} $act.conditions$}\Comment{recursion on conditions}
+   		\ForAll{$subact$ \textbf{in} $cond.subacts$}
+   			\State $ADD\textrm{-}TO\textrm{-}LS(ar, subact)$
+		\EndFor
+	\EndFor
+	\ForAll{$subact$ \textbf{in} $act.subacts$}\Comment{recursion on subacts}
+   		\State $ADD\textrm{-}TO\textrm{-}LS(ar, subact)$
+	\EndFor
 \EndProcedure
 \end{algorithmic}
 \end{algorithm}
 }
-% subsection event_filtering_algorithm (end)
-\subsection{Managing subscriptions in local scopes} % (fold)
-\label{sub:managing_subscriptions}
-Once an event passes the local scope-based filtering, the corresponding actor's subscriptions within the local scope are applied to decide on whether and how the event should be notified. 
+% subsection representing_local_scopes (end)
 
-Each subscription in the local scopes is defined as the pair of an event pattern and a notification style: $sub=(pat, ns)$, where the event pattern $pat$ is specified by means of one or more user-defined filter expressions. Each filter expression takes the form of a predicate that is evaluated against an event. The event passes the filter if the predicate evaluates to be $TRUE$, and fails the filter if the predicate evaluates to be $FALSE$. Within an actor's local scope, three kinds of filter expressions can be attached, and it is possible to mix these different kinds of expressions in one single event pattern:
-
+\subsection{Constructing dependency network} % (fold)
+\label{sub:representing_dependencies}
+From the PlanGraph model, we can also dynamically construct the corresponding dependency network to represent how the actions are dependent on each other. Formally, a dependency network $DN=(V(DN), E(DN))$ is defined as a directed graph with the following characteristics:
 \begin{enumerate}
-	\item An \emph{event type} filter expression lists one or more event types. The expression evaluates to be $TRUE$ if the incoming event is an instance of any of these types.
-	\item An \emph{event content} filter expression is evaluated from the values of payload attributes of the event instance. For example, $(attrA == valueX)$ and $(attrB > valueC)$.
-	\item A \emph{local scope} filter expression is evaluated based on the different intention and capability levels of entities associated with the event. For example, the user may specify an event pattern to match all the events attached to actions that the user is \emph{intended to} perform and are \emph{workable}.
+	\item $V(DN)=\{ACT \cup PARAM \cup COND\}$ is the set of all the nodes in the dependency network, all the \emph{dependers} and \emph{dependees} are action nodes $ACT$, and the \emph{dependums} can be any parameter $RES$ or condition nodes $COND$. 
+	\item The set $E(DN)$ is a set of links between the nodes. Each link can be represented as a pair of nodes in $V(DN)$, i.e. $E(DN) \to V(DN) \times V(DN)$. The link can indicate a direct dependency between two action nodes, or a incoming link that connects a \emph{depender} and \emph{dependum}, or an outgoing link that connects a \emph{dependum} and \emph{dependee}.
 \end{enumerate}
 
-The event type and content filters can use the same syntax as existing content-based filter expression languages, but the local scope filter expression is unique in our approach and provides an additional level of expressiveness than merely content-based subscriptions. It allows the human actors to describe event patterns based on the relations between the actor and the entities in the local scope, instead of the attributes of an event directly. It is quite common that the actor wants to treat events related to all the actions he/she has certain level of intention in the same way, but cannot specify what exactly these actions are as their local scopes are changing.
+The construction of dependency network can also be achieved by depth-first traversal through the PlanGraph model to search for all the action-action and action-resource relations. We define a procedure $BUILD\textrm{-}DN$ that constructs a dependency network from a PlanGraph $PG$. As the set of nodes $V(DN)$ can be calculated from the set of links $E(DN)$ by removing all the duplicates, the $BUILD\textrm{-}DN$ procedure focuses on building $E(DN)$. We define a sub-procedure $ADD\textrm{-}To\textrm{-}DN$ that takes an action node $act$ in the PlanGraph to add dependencies that starting from $act$, i.e. to find all the dependencies in which the $act$ is the \emph{depender}.
 
-Along with each event pattern, the user needs to assign a notification style for it. It has to be considered that there is a multitude of different notification styles with different trade-off between its potential to attract attention and its obtrusiveness level \cite{Rauschenbach1996}. Generally, we can define five notification styles. 
+{\footnotesize
+\begin{algorithm}
+\begin{algorithmic}[1]
+\Procedure{BUILD-DN}{$PG$}
+	\State $E\gets [\:]$
+	\State $root\gets PG.root$
+	\State $ADD\textrm{-}TO\textrm{-}DN(root)$\Comment{start the recursion from $root$}
+\EndProcedure
+\Procedure{ADD-TO-DN}{$act$}
+	\ForAll{$subact$ \textbf{in} $act.subacts$}\Comment{check for Sub.Act}
+   		\State $E.add(act, subact)$
+	\EndFor
+
+	\If{$act.hasParent()$}
+		\ForAll{$constr$ \textbf{in} $act.parent.constraints$}\Comment{check for Precedes}
+			\If{$constr.next == act$}
+   				\State $E.add(act, constr.prev)$ 
+   			\EndIf
+		\EndFor
+		\ForAll{$par$ \textbf{in} $act.parent.parameters$}\Comment{check for parameters}
+   			\ForAll{$subact$ \textbf{in} $par.subacts$}
+   				\State $E.add(act, par), E.add(par, subact)$
+			\EndFor
+		\EndFor
+		\ForAll{$cond$ \textbf{in} $act.parent.conditions$}\Comment{check for conditions}
+   			\ForAll{$subact$ \textbf{in} $cond.subacts$}
+   				\State $E.add(act, cond), E.add(cond, subact)$
+			\EndFor
+		\EndFor
+   	\EndIf
+
+	\ForAll{$par$ \textbf{in} $act.parameters$}\Comment{recursion on parameters}
+   		\ForAll{$subact$ \textbf{in} $par.subacts$}
+   			\State $ADD\textrm{-}TO\textrm{-}DN(subact)$
+		\EndFor
+	\EndFor
+	\ForAll{$cond$ \textbf{in} $act.conditions$}\Comment{recursion on conditions}
+   		\ForAll{$subact$ \textbf{in} $cond.subacts$}
+   			\State $ADD\textrm{-}TO\textrm{-}DN(subact)$
+		\EndFor
+	\EndFor
+	\ForAll{$subact$ \textbf{in} $act.subacts$}\Comment{recursion on subacts}
+   		\State $ADD\textrm{-}TO\textrm{-}DN(subact)$
+	\EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+}
+% subsection dependency_relations_in_the_activity_structure (end)
+% section representing_the_field_of_work (end)
+
+\section{Representing events} % (fold)
+\label{sec:representing_events}
+In Section \ref{ssub:the_concept_of_events}, we define \emph{`events'} to refer to the computerized entities that are used in an awareness system to represent knowledge about either real world \emph{`occurrence'} or the results of \emph{`awareness'} processes. In this section, we focus on how events are computationally represented in this study. Although they share the same representational structure in general, different types of events are represented differently. In the following, we first describe the general representational structure of events, then discuss the major event types, and their differences in representation.
+
+\subsection{Structure of events} % (fold)
+\label{sub:defining_events}
+We follow many existing event processing systems to represent each event as a structured object consisting of a named set of attributes \cite{Mhl2010}. Formally, an event $e$ is a nonempty set of \emph{attributes} $\{a_1, a_2, ..., a_n\}$, where each $a_i$ a name/value pair $(n_i, v_i)$ with name $n_i$ and value $v_i$. It is assumed that names are unique, i.e., $i\ne j \Rightarrow n_i\ne n_j$, and that there exists a function that uniquely maps each $n_i$ to a data type $T_i$ that is the type of the corresponding value $v_i$.
+
+The set of attributes for each event should help answer questions such as: What occurrence or awareness aspect it refers to? When did it happen? Where did it happen? What other information is associated with its happening? The answers to these questions usually depend on the type of event they are associated with. An \emph{event type} is a generalization for a set of event objects that have the same semantic intent and same structure \cite{Etzion2010}, i.e. they share the same set of attributes, but may have different values. Each \emph{event type} has a unique event type identifier. In this study we use simple descriptive text strings for these identifiers, for example the phrase \emph{``LocationChanged''} identifies an event type that can describe any instance of an object's location change. Identifying the set of \emph{event types} is an application specific task, as actors in different applications have different awareness needs and capabilities to detect events. We describe the major event types that are supported in this study in Section \ref{sub:event_types}.
+
+While arbitrary attributes can be included in each event type, we can group them into three categories, following the definitions in \cite{Etzion2010} (Figure \ref{fig:event_structure}):
+
 \begin{enumerate}
-	\item The first style is actually not to present the notification at all. This provides another level of control for the users to filter out some events even when they fall into their local scopes.
-	\item The object-coupled notification presents some of the event attributes (e.g., time stamp or type) as graphical attributes of the icon representing the entity that is affected by the event. This provides less obtrusiveness to the user but is not perceivable unless the entity is within the user's view port.
-	\item The standalone event window presents a dedicated window to display all the event notifications. It allows the user to keep track of different incoming events at the same place, but loses the visual connections between the events and their references.
-	\item Non-modal global notification presents each incoming event at a dedicated corner for a period of time and then disappears. It is more perceivable to the users, but requires the user to respond in a limited time.
-	\item Modal global notification uses a modal dialogue box to present a detailed description of an event, and the user has to take an active action to confirm the reception of the event (e.g. click the `close' button) before going back to previous view. 
+	\item The \emph{header} consists of generic information about the event, such as the event type, occurrence time, etc. The header attributes are not specific to a particular event type, rather shared by all event types.
+	\item The \emph{payload} contains a collection of attributes carrying the data that describes the actual occurrence. Unlike header attributes independent of the actual event type, the payload attributes are defined per event type. 
+	\item An event can also contain free-format \emph{open content} information that provides a mechanism that the awareness system can use to enrich an event object with extra contextual information, such as human-readable explanation, multi-media content etc.
 \end{enumerate}
-
-The computer system can provide interactive tools to support the management of subscriptions within local scopes. We describe an example of the interface to manage subscriptions in our prototype system EDAP and demonstrate its utility in Section \ref{sec:implementation_of_edap_client}. As the system maintains the knowledge representation of the collaborative activity and each user's local scope, it is easy to generate a diagrammatic representation of the collaborative activity with the user's local scope of work highlighted. Such a visual interface allows the user to perform several tasks to manage the subscriptions:
-
-\begin{enumerate}
-	\item The user can easily recognize what actions the system believes are part of his/her local scope. In case the user believes the system's representation is incorrect or wants to make changes, he/she can directly manipulate the visual representation to add/remove entities from the local scope.
-	\item The user can click on each of the nodes in the visualization to review active filters on each node, or create new filters. 
-\end{enumerate}
-% subsection managing_subscriptions (end)
-% section event_notification_mechanism (end)
-
-\section{Supporting event interpretation} % (fold)
-\label{sec:supporting_event_interpretation}
-In our approach, we use the term `event interpretation' to include both the process of \emph{comprehension}, i.e. understanding the meaning of perceived event within the context of a user's current goals and activities, and the process of \emph{projection}, i.e. predicting the future states based on the comprehension. Although these two awareness processes have different characteristics at the conceptual level, they are usually inseparable from the user's perspective. The user can switch back and forth between comprehension and projection upon perceiving an event without realizing the difference between them. Hence, we design for supporting event interpretation as an integrated cognitive process that covers both comprehension and projection.
-
-Generally, we consider the event interpretation process as an analytical reasoning process triggered by perceiving an event notification. It includes three interleaving tasks:
-\begin{enumerate}
-	\item Understanding the meaning of an event within the context of its origin of occurrence. This includes identifying the objects or relations that are mentioned in the event, and understanding what aspects of the objects or relations are changed. 
-	\item Assessing the impact of the event on the user's current work context. This includes identifying which part of the actor's work is impacted by the event and what the consequences are.
-	\item Predicting the future states on other part of the actor's work or other actors' work because of the dependencies among activities.
-\end{enumerate}
-
-In our approach, this analytical reasoning process can be supported from two aspects:
-
-On one hand, the system can perform the reasoning tasks for the user. Actually, as we can see in Section \ref{sec:knowledge_updating_process}, some of these reasoning tasks have already been performed by the system during the knowledge updating process. During the \emph{association} step, the system attempts to identify the objects or relations that are mentioned in the event. In the \emph{assessment} step, the system evaluates the consequences of the event on all the entities in the collaborative activity. In the \emph{propagation} step, the system predicts the future states on other activities. Hence, the system can support the user by simply present these reasoning results. In this way, some of the high level cognitive tasks are transformed into low level perceptual tasks for the user.
-
-On the other hand, the system can provide external representations of the contextual information to help the users to perform these reasoning tasks. As these reasoning tasks are always performed within certain contexts, such as the context of an event's origin, the user's current work context, or the dependencies among activities, the visualization of the contextual information serves as an important cognitive resource for the users.
-
-From the above discussion, we present an information visualization framework for supporting event interpretation with three different types of visual representations (Figure \ref{fig:event_interpretation}):
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics{event_interpretation.pdf} 
-	\caption{The visualization framework for event interpretation}
-	\label{fig:event_interpretation}
+   \centering
+   \includegraphics{event_structure.pdf} 
+   \caption{The structure of an event (adapted from \cite{Etzion2010} p.63)}
+   \label{fig:event_structure}
 \end{figure}
 
+\paragraph*{Header} % (fold)
+\label{par:header}
+The header of an event contains the common attributes that are included in every event object. Unlike payload or open content that are optional, a header is required for every event representation. In general, the header of an event needs to include the following attributes:
+
 \begin{enumerate}
-	\item Event view: visual representation of the event that needs to be interpreted.
-	\item Activity view: visual representation of the activity structure and the actor's local scope.
-	\item Context view: visual representations of the contextual information that is necessary to interpret the event.
+	\item \emph{Event type}. This attributes stores the event type identifier that uniquely identifies the event type of this event.
+	\item \emph{Event identifier}. This is a unique identifier for each individual event object.
+	\item \emph{Occurrence/detection time}. The occurrence time is the time when the real world occurrence happens. In some cases, the event producer might not be able to determine the time when the event actually occurred. For example, if the producer examines the state of some external entity only at periodic intervals. In such cases, the detection time is used instead, recording the time at which the event became known by the event producer. 
+	\item \emph{Event source}. This is the entity that originates this event. This can be either an external sensor, or a human actor in the collaborative system.
+	\item \emph{Event composition}. This is a boolean attribute that denotes whether the specific event is a composite event or not. A composite event is one whose payload is made up of several other event instances.
 \end{enumerate}
+% paragraph header (end)
 
-\subsection{Event view} % (fold)
-\label{sub:event_view}
-The event view is used to present the information about the event that needs to be interpreted. This includes not only the event that is notified to user, but also the whole event chain that the current event is situated in. As we defined in Section \ref{sec:knowledge_updating_process}, an event chain records the development of an event in the knowledge updating process. In the assessment step, the system may generate derived events indicating the system's belief on how the collaborative activity has been changed due to the original event. In the propagation step, the system predicates the future state changes, and adds them as anticipatory events into the chain. In this way, the event chain actually represents the results of the system's reasoning on it. 
-
-Therefore, the event view is a diagrammatic representation including an ordered list of nodes (Figure \ref{fig:event_chain}). Each node represents an event in the corresponding event chain. The nodes are arranged in the developmental order of the events they represent. In a horizontal layout, the node at the most left represents the original event, and then is connected to the set of nodes representing the derived events, followed by the nodes for anticipatory events. The design detail about the event view is summarized as follow:
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics{event_chain.pdf} 
-	\caption{Visualizing the event chain in the event view}
-	\label{fig:event_chain}
-\end{figure}
-
+\paragraph*{Payload} % (fold)
+\label{par:payload}
+The attributes that make up the event payload are used to carry the data that describes the actual occurrence. The set of attributes included in each event is a variable that depends on the corresponding event type. There are several types of data that can be included as payload attributes:
 \begin{enumerate}
-	\item The node representing the current event that is notified to the user for interpretation is marked with a star, so that the user can know where the current event under interpretation is situated in the event chain.
-	\item The nodes representing events inside the user's local scope are shadowed so that the user can clearly see when the development of the event enters its work context.
-	\item The different types of events, i.e. original event, derived events, and anticipatory events, are distinguished by different colors.
-	\item We use different opacity levels to indicate the system's confidence level on the anticipatory events.
-	\item Clicking on the node will show the detail information about the represented event. If the event is associated with the objects represented in the context view or the entities represented in the activity view, they will be highlighted.
+	\item \emph{Basic data types}. The value in an payload attribute can simply be in the basic data types, such as string, numeric boolean, date/time etc.
+	\item \emph{Abstract data types}. Attributes can also have abstract data types that are structures composed of other data types. For example, many events includes a geographic attribute to records the whereabout of the represented real world occurrence. This attribute can be a point-based representation as a latitude/longitude pair, or more complicated as a route or a geographic area.
+	\item \emph{Entity reference}. Instead of records the information directly in an attribute, the event can also records information by pointing to entities represented in the collaborative activities. For example, an \emph{`ActionPerformed'} event may use the reference to the action node stored in the PlanGraph model to indicate which action has been performed.
+	\item \emph{Event reference}. Some events may contain references to other events. For example, a composite event may use the event references to record the primitive events that it is composed of.
 \end{enumerate}
- 
- The event view plays two important functions during the event interpretation process. First, the event chain provides an overview of the system's reasoning process of an event, which allows the users to understand where an event comes from, and the possible consequences it leads to based on the system's reasoning. Second, it serves as a navigation interface that allows the users to click on nodes to check details on each step of the reasoning. In next section, we will introduce a revised version of the event view that can play the third function in event propagation to present the developmental trajectory of an event across multiple actors.
-% subsection event_view (end)
+% paragraph payload (end)
 
-\subsection{Activity view} % (fold)
-\label{sub:activity_view}
-The activity view provides an overview of the activity structure and the user's local scope. Such a representation provides the information about the actions, resources, and actors that are participated in the collaborative activity and the relations between these different entities. As argued by Carroll et al. \cite{carroll2003a}, such an external representation of the overall situation is very important for awareness development when group work is distributed and many dependencies exist in the collaborative activity. Within the context of event interpretation, we believe the activity view can provide several kinds of support to the users:
+\paragraph*{Open content} % (fold)
+\label{par:open_content}
+The open content of an event can include any attributes an awareness system can use to provide additional contextual information about the event. For example, it is used in the awareness externalization process to allow the actors to provide human-readable explanation of their interpretations.
+% paragraph open_content (end)
 
-\begin{enumerate}
-	\item It provides the activity-related frame of reference to understand an event and the system's reasoning on it. The activity view is linked to the nodes in the event view. Whenever the user looks at an event node that is associated with an entity in the field of work, the corresponding object in the activity view is highlighted. Thus, the user can perceive which part of the activity is impacted by the event.
-	\item It provides the contextual information from the perspective of the collaborative activity that is necessary for the user to perform reasoning. The activity view allows the user to navigate through the different entities in the collaborative activity, check the detail on each entity, and recognize the different relations between them, which is very important for the user to evaluate and predict the impacts of an event.
-	\item It shows the boundary between the entities inside and outside the user's local scope, so that the user always knows what part of the collaborative activity he/she needs to focus on.
-\end{enumerate}
+% subsection defining_events (end)
+\subsection{Event types} % (fold)
+\label{sub:event_types}
+As we argue in Section \ref{ssub:the_concept_of_events} that \emph{events} can be used to represent both description of real world \emph{occurrences} and externalization of human actors' internal \emph{awareness} knowledge, a fundamental distinction should be made between these two categories of events, we call the former \emph{external events}, and the latter {internal events}. The distinction between external events and internal events are important, because (1) they require different representational structures, i.e. the payloads of events have different sets of attributes; (2) they are consumed differently by the system when updating the knowledge representation; (3) and they are treated differently in  human users' awareness processes as well. 
 
-The activity view consists of a diagrammatic representation of the entities and relations in the collaborative activity, and an interaction interface to navigate through the view. The generation of the activity view is straightforward in our approach. As we maintain the knowledge representation of the whole collaborative activity in the PlanGraph model, it can be easily externalized into a graph visualization with the entities as nodes, and the relations as links. The interaction interface allows the user to perform actions such as zoom in/out, move the view port, check details, and dynamic queries.
+Another distinction to make is the difference between \emph{primitive events} and \emph{composite events}. Composite events prevent the users from being overwhelmed by a large number of primitive events by providing them a higher-level abstraction \cite{Mhl2010}. Generally, a composite event is made up of several other events (either primitive or composite), according to a specification of relations between them. 
 
-A key issue in designing the activity view is the problem of \emph{discernibility} in graph visualization when the number of elements is large \cite{Herman2000}. It is well known that comprehension and detailed analysis of data in graph structures is easier when the size of the displayed graph is small. Displaying an entire large graph may give an indication of the overall structure, but makes it difficult to comprehend the details. 
+In the following, we first describe the major primitive event types, both external and internal, and then discuss the composite events as a special event type with its own payload structure.
 
-To address this problem, we treat the entities inside and outside the local scope differently when visualizing them in the activity view (Figure \ref{fig:activity_view}):
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics{activity_view.pdf} 
-	\caption{An example of the activity view}
-	\label{fig:activity_view}
-\end{figure}
+\subsubsection{External events} % (fold)
+\label{ssub:external_events}
+As we conceptualize a collaborative environment as consisting of a variety of entities and relations, external events can be defined to indicate any kinds of changes on either these entities or relations. 
+
+\paragraph*{Events on entities} % (fold)
+\label{par:events_on_entities_}
+We define each external event on an individual entity as a semantic function that changes the entity's property or state. We follow the general event ontology proposed in \cite{Kaneiwa2007} to define the following categories of external events on individual entities:
 
 \begin{enumerate}
-	\item The entities within the local scope are visualized as larger nodes so that they can encode more detailed information, such as the name, type, and execution state. But the entities outside the local scope are visualized as small icons that have less visual information encoded. 
-	\item The entities in the local scope are visualized using the hierarchical layout that emphasizes the decomposition relations among actions. The entities outside adopt a more space-efficient graph layout (e.g. force-directed layout \cite{Fruchterman1991}) to show a maximum number of nodes within the limited view port.
-\end{enumerate}
-
-The distinction between the entities inside and outside the local scope in the activity view complies with the distributed nature of the awareness phenomena in this study. As for each actor, the local scope is where he/she possesses more control and also is the most likely place where the event interpretation will occur. As a result, the user would like to see more details on the entities within the local scope. Meanwhile, the entities outside the local scope are distant from his/her work focus, and all he/she needs to know is how these entities are related to the local scope, with less detailed information about them.
-% subsection activity_view (end)
-
-\subsection{Context view} % (fold)
-\label{sub:context_view}
-The context view is a container for interactive information visualization tools to understand the different contexts of the event, including the context of an event's origin, or the user's current work context. The contexts emerge from a complex mix of entities in the collaborative activity, including the objects that the user is working on, the collaborating actors, resources, and informational objects that are necessary to understand the situation. In relative simple collaborative environments, such as the collaborative editors, the context can be represented as one single shared workspace. But in complex, real-world collaboration, the contextual information is usually in diverse forms and should be understood from different perspectives. As a result, the context view is usually a set of coordinated and multiple views to represent different perspectives of the context. The set of views and interactive tools that are needed usually depends on the application domain and each actor's task in the domain. Figure \ref{fig:vm_interface_initial} in Section \ref{sec:implementation_of_edap_client} shows an example of the context view of an victim manager in the emergency response scenario, which includes a bar char to show the victims in different processing stages, a cartographic map to display the distribution of victims, and a data table to list all the victims. 
-% subsection context_view (end)
-% section supporting_event_interpretation (end)
-
-\section{Mediating event propagation} % (fold)
-\label{sec:mediating_event_propagation}
-Event propagation refers to the social process to establish compatible awareness across multiple actors. As we argue in Section \ref{sub:development_of_collaborative_awareness}, an essential aspect of the awareness phenomena in distributed, complex collaboration is that the development of awareness should be considered as a social process that can involve a series of interactions among multiple actors. With aspect to the event-driven awareness process, that is to say the awareness process triggered by one event can be developed by multiple actors. The actor who receives the initial event generates his/her own interpretation of the event, and then externalizes the interpretation as a new event, which is then received by the second actor. The second actor's interpretation is built on top of the first actor's, and may generate new events that are received by other actors. In this way, as the initial event is propagated to multiple actors, the team awareness is developed.
-
-Unlike the event notification and event interpretation that are operated on each single event, event propagation process can be considered as a meta-process that consists of multiple processes on multiple events. Figure \ref{fig:event_propagation} shows an example of the event propagation process that involves the computer system and three human actors. In the beginning, an input event $e_0$ is received by the system and the system derives a new event $e_1$ during its knowledge updating process. This derived event $e_1$ indicates a state change of an action that falls into $actor 1$'s local scope, hence it will be notified to $actor 1$ during the notification process. Upon receiving the notification, $actor 1$ performs his/her own interpretation process, and externalizes the result of the interpretation as a new event $e_2$. $e_2$ is sent back to the system during the externalization process. After receiving $e_2$, the system starts another round of knowledge updating and notification, and finds that $e_2$ falls into $actor 2$'s local scope. As a result, the system notifies $actor 2$ about $e_2$. The process continues as $actor 2$ further interprets the event and generates new event, which is later notified to $actor 3$.
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics{event_propagation.pdf} 
-	\caption{An example of the event propagation process}
-	\label{fig:event_propagation}
-\end{figure}
-
-From the example, we can clearly see that the event propagation is achieved by the joint effort of the human actors and the computer system. On one hand, it relies on the human actors to interpret the events built on top of each other's interpretation, and externalize their own interpretations as new events. On the other hand, the system should be able to disseminate these new events to the actors who are interested in further developing them.
-
-The capability of system to disseminate these derived events to relevant actors is enabled by the local scope-based event notification mechanism as we described in Section \ref{sec:event_notification_mechanism}. Because the relevance of events to the actors are judged by whether they are associated with the entities in the actors' local scopes, the actors do not need to subscribe to them in advance. As long as the new events generated by other actors fall into my local scope, I will get notified.  
-
-Beyond that, the system can mediate the event propagation from the human actor's perspective, i.e. to help the human actors to do their jobs in propagating events. The human actors have to be enabled to:
-
-\begin{enumerate}
-	\item keep track of the historical development of the event so that they know where an event comes from, how it has been developed, and the actors who have contributed to its development.
-	\item easily externalize their interpretation of the event, i.e. how their intentions and beliefs are changed because of the event.
-	\item control the visibility of their newly generated events, such as who should be able to receive their interpretation, and to what level of detail.
-\end{enumerate}
-
-The following of this section focuses on how these tasks can be achieved by human actors with the computer system's assistance. It requires several enhancements in the knowledge updating process, the event notification mechanism, and the visualization framework for event interpretation, so that the social aspect of the event propagation is explicitly represented and supported.
-
-\subsection{Tracking event propagation} % (fold)
-\label{sub:tracking_event_propagation}
-In order to keep track of the event propagation, we extend the concept of \emph{event chain} to the concept of \emph{event propagation tree}, and thereafter revise the event view in the visualization framework to represent the event propagation tree. 
-
-In Section \ref{sec:knowledge_updating_process}, we introduce the concept of \emph{event chain} to record the system's development of an event in the knowledge updating process. Now, we extend it to the concept of \emph{event propagation tree} to keep track of the event propagation process from the following two aspects:
-
-\begin{enumerate}
-	\item As the event propagation is a meta-process that can involve both the computer system's knowledge updating process and human actors' awareness processes, the events in an \emph{event propagation tree} include not only the events generated in the system's reasoning process, but also those generated by the human actors in the externalization process.
-	\item In the event propagation process, it is possible that one event is interpreted by multiple human actors, along with the system's reasoning on it. One event can then be derived into multiple branches, each of which can be further developed into multiple subsidiary branches. As a result, an \emph{event propagation tree} $EPT$ can no longer be represented as a linear sequence of events, but rather a tree structure (Figure \ref{fig:event_propagation_tree}). The root node in the tree structure $e_0$ represents the original event that triggers the propagation, and each node can have multiple branches indicating how the event represented by the node is further developed.
+	\item \emph{State Change}. An event is a state change event if the occurrence yields a change of state on an entity. All the possible states of an entity are usually can be expressed as a discrete state machine, and each state transition indicates a possible state change event. For example, Figure \ref{fig:action_exec_state_trans} shows the transition diagram with all the possible execution states of an action. Each valid transition in the diagram can be considered as a state change event.
 	\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-		\centering
-		\includegraphics{event_propagation_tree.pdf} 
-		\caption{The event propagation tree}
-		\label{fig:event_propagation_tree}
+   	\centering
+   	\includegraphics{action_exec_state_trans.pdf} 
+   	\caption{Execution state transition of an action}
+   	\label{fig:action_exec_state_trans}
 	\end{figure}
+	\item \emph{Existential Change over Time}. An event indicates an existential change over time if its occurrence changes the existence of an entity in temporal order, e.g. an entity did not exist in the past but it exists now.
+	\item \emph{Existential Change over Space}. An event indicates an existential change over space if its occurrence changes the existence of an entity depending on its movement through space, e.g. an entity existed at location A, but now exists at location B. 
+	\item \emph{Value Comparison}. Another common class of external events are comparison events to indicate changes on attribute values of an entity. They can used to indicate whether an attribute value is equal, unequal, greater than, or less than a fixed threshold, or the same attribute value in the past. 
+\end{enumerate}
+% paragraph events_on_entities_ (end)
+
+\paragraph*{Events on relations} % (fold)
+\label{par:events_on_relations}
+Events on relations are used to indicate whether some relations between entities hold. For example, an event with the type \emph{`ResourceAssigned'} indicates an assignment relation between a resource and an action becomes holding, i.e. the resource is now assigned for performing the action. Therefore, the types of external events on relations depend on the possible types of relations that can be identified in the domain. 
+
+Generally, the basic relations between entities in the real world can be divided into three categories: spatial, temporal, and conceptual \cite{Tomaszewski2010}.
+
+\begin{enumerate}
+	\item The spatial relations link the entities through their spatial positions. The basic types of spatial relations have been well studied in the literature of geographic information systems, including binary topological \cite{egenhofer1994deriving}, directional \cite{frank1991qualitative}, and distance relations \cite{hernandez1995qualitative}. Topological relations are a particular subset of geometric relations that are preserved under topological transformations such as translation, rotation, and scaling. Some examples are relations indicating whether one entity disjoints, meets, overlaps, or contains another entity. Directional relations indicate the relative direction between two entities, such as one is at north of the other. Distance relations link entities based on their proximity in the space, such as one is within a certain range of another. 
+	\item The temporal relations link the entities based on their temporal positions. The basic types of temporal relations are considered in the literature on temporal reasoning \cite{allen1994actions}, including binary topological, ordering, and distance relations \cite{Andrienko2011}.
+	\item The conceptual relations are an umbrella term that covers all the different types of organizational, structural, or social relations between entities in a particular collaborative activity. 
 \end{enumerate}
 
-Similar to the \emph{event chain}, the structure of an \emph{event propagation tree} can be represented by adding additional attributes in the \emph{open content} section of each event (Figure \ref{fig:event_propagation_tree_representation}): 
+From the basic types of relations, more complex types of relations can be built, such as
+density (clustering, dispersion), arrangement (e.g. sequence in time or alignment in space) and spatial-temporal relations. The latter are composed of spatial and temporal relations and represent changes of spatial relations over time: approaching or going away, entering or exiting, following, keeping distance, concentrating or dissipating and so on.
+% paragraph events_on_relations (end)
+
+Figure \ref{fig:external_events} shows an upper level typology of the external events that can be defined on entities and relations in a collaborative environment.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{external_events.pdf} 
+	\caption{An upper level typology of external events}
+	\label{fig:external_events}
+\end{figure}
+
+\paragraph*{Relevance to the collaborative activities} % (fold)
+\label{par:relevance_to_the_field_of_work}
+ Although the number of external events that could be possibly identified is infinite, not all of them are relevant to the human actors' working context. As a result, the goal of identifying external events in an awareness system focuses on finding a subset of event types that could possibly contribute to the understanding of supported collaborative activities. In general, we believe that the relevance of external events to a collaborative activity can be analyzed based on the different functional roles they can play in updating the knowledge about the collaborative activity. If the occurrence of an external event can imply some change in the collaborative activity, it should be treated as relevant. Based on our conceptualization of collaborative activities, we can identify the following function roles for external events:
+
+ \begin{enumerate}
+ 	\item \emph{Direct change to entities in a collaborative activity}. External events can indicate changes on individual entities that are modeled in a collaborative activity, i.e. the property or state change of the resources, actors, or actions. For example, a state change event can be used to indicate the change of execution state for an action. Location change events can be used to describe an actor's movement. 
+ 	\item \emph{Direct change to relations in a collaborative activity}. Some external events are directly related to the various relations between resource, actors, and actions as we described in Section \ref{ssub:relations}. For example, an external event type indicating the constitution relation between two entities can be used to describe the $Sub.Act$ relation between two actions, i.e. one action is a subsidiary action to perform another one. The assignment relation event type can be used to describe relations between an action and a resource, i.e. the resource has been assigned to the performance of the action. 
+ 	\item \emph{Goal activation}. Aside from the two cases that external events can be directly linked to the entities and relations in a collaborative activity, external events can also impact the collaborative activity by activate the goals to perform actions. For example, an external event indicating that the fire alarm is ringing will activate the human actor's goal to escape from the office. In this case, the fire alarm is not directly linked to any entities in the human actor's activities, rather it motivates the actor to perform a new action.
+ 	\item \emph{Implied changes to entities and relations}. In some cases, external events can also provide some evidence implying changes in the entities and relations in a collaborative activity. For example, instead of a state change event directly showing the action to delivery a resource to an actor has been completed, it could be implicitly inferred from a spatial relation event that indicates the resource is now located at the actor's location. Similarly, an external event indicating the occurrence of a traffic blocking between the resource's current location and the actor's implies the delivery action is in trouble.
+ \end{enumerate}
+% paragraph relevance_to_the_field_of_work (end)
+% subsubsection external_events (end)
+\subsubsection{Internal events} % (fold)
+\label{ssub:internal_events}
+Internal events are used to describe the results of human actors' awareness processes. Unlike external events that can describe changes in any entities and relations in a collaborative activity, internal events describe the changes of human actors' internal mental states towards the collaborative activity. Internal events are usually derived from external events to indicate human actors' interpretations on them. In this study, we identify two types of internal events: \emph{intention} events and \emph{belief} events. 
+
+An \emph{intention} event indicates a human actor's adoption of certain intention towards some action in a collaborative activity. Figure \ref{fig:intention_event} shows the basic structure of an intention event. The payload of an intention event include three required attributes: an intention type indicating whether it's $Pot.Int$, $Int.Th$, or $Int.To$, a reference to the actor who adopts this intention, and a reference to the intended action. An optional free-text attribute is included in the open content part, where the human actor can provide the rationale for adopting the corresponding intention.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{intention_event.pdf} 
+	\caption{Structure of an intention event}
+	\label{fig:intention_event}
+\end{figure}
+
+A \emph{belief} event describes a human actor's belief in some entities or relations in a collaborative activity. For example, it can be used to indicate an actor's belief that an action has been successfully performed, or the belief that the actor has the capability to perform an action. As belief events usually refer to some changes on entities or relations in a collaborative activity, we represent each belief event by embedding an external event representing the content of the belief in its payload (Figure \ref{fig:belief_event}). However, unlike the standalone external event that indicates a change that has already happened, the change described in a belief event can be something that will happen in the future. These belief events can be used to represent the results of the human actor's projection process, i.e. what the actor expects to happen in the future. There are two attributes in a belief event's open content part: the free-text explanation of this belief, and a confidence level to describe how confident the actor is about this belief.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{belief_event.pdf} 
+	\caption{Structure of a belief event}
+	\label{fig:belief_event}
+\end{figure}
+% subsubsection internal_events (end)
+
+\subsubsection{Composite events} % (fold)
+\label{ssub:composite_events}
+Composite events are a special type of events that can consist of several other events. The subsidiary events can be external or internal. Besides the list of subsidiary events, a composite event needs to also describe how these sub-events are combined together. In a simple case, a composite event can occur only when all the sub-events occur. Moreover, a composite event can occur when some of the sub-events occur, but some do not. Or it occurs when any of the sub-events occurs. A more complicated composite event language can be found in \cite{Mhl2010} that includes different relations between sub-events, such as negation, concatenation, sequence, iteration etc. To describe the composition pattern, a specific payload attribute needs to be included in a composite event's representation (Figure \ref{fig:composite_event}).
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{composite_event.pdf} 
+	\caption{Structure of a composite event}
+	\label{fig:composite_event}
+\end{figure}
+% subsubsection composite_events (end)
+% subsection event_types (end)
+% section representing_events (end)
+
+\section{The knowledge updating process} % (fold)
+\label{sec:knowledge_updating_process}
+The knowledge updating process describes how the aforementioned knowledge representations of collaborative activities and events are mutually developed. Each time when a new event is input into the system, it triggers the knowledge updating process. The knowledge updating process performs two important tasks: (1) it decides on how the input event influences the current collaborative activity and updates the correspondent in the PlanGraph model; (2) it augments the event representation by establishing the links between the event and the corresponding entities in the PlanGraph, and records the development of the event based on the system's reasoning.
+
+\paragraph*{Updating knowledge about the collaborative activity} % (fold)
+\label{par:updating_the_plangraph}
+In general, the knowledge updating is a four-step process: \emph{association}, \emph{assessment}, \emph{elaboration}, and \emph{propagation}, through which the knowledge representation of the collaborative activity, i.e. the PlanGraph model is updated (Figure \ref{fig:updating_plangraph}).
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{updating_plangraph.pdf} 
+	\caption{The knowledge updating process}
+	\label{fig:updating_plangraph}
+\end{figure}
+
+\begin{enumerate}
+	\item \emph{Association}. The knowledge updating starts with the association of an event with the PlanGraph model. In this step, the system searches the PlanGraph for an appropriate match between the input event and the entities and relations in the collaborative activity. If a match is found, the system uses the information stored in the event to update the corresponding entities or relations in the PlanGraph.
+	\item \emph{Assessment}. The second step is to assess how the event can lead to new changes in the collaborative activity. For instance, it may trigger new actions that need to be performed, or change the current states of existing actions. 
+	\item \emph{Elaboration}. Based on the assessment of the event, the elaboration step is to reason about the system's expectation on how the newly added action should be decomposed into sub-actions, or what actors will be potentially involved in these new actions. This is usually performed with domain specific knowledge, such as recipes of action performance, and role specifications of actors.
+	\item \emph{Propagation}. The propagation step focuses on evaluating how the current change can be possibly propagated to other actions in the collaborative activity because of the dependencies among actions. 
+\end{enumerate}
+
+The four steps of knowledge updating process share some commonality with the human actor's awareness development processes. The \emph{association} and \emph{assessment} steps are similar to the \emph{comprehension} process, where human actors comprehend or understand the relevance of awareness information in relation to their tasks and goals. The \emph{elaboration} and \emph{propagation} can be considered as the projection of states in the near future. In this way, we can think of the knowledge updating process as the computer system's awareness development process. The only difference is that, as the human actors usually only have partial knowledge about the collaborative activity, the computer system aims to possess the knowledge of the whole collaborative activity through knowledge updating.
+
+One thing to note is that not every event will be processed in all the four steps. Some external event may not directly link to any entities in the collaborative activity, or the system does not have the complete knowledge to assess its implications in the collaborative activity. In such case, the event may be passed directly to human actors for interpretation. The result of human actors' interpretation may generate a new internal event that starts a new round of knowledge updating, in which the system's knowledge is updated.
+% paragraph updating_the_plangraph (end)
+
+\paragraph*{Updating knowledge about the event} % (fold)
+\label{par:updating_the_event_representation}
+As we emphasize in the beginning, while the knowledge about the collaborative activity is updated by the new event, the event itself is also developed during the system's reasoning process. For example, in the \emph{assessment} step, an external event \emph{`TrafficBlocked'} causes the system to believe that the action to deliver a resource cannot be achieved. On one hand, this causes the system to modify the state of the delivery action in the PlanGraph. Meanwhile, the system generates a new internal event describing the system's belief about the state change of the delivery action. Later, in the \emph{propagation} step, the system may generate another internal event to indicate that because of the state change of the delivery action, the action that depends on the resource delivery will also be impacted. In this way, the original event is derived into a chain of events as the knowledge updating proceeds.
+
+To record the development of an event in the knowledge updating process, we define an \emph{event chain} $EC$ as an ordered sequence of events: $EC=(e_0, e_1, e_2, ...)$. In the beginning of the knowledge updating process, there may be only one event $e_0$, i.e. the original external event in the event chain $EC$. As the knowledge updating proceeds, more events are added to the chain. In the assessment step, the system may generate \emph{derived events} indicating the system's beliefs on how the other entities or relations in the collaborative activity have been changed due to the original event. In the propagation step, the system predicates the future state changes, and attaches more \emph{anticipatory events} to the event chain. Figure \ref{fig:knowledge_updating} shows how an event is developed into an event chain in the knowledge updating process.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{knowledge_updating.pdf} 
+	\caption{The development of an event chain}
+	\label{fig:knowledge_updating}
+\end{figure}
+
+In order to record an \emph{event chain}, we add three additional attributes in the \emph{open content} section of every event in the chain:
+
 \begin{enumerate}
  	\item A text string (\emph{label}) indicates the functional role of the event in the event chain, i.e. whether the event is an \emph{original} event, a \emph{derived} event, or an \emph{anticipatory} event.
- 	\item An event reference (\emph{parentEvent}) points to the parent event where the current event is derived from. 
- 	\item A list of event references (\emph{childrenEvents}) points to all the events that are derived from the current event.
+ 	\item An event reference (\emph{prevEvent}) points to its preceding event in the event chain. It can be optional when the current event is the \emph{original} event, but required for \emph{derived} and \emph{anticipatory} events.
+ 	\item An event reference (\emph{nextEvent}) points to its succeeding event in the event chain. It can be optional if the current event is at the end of the event chain.
  \end{enumerate} 
 
-In addition, the \emph{event source} attribute in the \emph{header} section indicates the producer of each event, which can be the computer system or one of the human actors.
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-	\centering
-	\includegraphics{event_propagation_tree_representation.pdf} 
-	\caption{Event structure in an event propagation tree}
-	\label{fig:event_propagation_tree_representation}
-\end{figure}
-
-By recoding the event propagation tree in the system's knowledge representation, the system can help the human actors to keep track of the event propagation by providing an extended version of the event view in the visualization framework to represent the event propagation tree. Comparing with the original event view, this extended event view provides an overview of the whole event propagation process, not only the results of the system's reasoning, but also how the other actors have contributed to it.
-
-Initially, the extended version of the event view uses a history tree representation \cite{Shrinivasan2008} to visualize the whole structure of an event propagation tree (Figure \ref{fig:extended_event_view}(a)). The event propagation tree is drawn using a right heavy horizontal-vertical tree layout. A horizontal link indicates that the event on the right is derived from the left one. A new branch is created below existing ones in the vertical direction. 
-
-To understand the social context of the event propagation, it is important to see the actors who are participated in the development process and group the events by different actors. In order to achieve this, we adopt a complementary layout that divides the visualization space into multiple horizontal rows, and each row only contains the events generated by a particular actor. However, presenting the whole event propagation tree in this layout can cause crossing edges that undermine the discernibility. Hence, we only use this layout to visualize the \emph{active event propagation chain}. We define the \emph{active event propagation chain} as the path from the root node of the event propagation chain to the node that represents the current event under interpretation. Figure \ref{fig:extended_event_view}(b) shows an example of visualizing the active event propagation chain in this layout.
+ Figure \ref{fig:event_chain_structure} shows how the additional information about the event chain is included in an event's representation. 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 	\centering
-	\includegraphics{extended_event_view.pdf} 
-	\caption{Visualizing the event propagation tree in the event view}
-	\label{fig:extended_event_view}
+	\includegraphics{event_chain_structure.pdf} 
+	\caption{Event structure in an event chain}
+	\label{fig:event_chain_structure}
 \end{figure}
-% subsection tracking_event_propagation (end)
+% paragraph updating_the_event_representation (end)
 
-\subsection{Supporting externalization} % (fold)
-\label{sub:supporting_externalization}
-Externalization is the process that the human actors express the results of their interpretation of an event as internal events and send them to the computer system for further processing. An important property of these internal events is that they are always associated with certain entities or relations in the PlanGraph model, as they reflect the changes of human actors' internal mental states in the collaborative activity. As a result, we support the externalization by allowing human actors to directly manipulate the nodes in the activity view where they can create internal events expressing their intentions or beliefs on corresponding entities.
+\subsection{Association} % (fold)
+\label{sub:association}
+The knowledge updating starts with establishing associations between the input event and entities and relations in the current PlanGraph model representing the collaborative activity, and uses the information carried by the event to update the PlanGraph model. Based on the different event types, the association is conducted differently.
 
-Whenever the human actor selects a node in the activity view, the option to create new events will become available in the interface (e.g. in the context menu or toolbar). The types of events that a human actor can generate on each node depends on the type of the corresponding entity in the PlanGraph, i.e. whether it is an action, a parameter, or a condition, and whether it is inside the human actor's local scope or not. 
-
-For an action node inside the local scope, the human actor can generate the following types of events:
-
+If the event is an \emph{external event} on entities, we consider the following two cases:
 \begin{enumerate}
-	\item \emph{Intention events}. The human actor can create intention events to indicate the change of intention type (i.e. $Pot.Int$, $Int.Th$, or $Int.To$) toward the selected action.
-	\item \emph{Belief events about the capability}. The human actor can create belief events to indicate the change of his/her capability (i.e. $Knows$, $Able$, or $Workable$) of performing the selected action.
-	\item \emph{Belief events about the execution states}. The human actor can also create belief events to indicate his/her belief in the execution state change of the selected action.
-	\item \emph{Belief events about the plan}. The human actor can also create belief events to modify the current plan of an action. On one hand, the human actor can indicate that he/she believes that the selected action is not part of the plan to performing the parent action, i.e. the current node should be deleted from the PlanGraph. On the other hand, the human actor can elaborate the selected action by adding a new parameter, condition, or subsidiary action to it.
+	\item If the event indicates an existential change over time, the event is directly passed through to the assessment step, as the entity related to this event did not exist in the past.
+	\item Otherwise, we search all the PlanGraph nodes to find any match with the entity described in the event based on their unique identifiers. If a match is found, we update the attribute information attached with the PlanGraph node based on the event type. If it is a state change event, we change the state of the node. If it is an existential change over space, we update the location information of the node. If it is a value comparison event, we update the corresponding attribute value. After updating the node, we add an entity reference in the event object, so that the event is direct linked to the matched PlanGraph node.
 \end{enumerate}
 
-For the parameter nodes inside the local scope, the human actor can also generate belief events about the execution states or contribute to the plan in the similar way as action nodes. However, an additional type of event is available for the parameter nodes, that is the human actor can express the assignment of a particular resource to the selected parameter as a belief event. To allow the human actor to externalize such type of events, a data table containing the list of available resources for the parameter will be displayed so that the human actor can select from the list.
-
-For the condition nodes inside the local scope, belief events about the execution states or plan are also available. Besides, the human actor can create belief events to indicate the modification of the variables in a condition expression. For example, for a condition node representing the temporal constraint on a delivery action, i.e. the delivery must be completed before a given time, the user can select the node and create new event to modify the delivery time. 
-
-For the action nodes outside the local scope, only the intention events and belief events about the capability are available, as the human actor does not have control on the actions that are out of his/her local scope. However, the intention events and belief events about the capability provide a way for the human actor to expand his/her local scope to the outside nodes.
-
-Table \ref{tab:event_types_for_externalization} shows a summary of the different types of events that can be externalized on each type of node in the activity view. 
-
-
-\begin{table}[htbp]
-\centering
-\footnotesize
-\begin{tabular}{>{\raggedright}p{1.5in}>{\raggedright}p{2.6in}}
-\toprule 
-\textbf{Node type} & \textbf{Available event types for externalization}\tabularnewline
-\midrule 
-Action node inside the local scope & 1. Intention events
-
-2. Belief events about the capability
-
-3. Belief events about the execution states
-
-4. Belief events about the plan\tabularnewline
-\midrule 
-Prameter node inside the local scope & 1. Belief events about the execution states
-
-2. Belief events about the plan
-
-3. Belief events about value assignment\tabularnewline
-\midrule 
-Condition node inside the local scope & 1. Belief events about the execution states
-
-2. Belief events about the plan
-
-3. Belief events about variable modification\tabularnewline
-\midrule 
-Action node outside the local scope & 1. Intention events
-
-2. Belief events about the capability\tabularnewline
-\bottomrule
-\end{tabular}	
-\caption{Different event types for externalization}
-\label{tab:event_types_for_externalization}
-\end{table}
-
-When the human actor generates an event, he/she is asked to provide a free-text explanation of this event, and to indicate whether the event is about the current state of the field of work (i.e. a derived event), or an anticipatory event about future states. If the event is a belief event, he/she also needs to give a confidence level to describe how confident he/she is about this event. When the new event is submitted to the system, a reference to the current event under interpretation will automatically attached to this new event so that the system can insert it to the event propagation tree.
-
-An example of the event externalization process in our prototype system EDAP is described in Section \ref{sec:implementation_of_edap_client}. 
-
-% subsection supporting_externalization (end)
-
-\subsection{Controlling visibility} % (fold)
-\label{sub:controlling_visibility}
-As we allow the human actors to externalize their interpretation as new events, we need to provide the interface for them to control the visibility of their events. It is very common that the human actors only want to share certain events with a subset of collaborators, or only show a portion of the attributes available in the event structure. However, specifying the visibility on each individual event whenever it is externalized can be time consuming and therefore discourage human actors to contribute. To address this problem, we utilize the local scopes to allow human actors to specify the policies for controlling visibility in an abstract level, similarly as they manage subscriptions for event notification.
-
-In general, we define each visibility policy as a tuple of an event pattern, a receiver pattern, and a list of visible attributes: $vis = (ep, rp, attrs)$. The event pattern $ep$ is similar to the same concept in an event subscription (Section \ref{sub:managing_subscriptions}), and is used to select the subset of events whose visibility will be regulated by this policy. The receiver pattern $rp$ is used to select the subset of human actors to whom the selected events are visible. The attribute list $attr$ is a subset of attributes of the selected events that are visible.
-
-The event patterns are specified in the similar way as in an event subscription, by means of one or more event filter expressions that are evaluated against an event. The receiver pattern is specified by means of one or more filter expressions that are evaluated against an actor. In general, we define two types of filter expressions that can be used to define a receiver pattern.
-
+If the event is an \emph{external event} on relations, we check for the following cases:
 \begin{enumerate}
-	\item An \emph{attribute} filter expression is evaluated from the attribute values of an actor. For example, it can filter the actors by their names, roles, or current locations.
-	\item A \emph{local scope} filter expression is evaluated based on the different intention and capability levels an actor has on the same entity associated with the event. For example, the user may specify an event associated with an action is only visible to the actors who intend to perform the action, or the actors who are capable of performing the action.
+	\item If the event indicates a resource assignment relation, i.e. a resource $res_1$ is assigned to the performance of an action $act_1$. We search all the action nodes in the PlanGraph to find any match with $act_1$. If a match is found, we search for the parameters of $act_1$ in the PlanGraph to find any of them has the same resource type as $res_1$ and then assign the values of $res_1$ to the parameter. After that, we add an entity reference pointing to the parameter node in the event's payload. 
+	\item If the event is related to a structural relation, e.g. an action $act_2$ is a sub-action of another action $act_1$. We search all the action nodes in the PlanGraph to find any match with $act_1$. If a match is found, we create a new node with the information described in $act_2$, and then add an entity reference pointing to this new node into the event's payload. This can be applied to other decomposition relations, such as a sub-action to achieve a condition, or a new parameter added to an existing action.
 \end{enumerate}
 
-To control the visibility as defined in visibility policies, the event notification mechanism needs to be extended so that the visibility of an event is taken into consideration before it is notified to an actor. This is achieved by adding an extra step $APPLY\textrm{-}VIS$ after the event filtering to apply the set of visibility policies associated with actor who generated this event. The $APPLY\textrm{-}VIS$ operation takes an event notification $en$ with the information about the corresponding event $e$ and the receiver $rec$ as the parameter, and decide on whether the notification should be delivered and whether the attributes need to be filtered out based on the visibility policies. In general, it can be performed in the following steps:
-
+If the event is an \emph{internal event}, we consider the following cases:
 \begin{enumerate}
-	\item The actor who generated the event $e$ is identified based on the \emph{event source} attribute, and the set of visibility policies $V$ are loaded. 
-	\item For each visibility policy $vis$ in $V$, we first check whether it satisfies the event pattern $ep$ described in $vis$. If it does not, we repeat this step on the next policy in $V$.
-	\item If the event $e$ satisfies the event pattern in $vis$, we check whether the receiver $rec$ satisfies the receiver pattern $rp$ described in $vis$. If it does not, it means $rec$ should not be able to receive this notification, so we end the process.
-	\item If the receiver $rec$ does satisfy the receiver pattern $rp$ described in $vis$, we modify the event notification $en$ to only include the attributes listed in the attribute list $attr$ described in $vis$. Then we repeat the second step on the next policy in $V$.
+	\item If the event is an \emph{intention event}, we search all the action nodes in the PlanGraph to find any match with the action entity described in the event. If a match is found, we search for the \emph{Intentions} attribute associated with the action node to find whether any existing actor has the same identifier as the actor described in the event. If so, we update the intention type based on the intention event. Otherwise, we add the actor and the corresponding intention into the \emph{Intentions} associated with the action node. After that, we add an entity reference pointing to the action node in the event's payload. 
+	\item If the event is a \emph{belief event} about an actor's capability to perform an action, we search all the action nodes in the PlanGraph to find any match with the action entity described in the event. If a match is found, we search for the \emph{Capabilities} associated with the action node to find whether any existing actor has the same identifier as the actor entity described in the event. If so, we update the capability type based on the belief event. Otherwise, we add the actor and the corresponding capability level into the \emph{Capabilities} associated with the action node. After that, we add an entity reference pointing to the action node in the event's payload. 
+	\item If the event is other \emph{belief events}, we apply the association rules directly on the subsidiary event describing the content of the belief. 
 \end{enumerate}
 
-The $APPLY\textrm{-}VIS$ process can be described as follow:
+In sum, if an association between the event and the PlanGraph model is found, two tasks are performed. First, the corresponding PlanGraph entity or relation is updated based on the new information carried by the event. Second, the event is enriched by directly linking to the corresponding PlanGraph node, as the result of which the context of origin for this event is identified. However, not all the events can be directly associated with the PlanGraph model. Some external events may describe changes on the entities that are not currently in the PlanGraph, but implicitly impact the collaborative activity by motivating new actions or implying changes. These events will be passed to the assessment step for further analysis. 
+% subsection association (end)
 
-{\footnotesize
-\begin{algorithm}
-\begin{algorithmic}[1]
-\Procedure{APPLY-VIS}{$en$}
-	\State $e = en.event$
-	\State $rec = en.receiver$
-	\State $V = LOAD\textrm{-}VIS(e.header.EventSource)$\Comment{load the set of visibility policies}
-	
-	\ForAll{$vis$ \textbf{in} $V$}
-		\If{SATISFY-E-PATTERN($e$, $vis.ep$)}
-			\If{SATISFY-R-PATTERN($rec$, $vis.rp$)}
-				\If{$en.attrs$.ISEMPTY}
-					\State $en.attrs = vis.attrs$
-				\Else
-				    \ForAll{$attr$ \textbf{in} $en.attrs$}
-				    	\If{$attr$ \textbf{not in} $vis.attrs$}
-				    		\State $en.attrs$.REMOVE($attr$)
-				    	\EndIf	
-				    \EndFor	
-				\EndIf
-			\Else	
-				\State \textbf{return} $FALSE$ 
-			\EndIf
-		\EndIf
-	\EndFor
-	\State \textbf{return} $TRUE$ 
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-}
-% subsection controlling_visibility (end)
-% section mediating_event_propagation (end)
+\subsection{Assessment} % (fold)
+\label{sub:assessment}
+In the assessment step, each event is evaluated to check how it can lead to new changes in the collaborative activity implicitly, where inference becomes necessary. For example, an external event indicating that a resource is now located at an actor's position implicitly indicates the successful performance of the resource delivery action to the actor. In this case, a new event showing the state change of the resource delivery action will be derived and added to the event chain along with the original event.
 
-\clearpage
+The knowledge stored in the PlanGraph allows the system to perform some routine assessment tasks that are universal in different application domains:
+\begin{enumerate}
+	\item \emph{Goal conditions on action nodes}. If an event describes changes on entities or relations that are included in an action's goal condition, the system can evaluate the action's goal condition. If the goal condition becomes holding because of this event, the system derives a new state change event on this action, and adds it into the event chain.
+	\item \emph{Condition nodes}. If an event describes changes on entities or relations that are included in a condition node, the system can evaluate the condition node. If the condition becomes holding or no longer holding because of this event, it derives a new state change event on this condition, and pushes it into the event chain. 
+	\item \emph{Parameter nodes}. If an event describes changes on a resource that is assigned to a parameter node, the system can evaluate the parameter's subsidiary conditions. If a  condition becomes holding or no longer holding because of this event, it derives a new state change event on this parameter, and adds it into the event chain.
+\end{enumerate}
+
+The second type of tasks that the system can perform during the assessment process is to check whether the event can activate new actions that need to be added to the collaborative activity. This type of events is usually called \emph{triggering events}, as they are often not directly associated with any existing nodes in the PlanGraph, but will trigger some new action to be added. For example, every time a new victim is found in an emergency response operation will trigger a new rescue action to be performed. In this case, the initial event about the discovery of a new victim cannot be associated with any existing actions, but asks for a new action to be performed. The assessment of action activation requires a set of pre-defined domain-specific activation rules, so that every event is searched through the activation rules to find whether it satisfies any of the conditions. If so, a new action is added to the PlanGraph, and a new derived event is generated to indicate the activation of the new action.
+
+Furthermore, the assessment step can involve more sophisticated inference techniques, such as spatio-temporal reasoning \cite{Bennett}, pattern recognition \cite{zelnik2001event}, or case-based reasoning \cite{jakobson2004towards}, to enhance the system's reasoning capabilities. However, these reasoning techniques often require a large amount of domain knowledge to be modeled, and lack flexibility to handle unexpected events. As a result, in the assessment step, we design the system to focus on more reliable low-level routine inferences, and leave the complex, higher level assessment tasks to the human actors. Hence, some events may not be considered as contributing to the collaborative activity by the system in the assessment process. Rather, they are sent to human actors for interpretation. The result of human interpretation generates new events that are then sent back to the system to update the system's knowledge.
+% subsection assessment (end)
+
+\subsection{Elaboration} % (fold)
+\label{sub:elaboration}
+The main goal in the elaboration step is to advance the collaborative activity from the system's side. Based on the specification of SharedPlan theory \cite{Grosz2006}, the system can elaborate the current PlanGraph in several ways. 
+\begin{enumerate}
+	\item \emph{Recipe selection}. The system can contribute to the collaborative activity by retrieving a recipe for a new action from the knowledge base, i.e. by predicting the default way to perform this new action.
+	\item \emph{Parameter binding}. If any of the parameters is unbound to any values, the system will search the knowledge base to find any action that can be performed to identify the value for the parameter.
+	\item \emph{Condition satisfaction}. If any of the pre-conditions is not holding, the system will search the knowledge base to find any action that can be performed to satisfy the condition.
+	\item \emph{Actor allocation}. If any of the actions has not been committed by any actors, the system search for the actors who might be potentially intended to or capable of performing the action. 
+\end{enumerate}
+
+The elaboration step is not performed for every event, rather it is only triggered by a subset of events that are related to the development of the collaborative activity. 
+\begin{enumerate}
+	\item Events on structural relations. Whenever an event indicates that a new action is a sub-action to another action, a way to identify a parameter, or to achieve a condition, the new action will be added to the PlanGraph in the association step, and needs to be elaborated.
+	\item Events on goal activation. The elaboration needs to be performed whenever a new action has been added to the collaborative activity because of some triggering event in the assessment step.
+	\item Events leading to condition violation. Whenever an event leads to the fact that some condition is no longer holding in the assessment step, the elaboration needs to be performed on the condition node to identify any action that can be performed to satisfy it.
+\end{enumerate}
+
+The elaboration process is achieved with the support of two types of pre-defined knowledge: (1) the recipe knowledge about how to derive an action into a sequence of parameters, pre-conditions, and subsidiary actions, how to identify a unbound parameter, or how to satisfy a condition, etc.; (2) the knowledge about actor roles and their corresponding responsibilities and capabilities. The former allows the system to elaborate the collaborative activity by adding new action, parameter, or condition nodes into the PlanGraph model; and the knowledge about role specifications allow the system to reason about who are likely to be interested in these newly added entities, or who have the capability to work on these new entities, so that the system can notify these actors about the events.
+
+The elaboration process is predictive as it reflects the system's prediction on how the collaborative activity will be advanced due to the occurrence of the event. The system provides a default plan of performing an action, or identifies the potential actors who might be interested in it. After the elaboration process, the PlanGraph not only reflects the current state of the collaborative activity, but also shows the potential next steps based on the system's knowledge. However, the results of elaboration process never dictate how the human actors will eventually develop the action. The human actors may later generate new internal events to revise the plan generated by the system, or modify their intention or capability towards the action in the PlanGraph.
+% subsection elaboration (end)
+\subsection{Propagation} % (fold)
+\label{sub:propagation}
+Propagation is another predictive process that the system can perform to predict future state changes in the collaborative activity. It is triggered by the events that either directly indicate (in the association step) or imply (in the assessment step) state changes on the actions, and then reason about how these initial state changes can be propagated to other actions due to the multiple dependencies between them. A simple example could be: if the execution state of an action $act_1$ is changed from \emph{executing} to \emph{failed}, then the parent action $act_2$ (i.e. $SubAct(act_1, act_2)$ holds) will likely to be impacted and may also be changed to \emph{failed} if the plan is not changed. 
+
+The propagation is performed on the dependency network, which is constructed from the PlanGraph model (Section \ref{sub:representing_dependencies}). The dependency network abstracts away the detailed information on each action node and focuses on the dependency relations among them. As a result, we can adopt more efficient network-based reasoning models to perform the propagation. In this study, we employ the Bayesian network to perform the propagation \cite{pearl1988probabilistic}. Bayesian networks are directed acyclic graphs in which the nodes represent multi-valued variables, and the arcs signify direct dependencies between the linked variables and the strength of these dependencies are quantified by conditional probabilities. The purpose of the Bayesian network is to give a belief in each possible value for each node after some evidence arrives.
+
+In the context of our model, the nodes are the basic elements in a dependency network, i.e. dependers, dependums, and dependees, which represent the entities in the collaborative activity, i.e.  actions, resources, or conditions. The evidence fed into the network includes certain state changes on these entities. Thus, the purpose of the Bayesian network is to update the system's belief in the states for every other node after some state change occurs on a node.
+
+The operationalization of the Bayesian network includes three tasks: (1) the construction of the Bayesian network, (2) assignment of conditional probabilities for each link, (3) and the performance of belief updating when some events arrive.
+
+\paragraph*{Construction of Bayesian networks} % (fold)
+\label{par:construction_of_bayesian_networks}
+By following the algorithm in Section \ref{sub:representing_dependencies}, we can construct the dependency network from the PlanGraph model, and then the construction of Bayesian network is very straightforward. We translate each basic element in the dependency network into a node variable, and the different dependency relations into corresponding links in the Bayesian network. The possible values for each node are determined based on the possible execution states for each type of node variables. At a given time, an action can be at one of the following states: \emph{inactive}, \emph{planning}, \emph{executing}, \emph{complete}, \emph{failing}, and \emph{delaying}. Each condition can be \emph{open}, \emph{waiting}, or \emph{holding}. Each resource can be \emph{unavailable}, \emph{waiting}, or \emph{available}. Figure \ref{fig:state_transitions} shows all the states for each type of node and the possible state transitions.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{state_transitions.pdf} 
+	\caption{Types of node variables and possible values in a Bayesian network}
+	\label{fig:state_transitions}
+\end{figure}
+% paragraph construction_of_bayesian_networks (end)
+\paragraph*{Assignment of conditional probabilities} % (fold)
+\label{par:assignment_of_conditional_probabilities}
+Before any propagation commences, we need to assign the conditional probabilities for each node that form the conditional probability matrices. An element of the conditional probability matrix looks like $P(x_i|u_{1j_1}, ..., u_{nj_n})$, and gives the probability of state $i$ for node $x$ conditioned on the states of its parent nodes. For example, the conditional probability of an action node indicates the possibility of each state for this action, given the states of all the resources, conditions, actions that it depends on. 
+
+In our study, we develop a set of heuristic rules to assign the initial conditional probabilities for each type of nodes, by evaluating the criticality of each parent node, and the opportunities for re-planning. For example, if a critical resource is needed for every possible way to perform an action, the state of the resource as \emph{failing} will definitely lead to the \emph{failing} of the action. However, if there are other possible plans to perform the action that do not require this resource, the probability of the action being failing will be decreased.
+
+The assignment of conditional probabilities provides the system with the default reasoning capability to propagate state changes that can be later overwritten by human actors' interpretation. When a human actor changes the belief in the execution state of an action, the change will overwrite the system's initial belief through the belief updating. Because of this interactive nature, the purpose of the initial probability assignment is just to provide a good guess about the propagation from the system's perspective and does not have to be perfectly accurate. 
+% paragraph assignment_of_conditional_probabilities (end)
+
+\paragraph*{Belief Updating} % (fold)
+\label{par:belief_updating}
+We follow Pearl's belief propagation algorithm \cite{pearl1988probabilistic} to perform belief updating whenever a state change occurs. In this approach, the belief in each value of a node variable is divided into two parts: the part emerges from its ancestors and the part emerges from its descendants, and the final belief is ascribed by multiplying the two parts. As a result, the belief updating is performed as a bidirectional propagation process. 
+\begin{enumerate}
+	\item Starting at the node where the initial state change occurs, the system calculates how the state change will change the beliefs on each parent node. If the change on a parent node is significant, i.e. above a given threshold, the parent node becomes active, and will be further propagated to its parent. This is called \emph{causal} propagation since the updating is from a cause to an effect to indicate how a state change of the cause will lead to the change of the effect. 
+	\item On the other hand, the belief updating can also calculated from an active node to their children. This is called \emph{evidential} propagation as the reasoning flows from evidence to hypothesis.
+\end{enumerate}
+
+In our approach, both the causal and evidential propagation will be performed. The causal propagation is used to provide the system's predicted state changes on the actions depending on the action associated with the initial state change. The evidential propagation occurs whenever a human actor modifies the system's prediction on a given node and the system uses it as an evidence to trace back and revise the previous beliefs on other actions.
+% paragraph belief_updating (end)
+
+The result of the Bayesian network-based propagation will be used to enrich the event chain with anticipatory events. Starting from the node that the initial event is linked to, the system uses the previous probability distribution before the propagation and the current values to perform the Cartesian product on each node. Each value in the new two-dimension table indicates the probability of each possible state change. If a significant state change has been detected (by comparing with pre-defined threshold), it will be added to the event chain as a new anticipatory event. For example, Figure \ref{fig:prob_state_change} shows the result of a propagation process on a parameter node. Before the propagation, the parameter had a high probability to be in the state of \emph{waiting}, and after the propagation, the probability distribution changed. By calculating the Cartesian product, we can find the most significant state change on the node is from \emph{waiting} to \emph{delay}, with a confidence level of $0.83808$. As a result, a new anticipatory event indicating that the state of this parameter has been changed from \emph{waiting} to \emph{delay} will be pushed into the event chain.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{prob_state_change.pdf} 
+	\caption{An example of calculating state change probabilities}
+	\label{fig:prob_state_change}
+\end{figure}
+% subsection propagation (end)
+\subsection{An example} % (fold)
+\label{sub:an_example}
+To demonstrate the knowledge updating process, we consider a simplified version of the victim rescue activity in the emergency response scenario to see how the PlanGraph model is updated through several consecutive events, and meanwhile the events are enriched into event chains. The task involved in this example is quite simple. Whenever a victim is found, it needs to be rescued by sending to a medical station for treatment. We assume there is only one station with one medical professional ($med$) working at it. There might be several drivers ($dr_1, dr_2, ...$) with rescue vehicles that can deliver the victim to the station.   
+
+\paragraph*{Event 1: \emph{`NewVictim'}} % (fold)
+\label{par:event_1_emph_newvictim}
+The first event sent to the system is an external event reporting that a new victim has been found. The event has an event type \emph{`NewVictim'} and has several key attributes (e.g. id, occurrence time, location, required delivery time). Figure \ref{fig:update_example_event1} shows the knowledge updating process performed on this event.
+
+\begin{enumerate}
+	\item When the event is first sent to the system, the system attempts to associate it with any existing entities in the PlanGraph. Because this is the start of the activity, no association can be found. 
+	\item Then the event is further processed in the assessment step, where the system checks whether the event can lead to changes on existing actions or trigger new action. By checking the association rules stored in the knowledge base, the system finds that every \emph{`NewVictim'} event will activate the goal to rescue the victim. Following this activation rule, the initial PlanGraph is generated with just one action node (\emph{`rescue'}) representing this new action to rescue the victim.
+	\item After the assessment, the system finds that a new action has been added to the PlanGraph, which triggers the elaboration process. The system searches the knowledge base to find a recipe for the \emph{`rescue'} action, and extends the PlanGraph model with the parameters, conditions, and sub-actions. In this example, there is one parameter that is the \emph{`victim'} who needs to be rescued, one condition (\emph{`victimAtStation'}) that is the victim needs to be located at the medication station, and then the sub-action (\emph{`medicalTreat'}) to perform the medical treatment on the victim. As these subsidiary entities are also new to the PlanGraph, the elaboration continues on each of them. During the elaboration of the parameter, the system assigns it with the value from the input event. The condition is elaborated with a new action (\emph{`transport'}) to achieve it, which is further elaborated into subsidiary parameters and actions (\emph{`vehicle'}, \emph{`pickup'}, \emph{`deliver'}). During the elaboration of action \emph{`medicalTreat'} and action \emph{`transport'}, the system also looks for the potential actors who might be interested in these actions. Based on the actor $med$'s role as a medical professional, the system believes that $med$ has the potential intention ($pot.int$) and is able ($able$) to perform the \emph{`medicalTreat'} action. Similarly, the system believes all the drivers $dr_1, dr_2, ...$ have the potential intention ($pot.int$) and are able ($able$) to perform the \emph{`transport'} action.
+	\item Because the event does not indicate any state change on current actions, the propagation is skipped.
+\end{enumerate}
+
+As we can see in Figure \ref{fig:update_example_event1}, after the knowledge updating process, the PlanGraph is updated to reflect the system's prediction on how the activity will be advanced. At the same time, the initial event is augmented with a new attribute pointing directly to the parameter node \emph{`victim'} in the PlanGraph.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{update_example_event1.pdf} 
+	\caption{The knowledge updating example (\emph{Event 1})}
+	\label{fig:update_example_event1}
+\end{figure}
+% paragraph event_1_emph_newvictim (end)
+\paragraph*{Event 2: \emph{`IntentionChange'}} % (fold)
+\label{par:event_2_emph}
+The second event is an internal event that is generated by the driver $dr_1$. After interpreting the first \emph{`NewVictim'} event, $dr_1$ intends to perform the \emph{`transport'} action to deliver this new victim to the medical station. As a result, he generates this \emph{`Intention'} event to update his intention on the \emph{`transport'} action from $pot.int$ to $int.to$. This \emph{`IntentionChange'} event has several key attributes, including the actor's id ($dr_1$), the action $dr_1$ intends to perform (\emph{`transport'}), and the intention type ($int.to$).
+
+As the system receives this event, it first attempts to associate the event with any existing entities in the PlanGraph model. Because this is an intention event, the system traverses through the PlanGraph to search for any match between the action (\emph{`transport'}) mentioned in the event and the action nodes in the PlanGraph. As the system is able to find such a match, the system uses the information in the event to update $dr_1$'s intention level on action \emph{`transport'}. Meanwhile, the corresponding attributes of the actor and the action in the event are updated with reference to the corresponding nodes in the PlanGraph.
+
+The knowledge updating process then proceeds to the following steps, but none of them leads to further changes in both the PlanGraph and the event itself. Figure \ref{fig:update_example_event2} shows the whole process performed on the second event.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{update_example_event2.pdf} 
+	\caption{The knowledge updating example (\emph{Event 2})}
+	\label{fig:update_example_event2}
+\end{figure}
+% paragraph event_2_emph (end)
+
+\paragraph*{Event 3: \emph{`FuelLevelLow'}} % (fold)
+\label{par:event_3_}
+The third event happens after $dr_1$ starts the action \emph{`transport'} and is on the way to pick up the victim. It is an external event indicating that the fuel level on driver $dr_1$'s vehicle is running extremely low. The event has an event type \emph{`FuelLevelLow'} and carries information about the driver, the vehicle, and the current fuel level. Figure \ref{fig:update_example_event3} shows the knowledge updating process performed on this event.
+
+\begin{enumerate}
+	\item When the event is first sent to the system, the system attempts to associate it with any existing entities in the PlanGraph model. Because this is an external event indicating an attribute change on an entity, the system traverses through the PlanGraph to search for any match between the entity (\emph{`vehicle'}) mentioned in the event and the nodes in the PlanGraph. When the system is able to find such a match, the system uses the information in the event to update the value attached to the parameter (\emph{`vehicle'}).
+	\item Then the event is further processed in the assessment step, where the system checks whether the event can lead to changes towards the action performance. By checking the conditions attached with the parameter (\emph{`vehicle'}), the system finds that because of the low fuel level on the vehicle, the parameter becomes unavailable to perform the \emph{`transport'} action. As a result, a new state change event \emph{`ExecStateChange'} is derived to describe the execution state of the parameter, and is added to the output event chain.
+	\item As no new action nodes are added to the PlanGraph, the elaboration process is skipped.
+	\item Because a state change event has been derived in the assessment step, the system attempts to predict future state changes in the propagation step. A Bayesian network is constructed based on the current PlanGraph model and used to reason how likely the other entities in the PlanGraph will be impacted by the initial state change. After the Bayesian network-based reasoning, the system finds that $dr_1$'s action to pick up the victim (\emph{`pickup'}) is likely to change its state from \emph{executing} to \emph{delaying}, and a new anticipatory event describing this state change on the execution state of the \emph{`pickup'} action is generated, and added to the output event chain.
+\end{enumerate}
+
+As we can see in Figure \ref{fig:update_example_event3}, after the knowledge updating process, the initial event is augmented into an event chain with three events: the original external event \emph{`FuelLevelLow'}, the state change event on the parameter \emph{`vehicle'} derived in the assessment step, and the anticipatory event predicting the state change on the action \emph{`pickup'} in the propagation step. This example shows the idea that not only the knowledge representation of the collaborative activity, i.e. PlanGraph model is modified during the knowledge updating process, but also the original event is enriched with system generated knowledge.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+	\centering
+	\includegraphics{update_example_event3.pdf} 
+	\caption{The knowledge updating example (\emph{Event 3})}
+	\label{fig:update_example_event3}
+\end{figure}
+% paragraph event_3_ (end)
+% subsection an_example (end)
+% section knowledge_updating_process (end)
+
 \section{Discussion} % (fold)
-\label{sec:discussion}
-In this chapter, we describe our approach to promoting the event-driven awareness in the whole awareness development cycle:
+\label{sec:knowledge_representation_discussion}
+In this chapter, we first focus on the knowledge representation of collaborative activities. We employ the PlanGraph model to represent the entities and relations in collaborative activities, and then use this model to derive knowledge about local scopes of work and dependencies. The PlanGraph model exhibits some important characteristics that make it suitable to satisfy the three requirements for representing collaborative activities described in Section \ref{sub:computational_knowledge_representation}.
 
 \begin{enumerate}
-	\item The local space-based event notification mechanism is used to support the event perception by filtering out the irrelevant events and deciding on the notification styles based on the knowledge about the local scope and event subscriptions.
-	\item The event comprehension and projection are supported by the visualization framework for supporting event interpretation that we define as an integrated, analytical reasoning process that includes both comprehension and projection.
-	\item The social process to establish compatible awareness across multiple actors is mediated by a set of computational and interactive tools to support event propagation.
+   \item The PlanGraph model represents collaborative activities as hierarchically structured actions. The components of actions, parameters, and conditions can be used to capture all the entities and the relations between them. With the knowledge represented in the PlanGraph, the local scopes and dependencies can also be easily identified. 
+   \item A critical point made in the PlanGraph model is the emphasis on the development of collaborative activities. With the development of the activity, the PlanGraph model needs to be updated accordingly, so that it always  reflects the current state of the changing activities.
+   \item Based on the formalization in SharedPlan theory, the PlanGraph model can be computationally implemented, and it provides a set of reasoning capabilities that can be operationalized to support computer reasoning.  
 \end{enumerate}
 
-The design of these components follows the design principle of awareness promotion (Section \ref{sec:awareness_promotion_approach}) to address the challenge when both the complexity and dynamics scale up in collaborative activities. As a summary, Table \ref{tab:summary_awareness_promotion} shows how these awareness promotion components in our approach work, and how the problem of scaling up is addressed.
-
-\begin{table}[htbp]
-\centering
-\footnotesize
-\begin{tabular}{>{\raggedright}p{0.8in}>{\raggedright}p{1.5in}>{\raggedright}p{1.5in}>{\raggedright}p{1.7in}}
-
-\toprule 
-\textbf{Aspects} & \textbf{Event notification} & \textbf{Event interpretation} & \textbf{Event propagation}\tabularnewline
-\midrule 
-Use of knowledge representation & The local scopes are used to filter events  & 1. The event chain is used to visualize the event view
-
-2. The PlanGraph, local scopes, and dependencies are used to visualize
-the activity view & 1. The event propagation tree is used to visualize the event view
-
-2. The PlanGraph is used to support externalization
-
-3. The local scope is used to manage visibility\tabularnewline
-\midrule 
-Computer's responsibility & 1. Perform the filtering based on local scopes and subscriptions
-
-2. Visualize the local scope for the users to manage the subscriptions & 1. Perform reasoning on the event and present the results as the event
-chain
-
-2. Visualize the field of work and the local scope
-
-3. Provide external representations of the contextual information & 1. Keep track of the event propagation tree, and present it to the
-users
-
-2. Provide the interface for the user to externalize the results of
-interpretation.
-
-3. Apply the visibility policies for notification\tabularnewline
-\midrule 
-Human actor's responsibility & 1. Specify the event interests as subscriptions 
-
-2. Modify the local scope & 1. Navigate through the event view to review the system's reasoning
-
-2. Interpret the event within the activity view and context view & 1. Contribute to the event propagation by externalization
-
-2. Control the visibility by specifying visibility policies\tabularnewline
-\midrule 
-Reduce complexity & The number of subscriptions that the human actor needs to managed
-is limited in the local scope & 1. The system performs the reasoning tasks for the user.
-
-2. The activity view shows more details for the entities in the local
-scope, but reduce details for outsider. & 1. The event propagation tree is recorded by the system,
-so the human actor does not need to maintain it in the mind.
-
-2. The externalization are directly linked to related nodes.\tabularnewline
-\midrule 
-Handle dynamics & The filtering is built on top of the local scope that is dynamically
-constructed & 1. Each event is consumed by the system to update the PlanGraph model
-
-2. The activity view reflects the current state of the field of work & 1. The event propagation chain records the historical development
-of an event.
-
-2. The visibility is built on top of the local scope that is dynamically
-constructed\tabularnewline
-\bottomrule
-
-
-\end{tabular}	
-\caption{Summary of the event-driven awareness promotion}
-\label{tab:summary_awareness_promotion}
-\end{table}
-
-
-
-% section discussion (end)
-% chapter mediate_individual_awareness_processes (end)
+Following that, we discuss the representation of events and identify the major event types supported in this study. The central idea of our approach is the interaction between these two knowledge components, which has been described in the knowledge updating process. On one hand, the various events are consumed by the computer system to update its PlanGraph-based representation of collaborative activities. On the other hand, the PlanGraph model enriches the events with more meaningful contextual information, which is used in next chapter to support event-driven awareness processes. 
+% section knowledge_representation_discussion (end)
+% chapter knowledge_reprsentation_and_updating (end)
 
 
 
